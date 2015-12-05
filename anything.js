@@ -117,7 +117,7 @@
             n++;
             return (n*137 + ~~offset) % 360;
         }
-    }();
+    };
 
     //Return true if today is Christmas
     var isChristmas = function() {
@@ -161,8 +161,10 @@
         var r = 255 * (1-cmyk.c) * (1-cmyk.k);
         var g = 255 * (1-cmyk.m) * (1-cmyk.k);
         var b = 255 * (1-cmyk.y) * (1-cmyk.k);
-        return {r: r, g: g, b: b};
-    };
+        var rgb = {r: r, g: g, b: b, hex: null};
+        rgb.hex = RGBtoHEX(rgb);
+        return rgb;
+    }
 
     var RGBtoHSL = function(rgb) {
         if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
@@ -260,11 +262,9 @@
             if (r < 0) r = 0;
             if (g < 0) g = 0;
             if (b < 0) b = 0;
-            return {
-                r: r * 255,
-                g: g * 255,
-                b: b * 255
-            };
+            var rgb = {r: r * 255, g: g * 255, b: b * 255, hex: null};
+            rgb.hex = RGBtoHEX(rgb);
+            return rgb;
         }
     };
 
@@ -277,6 +277,17 @@
         var rgb = HSLtoRGB(hsl);
         return RGBtoCMYK(rgb);
     };
+
+    var RGBtoHEX = function( rgb ) {
+        rgb.r = Math.floor( rgb.r );
+        rgb.g = Math.floor( rgb.g );
+        rgb.b = Math.floor( rgb.b );
+        var hex = "#" +
+            (( rgb.r < 16 ? "0" : "" ) + rgb.r.toString(16))+
+            (( rgb.g < 16 ? "0" : "" ) + rgb.g.toString(16))+
+            (( rgb.b < 16 ? "0" : "" ) + rgb.b.toString(16));
+        return hex;
+    }
 
     var g = {
         build: function(base, shaft, end, tail) {
