@@ -109,6 +109,16 @@
       }
     }
 
+    var generateUniqueColorHue = function(){
+        // Each colour will be suitably unique compared to the last one
+        n = 0;
+        return function(offset) {
+            // Offset doesn't require setting
+            n++;
+            return (n*137 + ~~offset) % 360;
+        }
+    }();
+
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -126,6 +136,7 @@
     anything.prototype.everything = everything;
     anything.prototype.twoString = twoString;
     anything.prototype.fizzbuzz = fizzbuzz;
+    anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
