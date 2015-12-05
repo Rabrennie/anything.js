@@ -423,7 +423,7 @@
           return a + b;
         });
         return total;
-    }
+    };
 
     /* product all the arguments passed in to the function
     usage:  product(1, 2) returns 2
@@ -436,17 +436,17 @@
           return a * b;
         });
         return product;
-    }
+    };
 
     var makeDeprecatedArray = function(obj) {
         obj.__proto__ = [];
         return obj;
-    }    
+    };
 
     /*
         define a function that takes two arguments and return a single result
         apply the function to all the argument of the function
-        eg. 
+        eg.
             function sumNew(a, b) { return a + b; }
             Δ.execFunction(sumNew, 1, 2, 3, 4) returns 10
             Δ.execFunction(sumNew, 1, 2, 3, 4, 5) returns 15
@@ -456,11 +456,11 @@
         var args = Array.prototype.slice.call(arguments, 1);
         var result = args.reduce(func);
         return result;
-    }
+    };
 
     var recursive = function() {
         return recursive;
-    }
+    };
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -498,9 +498,9 @@
     anything.prototype.sum = sum;
     anything.prototype.product = product
     anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
-
     anything.prototype.zombofy = zombofy;
     anything.prototype.execFunction = execFunction;
+    anything.prototype.recursive = recursive;
 
 
     //put that shit where everyone can see it.
@@ -511,5 +511,3 @@
     }
 
 })(window);
-
-
