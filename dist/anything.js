@@ -678,6 +678,24 @@
     };
 
     anything.prototype.ping = ping;
+    var play_pingpong = function(toggle) {
+        if (toggle == "pong") {
+            setTimeout(function() {
+                play_pingpong("ping");
+            }, 1000);
+            return pong();
+        } else {
+            setTimeout(function() {
+                play_pingpong("pong");
+            }, 1000);
+            return ping();
+        }
+    }
+    var pong = function() {
+        return "ping";
+    };
+
+    anything.prototype.pong = pong;
     /* product all the arguments passed in to the function
     usage:  product(1, 2) returns 2
             product(1, 2, 3) returns 6
