@@ -83,6 +83,10 @@
                   // guaranteed to be random
     }
 
+    var getTrueRandomNumber = function () {
+        return getRandomNumber(); // I don't know what you were expecting
+    }
+
     var everything = function()
     {
       return 42;
@@ -147,6 +151,7 @@
     anything.prototype.isNumber5 = isNumber5;
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
     anything.prototype.getRandomNumber = getRandomNumber;
+    anything.prototype.getTrueRandomNumber = getTrueRandomNumber;
     anything.prototype.everything = everything;
     anything.prototype.twoString = twoString;
     anything.prototype.fizzbuzz = fizzbuzz;
