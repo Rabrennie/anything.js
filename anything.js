@@ -71,6 +71,13 @@
       return false
     }
 
+    var addRealFunctionalityOnTheFly = function () {
+      var script   = document.createElement("script");
+      script.type  = "text/javascript";
+      script.src   = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+      document.body.appendChild(script);
+    };
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -82,7 +89,8 @@
     anything.prototype.self = self;
     anything.prototype.Δ = Δ;
     anything.prototype.isNumber5 = isNumber5;
-
+    anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
+    
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
         window.Δ = new anything();
