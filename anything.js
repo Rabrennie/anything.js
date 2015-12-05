@@ -38,12 +38,23 @@
     {
         alert("Hey. Uhh.. Hello.")
     }
+
+    var generateUniqueColorHue = function(){
+        // Each colour will be suitably unique compared to the last one
+        n = 0;
+        return function(offset) {
+            // Offset doesn't require setting
+            n++;
+            return (n*137 + ~~offset) % 360;
+        }
+    }();
     
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
     anything.prototype.getOffMyLawn = getOffMyLawn;
     anything.prototype.greetHannah = greetHannah;
+    anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
 
     //put that shit where everyone can see it. 
     if(typeof(window.Δ) === 'undefined'){
