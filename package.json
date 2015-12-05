@@ -22,7 +22,6 @@
     "gulp-git": "^1.6.0",
     "gulp-jsbeautifier": "^1.0.1",
     "gulp-jsfuck": "^0.2.1",
-    "gulp-minify": "0.0.5",
-    "gulp-rename": "^1.2.2"
+    "gulp-minify": "0.0.5"
   }
 }
