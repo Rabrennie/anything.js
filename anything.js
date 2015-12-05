@@ -33,12 +33,17 @@
     {
         alert(message);
     }
-
+    
+    var greetHannah = function()
+    {
+        alert("Hey. Uhh.. Hello.")
+    }
+    
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
     anything.prototype.getOffMyLawn = getOffMyLawn;
-
+    anything.prototype.greetHannah = greetHannah;
 
     //put that shit where everyone can see it. 
     if(typeof(window.Δ) === 'undefined'){
