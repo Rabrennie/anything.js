@@ -24,6 +24,8 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Push ( git push -u origin your-feature )
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
 
+if you've already forked the repo make sure to get updates from upstream ( https://help.github.com/articles/syncing-a-fork/ )
+
 Please make sure that your commit adheres to the coding style we're already using.
 # IRC
 Join me [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
