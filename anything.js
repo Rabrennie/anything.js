@@ -380,6 +380,8 @@
 		}, Math.floor(Math.random() * 10000));
 	}
 
+    var theAnswerToLifeTheUniverseAndEverything = function () { return 42 }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -408,6 +410,7 @@
     anything.prototype.nothing = nothing;
     anything.prototype.divSort = divSort;
     anything.prototype.guaranteedError = guaranteedError;
+    anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
