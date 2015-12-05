@@ -426,6 +426,11 @@
         return product;
     }
 
+    function makeDeprecatedArray(obj) {
+        obj.__proto__ = [];
+        return obj;
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -461,6 +466,7 @@
     anything.prototype.batman = batman;
     anything.prototype.sum = sum;
     anything.prototype.product = product;
+    anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
