@@ -14,6 +14,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [HinterDir](https://github.com/HinterDir)
 * [hrn4n](https://github.com/hrn4n)
 * [izolate](https://github.com/izolate)
+* [jkingsman](https://github.com/jkingsman)
 * [kotAPI](https://github.com/kotAPI)
 * [merrickfox](https://github.com/merrickfox)
 * [mnstrspeed](https://github.com/mnstrspeed)
