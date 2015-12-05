@@ -673,6 +673,11 @@
     };
 
     anything.prototype.nothing = nothing;
+    var ping = function() {
+        return "pong";
+    };
+
+    anything.prototype.ping = ping;
     /* product all the arguments passed in to the function
     usage:  product(1, 2) returns 2
             product(1, 2, 3) returns 6
@@ -692,6 +697,32 @@
     }
 
     anything.prototype.returnArgument = returnArgument;
+
+    function rot(string, rotAmount) {
+        var alphabetupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var alphabetlower = "abcdefgjijklmnopqrstuvwxyz";
+        var newString = "";
+        for (i = 0; i < string.length; i++) {
+            var index = alphabetupper.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetupper[(index + rotAmount) % alphabetupper.length];
+            }
+            index = alphabetlower.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetlower[(index + rotAmount) % alphabetlower.length];
+            }
+        }
+        return newString;
+    }
+
+    //Macro for the most common rot
+    //"Its like rot13 but twice as secure"
+    function rot26(string) {
+        return rot(string, 26);
+    }
+
+    anything.prototype.rot26 = rot26;
+
     // Usage
     //sheet.insertRule("header { float: left; opacity: 0.8; }", 1);
     var sheet = (function() {
