@@ -1,3 +1,3 @@
-var theAnswerToLifeTheUniverseAndEverything = function () { return 42 };
+var theAnswerToLifeTheUniverseAndEverything = function () { return anything.everything(); };
 
 anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
