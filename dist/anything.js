@@ -227,6 +227,21 @@
     };
 
     anything.prototype.batman = batman;
+    var daysTillXmas = function() {
+        var today = new Date();
+        var xmas = new Date(today.getFullYear(), 11, 25, 0, 0, 0, 0);
+        if (today > xmas) {
+            xmas.setYear(today.getFullYear() + 1)
+        }
+
+        var utcXmas = Date.UTC(xmas.getFullYear(), xmas.getMonth(), xmas.getDate());
+        var utcToday = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+
+        return Math.floor((utcXmas - utcToday) / (1000 * 60 * 60 * 24));
+    };
+
+    anything.prototype.daysTillXmas = daysTillXmas;
+
     /* Undecided? Pass a question, like 'Should I buy this expensive 64 inches tv?'. The question will be ignored, but you'll have your answer. */
     var decideForMe = function(question) {
         var choice = Math.floor(Math.random() * 5);
