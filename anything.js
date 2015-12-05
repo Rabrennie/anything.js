@@ -10,7 +10,7 @@
      */
 
     var anything = function() {
-        this.version = "0.0.1"
+        this.version = "6.9.1"
     };
 
     //Functions go here
@@ -462,6 +462,11 @@
         return recursive;
     };
 
+    // Static function that returns the IT crowd emergency number from season 1 episode 2
+    var emergency = function(){
+        return '01189998819991197253';
+    };
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -498,6 +503,7 @@
     anything.prototype.sum = sum;
     anything.prototype.product = product
     anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
+    anything.prototype.emergency = emergency;
     anything.prototype.zombofy = zombofy;
     anything.prototype.execFunction = execFunction;
     anything.prototype.recursive = recursive;
