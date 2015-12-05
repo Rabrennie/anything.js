@@ -78,6 +78,12 @@
       document.body.appendChild(script);
     };
 
+    var getRandomNumber = function ()
+    {
+        return 4; // chosen by fair dice roll
+                  // guaranteed to be random
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -90,7 +96,8 @@
     anything.prototype.Δ = Δ;
     anything.prototype.isNumber5 = isNumber5;
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
-    
+    anything.prototype.getRandomNumber = getRandomNumber;
+
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
         window.Δ = new anything();
