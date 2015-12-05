@@ -1,11 +1,9 @@
 ![Logo](http://i.imgur.com/aLPpSED.png)
-# anything.js or Δ.js
-A javascript library that contains anything you want.
+# Δ.js
+Δ.js is a javascript library that accepts almost any pull request. (as long as it follows the rules)
 
     bower install anything.js
 
-# What is this?
-A javascript library that I will accept any pull request on (as long as it follows the rules).
 
 # Why?
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
