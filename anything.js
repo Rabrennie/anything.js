@@ -467,6 +467,12 @@
         return '01189998819991197253';
     };
 
+
+    var generateSecurePassword = function(){
+      // returns a complex yet easy to remember and impossible to hack password. You should use it everywhere!
+      return 'Correct Horse Battery Staple'
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
