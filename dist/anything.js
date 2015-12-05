@@ -733,10 +733,11 @@
     anything.prototype.sumArray = sumArray;
 
     var theAnswerToLifeTheUniverseAndEverything = function() {
-        return 42
+        return anything.everything();
     };
 
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
+
     /**
      * Tuple "class".
      */
