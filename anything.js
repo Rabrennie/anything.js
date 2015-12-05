@@ -10,7 +10,7 @@
      */
 
     var anything = function() {
-        this.version = "5.0.1"
+        this.version = "6.9.1"
     };
 
     //Functions go here
