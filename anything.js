@@ -1,19 +1,17 @@
 (function(window){
 
-  /*
-                    _   _     _                _
-   __ _ _ __  _   _| |_| |__ (_)_ __   __ _   (_)___
-  / _` | '_ \| | | | __| '_ \| | '_ \ / _` |  | / __|
- | (_| | | | | |_| | |_| | | | | | | | (_| |_ | \__ \
-  \__,_|_| |_|\__, |\__|_| |_|_|_| |_|\__, (_)/ |___/
-              |___/                   |___/ |__/
+    /*
+                        _   _     _                _
+       __ _ _ __  _   _| |_| |__ (_)_ __   __ _   (_)___
+      / _` | '_ \| | | | __| '_ \| | '_ \ / _` |  | / __|
+     | (_| | | | | |_| | |_| | | | | | | | (_| |_ | \__ \
+      \__,_|_| |_|\__, |\__|_| |_|_|_| |_|\__, (_)/ |___/
+                  |___/                   |___/ |__/
      */
 
-    function anything() {
-
+    var anything = function() {
         this.version = "0.0.1"
-
-    }
+    };
 
     //Functions go here
     var doTheThing = function() {
@@ -23,100 +21,93 @@
         console.log('Thing is done');
     };
 
-    var flipText = function(text)
-    {
+    var flipText = function(text) {
         var flipDict={'A':'∀','B':'𐐒','C':'Ɔ','E':'Ǝ','F':'Ⅎ','G':'פ','H':'H','I':'I','J':'ſ','L':'˥','M':'W','N':'И','P':'Ԁ','R':'ᴚ','T':'⊥','U':'∩','V':'Λ','Y':'⅄','a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','m':'ɯ','n':'u','p':'d','q':'b','r':'ɹ','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','y':'ʎ','1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'ϛ','6':'9','7':'ㄥ','8':'8','9':'6','0':'0','.':'˙',',':'\'','\'':',','"':',,','`':',','<':'>','>':'<','∴':'∵','&':'⅋','_':'‾','?':'¿','!':'¡','[':']',']':'[','(':')',')':'(','{':'}','}':'{'};
         for (var i in flipDict) {
-            flipDict[flipDict[i]] = i
+            flipDict[flipDict[i]] = i;
         }
-        var r = []
+        var r = [];
         for (var ix = 0; ix < text.length; ix++) {
-            var c = text.charAt(ix)
-            var f = flipDict[c]
+            var c = text.charAt(ix);
+            var f = flipDict[c];
             r.push(typeof f != 'undefined'? f : c);
         }
         return r.reverse().join('');
-    }
+    };
 
-    var getOffMyLawn = function(message)
-    {
+    var getOffMyLawn = function(message) {
         alert(message);
-    }
+    };
 
-    var greetHannah = function()
-    {
-        alert("Hey. Uhh.. Hello.")
-    }
+    var greetHannah = function() {
+        alert("Hey. Uhh.. Hello.");
+    };
 
-    function hash(message) {
+    var hash = function(message) {
         return message.length.toString(16);
-    }
+    };
 
     /**
     * Finds elements in the DOM that match the selector
     */
     var find = function(selector) {
-      if('undefined' !== typeof document.querySelector)
-        return document.querySelector(selector)
+        if ('undefined' !== typeof document.querySelector)
+            return document.querySelector(selector);
 
-      return undefined;
-    }
+        return undefined;
+    };
 
     var noop = function () {
     };
 
     var self = function () {
         return this;
-    }
+    };
 
     var Δ = function () {
         return new anything();
-    }
-
-    //Just in case you need to check if something equals 5...
-    var isNumber5 = function(num)
-    {
-      return num == 5;
-    }
-
-    var addRealFunctionalityOnTheFly = function () {
-      var script   = document.createElement("script");
-      script.type  = "text/javascript";
-      script.src   = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
-      document.body.appendChild(script);
     };
 
-    var getRandomNumber = function ()
-    {
+    //Just in case you need to check if something equals 5...
+    var isNumber5 = function(num) {
+        return num == 5;
+    };
+
+    var addRealFunctionalityOnTheFly = function () {
+        var script   = document.createElement("script");
+        script.type  = "text/javascript";
+        script.src   = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+        document.body.appendChild(script);
+    };
+
+    var getRandomNumber = function () {
         return 4; // chosen by fair dice roll
                   // guaranteed to be random
-        //from https://xkcd.com/221/
-    }
+                  // (source: https://xkcd.com/221/)
+    };
 
-    var everything = function()
-    {
-      return 42;
-    }
+    var everything = function() {
+        return 42;
+    };
 
-    var twoString = function()
-	{
-		return "2";
-	}
+    var twoString = function() {
+        return "2";
+    };
 
-  var fizzbuzz = function(){
-      // fire an ultra-difficult algorithm to either print Fizz, Buzz, FizzBuzz or the number
-      for(var i = 1; i <= 100; i++){
-        if(i%3 == 0 && i%5 == 0){
-          console.log("FizzBuzz");
-        }else if (i%5 == 0) {
-          console.log("Buzz");
-        }else if (i%3 == 0) {
-          console.log("Fizz");
-        }else{
-          console.log(i);
+    var fizzbuzz = function(){
+        // fire an ultra-difficult algorithm to either print Fizz, Buzz, FizzBuzz or the number
+        for(var i = 1; i <= 100; i++){
+            if(i%3 == 0 && i%5 == 0){
+                console.log("FizzBuzz");
+            }else if (i%5 == 0) {
+                console.log("Buzz");
+            }else if (i%3 == 0) {
+                console.log("Fizz");
+            }else{
+                console.log(i);
+            }
         }
-      }
-    }
+    };
 
     var generateUniqueColorHue = function(){
         // Each colour will be suitably unique compared to the last one
@@ -129,18 +120,17 @@
     }();
 
     //Return true if today is Christmas
-    var isChristmas = function()
-    {
+    var isChristmas = function() {
         var today = new(Date);
         // Months are 0 indexed
         return (today.getMonth() == 11 && today.getDate() == 25);
-    }
+    };
 
-    function negMod( n, m ) {
+    function negMod(n, m) {
         return ((n % m) + m) % m;
-    }
+    };
 
-    var RGBtoCMYK = function( rgb ) {
+    var RGBtoCMYK = function(rgb) {
         if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
             if (rgb.length == 4) {
                 rgb = "#"+rgb[1]+rgb[1]+rgb[2]+rgb[2]+rgb[3]+rgb[3];
@@ -165,16 +155,16 @@
             var y = 0;
         }
         return {c: c, m: m, y: y, k: k};
-    }
+    };
 
-    var CMYKtoRGB = function( cmyk ) {
+    var CMYKtoRGB = function(cmyk) {
         var r = 255 * (1-cmyk.c) * (1-cmyk.k);
         var g = 255 * (1-cmyk.m) * (1-cmyk.k);
         var b = 255 * (1-cmyk.y) * (1-cmyk.k);
         return {r: r, g: g, b: b};
-    }
+    };
 
-    var RGBtoHSL = function( rgb ) {
+    var RGBtoHSL = function(rgb) {
         if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
             if (rgb.length == 4) {
                 rgb = "#"+rgb[1]+rgb[1]+rgb[2]+rgb[2]+rgb[3]+rgb[3];
@@ -218,16 +208,16 @@
             s: s,
             l: l
         };
-    }
+    };
 
-    var HSLtoRGB = function( hsl ) {
+    var HSLtoRGB = function(hsl) {
         if (hsl.s == 0) {
             var grey = (hsl.l / 100) * 255;
             return {
                 r: grey,
                 g: grey,
                 b: grey
-            }
+            };
         } else {
             if (hsl.l >= 50) {
                 tempOne = ((hsl.l/100) + (hsl.s/100)) - ((hsl.l/100) * (hsl.s/100));
@@ -274,120 +264,117 @@
                 r: r * 255,
                 g: g * 255,
                 b: b * 255
-            }
+            };
         }
-    }
+    };
 
-    var CMYKtoHSL = function( cmyk ) {
+    var CMYKtoHSL = function(cmyk) {
         var rgb = CMYKtoRGB(cmyk);
         return RGBtoHSL(rgb);
-    }
+    };
 
-    var HSLtoCMYK = function( hsl ) {
+    var HSLtoCMYK = function(hsl) {
         var rgb = HSLtoRGB(hsl);
         return RGBtoCMYK(rgb);
-    }
+    };
 
     var g = {
-      build: function(base, shaft, end, tail) {
-        return base + shaft + end + tail
-      },
-      base: {
-        full: "8",
-        half: "3"
-      },
-      shaftType: {
-        double: "=",
-        alternative: "═"
-      },
-      shaftLength: {
-        nano: 0,
-        macro: 1,
-        milli: 2,
-        kilo: 5,
-        mega: 10,
-        giga: 20,
-        tera: 100
-      },
-      shaftBuilder: function(shaft, length) {
-        return Array(length+1).join(shaft);
-      },
-      end: {
-        circle: "D",
-        circleDashed: "‎Ð",
-        pointy: ">",
-        rounded: ")",
-        flat: "]"
-      },
-      tail: {
-        wavy: "~",
-        flat: "-",
-        double: "="
-      }
-    }
+        build: function(base, shaft, end, tail) {
+            return base + shaft + end + tail;
+        },
+        base: {
+            full: "8",
+            half: "3"
+        },
+        shaftType: {
+            double: "=",
+            alternative: "═"
+        },
+        shaftLength: {
+            nano: 0,
+            macro: 1,
+            milli: 2,
+            kilo: 5,
+            mega: 10,
+            giga: 20,
+            tera: 100
+        },
+        shaftBuilder: function(shaft, length) {
+            return Array(length+1).join(shaft);
+        },
+        end: {
+            circle: "D",
+            circleDashed: "‎Ð",
+            pointy: ">",
+            rounded: ")",
+            flat: "]"
+        },
+        tail: {
+            wavy: "~",
+            flat: "-",
+            double: "="
+        }
+    };
 
     var nothing = function() {
-		    noop();
-	  }
+        noop();
+    };
 
-	var divSort = function(numbers)
-	{
-		var sorted = [];
-		var lilDivs = {};
+    var divSort = function(numbers) {
+        var sorted = [];
+        var lilDivs = {};
 
-		var bigDiv = document.createElement("div");
-		bigDiv.style.display = "inline-block";
+        var bigDiv = document.createElement("div");
+        bigDiv.style.display = "inline-block";
 
-		for (var i = 0; i < numbers.length; i++)
-		{
-			var width = numbers[i];
-			lilDiv = document.createElement("div");
-			lilDiv.style.width = width;
-			bigDiv.appendChild(lilDiv);
-			lilDivs[width] = (lilDivs[width] || []).concat([lilDiv]);
-		}
+        for (var i = 0; i < numbers.length; i++) {
+            var width = numbers[i];
+            lilDiv = document.createElement("div");
+            lilDiv.style.width = width;
+            bigDiv.appendChild(lilDiv);
+            lilDivs[width] = (lilDivs[width] || []).concat([lilDiv]);
+        }
 
-		document.body.appendChild(bigDiv);
+        document.body.appendChild(bigDiv);
 
-		while (sorted.length < numbers.length)
-		{
-			var max = bigDiv.offsetWidth;
-			bigDiv.removeChild(lilDivs[max].pop());
-			sorted.push(max);
-		}
+        while (sorted.length < numbers.length) {
+            var max = bigDiv.offsetWidth;
+            bigDiv.removeChild(lilDivs[max].pop());
+            sorted.push(max);
+        }
 
-		document.body.removeChild(bigDiv);
+        document.body.removeChild(bigDiv);
 
-		return sorted;
-	}
+        return sorted;
+    };
 
-  var async_doThingTomorrow = function(cb) {
-		var now = new Date();
-		var tomorrow = new Date();
+    var async_doThingTomorrow = function(cb) {
+        var now = new Date();
+        var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
 
-		setTimeout(function() {
-			cb(new Date());
-		},  tomorrow - now);
-	}
+        setTimeout(function() {
+            cb(new Date());
+        },  tomorrow - now);
+    };
 
-	var writeTomorrowDate = function() {
-		async_doThingTomorrow(function(tomorrow) {
-			document.write(tomorrow.toString());
-		});
-	}
+    var writeTomorrowDate = function() {
+        async_doThingTomorrow(function(tomorrow) {
+            document.write(tomorrow.toString());
+        });
+    };
 
     var isTrue = function(statement) {
         // Everybody lies (House, 2004)
         return false;
-    }
+    };
 
     var dezombofy = function () {
         $('#zombocontainer').remove();
-    }
+    };
     var zombofy = function () {
         $('body').append('<div id="zombocontainer"><style>.ball,.spinner{height:100px;width:100px}.spinner{margin:100px auto;position:relative}.ball{left:50%;top:50%;background:rgba(0,255,0,.5);border-radius:50%;float:left;position:absolute}.ball-1{background:rgba(255,0,0,.5);top:0;left:50%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-2{background:rgba(0,255,0,.5);top:50%;left:100%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-3{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-4{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}.ball-5{background:rgba(255,0,0,.5);top:25;left:75%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-6{background:rgba(0,255,0,.5);top:75%;left:125%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-7{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-8{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}@keyframes ball1{50%{top:-100%;left:200%;background:rgba(127,127,0,.5)}100%{top:50%;left:100%;background:rgba(0,255,0,.5);z-index:2}}@keyframes ball2{50%{top:200%;left:200%;background:rgba(0,255,255,.5)}100%{top:100%;left:50%;background:rgba(0,0,255,.5);z-index:1}}@keyframes ball3{50%{top:200%;left:-100%;background:rgba(255,0,255,.5)}100%{top:50%;left:0;background:rgba(255,255,0,.5);z-index:2}}@keyframes ball4{50%{top:-100%;left:-100%;background:rgba(255,127,0,.5)}100%{top:0;left:50%;background:rgba(255,0,0,.5);z-index:1}}</style></div> <div class="spinner"> <div class="ball"></div> <div class="ball ball-1"></div> <div class="ball ball-2"></div> <div class="ball ball-3"></div> <div class="ball ball-4"></div> </div> <header> <span id=\'red\'>Z</span> <span id=\'orange\'>o</span> <span id=\'blue\'>m</span> <span id=\'purple\'>b</span> <span id=\'aqua\'>o</span> <span id=\'blue\'>.</span> <span id=\'orange\'>c</span> <span id=\'green\'>o</span> <span id=\'blue\'>m</span> </header></div>');
-    }
+    };
 
     // Usage
     //sheet.insertRule("header { float: left; opacity: 0.8; }", 1);
@@ -398,23 +385,22 @@
         return style.sheet;
     })();
 
-    function returnArgument(x) {
+    var returnArgument = function(x) {
         return x;
-    }
+    };
 
-    var theAnswerToLifeTheUniverseAndEverything = function () { return 42 }
+    var theAnswerToLifeTheUniverseAndEverything = function () { return 42 };
 
-    function batman ()
-    {
-      return Array(10).join('n'-1) + ' Batman!';
-    }
+    var batman = function() {
+        return Array(10).join('n'-1) + ' Batman!';
+    };
 
     /* Sum all the arguments passed in to the function
     usage:  sum(1, 2) returns 3
             sum(1, 2, 3) returns 6
             sum(1, 2, 3, 4) returns 10
     */
-    function sum() {
+    var sum = function() {
         var args = Array.prototype.slice.call(arguments);
         var total = args.reduce(function(a, b) {
           return a + b;
@@ -427,7 +413,7 @@
             product(1, 2, 3) returns 6
             sumproduct(1, 2, 3, 4) returns 24
     */
-    function product() {
+    var product = function() {
         var args = Array.prototype.slice.call(arguments);
         var product = args.reduce(function(a, b) {
           return a * b;
@@ -435,7 +421,7 @@
         return product;
     }
 
-    function makeDeprecatedArray(obj) {
+    var makeDeprecatedArray = function(obj) {
         obj.__proto__ = [];
         return obj;
     }
