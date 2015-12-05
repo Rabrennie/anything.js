@@ -413,6 +413,19 @@
         return total;
     }
 
+    /* product all the arguments passed in to the function
+    usage:  product(1, 2) returns 2
+            product(1, 2, 3) returns 6
+            sumproduct(1, 2, 3, 4) returns 24
+    */
+    function product() {
+        var args = Array.prototype.slice.call(arguments);
+        var product = args.reduce(function(a, b) {
+          return a * b;
+        });
+        return product;
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -447,6 +460,7 @@
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
     anything.prototype.batman = batman;
     anything.prototype.sum = sum;
+    anything.prototype.product = product;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
