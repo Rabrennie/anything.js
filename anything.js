@@ -39,7 +39,7 @@
         alert("Hey. Uhh.. Hello.")
     }
 
-    function hash(message) {
+    var hash = function(message) {
         return message.length.toString(16);
     }
 
