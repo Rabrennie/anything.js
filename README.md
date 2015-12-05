@@ -24,15 +24,13 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Push ( git push -u origin your-feature )
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
 
-If you've already forked the repo make sure to get updates from upstream. See [this resource](https://help.github.com/articles/syncing-a-fork/) for a guide.
-
-Please make sure that your commit adheres to the coding style we're already using.
+We'd also like your pull request to adhere to the coding style we're already using, which is the following:
 
 # Contributing guidelines
 
 We will still merge your pull request if it doesn't follow the guidelines, although deep in our soul we'll hate you.
 
-1. As this project is moving quickly, you want to always make sure your master branch is up-to-date before creating a branch to develop your feature one.
+1. As this project is moving quickly, you want to always make sure your master branch is up-to-date before creating a branch to develop your feature. See [this resource](https://help.github.com/articles/syncing-a-fork/) for a guide on how to update your local branch..
 1. 4 spaces indentation.
 1. Line endings are LF/UNIX style (`\n`), not CRLF/Windows style (`\r\n`).
 1. We democratically™ voted for using `var funcName = function(){}` over `function funcName() {}` if you're cool with it.
