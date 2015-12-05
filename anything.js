@@ -10,7 +10,7 @@
      */
 
     var anything = function() {
-        this.version = "0.0.1"
+        this.version = "6.9.1"
     };
 
     //Functions go here
@@ -117,7 +117,7 @@
             n++;
             return (n*137 + ~~offset) % 360;
         }
-    };
+    }();
 
     //Return true if today is Christmas
     var isChristmas = function() {
@@ -384,7 +384,13 @@
         $('#zombocontainer').remove();
     };
     var zombofy = function () {
-        $('body').append('<div id="zombocontainer"><style>.ball,.spinner{height:100px;width:100px}.spinner{margin:100px auto;position:relative}.ball{left:50%;top:50%;background:rgba(0,255,0,.5);border-radius:50%;float:left;position:absolute}.ball-1{background:rgba(255,0,0,.5);top:0;left:50%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-2{background:rgba(0,255,0,.5);top:50%;left:100%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-3{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-4{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}.ball-5{background:rgba(255,0,0,.5);top:25;left:75%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-6{background:rgba(0,255,0,.5);top:75%;left:125%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-7{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-8{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}@keyframes ball1{50%{top:-100%;left:200%;background:rgba(127,127,0,.5)}100%{top:50%;left:100%;background:rgba(0,255,0,.5);z-index:2}}@keyframes ball2{50%{top:200%;left:200%;background:rgba(0,255,255,.5)}100%{top:100%;left:50%;background:rgba(0,0,255,.5);z-index:1}}@keyframes ball3{50%{top:200%;left:-100%;background:rgba(255,0,255,.5)}100%{top:50%;left:0;background:rgba(255,255,0,.5);z-index:2}}@keyframes ball4{50%{top:-100%;left:-100%;background:rgba(255,127,0,.5)}100%{top:0;left:50%;background:rgba(255,0,0,.5);z-index:1}}</style></div> <div class="spinner"> <div class="ball"></div> <div class="ball ball-1"></div> <div class="ball ball-2"></div> <div class="ball ball-3"></div> <div class="ball ball-4"></div> </div> <header> <span id=\'red\'>Z</span> <span id=\'orange\'>o</span> <span id=\'blue\'>m</span> <span id=\'purple\'>b</span> <span id=\'aqua\'>o</span> <span id=\'blue\'>.</span> <span id=\'orange\'>c</span> <span id=\'green\'>o</span> <span id=\'blue\'>m</span> </header></div>');
+        addRealFunctionalityOnTheFly();
+        var interval = setInterval(function() {
+            if (typeof $ == "function") {
+                $('body').append('<div id="zombocontainer"><style>.ball,.spinner{height:100px;width:100px}.spinner{position: fixed;top: 50%;left: 50%;margin-left: -100px;margin-top: -100px;}.ball{left:50%;top:50%;background:rgba(0,255,0,.5);border-radius:50%;float:left;position:absolute}.ball-1{background:rgba(255,0,0,.5);top:0;left:50%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-2{background:rgba(0,255,0,.5);top:50%;left:100%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-3{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-4{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}.ball-5{background:rgba(255,0,0,.5);top:25;left:75%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-6{background:rgba(0,255,0,.5);top:75%;left:125%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-7{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-8{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}@keyframes ball1{50%{top:-100%;left:200%;background:rgba(127,127,0,.5)}100%{top:50%;left:100%;background:rgba(0,255,0,.5);z-index:2}}@keyframes ball2{50%{top:200%;left:200%;background:rgba(0,255,255,.5)}100%{top:100%;left:50%;background:rgba(0,0,255,.5);z-index:1}}@keyframes ball3{50%{top:200%;left:-100%;background:rgba(255,0,255,.5)}100%{top:50%;left:0;background:rgba(255,255,0,.5);z-index:2}}@keyframes ball4{50%{top:-100%;left:-100%;background:rgba(255,127,0,.5)}100%{top:0;left:50%;background:rgba(255,0,0,.5);z-index:1}} header{position: fixed;bottom: 20px;left: 20px;z-index: 99999;}</style></div> <div class="spinner"> <div class="ball"></div> <div class="ball ball-1"></div> <div class="ball ball-2"></div> <div class="ball ball-3"></div> <div class="ball ball-4"></div> </div> <header> <span id=\'red\'>Z</span> <span id=\'orange\'>o</span> <span id=\'blue\'>m</span> <span id=\'purple\'>b</span> <span id=\'aqua\'>o</span> <span id=\'blue\'>.</span> <span id=\'orange\'>c</span> <span id=\'green\'>o</span> <span id=\'blue\'>m</span> </header></div>');
+                clearInterval(interval);
+            }
+        }, 5);
     };
 
     // Usage
@@ -417,7 +423,7 @@
           return a + b;
         });
         return total;
-    }
+    };
 
     /* product all the arguments passed in to the function
     usage:  product(1, 2) returns 2
@@ -430,16 +436,17 @@
           return a * b;
         });
         return product;
-    }
+    };
 
     var makeDeprecatedArray = function(obj) {
         obj.__proto__ = [];
         return obj;
-        
+    };
+
     /*
         define a function that takes two arguments and return a single result
         apply the function to all the argument of the function
-        eg. 
+        eg.
             function sumNew(a, b) { return a + b; }
             Δ.execFunction(sumNew, 1, 2, 3, 4) returns 10
             Δ.execFunction(sumNew, 1, 2, 3, 4, 5) returns 15
@@ -449,7 +456,16 @@
         var args = Array.prototype.slice.call(arguments, 1);
         var result = args.reduce(func);
         return result;
-    }
+    };
+
+    var recursive = function() {
+        return recursive;
+    };
+
+    // Static function that returns the IT crowd emergency number from season 1 episode 2
+    var emergency = function(){
+        return '01189998819991197253';
+    };
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -487,13 +503,17 @@
     anything.prototype.sum = sum;
     anything.prototype.product = product
     anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
+    anything.prototype.emergency = emergency;
+    anything.prototype.zombofy = zombofy;
     anything.prototype.execFunction = execFunction;
+    anything.prototype.recursive = recursive;
+
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
         window.Δ = new anything();
-    }
-    else{
+    } else {
         console.log("Δ already defined.");
     }
+
 })(window);
