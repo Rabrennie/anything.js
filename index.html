@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Δ.js Playground</title>
+    <script type="text/javascript" src="anything.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/lint/javascript-lint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/javascript-hint.min.js"></script>
+    <script>
+        var anything = Δ;
+        var old_log = console.log;
+        console.log = function(){
+          document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
+          old_log.apply(this, arguments)
+        }
+        var old_error = console.error;
+        console.error = function(){
+          document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
+          old_error.apply(this, arguments)
+        }
+        var old_info = console.info;
+        console.info = function(){
+            document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
+            old_info.apply(this, arguments)
+        }
+
+        var RunThisBitch = function(){
+            document.getElementById('opt').innerHTML = '';
+            eval(myCodeMirror.getValue());
+        }
+
+        var dOpt = function(){}
+    </script>
+</head>
+
+<body>
+    <h1>Δ.js is a library that contains anything you want (<a href="https://github.com/Rabrennie/anything.js">GitHub</a>)</h1>
+    <p>Try it bellow. (with mothafucking autocomplete!!)</p>
+    <textarea class="editor" id="Edit">Δ.doTheThing();
+Δ.greetHannah();
+console.log(Δ.flipText("anything!"));</textarea>
+    <script>
+        var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
+        extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
+        mode: {name: "javascript", globalVars: true},
+        });
+    var orig = CodeMirror.hint.javascript;
+    myCodeMirror.on("keyup", function (cm, event) {
+        if (!cm.state.completionActive && event.keyCode == 190) {
+            CodeMirror.commands.autocomplete(cm, null, {completeSingle: false});
+        }
+    });
+    </script>
+    <button style="width: 100%;height:3em;" onclick="RunThisBitch();">LET'S RUN THIS BITCH!!</button>
+    <div id="opt" style="width: 100%; height: 300px; background: #333; color:#fff; overflow-y: auto;"></div>
+    Welcome to Δ.js
+    <br/> This is Δ.js
+    <br/> Welcome
+    <br/> This is Δ.js
+    <br/> Welcome to Δ.js
+    <br/> You can do anything at Δ.js
+    <br/> Anything at all
+    <br/> The only limit is yourself
+    <br/> Welcome to Δ.js
+    <br/> Welcome to Δ.js
+    <br/> This is Δ.js
+    <br/> Welcome to Δ.js
+    <br/> This is Δ.js, Welcome
+    <br/> Yes, this is Δ.js
+    <br/> This is Δ.js and welcome to you who have come to Δ.js
+    <br/> Anything is possible at Δ.js
+    <br/> You can to anything Δ.js
+    <br/> The infinite is possible at Δ.js
+    <br/> The unattainable is unknown at Δ.js
+    <br/> Welcome to Δ.js
+    <br/> This is Δ.js
+    <br/> Welcome to Δ.js
+    <br/> Welcome
+    <br/> This is Δ.js
+    <br/> Welcome to Δ.js
+    <br/> Welcome to Δ.js
+    <br/>
+
+</body>
+
+</html>
