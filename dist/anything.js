@@ -211,6 +211,13 @@
     };
 
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
+    var alphabet = function(uppercase) {
+        var thealphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        if (uppercase) return thealphabet;
+        else return thealphabet.toLowerCase();
+    };
+
+    anything.prototype.alphabet = alphabet;
     var async_doThingTomorrow = function(cb) {
         var now = new Date();
         var tomorrow = new Date();
