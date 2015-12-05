@@ -1,6 +1,8 @@
 # anything.js or Δ.js
 A javascript library that contains anything you want.
 
+
+
 # What is this?
 A javascript library that I will any pull request on (as long as it follows the rules).
 
@@ -21,3 +23,6 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Edit ( Type! Type! Type! )
 1. Push ( git push -u origin your-feature )
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
+
+# IRC
+Join me [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)

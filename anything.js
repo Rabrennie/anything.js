@@ -29,10 +29,15 @@
         return r.reverse().join('');
     }
 
+    var getOffMyLawn = function(message) 
+    {
+        alert(message);
+    }
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
+    anything.prototype.getOffMyLawn = getOffMyLawn;
 
 
     //put that shit where everyone can see it. 
