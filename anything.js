@@ -39,11 +39,19 @@
         alert("Hey. Uhh.. Hello.")
     }
     
+    //Just in case you need to check if something equals 5...
+    var isNumber5 = function(num)
+    {
+      if (num == 5) return true
+      return false
+    }
+    
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
     anything.prototype.getOffMyLawn = getOffMyLawn;
     anything.prototype.greetHannah = greetHannah;
+    anything.prototype.isNumber5 = isNumber5;
 
     //put that shit where everyone can see it. 
     if(typeof(window.Δ) === 'undefined'){
