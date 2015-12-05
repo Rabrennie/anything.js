@@ -388,6 +388,11 @@
 
     var theAnswerToLifeTheUniverseAndEverything = function () { return 42 }
 
+    function batman ()
+    {
+      return Array(10).join('n'-1) + ' Batman!';
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -420,6 +425,7 @@
     anything.prototype.isTrue = isTrue;
     anything.prototype.returnArgument = returnArgument;
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
+    anything.prototype.batman = batman;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
