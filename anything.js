@@ -38,12 +38,19 @@
     {
         alert("Hey. Uhh.. Hello.")
     }
-    
+
+    var getRandomNumber = function ()
+    {
+        return 4; // chosen by fair dice roll
+                  // guaranteed to be random
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
     anything.prototype.getOffMyLawn = getOffMyLawn;
     anything.prototype.greetHannah = greetHannah;
+    anything.prototype.getRandomNumber = getRandomNumber;
 
     //put that shit where everyone can see it. 
     if(typeof(window.Δ) === 'undefined'){
