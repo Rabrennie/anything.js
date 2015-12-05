@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Δ.js Playground</title>
-    <script type="text/javascript" src="anything.js"></script>
+    <script type="text/javascript" src="dist/anything.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.css"
     />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.css"
@@ -16,30 +16,27 @@
     <script>
         var anything = Δ;
         var old_log = console.log;
-    console.log = function(){
-      document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
-      old_log.apply(this, arguments)
-    }
-	var old_error = console.error;
-    console.error = function(){
-      document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
-      old_error.apply(this, arguments)
-    }
-	var old_info = console.info;
-    console.info = function(){
-      document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
-      old_info.apply(this, arguments)
-    }
-	
-	var RunThisBitch = function(){
-		document.getElementById('opt').innerHTML = '';
-		eval(myCodeMirror.getValue());
-	}
-	
-	var dOpt = function(){
-		
-	}
+        console.log = function(){
+          document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
+          old_log.apply(this, arguments)
+        }
+        var old_error = console.error;
+        console.error = function(){
+          document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
+          old_error.apply(this, arguments)
+        }
+        var old_info = console.info;
+        console.info = function(){
+            document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
+            old_info.apply(this, arguments)
+        }
 
+        var RunThisBitch = function(){
+            document.getElementById('opt').innerHTML = '';
+            eval(myCodeMirror.getValue());
+        }
+
+        var dOpt = function(){}
     </script>
 </head>
 
@@ -51,7 +48,7 @@
 console.log(Δ.flipText("anything!"));</textarea>
     <script>
         var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
-        extraKeys: {"Ctrl-Space": "autocomplete"},
+        extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
         mode: {name: "javascript", globalVars: true},
         });
     var orig = CodeMirror.hint.javascript;
