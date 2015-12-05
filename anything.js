@@ -278,6 +278,9 @@
         return RGBtoCMYK(rgb);
     }
 
+	var nothing = function() {
+		noop();
+	}
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -303,7 +306,8 @@
     anything.prototype.HSLtoRGB = HSLtoRGB;
     anything.prototype.CMYKtoHSL = CMYKtoHSL;
     anything.prototype.HSLtoCMYK = HSLtoCMYK;
-
+    anything.prototype.nothing = nothing;
+	
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
         window.Δ = new anything();
