@@ -28,3 +28,5 @@ I think it will be interesting to see what people want to add to this. Obviously
 
 # IRC
 Join me [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
+
+![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
