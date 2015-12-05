@@ -6,6 +6,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
 * [Crecket](https://github.com/Crecket)
+* [dstrekelj](https://github.com/dstrekelj)
 * [Ekrow](https://github.com/Ekrow)
 * [fbergr](https://github.com/fbergr)
 * [gillstrom](https://github.com/gillstrom)
