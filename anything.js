@@ -458,6 +458,10 @@
         return result;
     }
 
+    var recursive = function() {
+        return recursive;
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -505,6 +509,7 @@
     } else {
         console.log("Δ already defined.");
     }
+
 })(window);
 
 
