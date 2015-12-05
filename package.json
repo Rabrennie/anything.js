@@ -1,0 +1,26 @@
+{
+  "name": "anything.js",
+  "version": "1.35.0",
+  "description": "A javascript library that contains anything.",
+  "main": "anything.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rabrennie/anything.js.git"
+  },
+  "author": "everyone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rabrennie/anything.js/issues"
+  },
+  "homepage": "https://github.com/Rabrennie/anything.js#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-git": "^1.6.0",
+    "gulp-jsbeautifier": "^1.0.1",
+    "gulp-minify": "0.0.5"
+  }
+}
