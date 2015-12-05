@@ -850,7 +850,7 @@
     })();
 
     anything.prototype.sheet = sheet;
-    Δ.shunDev = function() {
+    shunDev = function() {
 
         var self = this;
 
@@ -899,6 +899,8 @@
         return self;
 
     };
+
+    anything.prototype.shunDev = shunDev();
 
     /* Sum all the arguments passed in to the function
     usage:  sum(1, 2) returns 3

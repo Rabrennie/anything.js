@@ -1,4 +1,4 @@
-Δ.shunDev = function(){
+shunDev = function(){
 
     var self = this;
 
@@ -47,3 +47,5 @@
     return self;
 
 };
+
+anything.prototype.shunDev = shunDev();
