@@ -20,7 +20,7 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Fork ( https://github.com/Rabrennie/anything.js/fork )
 1. Clone ( git clone https://github.com/YourUsername/anything.js.git )
 1. Branch ( git checkout -b your-feature )
-2. Make a new file in ./dist/ with the name of your function. ( functionName.js)
+2. Make a new file in ./src/ with the name of your function. ( functionName.js )
 1. Edit ( Type! Type! Type! )
 1. Push ( git push -u origin your-feature )
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
