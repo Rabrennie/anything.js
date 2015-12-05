@@ -1,0 +1,14 @@
+{
+  "name": "anything.js",
+  "main": "anything.js",
+  "homepage": "https://github.com/Rabrennie/anything.js",
+  "authors": [
+    "everyone"
+  ],
+  "description": "It can do anything!",
+  "moduleType": [],
+  "keywords": [
+    "anything"
+  ],
+  "license": "MIT"
+}

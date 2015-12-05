@@ -1,7 +1,7 @@
 # anything.js or Δ.js
 A javascript library that contains anything you want.
 
-
+    bower install anything.js
 
 # What is this?
 A javascript library that I will accept any pull request on (as long as it follows the rules).
