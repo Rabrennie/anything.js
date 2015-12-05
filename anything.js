@@ -377,6 +377,11 @@
 		});
 	}
 
+    var isTrue = function(statement) {
+        // Everybody lies (House, 2004)
+        return false;
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -406,6 +411,7 @@
     anything.prototype.divSort = divSort;
     anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
     anything.prototype.writeTomorrowDate = writeTomorrowDate;
+    anything.prototype.isTrue = isTrue;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
