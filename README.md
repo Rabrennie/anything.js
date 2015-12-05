@@ -1,5 +1,8 @@
 # anything.js or Δ.js
-A javascript library that contains anything. This is a javascript library that I will accept most pull requests on.
+A javascript library that contains anything you want.
+
+# What is this?
+A javascript library that I will any pull request on (as long as it follows the rules).
 
 # Why?
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
