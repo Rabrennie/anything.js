@@ -158,6 +158,16 @@
     }
 
     var RGBtoHSL = function( rgb ) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
+            if (rgb.length == 4) {
+                rgb = "#"+rgb[1]+rgb[1]+rgb[2]+rgb[2]+rgb[3]+rgb[3];
+            }
+            newrgb = {r:0, g:0, b:0};
+            newrgb.r = parseInt(rgb.substring(1,3), 16);
+            newrgb.g = parseInt(rgb.substring(3,5), 16);
+            newrgb.b = parseInt(rgb.substring(5,8), 16);
+            rgb = newrgb;
+        }
         var r = rgb['r'] / 255;
         var g = rgb['g'] / 255;
         var b = rgb['b'] / 255;
