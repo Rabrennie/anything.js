@@ -1,4 +1,4 @@
-![Logo](http://i.imgur.com/Xqu762o.png =150x)
+![Logo](http://i.imgur.com/aLPpSED.png)
 # anything.js or Δ.js
 A javascript library that contains anything you want.
 
