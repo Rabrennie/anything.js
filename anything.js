@@ -457,6 +457,11 @@
         var result = args.reduce(func);
         return result;
     }
+    
+    // Static function that returns the IT crowd emergency number from season 1 episode 2
+    var emergency = function(){
+        return '01189998819991197253';
+    };
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -494,6 +499,7 @@
     anything.prototype.sum = sum;
     anything.prototype.product = product
     anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
+    anything.prototype.emergency = emergency;
 
     anything.prototype.zombofy = zombofy;
     anything.prototype.execFunction = execFunction;
