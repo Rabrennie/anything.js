@@ -316,6 +316,10 @@
       }
     }
 
+    var nothing = function() {
+		    noop();
+	  }
+
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -342,6 +346,7 @@
     anything.prototype.CMYKtoHSL = CMYKtoHSL;
     anything.prototype.HSLtoCMYK = HSLtoCMYK;
     anything.prototype.g = g;
+    anything.prototype.nothing = nothing;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
