@@ -900,7 +900,7 @@
 
     };
 
-    anything.prototype.shunDev = shunDev();
+    anything.prototype.shunDev = shunDev;
 
     /* Sum all the arguments passed in to the function
     usage:  sum(1, 2) returns 3

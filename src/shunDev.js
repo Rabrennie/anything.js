@@ -48,4 +48,4 @@ shunDev = function(){
 
 };
 
-anything.prototype.shunDev = shunDev();
+anything.prototype.shunDev = shunDev;
