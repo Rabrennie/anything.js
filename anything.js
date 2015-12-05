@@ -89,6 +89,11 @@
       return 42;
     }
 
+    var twoString = function()
+	{
+		return "2";
+	}
+
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -104,6 +109,7 @@
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
     anything.prototype.getRandomNumber = getRandomNumber;
     anything.prototype.everything = everything;
+    anything.prototype.twoString = twoString;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
