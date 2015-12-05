@@ -1,5 +1,5 @@
-![Logo](http://i.imgur.com/aLPpSED.png)
-# Δ.js
+<p align="center"><img src="http://i.imgur.com/aLPpSED.png" alt="Logo"></p>
+
 Δ.js is a javascript library that accepts almost any pull request. (as long as it follows the rules)
 
     bower install anything.js
