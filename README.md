@@ -25,4 +25,4 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
 
 # IRC
-Join me on irc [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
+Join me [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
