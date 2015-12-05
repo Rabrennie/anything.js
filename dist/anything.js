@@ -227,6 +227,25 @@
     };
 
     anything.prototype.batman = batman;
+    /* Undecided? Pass a question, like 'Should I buy this expensive 64 inches tv?'. The question will be ignored, but you'll have your answer. */
+    var decideForMe = function(question) {
+        var choice = Math.floor(Math.random() * 5);
+        switch (choice) {
+            case 0:
+                return "Yes";
+            case 1:
+                return "No";
+            case 2:
+                return "Maybe";
+            case 3:
+                return "Not yet";
+            case 4:
+                return "Knock yourself out";
+        }
+    };
+
+    anything.prototype.decideForMe = decideForMe;
+
     var dezombofy = function() {
         $('#zombocontainer').remove();
     };
@@ -400,6 +419,90 @@
     };
 
     anything.prototype.flipText = flipText;
+    var flipTextSansReverse = function(text) {
+        var flipDict = {
+            'A': '∀',
+            'B': '𐐒',
+            'C': 'Ɔ',
+            'E': 'Ǝ',
+            'F': 'Ⅎ',
+            'G': 'פ',
+            'H': 'H',
+            'I': 'I',
+            'J': 'ſ',
+            'L': '˥',
+            'M': 'W',
+            'N': 'И',
+            'P': 'Ԁ',
+            'R': 'ᴚ',
+            'T': '⊥',
+            'U': '∩',
+            'V': 'Λ',
+            'Y': '⅄',
+            'a': 'ɐ',
+            'b': 'q',
+            'c': 'ɔ',
+            'd': 'p',
+            'e': 'ǝ',
+            'f': 'ɟ',
+            'g': 'ƃ',
+            'h': 'ɥ',
+            'i': 'ᴉ',
+            'j': 'ɾ',
+            'k': 'ʞ',
+            'm': 'ɯ',
+            'n': 'u',
+            'p': 'd',
+            'q': 'b',
+            'r': 'ɹ',
+            't': 'ʇ',
+            'u': 'n',
+            'v': 'ʌ',
+            'w': 'ʍ',
+            'y': 'ʎ',
+            '1': 'Ɩ',
+            '2': 'ᄅ',
+            '3': 'Ɛ',
+            '4': 'ㄣ',
+            '5': 'ϛ',
+            '6': '9',
+            '7': 'ㄥ',
+            '8': '8',
+            '9': '6',
+            '0': '0',
+            '.': '˙',
+            ',': '\'',
+            '\'': ',',
+            '"': ',,',
+            '`': ',',
+            '<': '>',
+            '>': '<',
+            '∴': '∵',
+            '&': '⅋',
+            '_': '‾',
+            '?': '¿',
+            '!': '¡',
+            '[': ']',
+            ']': '[',
+            '(': ')',
+            ')': '(',
+            '{': '}',
+            '}': '{'
+        };
+        for (var i in flipDict) {
+            flipDict[flipDict[i]] = i;
+        }
+        var r = [];
+        for (var ix = 0; ix < text.length; ix++) {
+            var c = text.charAt(ix);
+            var f = flipDict[c];
+            r.push(typeof f != 'undefined' ? f : c);
+        }
+        return r.join('');
+    };
+
+    anything.prototype.flipTextSansReverse = flipTextSansReverse;
+
     var g = {
         build: function(base, shaft, end, tail) {
             return base + shaft + end + tail;
@@ -567,11 +670,72 @@
     }
 
     anything.prototype.sum = sum;
+    /* Sums up and returns all the values in the array passed into the function
+    usage:  sumArray([1,2]) returns 3
+            sumArray([1, 2, 3]) returns 6
+            sumArray([1, 2, 3, 4]) returns 10
+    */
+
+    var sumArray = function(array) {
+        var response = 0;
+        for (i in array) {
+            response += array[i];
+        }
+        return response;
+    }
+
+    anything.prototype.sumArray = sumArray;
+
     var theAnswerToLifeTheUniverseAndEverything = function() {
         return 42
     };
 
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
+    /**
+     * Tuple "class".
+     */
+    var tuple = function() {
+        /**
+         * Creates a tuple (as an object) from passed arguments.
+         * In typical tuple fashion, these object properties are
+         * immutable.
+         * 
+         * @param {...*} element - Tuple element(s) of any type
+         */
+        function create(element) {
+            var obj = {};
+
+            for (var i = 0, l = arguments.length; i < l; i++) {
+                Object.defineProperty(obj, i + '', {
+                    value: arguments[i],
+                    enumerable: true
+                });
+            }
+
+            return obj;
+        }
+
+        /**
+         * Returns an array filled with tuple elements.
+         * 
+         * @param {Object} tuple - Tuple to get elements of.
+         */
+        function members(tuple) {
+            var arr = [];
+            for (t in tuple) {
+                arr.push(tuple[t]);
+            }
+
+            return arr;
+        }
+
+        return {
+            create: create,
+            members: members
+        };
+    };
+
+    anything.prototype.tuple = tuple;
     var twoString = function() {
         return "2";
     };

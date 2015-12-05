@@ -3,7 +3,7 @@ var mean = function (numArr) {
         return false;	
     }
     
-	  return numArr.reduce(function(previousVal, currentVal){return previousVal + currentVal;}) / numArr.length;
+    return numArr.reduce(function(previousVal, currentVal){return previousVal + currentVal;}) / numArr.length;
 };
 
 anything.prototype.mean = mean;
