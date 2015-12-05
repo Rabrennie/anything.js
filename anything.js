@@ -5,6 +5,27 @@
         this.version = "0.0.1"
 
     }
+    
+    function addTwoThings(thingOne,thingTwo) {
+
+        return thingOne+thingTwo
+
+    }
+    function subtractTwoThings(thingOne,thingTwo) {
+
+        return thingOne-thingTwo
+
+    }
+    function divideTwoThings(thingOne,thingTwo) {
+
+        return thingOne/thingTwo
+
+    }
+    function multiplyTwoThings(thingOne,thingTwo) {
+
+        return thingOne*thingTwo
+
+    }
 
     //Functions go here
     var doTheThing = function() {
@@ -39,7 +60,7 @@
         alert("Hey. Uhh.. Hello.")
     }
 
-    var hash = function(message) {
+    function hash(message) {
         return message.length.toString(16);
     }
 
