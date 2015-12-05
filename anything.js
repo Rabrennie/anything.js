@@ -81,6 +81,7 @@
     {
         return 4; // chosen by fair dice roll
                   // guaranteed to be random
+        //from https://xkcd.com/221/
     }
 
     var everything = function()
