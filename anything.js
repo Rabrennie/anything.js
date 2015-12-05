@@ -7,7 +7,7 @@
  | (_| | | | | |_| | |_| | | | | | | | (_| |_ | \__ \
   \__,_|_| |_|\__, |\__|_| |_|_|_| |_|\__, (_)/ |___/
               |___/                   |___/ |__/
-     */ 
+     */
 
     function anything() {
 
@@ -326,13 +326,6 @@
       }
     }
 
-    var dezombofy = function () {
-        $('#zombocontainer').delete();
-    }
-    var zombofy = function () {
-        $('body').append('<div id="zombocontainer"><style>.ball,.spinner{height:100px;width:100px}.spinner{margin:100px auto;position:relative}.ball{left:50%;top:50%;background:rgba(0,255,0,.5);border-radius:50%;float:left;position:absolute}.ball-1{background:rgba(255,0,0,.5);top:0;left:50%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-2{background:rgba(0,255,0,.5);top:50%;left:100%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-3{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-4{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}.ball-5{background:rgba(255,0,0,.5);top:25;left:75%;animation:ball1 1s 0s ease infinite;z-index:1}.ball-6{background:rgba(0,255,0,.5);top:75%;left:125%;animation:ball2 1s 0s ease infinite;z-index:2}.ball-7{background:rgba(0,0,255,.5);top:100%;left:50%;animation:ball3 1s 0s ease infinite;z-index:1}.ball-8{background:rgba(255,255,0,.5);top:50%;left:0;animation:ball4 1s 0s ease infinite;z-index:2}@keyframes ball1{50%{top:-100%;left:200%;background:rgba(127,127,0,.5)}100%{top:50%;left:100%;background:rgba(0,255,0,.5);z-index:2}}@keyframes ball2{50%{top:200%;left:200%;background:rgba(0,255,255,.5)}100%{top:100%;left:50%;background:rgba(0,0,255,.5);z-index:1}}@keyframes ball3{50%{top:200%;left:-100%;background:rgba(255,0,255,.5)}100%{top:50%;left:0;background:rgba(255,255,0,.5);z-index:2}}@keyframes ball4{50%{top:-100%;left:-100%;background:rgba(255,127,0,.5)}100%{top:0;left:50%;background:rgba(255,0,0,.5);z-index:1}}</style></div> <div class="spinner"> <div class="ball"></div> <div class="ball ball-1"></div> <div class="ball ball-2"></div> <div class="ball ball-3"></div> <div class="ball ball-4"></div> </div> <header> <span id=\'red\'>Z</span> <span id=\'orange\'>o</span> <span id=\'blue\'>m</span> <span id=\'purple\'>b</span> <span id=\'aqua\'>o</span> <span id=\'blue\'>.</span> <span id=\'orange\'>c</span> <span id=\'green\'>o</span> <span id=\'blue\'>m</span> </header></div>');
-    }
-
     var nothing = function() {
 		    noop();
 	  }
@@ -368,23 +361,20 @@
 		return sorted;
 	}
 
-	var errorReason = [
-		'critical underbyte',
-		'underflow corrosion',
-		'error 13',
-		'null',
-		'under/over FILO stack recession',
-		'halt',
-		'hive mind connection reset',
-		'critical mass acquired',
-		'windows has ran out of the force',
-		'insufficient qi',
-		'unacceptable sacrifice'
-	];
-	var guaranteedError = function() {
+  var async_doThingTomorrow = function(cb) {
+		var now = new Date();
+		var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
 		setTimeout(function() {
-			throw new Error(errorReason[Math.floor(Math.random() * errorReason.length)]);
-		}, Math.floor(Math.random() * 10000));
+			cb(new Date());
+		},  tomorrow - now);
+	}
+
+	var writeTomorrowDate = function() {
+		async_doThingTomorrow(function(tomorrow) {
+			document.write(tomorrow.toString());
+		});
 	}
 
     //prototypes go here
@@ -414,7 +404,8 @@
     anything.prototype.g = g;
     anything.prototype.nothing = nothing;
     anything.prototype.divSort = divSort;
-    anything.prototype.guaranteedError = guaranteedError;
+    anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
+    anything.prototype.writeTomorrowDate = writeTomorrowDate;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
