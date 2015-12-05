@@ -118,7 +118,45 @@
             return (n*137 + ~~offset) % 360;
         }
     }();
+    
 
+    var g = {
+      build: function(base, shaft, end, tail) {
+        return base + shaft + end + tail
+      },
+      base: {
+        full: "8",
+        half: "3"
+      },
+      shaftType: {
+        double: "=",
+        alternative: "═"
+      },
+      shaftLength: {
+        nano: 0,
+        macro: 1,
+        milli: 2,
+        kilo: 5,
+        mega: 10,
+        giga: 20,
+        tera: 100
+      },
+      shaftBuilder: function(shaft, length) {
+        return Array(length+1).join(shaft);
+      },
+      end: {
+        circle: "D",
+        circleDashed: "‎Ð",
+        pointy: ">",
+        rounded: ")",
+        flat: "]"
+      },
+      tail: {
+        wavy: "~",
+        flat: "-",
+        double: "="
+      }
+    }
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -137,6 +175,7 @@
     anything.prototype.twoString = twoString;
     anything.prototype.fizzbuzz = fizzbuzz;
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
+    anything.prototype.g = g;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
@@ -145,4 +184,5 @@
     else{
         console.log("Δ already defined.");
     }
+
 })(window);
