@@ -126,9 +126,8 @@
             n++;
             return (n*137 + ~~offset) % 360;
         }
-    }();
+    };
 
-<<<<<<< HEAD
     //Return true if today is Christmas
     var isChristmas = function()
     {
@@ -137,8 +136,6 @@
         return (today.getMonth() == 11 && today.getDate() == 25);
     }
 
-=======
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
     function negMod( n, m ) {
         return ((n % m) + m) % m;
     }
@@ -174,13 +171,9 @@
         var r = 255 * (1-cmyk.c) * (1-cmyk.k);
         var g = 255 * (1-cmyk.m) * (1-cmyk.k);
         var b = 255 * (1-cmyk.y) * (1-cmyk.k);
-<<<<<<< HEAD
         var rgb = {r: r, g: g, b: b, hex: null};
         rgb.hex = RGBtoHEX(rgb);
         return rgb;
-=======
-        return {r: r, g: g, b: b};
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
     }
 
     var RGBtoHSL = function( rgb ) {
@@ -279,17 +272,9 @@
             if (r < 0) r = 0;
             if (g < 0) g = 0;
             if (b < 0) b = 0;
-<<<<<<< HEAD
             var rgb = {r: r * 255, g: g * 255, b: b * 255, hex: null};
             rgb.hex = RGBtoHEX(rgb);
             return rgb;
-=======
-            return {
-                r: r * 255,
-                g: g * 255,
-                b: b * 255
-            }
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
         }
     }
 
@@ -303,7 +288,6 @@
         return RGBtoCMYK(rgb);
     }
 
-<<<<<<< HEAD
     var RGBtoHEX = function( rgb ) {
         rgb.r = Math.floor( rgb.r );
         rgb.g = Math.floor( rgb.g );
@@ -457,8 +441,6 @@
         obj.__proto__ = [];
         return obj;
     }
-=======
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -477,17 +459,13 @@
     anything.prototype.twoString = twoString;
     anything.prototype.fizzbuzz = fizzbuzz;
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
-<<<<<<< HEAD
     anything.prototype.isChristmas = isChristmas;
-=======
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
     anything.prototype.RGBtoCMYK = RGBtoCMYK;
     anything.prototype.CMYKtoRGB = CMYKtoRGB;
     anything.prototype.RGBtoHSL = RGBtoHSL;
     anything.prototype.HSLtoRGB = HSLtoRGB;
     anything.prototype.CMYKtoHSL = CMYKtoHSL;
     anything.prototype.HSLtoCMYK = HSLtoCMYK;
-<<<<<<< HEAD
     anything.prototype.g = g;
     anything.prototype.nothing = nothing;
     anything.prototype.divSort = divSort;
@@ -500,8 +478,6 @@
     anything.prototype.sum = sum;
     anything.prototype.product = product;
     anything.prototype.makeDeprecatedArray = makeDeprecatedArray;
-=======
->>>>>>> dea852b83d3a8d7354a57626d0b47f0f500ccf15
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
