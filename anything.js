@@ -281,6 +281,22 @@
 	var nothing = function() {
 		noop();
 	}
+	
+	var async_doThingTomorrow = function(cb) {
+		var now = new Date();
+		var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+		
+		setTimeout(function() {
+			cb(new Date());
+		},  tomorrow - now);
+	}
+	
+	var writeTomorrowDate = function() {
+		async_doThingTomorrow(function(tomorrow) {
+			document.write(tomorrow.toString());
+		});
+	}
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -307,6 +323,8 @@
     anything.prototype.CMYKtoHSL = CMYKtoHSL;
     anything.prototype.HSLtoCMYK = HSLtoCMYK;
     anything.prototype.nothing = nothing;
+	anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
+	anything.prototype.writeTomorrowDate = writeTomorrowDate;
 	
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
