@@ -24,7 +24,7 @@ I think it will be interesting to see what people want to add to this. Obviously
 1. Push ( git push -u origin your-feature )
 1. Pull Request ( https://help.github.com/articles/using-pull-requests/ )
 
-if you've already forked the repo make sure to get updates from upstream ( https://help.github.com/articles/syncing-a-fork/ )
+If you've already forked the repo make sure to get updates from upstream. See [this resource](https://help.github.com/articles/syncing-a-fork/) for a guide.
 
 Please make sure that your commit adheres to the coding style we're already using.
 # IRC
