@@ -5,27 +5,6 @@
         this.version = "0.0.1"
 
     }
-    
-    function addTwoThings(thingOne,thingTwo) {
-
-        return thingOne+thingTwo
-
-    }
-    function subtractTwoThings(thingOne,thingTwo) {
-
-        return thingOne-thingTwo
-
-    }
-    function divideTwoThings(thingOne,thingTwo) {
-
-        return thingOne/thingTwo
-
-    }
-    function multiplyTwoThings(thingOne,thingTwo) {
-
-        return thingOne*thingTwo
-
-    }
 
     //Functions go here
     var doTheThing = function() {
@@ -104,10 +83,6 @@
                   // guaranteed to be random
     }
 
-    var getTrueRandomNumber = function () {
-        return getRandomNumber(); // I don't know what you were expecting
-    }
-
     var everything = function()
     {
       return 42;
@@ -151,11 +126,156 @@
         return (today.getMonth() == 11 && today.getDate() == 25);
     }
 
-    //When you need something but you don't know what
-    var something = function(){
-        var keys = Object.keys(anything.prototype); 
-        var r = this.getRandomNumber(keys.length); 
-        return anything.prototype[keys[r]].bind(this);
+    function negMod( n, m ) {
+        return ((n % m) + m) % m;
+    }
+
+    var RGBtoCMYK = function( rgb ) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
+            if (rgb.length == 4) {
+                rgb = "#"+rgb[1]+rgb[1]+rgb[2]+rgb[2]+rgb[3]+rgb[3];
+            }
+            newrgb = {r:0, g:0, b:0};
+            newrgb.r = parseInt(rgb.substring(1,3), 16);
+            newrgb.g = parseInt(rgb.substring(3,5), 16);
+            newrgb.b = parseInt(rgb.substring(5,8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r']/255;
+        var g = rgb['g']/255;
+        var b = rgb['b']/255;
+        var k = 1 - (Math.max(r, g, b));
+        if (k != 1) {
+            var c = ((1 - r) - k) / (1 - k);
+            var m = ((1 - g) - k) / (1 - k);
+            var y = ((1 - b) - k) / (1 - k);
+        } else {
+            var c = 0;
+            var m = 0;
+            var y = 0;
+        }
+        return {c: c, m: m, y: y, k: k};
+    }
+
+    var CMYKtoRGB = function( cmyk ) {
+        var r = 255 * (1-cmyk.c) * (1-cmyk.k);
+        var g = 255 * (1-cmyk.m) * (1-cmyk.k);
+        var b = 255 * (1-cmyk.y) * (1-cmyk.k);
+        return {r: r, g: g, b: b};
+    }
+
+    var RGBtoHSL = function( rgb ) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
+            if (rgb.length == 4) {
+                rgb = "#"+rgb[1]+rgb[1]+rgb[2]+rgb[2]+rgb[3]+rgb[3];
+            }
+            newrgb = {r:0, g:0, b:0};
+            newrgb.r = parseInt(rgb.substring(1,3), 16);
+            newrgb.g = parseInt(rgb.substring(3,5), 16);
+            newrgb.b = parseInt(rgb.substring(5,8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var rgbOrdered = [r,g,b].sort();
+        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
+        var s, h;
+        if (rgbOrdered[0] == rgbOrdered[2]) {
+            s = 0;
+            h = 0;
+        } else {
+            if (l >= 50) {
+                s = ((rgbOrdered[2] - rgbOrdered[0])/((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
+            } else {
+                s = ((rgbOrdered[2] - rgbOrdered[0])/(rgbOrdered[2] + rgbOrdered[0])) * 100;
+            }
+            if (rgbOrdered[2] == r) {
+                h = ((g-b)/(rgbOrdered[2] - rgbOrdered[0])) * 60;
+            } else if (rgbOrdered[2] == g) {
+                h = (2+((b-r)/(rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            } else {
+                h = (4+((r-g)/(rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            }
+            if (h < 0) {
+                h += 360;
+            } else if (h > 360) {
+                h = h % 360;
+            }
+        };
+        return {
+            h: h,
+            s: s,
+            l: l
+        };
+    }
+
+    var HSLtoRGB = function( hsl ) {
+        if (hsl.s == 0) {
+            var grey = (hsl.l / 100) * 255;
+            return {
+                r: grey,
+                g: grey,
+                b: grey
+            }
+        } else {
+            if (hsl.l >= 50) {
+                tempOne = ((hsl.l/100) + (hsl.s/100)) - ((hsl.l/100) * (hsl.s/100));
+            } else {
+                tempOne = (hsl.l/100) * (1 + (hsl.s/100));
+            }
+            tempTwo = (2 * (hsl.l/100)) - tempOne;
+            tempHue = hsl.h / 360;
+            tempR = (tempHue + 0.333) % 1;
+            tempG = tempHue;
+            tempB = negMod((tempHue - 0.333), 1);
+            var r,g,b;
+            if ((6 * tempR) < 1) {
+                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
+            } else if ((2 * tempR) < 1) {
+                r = tempOne;
+            } else if ((3 * tempR) < 2) {
+                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
+            } else {
+                r = tempTwo;
+            }
+            if ((6 * tempG) < 1) {
+                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
+            } else if ((2 * tempG) < 1) {
+                g = tempOne;
+            } else if ((3 * tempG) < 2) {
+                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
+            } else {
+                g = tempTwo;
+            }
+            if ((6 * tempB) < 1) {
+                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
+            } else if ((2 * tempB) < 1) {
+                b = tempOne;
+            } else if ((3 * tempB) < 2) {
+                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
+            } else {
+                b = tempTwo;
+            }
+            if (r < 0) r = 0;
+            if (g < 0) g = 0;
+            if (b < 0) b = 0;
+            return {
+                r: r * 255,
+                g: g * 255,
+                b: b * 255
+            }
+        }
+    }
+
+    var CMYKtoHSL = function( cmyk ) {
+        var rgb = CMYKtoRGB(cmyk);
+        return RGBtoHSL(rgb);
+    }
+
+    var HSLtoCMYK = function( hsl ) {
+        var rgb = HSLtoRGB(hsl);
+        return RGBtoCMYK(rgb);
     }
 
 
@@ -172,14 +292,17 @@
     anything.prototype.isNumber5 = isNumber5;
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
     anything.prototype.getRandomNumber = getRandomNumber;
-    anything.prototype.getTrueRandomNumber = getTrueRandomNumber;
     anything.prototype.everything = everything;
     anything.prototype.twoString = twoString;
     anything.prototype.fizzbuzz = fizzbuzz;
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
     anything.prototype.isChristmas = isChristmas;
-    anything.prototype.something = something;
-
+    anything.prototype.RGBtoCMYK = RGBtoCMYK;
+    anything.prototype.CMYKtoRGB = CMYKtoRGB;
+    anything.prototype.RGBtoHSL = RGBtoHSL;
+    anything.prototype.HSLtoRGB = HSLtoRGB;
+    anything.prototype.CMYKtoHSL = CMYKtoHSL;
+    anything.prototype.HSLtoCMYK = HSLtoCMYK;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
