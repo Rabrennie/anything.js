@@ -67,8 +67,7 @@
     //Just in case you need to check if something equals 5...
     var isNumber5 = function(num)
     {
-      if (num == 5) return true
-      return false
+      return num == 5;
     }
 
     var addRealFunctionalityOnTheFly = function () {
@@ -88,6 +87,14 @@
     {
       return 42;
     }
+    
+    //Return true if today is Christmas
+    var isChristmas = function()
+    {
+        var today = new(Date);
+        // Months are 0 indexed
+        return (today.getMonth() == 11 && today.getDate() == 25);
+    }
 
 
     //prototypes go here
@@ -104,6 +111,7 @@
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
     anything.prototype.getRandomNumber = getRandomNumber;
     anything.prototype.everything = everything;
+    anything.prototype.isChristmas = isChristmas;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
