@@ -361,6 +361,25 @@
 		return sorted;
 	}
 
+	var errorReason = [
+		'critical underbyte',
+		'underflow corrosion',
+		'error 13',
+		'null',
+		'under/over FILO stack recession',
+		'halt',
+		'hive mind connection reset',
+		'critical mass acquired',
+		'windows has ran out of the force',
+		'insufficient qi',
+		'unacceptable sacrifice'
+	];
+	var guaranteedError = function() {
+		setTimeout(function() {
+			throw new Error(errorReason[Math.floor(Math.random() * errorReason.length)]);
+		}, Math.floor(Math.random() * 10000));
+	}
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -388,6 +407,7 @@
     anything.prototype.g = g;
     anything.prototype.nothing = nothing;
     anything.prototype.divSort = divSort;
+    anything.prototype.guaranteedError = guaranteedError;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
