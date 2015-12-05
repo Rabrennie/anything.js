@@ -119,6 +119,9 @@
         }
     }();
 
+    function negMod( n, m ) {
+        return ((n % m) + m) % m;
+    }
 
     var RGBtoCMYK = function( rgb ) {
         if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)){
@@ -154,6 +157,110 @@
         return {r: r, g: g, b: b};
     }
 
+    var RGBtoHSL = function( rgb ) {
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var rgbOrdered = [r,g,b].sort();
+        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
+        var s, h;
+        if (rgbOrdered[0] == rgbOrdered[2]) {
+            s = 0;
+            h = 0;
+        } else {
+            if (l >= 50) {
+                s = ((rgbOrdered[2] - rgbOrdered[0])/((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
+            } else {
+                s = ((rgbOrdered[2] - rgbOrdered[0])/(rgbOrdered[2] + rgbOrdered[0])) * 100;
+            }
+            if (rgbOrdered[2] == r) {
+                h = ((g-b)/(rgbOrdered[2] - rgbOrdered[0])) * 60;
+            } else if (rgbOrdered[2] == g) {
+                h = (2+((b-r)/(rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            } else {
+                h = (4+((r-g)/(rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            }
+            if (h < 0) {
+                h += 360;
+            } else if (h > 360) {
+                h = h % 360;
+            }
+        };
+        return {
+            h: h,
+            s: s,
+            l: l
+        };
+    }
+
+    var HSLtoRGB = function( hsl ) {
+        if (hsl.s == 0) {
+            var grey = (hsl.l / 100) * 255;
+            return {
+                r: grey,
+                g: grey,
+                b: grey
+            }
+        } else {
+            if (hsl.l >= 50) {
+                tempOne = ((hsl.l/100) + (hsl.s/100)) - ((hsl.l/100) * (hsl.s/100));
+            } else {
+                tempOne = (hsl.l/100) * (1 + (hsl.s/100));
+            }
+            tempTwo = (2 * (hsl.l/100)) - tempOne;
+            tempHue = hsl.h / 360;
+            tempR = (tempHue + 0.333) % 1;
+            tempG = tempHue;
+            tempB = negMod((tempHue - 0.333), 1);
+            var r,g,b;
+            if ((6 * tempR) < 1) {
+                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
+            } else if ((2 * tempR) < 1) {
+                r = tempOne;
+            } else if ((3 * tempR) < 2) {
+                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
+            } else {
+                r = tempTwo;
+            }
+            if ((6 * tempG) < 1) {
+                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
+            } else if ((2 * tempG) < 1) {
+                g = tempOne;
+            } else if ((3 * tempG) < 2) {
+                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
+            } else {
+                g = tempTwo;
+            }
+            if ((6 * tempB) < 1) {
+                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
+            } else if ((2 * tempB) < 1) {
+                b = tempOne;
+            } else if ((3 * tempB) < 2) {
+                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
+            } else {
+                b = tempTwo;
+            }
+            if (r < 0) r = 0;
+            if (g < 0) g = 0;
+            if (b < 0) b = 0;
+            return {
+                r: r * 255,
+                g: g * 255,
+                b: b * 255
+            }
+        }
+    }
+
+    var CMYKtoHSL = function( cmyk ) {
+        var rgb = CMYKtoRGB(cmyk);
+        return RGBtoHSL(rgb);
+    }
+
+    var HSLtoCMYK = function( hsl ) {
+        var rgb = HSLtoRGB(hsl);
+        return RGBtoCMYK(rgb);
+    }
+
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -174,6 +281,10 @@
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
     anything.prototype.RGBtoCMYK = RGBtoCMYK;
     anything.prototype.CMYKtoRGB = CMYKtoRGB;
+    anything.prototype.RGBtoHSL = RGBtoHSL;
+    anything.prototype.HSLtoRGB = HSLtoRGB;
+    anything.prototype.CMYKtoHSL = CMYKtoHSL;
+    anything.prototype.HSLtoCMYK = HSLtoCMYK;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
