@@ -682,6 +682,21 @@
 
     anything.prototype.mean = mean;
 
+    function morse(string) {
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890@?.,- ";
+        var morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----", ".--.-.", "..--..", ".-.-.-", "--..--", "-....-", "   "]
+        var newString = "";
+        for (i = 0; i < string.length; i++) {
+            var index = chars.indexOf(string[i]);
+            if (index != -1) {
+                newString += morse[index] + " ";
+            }
+        }
+        return newString;
+    }
+
+    anything.prototype.morse = morse;
+
     function negMod(n, m) {
         return ((n % m) + m) % m;
     };
@@ -786,6 +801,44 @@
     }
 
     anything.prototype.rot26 = rot26;
+
+    // jquery-like simple dom wrapper.
+    var s = {
+        get: function(selector) {
+            if (typeof selector !== "string" || selector.length < 2)
+                return false;
+            switch (selector[0]) {
+                // Class selector
+                case ".":
+                    return document.getElementsByClassName(selector.substr(1));
+                    break;
+                case "#":
+                    return document.getElementById(selector.substr(1));
+                    break;
+                default:
+                    return document.getElementsByTagName(selector);
+                    break;
+            }
+        },
+        iterate: function(coll, action) {
+            for (var i = 0; i < coll.length; i++) {
+                action(coll[i]);
+            }
+        },
+        setAll: function(name, val) {
+            var takeAction = function(el) {
+                el.innerHTML = val;
+            };
+            var r = s.get(name);
+            if (r instanceof HTMLCollection) {
+                s.iterate(r, takeAction);
+            } else {
+                takeAction(r);
+            }
+        }
+    };
+
+    anything.prototype.s = s;
 
     // Usage
     //sheet.insertRule("header { float: left; opacity: 0.8; }", 1);
