@@ -53,6 +53,17 @@
       return undefined;
     }
 
+    var noop = function () {
+    };
+
+    var self = function () {
+        return this;
+    }
+
+    var Δ = function () {
+        return new anything();
+    }
+
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
@@ -60,6 +71,9 @@
     anything.prototype.greetHannah = greetHannah;
     anything.prototype.hash = hash;
     anything.prototype.find = find;
+    anything.prototype.noop = noop;
+    anything.prototype.self = self;
+    anything.prototype.Δ = Δ;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
