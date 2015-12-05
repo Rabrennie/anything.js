@@ -30,14 +30,14 @@
       document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
       old_info.apply(this, arguments)
     }
-	
+
 	var RunThisBitch = function(){
 		document.getElementById('opt').innerHTML = '';
 		eval(myCodeMirror.getValue());
 	}
-	
+
 	var dOpt = function(){
-		
+
 	}
 
     </script>
@@ -51,7 +51,7 @@
 console.log(Δ.flipText("anything!"));</textarea>
     <script>
         var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
-        extraKeys: {"Ctrl-Space": "autocomplete"},
+        extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
         mode: {name: "javascript", globalVars: true},
         });
     var orig = CodeMirror.hint.javascript;
