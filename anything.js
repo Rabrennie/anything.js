@@ -360,6 +360,11 @@
 
 		return sorted;
 	}
+    
+    var isTrue = function(statement) {
+        // Everybody lies (House, 2004)
+        return false;
+    }
 
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
@@ -388,6 +393,7 @@
     anything.prototype.g = g;
     anything.prototype.nothing = nothing;
     anything.prototype.divSort = divSort;
+    anything.prototype.isTrue = isTrue;
 
     //put that shit where everyone can see it.
     if(typeof(window.Δ) === 'undefined'){
