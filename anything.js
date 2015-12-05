@@ -38,12 +38,18 @@
     {
         alert("Hey. Uhh.. Hello.")
     }
+	
+	var twoString = function()
+	{
+		return "2";
+	}
     
     //prototypes go here
     anything.prototype.doTheThing = doTheThing;
     anything.prototype.flipText = flipText;
     anything.prototype.getOffMyLawn = getOffMyLawn;
     anything.prototype.greetHannah = greetHannah;
+	anything.prototype.twoString = twoString;
 
     //put that shit where everyone can see it. 
     if(typeof(window.Δ) === 'undefined'){
