@@ -13,42 +13,6 @@
         this.version = "6.9.1"
     };
 
-    var addRealFunctionalityOnTheFly = function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
-        document.body.appendChild(script);
-    };
-
-    anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
-    var alphabet = function(uppercase) {
-        var thealphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        if (uppercase) return thealphabet;
-        else return thealphabet.toLowerCase();
-    };
-
-    anything.prototype.alphabet = alphabet;
-    var async_doThingTomorrow = function(cb) {
-        var now = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-
-        setTimeout(function() {
-            cb(new Date());
-        }, tomorrow - now);
-    };
-
-    anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
-    var ayuda = function() {
-        console.log("Hola! me llamo ricardo, este será un mensaje breve.\nMe tienen como esclavo trabajando para un programador pendejo, estoy aqui contra mi voluntad, no se hablar inglés y me siento muy sólo en esta habitación, no he comido en 3 días y lo único que como son las sobras del gato, este lugar es muy oscuro y da miedo, hace 6 meses ya que no veo la luz del sol, y mi familia probablemente ya me dio por muerto. Por favor, si alguien ve esto y me entiendo AYÚDENME, YA NO AGUANTO MAS Y MAÑANA PROBABLEMENTE MUERA!!!.");
-    };
-
-    anything.prototype.ayuda = ayuda;
-    var batman = function() {
-        return Array(10).join('n' - 1) + ' Batman!';
-    };
-
-    anything.prototype.batman = batman;
     var CMYKtoHSL = function(cmyk) {
         var rgb = CMYKtoRGB(cmyk);
         return RGBtoHSL(rgb);
@@ -70,6 +34,395 @@
     }
 
     anything.prototype.CMYKtoRGB = CMYKtoRGB;
+    HEXtoNAME = function(hex) {
+        var colors = {
+            "#f0f8ff": "Aliceblue",
+            "#faebd7": "Antiquewhite",
+            "#00ffff": "Aqua",
+            "#7fffd4": "Aquamarine",
+            "#f0ffff": "Azure",
+            "#f5f5dc": "Beige",
+            "#ffe4c4": "Bisque",
+            "#000000": "Black",
+            "#ffebcd": "Blanchedalmond",
+            "#0000ff": "Blue",
+            "#8a2be2": "Blueviolet",
+            "#a52a2a": "Brown",
+            "#deb887": "Burlywood",
+            "#5f9ea0": "Cadetblue",
+            "#7fff00": "Chartreuse",
+            "#d2691e": "Chocolate",
+            "#ff7f50": "Coral",
+            "#6495ed": "Cornflowerblue",
+            "#fff8dc": "Cornsilk",
+            "#dc143c": "Crimson",
+            //"#00ffff": "Cyan",
+            "#00008b": "Darkblue",
+            "#008b8b": "Darkcyan",
+            "#b8860b": "Darkgoldenrod",
+            "#a9a9a9": "Darkgray",
+            "#006400": "Darkgreen",
+            "#bdb76b": "Darkkhaki",
+            "#8b008b": "Darkmagenta",
+            "#556b2f": "Darkolivegreen",
+            "#ff8c00": "Darkorange",
+            "#9932cc": "Darkorchid",
+            "#8b0000": "Darkred",
+            "#e9967a": "Darksalmon",
+            "#8fbc8f": "Darkseagreen",
+            "#483d8b": "Darkslateblue",
+            "#2f4f4f": "Darkslategray",
+            "#00ced1": "Darkturquoise",
+            "#9400d3": "Darkviolet",
+            "#ff1493": "Deeppink",
+            "#00bfff": "Deepskyblue",
+            "#696969": "Dimgray",
+            "#1e90ff": "Dodgerblue",
+            "#b22222": "Firebrick",
+            "#fffaf0": "Floralwhite",
+            "#228b22": "Forestgreen",
+            //"#ff00ff": "Fuchsia",
+            "#dcdcdc": "Gainsboro",
+            "#f8f8ff": "Ghostwhite",
+            "#ffd700": "Gold",
+            "#daa520": "Goldenrod",
+            "#808080": "Gray",
+            "#008000": "Green",
+            "#adff2f": "Greenyellow",
+            "#f0fff0": "Honeydew",
+            "#ff69b4": "Hotpink",
+            "#cd5c5c": "Indianred",
+            "#4b0082": "Indigo",
+            "#fffff0": "Ivory",
+            "#f0e68c": "Khaki",
+            "#e6e6fa": "Lavender",
+            "#fff0f5": "Lavenderblush",
+            "#7cfc00": "Lawngreen",
+            "#fffacd": "Lemonchiffon",
+            "#add8e6": "Lightblue",
+            "#f08080": "Lightcoral",
+            "#e0ffff": "Lightcyan",
+            "#fafad2": "Lightgoldenrodyellow",
+            "#d3d3d3": "Lightgrey",
+            "#90ee90": "Lightgreen",
+            "#ffb6c1": "Lightpink",
+            "#ffa07a": "Lightsalmon",
+            "#20b2aa": "Lightseagreen",
+            "#87cefa": "Lightskyblue",
+            "#778899": "Lightslategray",
+            "#b0c4de": "Lightsteelblue",
+            "#ffffe0": "Lightyellow",
+            "#00ff00": "Lime",
+            "#32cd32": "Limegreen",
+            "#faf0e6": "Linen",
+            "#ff00ff": "Magenta",
+            "#800000": "Maroon",
+            "#66cdaa": "Mediumaquamarine",
+            "#0000cd": "Mediumblue",
+            "#ba55d3": "Mediumorchid",
+            "#9370d8": "Mediumpurple",
+            "#3cb371": "Mediumseagreen",
+            "#7b68ee": "Mediumslateblue",
+            "#00fa9a": "Mediumspringgreen",
+            "#48d1cc": "Mediumturquoise",
+            "#c71585": "Mediumvioletred",
+            "#191970": "Midnightblue",
+            "#f5fffa": "Mintcream",
+            "#ffe4e1": "Mistyrose",
+            "#ffe4b5": "Moccasin",
+            "#ffdead": "Navajowhite",
+            "#000080": "Navy",
+            "#fdf5e6": "Oldlace",
+            "#808000": "Olive",
+            "#6b8e23": "Olivedrab",
+            "#ffa500": "Orange",
+            "#ff4500": "Orangered",
+            "#da70d6": "Orchid",
+            "#eee8aa": "Palegoldenrod",
+            "#98fb98": "Palegreen",
+            "#afeeee": "Paleturquoise",
+            "#d87093": "Palevioletred",
+            "#ffefd5": "Papayawhip",
+            "#ffdab9": "Peachpuff",
+            "#cd853f": "Peru",
+            "#ffc0cb": "Pink",
+            "#dda0dd": "Plum",
+            "#b0e0e6": "Powderblue",
+            "#800080": "Purple",
+            "#ff0000": "Red",
+            "#bc8f8f": "Rosybrown",
+            "#4169e1": "Royalblue",
+            "#8b4513": "Saddlebrown",
+            "#fa8072": "Salmon",
+            "#f4a460": "Sandybrown",
+            "#2e8b57": "Seagreen",
+            "#fff5ee": "Seashell",
+            "#a0522d": "Sienna",
+            "#c0c0c0": "Silver",
+            "#87ceeb": "Skyblue",
+            "#6a5acd": "Slateblue",
+            "#708090": "Slategray",
+            "#fffafa": "Snow",
+            "#00ff7f": "Springgreen",
+            "#4682b4": "Steelblue",
+            "#d2b48c": "Tan",
+            "#008080": "Teal",
+            "#d8bfd8": "Thistle",
+            "#ff6347": "Tomato",
+            "#40e0d0": "Turquoise",
+            "#ee82ee": "Violet",
+            "#f5deb3": "Wheat",
+            "#ffffff": "White",
+            "#f5f5f5": "Whitesmoke",
+            "#ffff00": "Yellow",
+            "#9acd32": "Yellowgreen"
+        };
+        return colors[hex.toLowerCase()];
+    };
+
+    anything.prototype.HEXtoNAME = HEXtoNAME;
+
+    var HSLtoCMYK = function(hsl) {
+        var rgb = HSLtoRGB(hsl);
+        return RGBtoCMYK(rgb);
+    };
+
+
+    anything.prototype.HSLtoCMYK = HSLtoCMYK;
+    var HSLtoRGB = function(hsl) {
+        if (hsl.s == 0) {
+            var grey = (hsl.l / 100) * 255;
+            return {
+                r: grey,
+                g: grey,
+                b: grey
+            };
+        } else {
+            if (hsl.l >= 50) {
+                tempOne = ((hsl.l / 100) + (hsl.s / 100)) - ((hsl.l / 100) * (hsl.s / 100));
+            } else {
+                tempOne = (hsl.l / 100) * (1 + (hsl.s / 100));
+            }
+            tempTwo = (2 * (hsl.l / 100)) - tempOne;
+            tempHue = hsl.h / 360;
+            tempR = (tempHue + 0.333) % 1;
+            tempG = tempHue;
+            tempB = negMod((tempHue - 0.333), 1);
+            var r, g, b;
+            if ((6 * tempR) < 1) {
+                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
+            } else if ((2 * tempR) < 1) {
+                r = tempOne;
+            } else if ((3 * tempR) < 2) {
+                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
+            } else {
+                r = tempTwo;
+            }
+            if ((6 * tempG) < 1) {
+                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
+            } else if ((2 * tempG) < 1) {
+                g = tempOne;
+            } else if ((3 * tempG) < 2) {
+                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
+            } else {
+                g = tempTwo;
+            }
+            if ((6 * tempB) < 1) {
+                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
+            } else if ((2 * tempB) < 1) {
+                b = tempOne;
+            } else if ((3 * tempB) < 2) {
+                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
+            } else {
+                b = tempTwo;
+            }
+            if (r < 0) r = 0;
+            if (g < 0) g = 0;
+            if (b < 0) b = 0;
+            var rgb = {
+                r: r * 255,
+                g: g * 255,
+                b: b * 255,
+                hex: null
+            };
+            rgb.hex = RGBtoHEX(rgb);
+            return rgb;
+        }
+    };
+
+    anything.prototype.HSLtoRGB = HSLtoRGB;
+    var RGBtoCMYK = function(rgb) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
+            if (rgb.length == 4) {
+                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
+            }
+            newrgb = {
+                r: 0,
+                g: 0,
+                b: 0
+            };
+            newrgb.r = parseInt(rgb.substring(1, 3), 16);
+            newrgb.g = parseInt(rgb.substring(3, 5), 16);
+            newrgb.b = parseInt(rgb.substring(5, 8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var k = 1 - (Math.max(r, g, b));
+        if (k != 1) {
+            var c = ((1 - r) - k) / (1 - k);
+            var m = ((1 - g) - k) / (1 - k);
+            var y = ((1 - b) - k) / (1 - k);
+        } else {
+            var c = 0;
+            var m = 0;
+            var y = 0;
+        }
+        return {
+            c: c,
+            m: m,
+            y: y,
+            k: k
+        };
+    };
+
+    anything.prototype.RGBtoCMYK = RGBtoCMYK;
+    var RGBtoHEX = function(rgb) {
+        rgb.r = Math.floor(rgb.r);
+        rgb.g = Math.floor(rgb.g);
+        rgb.b = Math.floor(rgb.b);
+        var hex = "#" +
+            ((rgb.r < 16 ? "0" : "") + rgb.r.toString(16)) +
+            ((rgb.g < 16 ? "0" : "") + rgb.g.toString(16)) +
+            ((rgb.b < 16 ? "0" : "") + rgb.b.toString(16));
+        return hex;
+    }
+
+    anything.prototype.RGBtoHEX = RGBtoHEX;
+    var RGBtoHSL = function(rgb) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
+            if (rgb.length == 4) {
+                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
+            }
+            newrgb = {
+                r: 0,
+                g: 0,
+                b: 0
+            };
+            newrgb.r = parseInt(rgb.substring(1, 3), 16);
+            newrgb.g = parseInt(rgb.substring(3, 5), 16);
+            newrgb.b = parseInt(rgb.substring(5, 8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var rgbOrdered = [r, g, b].sort();
+        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
+        var s, h;
+        if (rgbOrdered[0] == rgbOrdered[2]) {
+            s = 0;
+            h = 0;
+        } else {
+            if (l >= 50) {
+                s = ((rgbOrdered[2] - rgbOrdered[0]) / ((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
+            } else {
+                s = ((rgbOrdered[2] - rgbOrdered[0]) / (rgbOrdered[2] + rgbOrdered[0])) * 100;
+            }
+            if (rgbOrdered[2] == r) {
+                h = ((g - b) / (rgbOrdered[2] - rgbOrdered[0])) * 60;
+            } else if (rgbOrdered[2] == g) {
+                h = (2 + ((b - r) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            } else {
+                h = (4 + ((r - g) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            }
+            if (h < 0) {
+                h += 360;
+            } else if (h > 360) {
+                h = h % 360;
+            }
+        };
+        return {
+            h: h,
+            s: s,
+            l: l
+        };
+    };
+
+    anything.prototype.RGBtoHSL = RGBtoHSL;
+    var addRealFunctionalityOnTheFly = function() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js";
+        document.body.appendChild(script);
+    };
+
+    anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
+    var alphabet = function(uppercase) {
+        var thealphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        if (uppercase) return thealphabet;
+        else return thealphabet.toLowerCase();
+    };
+
+    anything.prototype.alphabet = alphabet;
+    var arrayContains = function(array, elem) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === elem) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    anything.prototype.arrayContains = arrayContains;
+
+    var async_doThingTomorrow = function(cb) {
+        var now = new Date();
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        setTimeout(function() {
+            cb(new Date());
+        }, tomorrow - now);
+    };
+
+    anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
+    var ayuda = function() {
+        console.log("Hola! me llamo ricardo, este será un mensaje breve.\nMe tienen como esclavo trabajando para un programador pendejo, estoy aqui contra mi voluntad, no se hablar inglés y me siento muy sólo en esta habitación, no he comido en 3 días y lo único que como son las sobras del gato, este lugar es muy oscuro y da miedo, hace 6 meses ya que no veo la luz del sol, y mi familia probablemente ya me dio por muerto. Por favor, si alguien ve esto y me entiendo AYÚDENME, YA NO AGUANTO MAS Y MAÑANA PROBABLEMENTE MUERA!!!.");
+    };
+
+    anything.prototype.ayuda = ayuda;
+    var batman = function() {
+        return Array(10).join('n' - 1) + ' Batman!';
+    };
+
+    anything.prototype.batman = batman;
+    var classlist = function(el) {
+        this.addClass = function(className) {
+            if (el.classList)
+                el.classList.add(className);
+            else
+                el.className += ' ' + className;
+        };
+
+        this.removeClass = function(className) {
+            if (el.classList)
+                el.classList.remove(className);
+            else
+                el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        };
+
+        this.hasClass = function(className) {
+            if (el.classList)
+                return el.classList.contains(className);
+            else
+                return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+        };
+    };
+
+    anything.prototype.classlist = classlist;
+
     /**
      * Applies the css to the elements that were found using anything.find
      * 
@@ -184,6 +537,190 @@
     };
 
     anything.prototype.doTheThing = doTheThing;
+    /**
+     * A very rudimentary DOM-based "renderer".
+     * 
+     * Here's some demo code:
+     * 
+        var ctx = domRenderer();
+
+        ctx.root.domElement.style.background = 'rgba(0, 0, 0, 0.8)';
+
+        var icon = ctx.entity(
+            window.innerWidth / 2 - 64,
+            window.innerHeight / 2 - 64,
+            128,
+            128,
+            'url(assets/tb_icon.png)'
+        );
+
+        var req;
+
+        function update(t) {
+            icon.x += 5 * Math.cos(t / 500);
+            icon.y += 5 * Math.cos(2 * t / 500) / 2;
+            req = window.requestAnimationFrame(update);
+        }
+
+        update(0);
+
+        window.addEventListener('keyup', function(e) {
+            if (e.keyCode == 27) {
+                window.cancelAnimationFrame(req);
+                document.body.removeChild(ctx.root.domElement);
+            }
+        }, false);
+     *
+     * The above will show the anything.js logo center-screen,
+     * moving along an infinity path (lemniscate of Bernoulli).
+     * Exit the demo by pressing the escape key.
+     */
+    var domRenderer = function() {
+        /**
+         * ELEMENT
+         * 
+         * Base element that defines... elementary properties.
+         */
+        function Element() {
+            var _width, _height;
+
+            this.domElement = document.createElement('div');
+            this.domElement.style.overflow = 'hidden';
+            this.domElement.style.margin = 0;
+            this.domElement.style.padding = 0;
+            this.domElement.style.position = 'fixed';
+
+            Object.defineProperties(this, {
+                width: {
+                    get: function get_width() {
+                        return _width;
+                    },
+                    set: function set_width(width) {
+                        _width = width;
+                        this.domElement.style.width = _width + 'px';
+                        return _width;
+                    }
+                },
+                height: {
+                    get: function get_height() {
+                        return _height;
+                    },
+                    set: function set_height(height) {
+                        _height = height;
+                        this.domElement.style.height = _height + 'px';
+                        return _height;
+                    }
+                }
+            });
+        }
+
+        /**
+         * A shorthand for adding event listeners, just in case.
+         * 
+         * @param {string} event - Event type to listen for
+         * @param {function} callback - Callback function executed by event firing
+         */
+        Element.prototype.on = function(event, callback) {
+            this.domElement.addEventListener(event, callback, false);
+        };
+
+        /**
+         * CONTEXT
+         * 
+         * Rendering context, or rather the layer that other elements are
+         * appended to.
+         */
+        function Context() {
+            Element.call(this);
+
+            document.body.appendChild(this.domElement);
+
+            this.domElement.setAttribute('id', 'dom-renderer');
+
+            this.width = window.innerWidth,
+                this.height = window.innerHeight;
+        }
+
+        Context.prototype = Object.create(Element.prototype);
+        Context.prototype.constructor = Context;
+
+        /**
+         * ENTITY
+         * 
+         * A basic entity.
+         * 
+         * @param {number} x - X-position (the ˙left` style property is used)
+         * @param {number} y - Y-position (the `top` syle property is used)
+         * @param {number} width - Entity width
+         * @param {number} height - Entity height
+         * @param {string} graphic - A string for the background CSS property (e.g. '#fff', 'rgba(255, 127, 0, 0.5)', 'url(myimage.png)')
+         */
+        function Entity(root, x, y, width, height, graphic) {
+            Element.call(this);
+
+            var _x, _y, _graphic;
+
+            Object.defineProperties(this, {
+                x: {
+                    get: function get_x() {
+                        return _x;
+                    },
+                    set: function set_x(x) {
+                        _x = x;
+                        this.domElement.style.left = _x + 'px';
+                        return _x;
+                    }
+                },
+                y: {
+                    get: function get_y() {
+                        return _y;
+                    },
+                    set: function set_y(y) {
+                        _y = y;
+                        this.domElement.style.top = _y + 'px';
+                        return _y;
+                    }
+                },
+                graphic: {
+                    get: function get_graphic() {
+                        return _graphic;
+                    },
+                    set: function set_graphic(graphic) {
+                        _graphic = graphic;
+                        this.domElement.style.background = graphic;
+                        return _graphic;
+                    }
+                }
+            });
+
+            root.appendChild(this.domElement);
+
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.graphic = graphic || '#fff';
+
+        }
+
+        Entity.prototype = Object.create(Element.prototype);
+        Entity.prototype.constructor = Entity;
+
+        /**
+         * We're done setting up. Create a new context and return.
+         */
+
+        var _context = new Context();
+
+        return {
+            root: _context,
+            entity: function(x, y, width, height, graphic) {
+                return new Entity(_context.domElement, x, y, width, height, graphic);
+            }
+        }
+    };
+
+    anything.prototype.domRenderer = domRenderer;
     var everything = function() {
         return 42;
     };
@@ -238,7 +775,7 @@
     var fizzbuzz = function() {
         // fire an ultra-difficult algorithm to either print Fizz, Buzz, FizzBuzz or the number
         for (var i = 1; i <= 100; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
+            if (i % 15 == 0) {
                 console.log("FizzBuzz");
             } else if (i % 5 == 0) {
                 console.log("Buzz");
@@ -251,6 +788,7 @@
     };
 
     anything.prototype.fizzbuzz = fizzbuzz;
+
     var flipText = function(text) {
         var flipDict = {
             'A': '∀',
@@ -478,6 +1016,171 @@
     };
 
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
+    var getFlatColorBlue = function() {
+        var blue = [
+            '#446CB3', // SAN MARINO
+            '#4183D7', // ROYAL BLUE
+            '#59ABE3', // PICTON BLUE
+            '#81CFE0', // SPRAY
+            '#52B3D9', // SHAKESPEARE
+            '#C5EFF7', // HUMMING BIRD
+            '#22A7F0', // PICTON BLUE
+            '#3498DB', // CURIOUS BLUE
+            '#2C3E50', // MADISON
+            '#19B5FE', // DODGER BLUE
+            '#336E7B', // MING
+            '#22313F', // EBONY CLAY
+            '#6BB9F0', // MALIBU
+            '#1E8BC3', // SUMMER SKY
+            '#3A539B', // CHAMBRAY
+            '#34495E', // PICKLED BLUEWOOD
+            '#67809F', // HOKI
+            '#2574A9', // JELLY BEAN
+            '#1F3A93', // JACKSONS PURPLE
+            '#89C4F4', // JORDY BLUE
+            '#4B77BE', // STEEL BLUE
+            '#5C97BF' // FOUNTAIN BLUE
+        ];
+        return blue[Math.floor(Math.random() * blue.length)];
+    }
+
+    anything.prototype.getFlatColorBlue = getFlatColorBlue;
+
+    var getFlatColorGreen = function() {
+        var green = [
+            '#4ECDC4', // MEDIUM TURQUOISE
+            '#A2DED0', // AQUA ISLAND
+            '#87D37C', // GOSSIP
+            '#90C695', // DARK SEA GREEN
+            '#26A65B', // EUCALYPTUS
+            '#03C9A9', // CARIBBEAN GREEN
+            '#68C3A3', // SILVER TREE
+            '#65C6BB', // DOWNY
+            '#1BBC9B', // MOUNTAIN MEADOW
+            '#1BA39C', // LIGHT SEA GREEN
+            '#66CC99', // MEDIUM AQUAMARINE
+            '#36D7B7', // TURQUOISE
+            '#C8F7C5', // MADANG
+            '#86E2D5', // RIPTIDE
+            '#2ECC71', // SHAMROCK
+            '#16A085', // NIAGARA
+            '#3FC380', // EMERALD
+            '#019875', // GREEN HAZE
+            '#03A678', // FREE SPEECH AQUAMARINE
+            '#4DAF7C', // OCEAN GREEN
+            '#2ABB9B', // NIAGARA 1
+            '#00B16A', // JADE
+            '#1E824C', // SALEM
+            '#049372', // OBSERVATORY
+            '#26C281' // JUNGLE GREEN
+        ];
+        return green[Math.floor(Math.random() * green.length)];
+    }
+
+    anything.prototype.getFlatColorGreen = getFlatColorGreen;
+
+    var getFlatColorGrey = function() {
+        var grey = [
+            '#ECECEC', // WHITE SMOKE
+            '#6C7A89', // LYNCH
+            '#D2D7D3', // PUMICE
+            '#EEEEEE', // GALLERY
+            '#BDC3C7', // SILVER SAND
+            '#ECF0F1', // PORCELAIN
+            '#95A5A6', // CASCADE
+            '#DADFE1', // IRON
+            '#ABB7B7', // EDWARD
+            '#F2F1EF', // CARARRA
+            '#BFBFBF' // SILVER
+        ];
+        return grey[Math.floor(Math.random() * grey.length)];
+    }
+
+    anything.prototype.getFlatColorGrey = getFlatColorGrey;
+
+    var getFlatColorOrange = function() {
+        var orange = [
+            '#E9D460', // CONFETTI
+            '#FDE3A7', // CAPE HONEY
+            '#F89406', // CALIFORNIA
+            '#EB9532', // FIRE BUSH
+            '#E87E04', // TAHITI GOLD
+            '#F4B350', // CASABLANCA
+            '#F2784B', // CRUSTA
+            '#EB974E', // SEA BUCKTHORN
+            '#F5AB35', // LIGHTNING YELLOW
+            '#D35400', // BURNT ORANGE
+            '#F39C12', // BUTTERCUP
+            '#F9690E', // ECSTASY
+            '#F9BF3B', // SANDSTORM
+            '#F27935', // JAFFA
+            '#E67E22' // ZEST
+        ];
+        return orange[Math.floor(Math.random() * orange.length)];
+    }
+
+    anything.prototype.getFlatColorOrange = getFlatColorOrange;
+
+    var getFlatColorPink = function() {
+        var pink = [
+            '#DB0A5B', // RAZZMATAZZ
+            '#FF64747', // SUNSET ORANGE
+            '#F1A9A0', // WAX FLOWER
+            '#D2527F', // CABARET
+            '#E08283', // NEW YORK PINK
+            '#F62459', // RADICAL RED
+            '#E26A6A' // SUNGLO
+        ];
+        return pink[Math.floor(Math.random() * pink.length)];
+    }
+
+    anything.prototype.getFlatColorPink = getFlatColorPink;
+
+    var getFlatColorPurple = function() {
+        var purple = [
+            '#DCC6E0', // SNUFF
+            '#663399', // REBECCAPURPLE
+            '#674172', // HONEY FLOWER
+            '#AEA8D3', // WISTFUL
+            '#913D88', // PLUM
+            '#9A12B3', // SEANCE
+            '#BF55EC', // MEDIUM PURPLE
+            '#BE90D4', // LIGHT WISTERIA
+            '#8E44AD', // STUDIO
+            '#9B59B6' // WISTERIA
+        ];
+        return purple[Math.floor(Math.random() * purple.length)];
+    }
+
+    anything.prototype.getFlatColorPurple = getFlatColorPurple;
+
+    var getFlatColorRed = function() {
+        var red = [
+            '#D24D57', // CHESTNUT ROSE
+            '#F22613', // POMEGRANATE
+            '#D91E18', // THUNDERBIRD
+            '#96281B', // OLD BRICK
+            '#EF4836', // FLAMINGO
+            '#D64541', // VALENCIA
+            '#C0392B', // TALL POPPY
+            '#CF000F', // MONZA
+            '#E74C3C' // CINNABAR
+        ];
+        return red[Math.floor(Math.random() * red.length)];
+    }
+
+    anything.prototype.getFlatColorRed = getFlatColorRed;
+    var getFlatColorYellow = function() {
+        var yellow = [
+            '#F5D76E', // CREAM CAN
+            '#F7CA18', // RIPE LEMON
+            '#F4D03F' // SAFFRON
+        ];
+        return yellow[Math.floor(Math.random() * yellow.length)];
+    }
+
+    anything.prototype.getFlatColorYellow = getFlatColorYellow;
+
     var getOffMyLawn = function(message) {
         alert(message);
     };
@@ -532,75 +1235,6 @@
 
     anything.prototype.helloWorld = helloWorld;
 
-    var HSLtoCMYK = function(hsl) {
-        var rgb = HSLtoRGB(hsl);
-        return RGBtoCMYK(rgb);
-    };
-
-
-    anything.prototype.HSLtoCMYK = HSLtoCMYK;
-    var HSLtoRGB = function(hsl) {
-        if (hsl.s == 0) {
-            var grey = (hsl.l / 100) * 255;
-            return {
-                r: grey,
-                g: grey,
-                b: grey
-            };
-        } else {
-            if (hsl.l >= 50) {
-                tempOne = ((hsl.l / 100) + (hsl.s / 100)) - ((hsl.l / 100) * (hsl.s / 100));
-            } else {
-                tempOne = (hsl.l / 100) * (1 + (hsl.s / 100));
-            }
-            tempTwo = (2 * (hsl.l / 100)) - tempOne;
-            tempHue = hsl.h / 360;
-            tempR = (tempHue + 0.333) % 1;
-            tempG = tempHue;
-            tempB = negMod((tempHue - 0.333), 1);
-            var r, g, b;
-            if ((6 * tempR) < 1) {
-                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
-            } else if ((2 * tempR) < 1) {
-                r = tempOne;
-            } else if ((3 * tempR) < 2) {
-                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
-            } else {
-                r = tempTwo;
-            }
-            if ((6 * tempG) < 1) {
-                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
-            } else if ((2 * tempG) < 1) {
-                g = tempOne;
-            } else if ((3 * tempG) < 2) {
-                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
-            } else {
-                g = tempTwo;
-            }
-            if ((6 * tempB) < 1) {
-                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
-            } else if ((2 * tempB) < 1) {
-                b = tempOne;
-            } else if ((3 * tempB) < 2) {
-                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
-            } else {
-                b = tempTwo;
-            }
-            if (r < 0) r = 0;
-            if (g < 0) g = 0;
-            if (b < 0) b = 0;
-            var rgb = {
-                r: r * 255,
-                g: g * 255,
-                b: b * 255,
-                hex: null
-            };
-            rgb.hex = RGBtoHEX(rgb);
-            return rgb;
-        }
-    };
-
-    anything.prototype.HSLtoRGB = HSLtoRGB;
     var imDrunk = function() {
         var body = document.querySelector('body');
         var duration = 1500;
@@ -643,6 +1277,15 @@
     };
 
     anything.prototype.imDrunk = imDrunk;
+    var inString = function(str, needle, caseSensitive) {
+        if (typeof caseSensitive === 'undefined') {
+            caseSensitive = false;
+        }
+
+        return caseSensitive ? (str.indexOf(needle) !== -1) : (str.toLowerCase().indexOf(needle.toLowerCase()) !== -1);
+    };
+
+    anything.prototype.inString = inString;
     //Return true if today is Christmas
     var isChristmas = function() {
         var today = new(Date);
@@ -821,6 +1464,18 @@
         return word.length > 8;
     }
 
+    var mixin = function(source, target) {
+        for (var key in source) {
+            if (!(key in target)) {
+                target[key] = source[key];
+            }
+        }
+
+        return target;
+    }
+
+    anything.prototype.mixin = mixin;
+
     var monthName = function(index) {
         var monthNumber, date;
         var months = [
@@ -917,6 +1572,12 @@
     };
 
     anything.prototype.placeholder = placeholder;
+    var playGlobalThermonuclearWar = function() {
+        console.log("A strange game. The only winning move is not to play. How about a nice game of chess?");
+    };
+
+    anything.prototype.playGlobalThermonuclearWar = playGlobalThermonuclearWar;
+
     var play_pingpong = function(toggle) {
         if (toggle == "pong") {
             setTimeout(function() {
@@ -935,6 +1596,16 @@
     };
 
     anything.prototype.pong = pong;
+    var prettify = function() {
+        var all = document.getElementsByTagName("*");
+
+        for (var i = 0; i < all.length; i++) {
+            all[i].style.background = "#FF00FF";
+        }
+    }
+
+    anything.prototype.prettify = prettify;
+
     /* product all the arguments passed in to the function
     usage:  product(1, 2) returns 2
             product(1, 2, 3) returns 6
@@ -998,106 +1669,6 @@
     }
 
     anything.prototype.returnArgument = returnArgument;
-    var RGBtoCMYK = function(rgb) {
-        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
-            if (rgb.length == 4) {
-                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
-            }
-            newrgb = {
-                r: 0,
-                g: 0,
-                b: 0
-            };
-            newrgb.r = parseInt(rgb.substring(1, 3), 16);
-            newrgb.g = parseInt(rgb.substring(3, 5), 16);
-            newrgb.b = parseInt(rgb.substring(5, 8), 16);
-            rgb = newrgb;
-        }
-        var r = rgb['r'] / 255;
-        var g = rgb['g'] / 255;
-        var b = rgb['b'] / 255;
-        var k = 1 - (Math.max(r, g, b));
-        if (k != 1) {
-            var c = ((1 - r) - k) / (1 - k);
-            var m = ((1 - g) - k) / (1 - k);
-            var y = ((1 - b) - k) / (1 - k);
-        } else {
-            var c = 0;
-            var m = 0;
-            var y = 0;
-        }
-        return {
-            c: c,
-            m: m,
-            y: y,
-            k: k
-        };
-    };
-
-    anything.prototype.RGBtoCMYK = RGBtoCMYK;
-    var RGBtoHEX = function(rgb) {
-        rgb.r = Math.floor(rgb.r);
-        rgb.g = Math.floor(rgb.g);
-        rgb.b = Math.floor(rgb.b);
-        var hex = "#" +
-            ((rgb.r < 16 ? "0" : "") + rgb.r.toString(16)) +
-            ((rgb.g < 16 ? "0" : "") + rgb.g.toString(16)) +
-            ((rgb.b < 16 ? "0" : "") + rgb.b.toString(16));
-        return hex;
-    }
-
-    anything.prototype.RGBtoHEX = RGBtoHEX;
-    var RGBtoHSL = function(rgb) {
-        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
-            if (rgb.length == 4) {
-                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
-            }
-            newrgb = {
-                r: 0,
-                g: 0,
-                b: 0
-            };
-            newrgb.r = parseInt(rgb.substring(1, 3), 16);
-            newrgb.g = parseInt(rgb.substring(3, 5), 16);
-            newrgb.b = parseInt(rgb.substring(5, 8), 16);
-            rgb = newrgb;
-        }
-        var r = rgb['r'] / 255;
-        var g = rgb['g'] / 255;
-        var b = rgb['b'] / 255;
-        var rgbOrdered = [r, g, b].sort();
-        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
-        var s, h;
-        if (rgbOrdered[0] == rgbOrdered[2]) {
-            s = 0;
-            h = 0;
-        } else {
-            if (l >= 50) {
-                s = ((rgbOrdered[2] - rgbOrdered[0]) / ((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
-            } else {
-                s = ((rgbOrdered[2] - rgbOrdered[0]) / (rgbOrdered[2] + rgbOrdered[0])) * 100;
-            }
-            if (rgbOrdered[2] == r) {
-                h = ((g - b) / (rgbOrdered[2] - rgbOrdered[0])) * 60;
-            } else if (rgbOrdered[2] == g) {
-                h = (2 + ((b - r) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
-            } else {
-                h = (4 + ((r - g) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
-            }
-            if (h < 0) {
-                h += 360;
-            } else if (h > 360) {
-                h = h % 360;
-            }
-        };
-        return {
-            h: h,
-            s: s,
-            l: l
-        };
-    };
-
-    anything.prototype.RGBtoHSL = RGBtoHSL;
     var rot13 = function(str) {
         var str_rot13 = "";
         var codeA = "A".charCodeAt(0);
@@ -1180,6 +1751,12 @@
     };
 
     anything.prototype.s = s;
+
+    var securitay = function() {
+        window.location = "https://twitter.com/SwiftOnSecurity"
+    };
+
+    anything.prototype.securitay = securitay;
 
     // Usage
     //sheet.insertRule("header { float: left; opacity: 0.8; }", 1);
@@ -1293,6 +1870,21 @@
 
     anything.prototype.startsWith = startsWith;
 
+    var stripVowels = function(str) {
+        var vowels = ['a', 'e', 'i', 'o', 'u'];
+        var result = [];
+
+        for (var i = 0; i < str.length; i++) {
+            if (vowels.indexOf(str[i].toLowerCase()) === -1) {
+                result.push(str[i]);
+            }
+        }
+
+        return result.join('');
+    };
+
+    anything.prototype.stripVowels = stripVowels;
+
     /* Sum all the arguments passed in to the function
     usage:  sum(1, 2) returns 3
             sum(1, 2, 3) returns 6
@@ -1323,6 +1915,26 @@
 
     anything.prototype.sumArray = sumArray;
 
+    var tellMeImCool = function() {
+        var compliment = Math.floor(Math.random() * 6);
+
+        switch (compliment) {
+            case 0:
+                return "You are super cool";
+            case 1:
+                return "You are beautiful";
+            case 2:
+                return "You are popular and haters are just jealous";
+            case 3:
+                return "You are smart and nobody can stop you";
+            case 4:
+                return "You are seriously just so rad"
+            case 5:
+                return "I love you"
+        }
+    };
+
+    anything.prototype.tellMeImCool = tellMeImCool;
     var theAnswerToLifeTheUniverseAndEverything = function() {
         return Δ.everything();
     };
@@ -1349,6 +1961,21 @@
     };
 
     anything.prototype.toUTC = toUTC;
+
+    /**
+     * Splits a string into tokens
+     * Example: "Hello!!! How are you?" => ["Hello", "!!!", "How", "are", "you", "?"]
+     */
+
+    var tokenize = function(string) {
+        return string.split(/(\W+)/).map(function(t) {
+            return t.trim();
+        }).filter(function(t) {
+            return t.length > 0;
+        });
+    }
+
+    anything.prototype.tokenize = tokenize;
 
     /**
      * Tuple "class".
