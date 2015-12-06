@@ -23,6 +23,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [merrickfox](https://github.com/merrickfox)
 * [mnstrspeed](https://github.com/mnstrspeed)
 * [mohammadg](https://github.com/mohammadg)
+* [montanaflynn](https://github.com/montanaflynn)
 * [MrOnosa](https://github.com/MrOnosa)
 * [NathanJang](https://github.com/NathanJang)
 * [prakashn27](https://github.com/prakashn27)
