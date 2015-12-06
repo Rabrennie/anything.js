@@ -2,6 +2,10 @@
  * Employ a web worker to do a job on another thread.
  * Workers are terminated after they respond with a result.
  * 
+ * If workers are not supported, the function fails gracefully
+ * by executing the job function on the main thread with the 
+ * provided data, and passing the result to the callback.
+ * 
  * @param {object} data - An object of key-value pairs for data
  * @param {function} job - The job the worker is tasked with, as a function
  * @param {function} callback - Called when worker is done with the job
@@ -32,18 +36,21 @@
  *
  */
 var employWorker = function (data, job, callback) {
-    var script = [
-        "self.addEventListener('message', function(e) {" +
-        "console.log(e.data);" +
-        "var result = " + job.toString() + "(e.data);" +
-        "postMessage(result);" +
-        "close();" +
-        "}, false);"
-    ].join('\n');
-    var blob = new Blob([script]);
-    var worker = new Worker(URL.createObjectURL(blob));
-    worker.addEventListener('message', callback, false);
-    worker.postMessage(data);
+    if (window.Worker) {
+        var script = [
+            "self.addEventListener('message', function(e) {" +
+            "var result = " + job.toString() + "(e.data);" +
+            "postMessage(result);" +
+            "close();" +
+            "}, false);"
+        ].join('\n');
+        var blob = new Blob([script]);
+        var worker = new Worker(URL.createObjectURL(blob));
+        worker.addEventListener('message', callback, false);
+        worker.postMessage(data);
+    } else {
+        callback({ data : job(data) });
+    }
 };
 
 anything.prototype.employWorker = employWorker;
