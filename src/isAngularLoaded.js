@@ -1,5 +1,5 @@
 var isAngularLoaded = function () {
-	return (typeof angular == 'undefined') ? false : true;
+	return !(typeof angular == 'undefined');
 }
 
 anything.prototype.isAngularLoaded = isAngularLoaded;
