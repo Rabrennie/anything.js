@@ -1619,6 +1619,12 @@
     };
 
     anything.prototype.inString = inString;
+    var isAngularLoaded = function() {
+        return !(typeof angular == 'undefined');
+    }
+
+    anything.prototype.isAngularLoaded = isAngularLoaded;
+
     //Return true if today is Christmas
     var isChristmas = function() {
         var today = new(Date);
