@@ -4,7 +4,7 @@
   "description": "A javascript library that contains anything.",
   "main": "anything.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,9 @@
     "gulp-jsbeautifier": "^1.0.1",
     "gulp-jsfuck": "^0.2.1",
     "gulp-minify": "0.0.5"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "mocha-eslint": "^1.0.0"
   }
 }
