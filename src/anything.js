@@ -1,7 +1,7 @@
 var anyFunction = function () {
     var funcs = [];
     for (var prop in Δ) {
-        if (prop !== 'anything') {
+        if (prop !== 'anything' && typeof Δ[prop] === 'function') {
             funcs.push(prop);
         }
     }
