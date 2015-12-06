@@ -2,92 +2,221 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Δ.js Playground</title>
-    <script type="text/javascript" src="dist/anything.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/lint/javascript-lint.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/javascript-hint.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Δ.js</title>
+    <script type="text/javascript" src="dist/anything.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css"/>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
     <script>
         var anything = Δ;
-        var old_log = console.log;
-        console.log = function(){
-          document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
-          old_log.apply(this, arguments)
-        }
-        var old_error = console.error;
-        console.error = function(){
-          document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
-          old_error.apply(this, arguments)
-        }
-        var old_info = console.info;
-        console.info = function(){
-            document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
-            old_info.apply(this, arguments)
-        }
-
-        var RunThisBitch = function(){
-            document.getElementById('opt').innerHTML = '';
-            eval(myCodeMirror.getValue());
-        }
-
-        var dOpt = function(){}
-    </script>
-</head>
-
-<body>
-    <h1>Δ.js is a library that contains anything you want (<a href="https://github.com/Rabrennie/anything.js">GitHub</a>)</h1>
-    <p>Try it bellow. (with mothafucking autocomplete!!)</p>
-    <textarea class="editor" id="Edit">Δ.doTheThing();
-Δ.greetHannah();
-console.log(Δ.flipText("anything!"));</textarea>
-    <script>
-        var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
-        extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
-        mode: {name: "javascript", globalVars: true},
+        $(document).ready(function() {
+          $('.ui.sidebar').sidebar('attach events', '.toc.item');
         });
-    var orig = CodeMirror.hint.javascript;
-    myCodeMirror.on("keyup", function (cm, event) {
-        if (!cm.state.completionActive && event.keyCode == 190) {
-            CodeMirror.commands.autocomplete(cm, null, {completeSingle: false});
-        }
-    });
     </script>
-    <button style="width: 100%;height:3em;" onclick="RunThisBitch();">LET'S RUN THIS BITCH!!</button>
-    <div id="opt" style="width: 100%; height: 300px; background: #333; color:#fff; overflow-y: auto;"></div>
-    Welcome to Δ.js
-    <br/> This is Δ.js
-    <br/> Welcome
-    <br/> This is Δ.js
-    <br/> Welcome to Δ.js
-    <br/> You can do anything at Δ.js
-    <br/> Anything at all
-    <br/> The only limit is yourself
-    <br/> Welcome to Δ.js
-    <br/> Welcome to Δ.js
-    <br/> This is Δ.js
-    <br/> Welcome to Δ.js
-    <br/> This is Δ.js, Welcome
-    <br/> Yes, this is Δ.js
-    <br/> This is Δ.js and welcome to you who have come to Δ.js
-    <br/> Anything is possible at Δ.js
-    <br/> You can to anything Δ.js
-    <br/> The infinite is possible at Δ.js
-    <br/> The unattainable is unknown at Δ.js
-    <br/> Welcome to Δ.js
-    <br/> This is Δ.js
-    <br/> Welcome to Δ.js
-    <br/> Welcome
-    <br/> This is Δ.js
-    <br/> Welcome to Δ.js
-    <br/> Welcome to Δ.js
-    <br/>
+    <style type="text/css">
 
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    
+    .masthead
+    {
+      background: url(assets/masthead.png) no-repeat center!important;
+      background-size: cover!important;
+    }
+    .ui.secondary.inverted.pointing.menu
+    {
+      border: 0px!important;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+</head>
+<body class="pushable">
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu left">
+  <a class="active item">Home</a>
+  <a href="playground.html" class="item">Playground</a>
+  <a href="documentation.html" class="item">Documentation</a>
+  <a href="https://github.com/Rabrennie/anything.js/archive/master.zip" class="item">Download</a>
+  <a href="https://github.com/Rabrennie/anything.js/" class="item">Make a pull request</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a href="playground.html" class="olive item">Playground</a>
+        <a href="documentation.html" class="pink item">Documentation</a>
+        <div class="right item">
+          <a href="https://github.com/Rabrennie/anything.js/archive/master.zip" class="ui basic inverted teal button"><i class="icon download"></i> Download</a>
+          <a href="https://github.com/Rabrennie/anything.js/" class="ui basic inverted purple button"><i class="icon github"></i> Make a pull request</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Welcome to Δ.js
+      </h1>
+      <h2>The library that can do anything you want.</h2>
+      <div href="https://github.com/Rabrennie/anything.js/archive/master.zip" class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">You can do anything</h3>
+          <p><u>Anything</u> at all.. The only limit is yourself.</p>
+          <p>Anything is possible with Δ.js</p>
+          <h3 class="ui header">Add real functionality on the fly</h3>
+          <p>That's right! Just call <span class="ui label">Δ.addRealFunctionalityOnTheFly();</span> and you get neat features on the fly!</p>
+          <h3 class="ui header">Calculate the answer to the life, the universe and everything</h3>
+          <p>Δ.js is the only library that can actually calculate the answer!
+            Just use <span class="ui label">Δ.theAnswerToLifeTheUniverseAndEverything();</span> and prepare to be amazed!</p>
+        </div>
+        <div class="six wide right floated column" style="text-align: center;">
+          <img src="http://i.imgur.com/aLPpSED.png" class="ui image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a href="playground.html" class="ui huge green button">Try it out <i class="right arrow icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>Δ.js does the thing</h3>
+          <p>We don't even know what "the thing" is exactly, but Δ.js can do it as well!</p>
+          <p>You only have to call <span class="ui label">Δ.doTheThing();</span> and the thing will get done!.</p>
+        </div>
+        <div class="column">
+          <h3>¡llǝʍ sɐ ʇxǝʇ dᴉlɟ uɐɔ no⅄</h3>
+          <p>
+            ¡ʇɐɥʇ ɹoɟ ʎɹɐɹqᴉl ǝʇɐɹɐdǝs ɐ pǝǝu ɹǝƃuol ou llᴉʍ no⅄
+          </p>
+          <p><span class="ui label">Δ.flipText("ɔ ᴉ ʇ ǝ ɥ ʇ s ǝ ɐ");</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">But wait! there's more!</h3>
+      <p>You can <span class="ui label">Δ.find(sel);</span> and <span class="ui label">Δ.greetHannah();</span>.
+      <br/>Need help? Call <span class="ui label">Δ.batman();</span>
+      <br/>Want to know if a number equals to 5? <span class="ui label">Δ.isNumber5(num);</span>
+      <br/>Don't know if it's christmas? <span class="ui label">Δ.isChristmas();</span>. And a <i>lot</i> of other cool things!</p>
+      <p>Don't want to do anything? <span class="ui label">Δ.nothing();</span> is here for that!</p>
+      <a href="playground.html" class="ui right labeled icon purple large button">Go to the playground <i class="right arrow icon"></i></a>
+      <h4 class="ui horizontal header divider">
+        <a href="documentation.html">Read the documentation</a>
+      </h4>
+      <h3 class="ui header">Want to improve Δ.js?</h3>
+      <p>We <i>literally</i> accept <u>anything</u>. Just make a pull request and be part of this project <s>to dominate the world</s> to make the ultimate library.</p>
+      <a href="https://github.com/Rabrennie/anything.js/" class="ui teal basic large button"><i class="github icon"></i> Make a pull request</a>
+    </div>
+  </div>
+</div>
 </body>
-
 </html>
