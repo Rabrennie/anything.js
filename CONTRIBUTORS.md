@@ -3,6 +3,7 @@
 These people are amazing. Not true. They've just done what we told them: add whatever they wanted to add to anything.js. Nevertheless, they still contributed in making this library better (hopefully). Ordered alphabetically. Feel free to add yourself if you even added a tiny little function to anything.js!
 
 * [Admicos](https://github.com/Admicos)
+* [aierou](https://github.com/aierou)
 * [bman4789](https://github.com/bman4789)
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
@@ -17,10 +18,12 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [hrn4n](https://github.com/hrn4n)
 * [izolate](https://github.com/izolate)
 * [jkingsman](https://github.com/jkingsman)
+* [John2143](https://github.com/John2143658709)
 * [kotAPI](https://github.com/kotAPI)
 * [merrickfox](https://github.com/merrickfox)
 * [mnstrspeed](https://github.com/mnstrspeed)
 * [mohammadg](https://github.com/mohammadg)
+* [montanaflynn](https://github.com/montanaflynn)
 * [MrOnosa](https://github.com/MrOnosa)
 * [NathanJang](https://github.com/NathanJang)
 * [prakashn27](https://github.com/prakashn27)
@@ -28,6 +31,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [Rabrennie](https://github.com/Rabrennie)
 * [radiantnode](https://github.com/radiantnode)
 * [relvacode](https://github.com/relvacode)
+* [steezeburger](https://github.com/steezeburger)
 * [TheBITLINK](https://github.com/TheBITLINK)
 * [thehowl](https://github.com/thehowl)
 * [TheKiwi5000](https://github.com/TheKiwi5000)
