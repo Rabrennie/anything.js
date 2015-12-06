@@ -29,6 +29,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [Rabrennie](https://github.com/Rabrennie)
 * [radiantnode](https://github.com/radiantnode)
 * [relvacode](https://github.com/relvacode)
+* [steezeburger](https://github.com/steezeburger)
 * [TheBITLINK](https://github.com/TheBITLINK)
 * [thehowl](https://github.com/thehowl)
 * [TheKiwi5000](https://github.com/TheKiwi5000)
