@@ -3,6 +3,7 @@
 These people are amazing. Not true. They've just done what we told them: add whatever they wanted to add to anything.js. Nevertheless, they still contributed in making this library better (hopefully). Ordered alphabetically. Feel free to add yourself if you even added a tiny little function to anything.js!
 
 * [Admicos](https://github.com/Admicos)
+* [aierou](https://github.com/aierou)
 * [bman4789](https://github.com/bman4789)
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
