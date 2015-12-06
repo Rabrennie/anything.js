@@ -234,6 +234,44 @@
     };
 
     anything.prototype.batman = batman;
+    /**
+     * Applies the css to the elements that were found using anything.find
+     * 
+     * @param Object props the properties to apply to the object
+     */
+    var css = function(props) {
+
+
+        if ('undefined' === typeof this.queryResult)
+            return this;
+
+        if ('object' === typeof this.queryResult) {
+
+            // If no arguments are given and there is only one result
+            // then return the style object of the element
+            if ('undefined' === typeof props)
+                return this.queryResult.style;
+
+            for (var property in props) {
+                if (undefined !== property)
+                    this.queryResult.style[property] = props[property];
+            }
+
+            return this;
+        }
+
+        for (var element in this.queryResult) {
+            for (var property in props) {
+                if (undefined !== property)
+                    this.queryResult[element].style[property] = props[property];
+            }
+        }
+
+        return this;
+    }
+
+    anything.prototype.css = css;
+
     var daysTillXmas = function() {
         var today = new Date();
         var xmas = new Date(today.getFullYear(), 11, 25, 0, 0, 0, 0);
@@ -350,13 +388,17 @@
      * Finds elements in the DOM that match the selector
      */
     var find = function(selector) {
-        if ('undefined' !== typeof document.querySelector)
-            return document.querySelector(selector);
+        if ('undefined' !== typeof document.querySelector) {
+            this.queryResult = document.querySelector(selector);
+            return this;
+        }
 
         return undefined;
     };
 
+
     anything.prototype.find = find;
+
     var fizzbuzz = function() {
         // fire an ultra-difficult algorithm to either print Fizz, Buzz, FizzBuzz or the number
         for (var i = 1; i <= 100; i++) {
