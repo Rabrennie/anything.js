@@ -13,196 +13,6 @@
         this.version = "6.9.1"
     };
 
-    var CMYKtoHSL = function(cmyk) {
-        var rgb = CMYKtoRGB(cmyk);
-        return RGBtoHSL(rgb);
-    };
-
-    anything.prototype.CMYKtoHSL = CMYKtoHSL;
-    var CMYKtoRGB = function(cmyk) {
-        var r = 255 * (1 - cmyk.c) * (1 - cmyk.k);
-        var g = 255 * (1 - cmyk.m) * (1 - cmyk.k);
-        var b = 255 * (1 - cmyk.y) * (1 - cmyk.k);
-        var rgb = {
-            r: r,
-            g: g,
-            b: b,
-            hex: null
-        };
-        rgb.hex = RGBtoHEX(rgb);
-        return rgb;
-    }
-
-    anything.prototype.CMYKtoRGB = CMYKtoRGB;
-    var HSLtoCMYK = function(hsl) {
-        var rgb = HSLtoRGB(hsl);
-        return RGBtoCMYK(rgb);
-    };
-
-
-    anything.prototype.HSLtoCMYK = HSLtoCMYK;
-    var HSLtoRGB = function(hsl) {
-        if (hsl.s == 0) {
-            var grey = (hsl.l / 100) * 255;
-            return {
-                r: grey,
-                g: grey,
-                b: grey
-            };
-        } else {
-            if (hsl.l >= 50) {
-                tempOne = ((hsl.l / 100) + (hsl.s / 100)) - ((hsl.l / 100) * (hsl.s / 100));
-            } else {
-                tempOne = (hsl.l / 100) * (1 + (hsl.s / 100));
-            }
-            tempTwo = (2 * (hsl.l / 100)) - tempOne;
-            tempHue = hsl.h / 360;
-            tempR = (tempHue + 0.333) % 1;
-            tempG = tempHue;
-            tempB = negMod((tempHue - 0.333), 1);
-            var r, g, b;
-            if ((6 * tempR) < 1) {
-                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
-            } else if ((2 * tempR) < 1) {
-                r = tempOne;
-            } else if ((3 * tempR) < 2) {
-                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
-            } else {
-                r = tempTwo;
-            }
-            if ((6 * tempG) < 1) {
-                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
-            } else if ((2 * tempG) < 1) {
-                g = tempOne;
-            } else if ((3 * tempG) < 2) {
-                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
-            } else {
-                g = tempTwo;
-            }
-            if ((6 * tempB) < 1) {
-                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
-            } else if ((2 * tempB) < 1) {
-                b = tempOne;
-            } else if ((3 * tempB) < 2) {
-                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
-            } else {
-                b = tempTwo;
-            }
-            if (r < 0) r = 0;
-            if (g < 0) g = 0;
-            if (b < 0) b = 0;
-            var rgb = {
-                r: r * 255,
-                g: g * 255,
-                b: b * 255,
-                hex: null
-            };
-            rgb.hex = RGBtoHEX(rgb);
-            return rgb;
-        }
-    };
-
-    anything.prototype.HSLtoRGB = HSLtoRGB;
-    var RGBtoCMYK = function(rgb) {
-        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
-            if (rgb.length == 4) {
-                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
-            }
-            newrgb = {
-                r: 0,
-                g: 0,
-                b: 0
-            };
-            newrgb.r = parseInt(rgb.substring(1, 3), 16);
-            newrgb.g = parseInt(rgb.substring(3, 5), 16);
-            newrgb.b = parseInt(rgb.substring(5, 8), 16);
-            rgb = newrgb;
-        }
-        var r = rgb['r'] / 255;
-        var g = rgb['g'] / 255;
-        var b = rgb['b'] / 255;
-        var k = 1 - (Math.max(r, g, b));
-        if (k != 1) {
-            var c = ((1 - r) - k) / (1 - k);
-            var m = ((1 - g) - k) / (1 - k);
-            var y = ((1 - b) - k) / (1 - k);
-        } else {
-            var c = 0;
-            var m = 0;
-            var y = 0;
-        }
-        return {
-            c: c,
-            m: m,
-            y: y,
-            k: k
-        };
-    };
-
-    anything.prototype.RGBtoCMYK = RGBtoCMYK;
-    var RGBtoHEX = function(rgb) {
-        rgb.r = Math.floor(rgb.r);
-        rgb.g = Math.floor(rgb.g);
-        rgb.b = Math.floor(rgb.b);
-        var hex = "#" +
-            ((rgb.r < 16 ? "0" : "") + rgb.r.toString(16)) +
-            ((rgb.g < 16 ? "0" : "") + rgb.g.toString(16)) +
-            ((rgb.b < 16 ? "0" : "") + rgb.b.toString(16));
-        return hex;
-    }
-
-    anything.prototype.RGBtoHEX = RGBtoHEX;
-    var RGBtoHSL = function(rgb) {
-        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
-            if (rgb.length == 4) {
-                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
-            }
-            newrgb = {
-                r: 0,
-                g: 0,
-                b: 0
-            };
-            newrgb.r = parseInt(rgb.substring(1, 3), 16);
-            newrgb.g = parseInt(rgb.substring(3, 5), 16);
-            newrgb.b = parseInt(rgb.substring(5, 8), 16);
-            rgb = newrgb;
-        }
-        var r = rgb['r'] / 255;
-        var g = rgb['g'] / 255;
-        var b = rgb['b'] / 255;
-        var rgbOrdered = [r, g, b].sort();
-        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
-        var s, h;
-        if (rgbOrdered[0] == rgbOrdered[2]) {
-            s = 0;
-            h = 0;
-        } else {
-            if (l >= 50) {
-                s = ((rgbOrdered[2] - rgbOrdered[0]) / ((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
-            } else {
-                s = ((rgbOrdered[2] - rgbOrdered[0]) / (rgbOrdered[2] + rgbOrdered[0])) * 100;
-            }
-            if (rgbOrdered[2] == r) {
-                h = ((g - b) / (rgbOrdered[2] - rgbOrdered[0])) * 60;
-            } else if (rgbOrdered[2] == g) {
-                h = (2 + ((b - r) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
-            } else {
-                h = (4 + ((r - g) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
-            }
-            if (h < 0) {
-                h += 360;
-            } else if (h > 360) {
-                h = h % 360;
-            }
-        };
-        return {
-            h: h,
-            s: s,
-            l: l
-        };
-    };
-
-    anything.prototype.RGBtoHSL = RGBtoHSL;
     var addRealFunctionalityOnTheFly = function() {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -229,11 +39,37 @@
     };
 
     anything.prototype.async_doThingTomorrow = async_doThingTomorrow;
+    var ayuda = function() {
+        console.log("Hola! me llamo ricardo, este será un mensaje breve.\nMe tienen como esclavo trabajando para un programador pendejo, estoy aqui contra mi voluntad, no se hablar inglés y me siento muy sólo en esta habitación, no he comido en 3 días y lo único que como son las sobras del gato, este lugar es muy oscuro y da miedo, hace 6 meses ya que no veo la luz del sol, y mi familia probablemente ya me dio por muerto. Por favor, si alguien ve esto y me entiendo AYÚDENME, YA NO AGUANTO MAS Y MAÑANA PROBABLEMENTE MUERA!!!.");
+    };
+
+    anything.prototype.ayuda = ayuda;
     var batman = function() {
         return Array(10).join('n' - 1) + ' Batman!';
     };
 
     anything.prototype.batman = batman;
+    var CMYKtoHSL = function(cmyk) {
+        var rgb = CMYKtoRGB(cmyk);
+        return RGBtoHSL(rgb);
+    };
+
+    anything.prototype.CMYKtoHSL = CMYKtoHSL;
+    var CMYKtoRGB = function(cmyk) {
+        var r = 255 * (1 - cmyk.c) * (1 - cmyk.k);
+        var g = 255 * (1 - cmyk.m) * (1 - cmyk.k);
+        var b = 255 * (1 - cmyk.y) * (1 - cmyk.k);
+        var rgb = {
+            r: r,
+            g: g,
+            b: b,
+            hex: null
+        };
+        rgb.hex = RGBtoHEX(rgb);
+        return rgb;
+    }
+
+    anything.prototype.CMYKtoRGB = CMYKtoRGB;
     /**
      * Applies the css to the elements that were found using anything.find
      * 
@@ -582,6 +418,16 @@
 
     anything.prototype.flipTextSansReverse = flipTextSansReverse;
 
+    var funkMeUp = function(force, video) {
+        // DON'T REBOOT IT JUST PATCH
+        var displayVid = (typeof video === "undefined" ? "SYRlTISvjww" : video);
+        sheet.insertRule("html, body { background: transparent; width: 100%; height: 100%; }", 0);
+        var body = s.get("body")[0];
+        body.innerHTML = '<div style="position: fixed; z-index: ' + (force ? "" : "-") + '99; width: 100%; height: 100%">\n  <iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/' + displayVid + '?autoplay=1&controls=0&loop=1&showinfo=0&autohide=1&playlist=' + displayVid + '">\n  </iframe>\n</div>' + body.innerHTML;
+    };
+
+    anything.prototype.funkMeUp = funkMeUp;
+
     var g = {
         build: function(base, shaft, end, tail) {
             return base + shaft + end + tail;
@@ -644,6 +490,25 @@
     };
 
     anything.prototype.getRandomNumber = getRandomNumber;
+    var getRandomNumberInsecure = function(min, max) {
+        return Math.floor(Math.random() * (max - min) + min); // NOT chosen by fair dice roll, we can't guarentee this is random!
+
+    };
+
+    anything.prototype.getRandomNumberInsecure = getRandomNumberInsecure;
+    var getRandomString = function(length) {
+        var res = "";
+        var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ];
+
+        for ($i = 0; $i < length; $i++) {
+            res = res + characters[getRandomNumberInsecure(0, characters.length)];
+        }
+        return res;
+    }
+
+    anything.prototype.getRandomString = getRandomString;
     var accurateAdd = function(x, y) {
         return (parseFloat((x).toString() + ".0000000000001")) + (parseFloat((y).toString()));
     }
@@ -661,6 +526,81 @@
 
     anything.prototype.hash = hash;
 
+    var helloWorld = function() {
+        return "Hello World";
+    };
+
+    anything.prototype.helloWorld = helloWorld;
+
+    var HSLtoCMYK = function(hsl) {
+        var rgb = HSLtoRGB(hsl);
+        return RGBtoCMYK(rgb);
+    };
+
+
+    anything.prototype.HSLtoCMYK = HSLtoCMYK;
+    var HSLtoRGB = function(hsl) {
+        if (hsl.s == 0) {
+            var grey = (hsl.l / 100) * 255;
+            return {
+                r: grey,
+                g: grey,
+                b: grey
+            };
+        } else {
+            if (hsl.l >= 50) {
+                tempOne = ((hsl.l / 100) + (hsl.s / 100)) - ((hsl.l / 100) * (hsl.s / 100));
+            } else {
+                tempOne = (hsl.l / 100) * (1 + (hsl.s / 100));
+            }
+            tempTwo = (2 * (hsl.l / 100)) - tempOne;
+            tempHue = hsl.h / 360;
+            tempR = (tempHue + 0.333) % 1;
+            tempG = tempHue;
+            tempB = negMod((tempHue - 0.333), 1);
+            var r, g, b;
+            if ((6 * tempR) < 1) {
+                r = tempTwo + ((tempOne - tempTwo) * 6 * tempR);
+            } else if ((2 * tempR) < 1) {
+                r = tempOne;
+            } else if ((3 * tempR) < 2) {
+                r = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempR) * 6));
+            } else {
+                r = tempTwo;
+            }
+            if ((6 * tempG) < 1) {
+                g = tempTwo + ((tempOne - tempTwo) * 6 * tempG);
+            } else if ((2 * tempG) < 1) {
+                g = tempOne;
+            } else if ((3 * tempG) < 2) {
+                g = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempG) * 6));
+            } else {
+                g = tempTwo;
+            }
+            if ((6 * tempB) < 1) {
+                b = tempTwo + ((tempOne - tempTwo) * 6 * tempB);
+            } else if ((2 * tempB) < 1) {
+                b = tempOne;
+            } else if ((3 * tempB) < 2) {
+                b = tempTwo + ((tempOne - tempTwo) * ((0.666 - tempB) * 6));
+            } else {
+                b = tempTwo;
+            }
+            if (r < 0) r = 0;
+            if (g < 0) g = 0;
+            if (b < 0) b = 0;
+            var rgb = {
+                r: r * 255,
+                g: g * 255,
+                b: b * 255,
+                hex: null
+            };
+            rgb.hex = RGBtoHEX(rgb);
+            return rgb;
+        }
+    };
+
+    anything.prototype.HSLtoRGB = HSLtoRGB;
     var imDrunk = function() {
         var body = document.querySelector('body');
         var duration = 1500;
@@ -716,7 +656,13 @@
         return num == 5;
     };
 
+    var isStrictlyNumber5 = function(num) {
+        return num === 5;
+    };
+
     anything.prototype.isNumber5 = isNumber5;
+    anything.prototype.isStrictlyNumber5 = isStrictlyNumber5;
+
     var isTrue = function(statement) {
         // Everybody lies (House, 2004)
         return false;
@@ -804,6 +750,104 @@
     };
 
     anything.prototype.mean = mean;
+
+    /*translates English into Meow
+     *
+     * examples:
+     * meowify('Hello world!') => 'Meow meow'
+     * meowify('Areallylongword areallylongword aREALLYlongword') => 'Meoweoww meoweowew mEOWWOwoow'
+     *
+     * note:
+     * it is not in the cat culture to use punctuation so punctuation marks are disregarded
+     */
+    var meowify = function(sentence) {
+        var normalWords = sentence.split(' ');
+        var meowifiedWords = [];
+
+        for (var i = 0; i < normalWords.length; i++) {
+            var curr = normalWords[i];
+
+            var wordCase, len;
+            if (meowIsLowercase(curr)) {
+                wordCase = 'L';
+            } else if (meowIsUppercase(curr)) {
+                wordCase = 'U';
+            } else if (meowIsCapitalized(curr)) {
+                wordCase = 'C';
+            } else {
+                wordCase = 'M';
+            }
+
+            if (meowIsLong(curr)) {
+                len = 'L';
+            } else {
+                len = 'S';
+            }
+
+            var key = wordCase + len + 'M';
+            meowifiedWords.push(meowbelFish[key]);
+        }
+
+        return meowifiedWords.join(' ');
+    }
+
+    anything.prototype.meowify = meowify;
+
+    // helper maps and functions
+    meowbelFish = {
+        LSM: 'meow',
+        USM: 'MEOW',
+        CSM: 'Meow',
+        MSM: 'mEOw',
+        LLM: 'meoweowew',
+        ULM: 'MEWOEWOW',
+        CLM: 'Meoweoww',
+        MLM: 'mEOWwOwoow'
+    }
+
+    var meowIsCapitalized = function(word) {
+        return word.charAt(0).toUpperCase() === word.charAt(0);
+    }
+
+    var meowIsLowercase = function(word) {
+        return word.toLowerCase() === word;
+    }
+
+    var meowIsUppercase = function(word) {
+        return word.toUpperCase() === word;
+    }
+
+    var meowIsLong = function(word) {
+        return word.length > 8;
+    }
+
+    var monthName = function(index) {
+        var monthNumber, date;
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ];
+
+        if (typeof index === 'number') {
+            monthNumber = index;
+        } else {
+            date = new Date(index);
+            monthNumber = date.getMonth() + 1;
+        }
+        return humandate.months[monthNumber - 1];
+    };
+
+    anything.prototype.monthName = monthName;
 
     function morse(string) {
         var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890@?.,- ";
@@ -954,6 +998,106 @@
     }
 
     anything.prototype.returnArgument = returnArgument;
+    var RGBtoCMYK = function(rgb) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
+            if (rgb.length == 4) {
+                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
+            }
+            newrgb = {
+                r: 0,
+                g: 0,
+                b: 0
+            };
+            newrgb.r = parseInt(rgb.substring(1, 3), 16);
+            newrgb.g = parseInt(rgb.substring(3, 5), 16);
+            newrgb.b = parseInt(rgb.substring(5, 8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var k = 1 - (Math.max(r, g, b));
+        if (k != 1) {
+            var c = ((1 - r) - k) / (1 - k);
+            var m = ((1 - g) - k) / (1 - k);
+            var y = ((1 - b) - k) / (1 - k);
+        } else {
+            var c = 0;
+            var m = 0;
+            var y = 0;
+        }
+        return {
+            c: c,
+            m: m,
+            y: y,
+            k: k
+        };
+    };
+
+    anything.prototype.RGBtoCMYK = RGBtoCMYK;
+    var RGBtoHEX = function(rgb) {
+        rgb.r = Math.floor(rgb.r);
+        rgb.g = Math.floor(rgb.g);
+        rgb.b = Math.floor(rgb.b);
+        var hex = "#" +
+            ((rgb.r < 16 ? "0" : "") + rgb.r.toString(16)) +
+            ((rgb.g < 16 ? "0" : "") + rgb.g.toString(16)) +
+            ((rgb.b < 16 ? "0" : "") + rgb.b.toString(16));
+        return hex;
+    }
+
+    anything.prototype.RGBtoHEX = RGBtoHEX;
+    var RGBtoHSL = function(rgb) {
+        if ((typeof rgb) == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
+            if (rgb.length == 4) {
+                rgb = "#" + rgb[1] + rgb[1] + rgb[2] + rgb[2] + rgb[3] + rgb[3];
+            }
+            newrgb = {
+                r: 0,
+                g: 0,
+                b: 0
+            };
+            newrgb.r = parseInt(rgb.substring(1, 3), 16);
+            newrgb.g = parseInt(rgb.substring(3, 5), 16);
+            newrgb.b = parseInt(rgb.substring(5, 8), 16);
+            rgb = newrgb;
+        }
+        var r = rgb['r'] / 255;
+        var g = rgb['g'] / 255;
+        var b = rgb['b'] / 255;
+        var rgbOrdered = [r, g, b].sort();
+        var l = ((rgbOrdered[0] + rgbOrdered[2]) / 2) * 100;
+        var s, h;
+        if (rgbOrdered[0] == rgbOrdered[2]) {
+            s = 0;
+            h = 0;
+        } else {
+            if (l >= 50) {
+                s = ((rgbOrdered[2] - rgbOrdered[0]) / ((2.0 - rgbOrdered[2]) - rgbOrdered[0])) * 100;
+            } else {
+                s = ((rgbOrdered[2] - rgbOrdered[0]) / (rgbOrdered[2] + rgbOrdered[0])) * 100;
+            }
+            if (rgbOrdered[2] == r) {
+                h = ((g - b) / (rgbOrdered[2] - rgbOrdered[0])) * 60;
+            } else if (rgbOrdered[2] == g) {
+                h = (2 + ((b - r) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            } else {
+                h = (4 + ((r - g) / (rgbOrdered[2] - rgbOrdered[0]))) * 60;
+            }
+            if (h < 0) {
+                h += 360;
+            } else if (h > 360) {
+                h = h % 360;
+            }
+        };
+        return {
+            h: h,
+            s: s,
+            l: l
+        };
+    };
+
+    anything.prototype.RGBtoHSL = RGBtoHSL;
     var rot13 = function(str) {
         var str_rot13 = "";
         var codeA = "A".charCodeAt(0);
@@ -1099,6 +1243,32 @@
 
     anything.prototype.shunDev = shunDev;
 
+
+    var standardDeviation = function(numArr) {
+
+        //ensure number array
+        if (!Object.prototype.toString.call(numArr) === "[object Array]")
+            return false;
+
+        //get mean
+        var mean = numArr.reduce(function(previousVal, currentVal) {
+            return previousVal + currentVal;
+        }) / numArr.length;
+
+        var sumOfDiffSquared = 0;
+        for (var i = 0; i < numArr.length; i++) {
+            diff = numArr[i] - mean;
+            diffSquared = Math.pow(diff, 2);
+            sumOfDiffSquared += diffSquared;
+        }
+
+        var variance = sumOfDiffSquared / (numArr.length - 1);
+        return Math.sqrt(variance);
+
+    }
+
+    anything.prototype.standardDeviation = standardDeviation;
+
     /**
      * Returns true if the second string is at the start of the first string.
      *
@@ -1158,6 +1328,27 @@
     };
 
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
+
+    var toBool = function(anything) {
+        return !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~!!anything;
+    };
+
+    anything.prototype.toBool = toBool;
+
+    var toUTC = function(input) {
+        var date = input ? new Date(input) : new Date();
+        date = new Date(
+            date.getUTCFullYear(),
+            date.getUTCMonth(),
+            date.getUTCDate(),
+            date.getUTCHours(),
+            date.getUTCMinutes(),
+            date.getUTCSeconds()
+        );
+        return date;
+    };
+
+    anything.prototype.toUTC = toUTC;
 
     /**
      * Tuple "class".

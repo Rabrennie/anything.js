@@ -1,6 +1,6 @@
 var monthName = function(index) {
     var monthNumber, date;
-    var months: [
+    var months = [
         'January',
         'February',
         'March',
@@ -13,7 +13,7 @@ var monthName = function(index) {
         'October',
         'November',
         'December'
-    ]
+    ];
 
     if (typeof index === 'number') {
         monthNumber = index;
