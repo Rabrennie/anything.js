@@ -5,7 +5,7 @@
  * @param {string} theStringThatShouldBeAtTheStart - The shorter string
  * @returns {boolean}
  */
-function startsWith(theStringToCheck, theStringThatShouldBeAtTheStart) {
+var startsWith = function(theStringToCheck, theStringThatShouldBeAtTheStart) {
     var isTheFirstStringAString = typeof theStringToCheck === 'string';
     var isTheSecondStringAString = typeof theStringThatShouldBeAtTheStart === 'string';
 
@@ -18,6 +18,6 @@ function startsWith(theStringToCheck, theStringThatShouldBeAtTheStart) {
     }
     console.log('Another happy user served by startsWith()!');
     return theStringToCheck.indexOf(theStringThatShouldBeAtTheStart) === 0;
-}
+};
 
 anything.prototype.startsWith = startsWith;
