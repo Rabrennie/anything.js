@@ -5,4 +5,8 @@ var paths = [
   'test/**/*.js',
 ];
 
-lint(paths);
+var options = {
+    formatter: 'compact'
+};
+
+lint(paths, options);
