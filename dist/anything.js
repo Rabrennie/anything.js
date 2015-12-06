@@ -767,7 +767,39 @@
     }
 
     anything.prototype.product = product
-        // returns random hex color
+    var randomColor = function(mode) {
+        mode = mode || "hex";
+        switch (mode) {
+            case "hex":
+                return randomHexColor();
+                break;
+            case "hsl":
+                return RGBtoHSL(randomHexColor());
+                break;
+            case "cmyk":
+                return RGBtoCMYK(randomHexColor());
+                break;
+        }
+    };
+
+    anything.prototype.randomColor = randomColor;
+    var randomColour = function(mode) {
+        mode = mode || "hex";
+        switch (mode) {
+            case "hex":
+                return randomHexColor();
+                break;
+            case "hsl":
+                return RGBtoHSL(randomHexColor());
+                break;
+            case "cmyk":
+                return RGBtoCMYK(randomHexColor());
+                break;
+        }
+    };
+
+    anything.prototype.randomColour = randomColour;
+    // returns random hex color
     var randomHexColor = function() {
         var options = '0123456789ABCDEF'.split('');
         var randomHexColor = '#';
