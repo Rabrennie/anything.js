@@ -1,4 +1,4 @@
-var monthName = function() {
+var monthName = function(index) {
     var monthNumber, date;
     var months: [
         'January',
