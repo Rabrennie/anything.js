@@ -1,5 +1,5 @@
 // returns random hex color
-function randomHexColor() {
+var randomHexColor = function() {
     var options = '0123456789ABCDEF'.split('');
     var randomHexColor = '#';
     for (var i = 0; i < 6; i++ ) {
