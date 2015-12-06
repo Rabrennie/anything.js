@@ -1,71 +1,72 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Δ.js Playground</title>
-    <script type="text/javascript" src="dist/anything.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/theme/material.css"/>
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/mode/javascript/javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/lint/javascript-lint.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/javascript-hint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js"></script>
-    
-    <script>
-        var anything = Δ;
-        var old_log = console.log;
-        console.log = function(){
-          document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
-          old_log.apply(this, arguments)
-        }
-        var old_error = console.error;
-        console.error = function(){
-          document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
-          old_error.apply(this, arguments)
-        }
-        var old_info = console.info;
-        console.info = function(){
-            document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
-            old_info.apply(this, arguments)
-        }
+	<meta charset="utf-8">
+	<title>Δ.js Playground</title>
+	<script type="text/javascript" src="dist/anything.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.css"
+	/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.css"
+	/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/theme/material.css"/>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/mode/javascript/javascript.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/lint/javascript-lint.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/javascript-hint.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js"></script>
+	
+	<script>
+		var anything = Δ;
+		var old_log = console.log;
+		console.log = function(){
+			document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
+			old_log.apply(this, arguments)
+		}
+		var old_error = console.error;
+		console.error = function(){
+			document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
+			old_error.apply(this, arguments)
+		}
+		var old_info = console.info;
+		console.info = function(){
+			document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
+			old_info.apply(this, arguments)
+		}
 
-        var RunThisBitch = function(){
-            document.getElementById('opt').innerHTML = '';
-            eval(myCodeMirror.getValue());
-        }
-        $(document).ready(function() {
-          RunThisBitch();
-        });
-    </script>
-  <style type="text/css">
-    body, .pusher
-    {
-      background: #111!important;
-    }
-  </style>
+		var RunThisBitch = function(){
+			document.getElementById('opt').innerHTML = '';
+			eval(myCodeMirror.getValue());
+		}
+		$(document).ready(function() {
+			RunThisBitch();
+		});
+	</script>
+	<style type="text/css">
+		body, .pusher {
+			background: #111!important;
+		}
+	</style>
 </head>
 <body class="pushable">
-<!-- Main Menu -->
-<div class="ui fixed inverted menu">
-    <a href="index.html" class="header item">
-      <img class="logo" src="assets/tb_icon.png">
-    </a>
-    <a href="index.html" class="item">Home</a>
-    <a class="olive active item">Playground</a>
-    <a href="documentation.html" class="pink item">Documentation</a>
-</div>
+	<!-- Main Menu -->
+	<div class="ui fixed inverted menu">
+		<a href="index.html" class="header item">
+			<img class="logo" src="assets/tb_icon.png">
+		</a>
+		<a href="index.html" class="item">Home</a>
+		<a class="olive active item">Playground</a>
+		<a href="documentation.html" class="pink item">Documentation</a>
+	</div>
 
-<!-- Page Contents -->
-<div class="pusher">
-  <h1>&nbsp;</h1>
-  <button class="ui inverted olive button" style="position: absolute; right: 2em; z-index: 100; top: 5em;" onclick="RunThisBitch()">Run This Bitch <i class="right play icon"></i></button>  <textarea class="editor" id="Edit">// Random shit
+	<!-- Page Contents -->
+	<div class="pusher">
+		<h1>&nbsp;</h1>
+		<button class="ui inverted olive button" style="position: absolute; right: 2em; z-index: 100; top: 5em;" onclick="RunThisBitch()">Run This Bitch <i class="right play icon"></i></button>
+		<textarea class="editor" id="Edit">
+// Random shit
 Δ.doTheThing();
 console.log(Δ.flipText("anything!"));
 
@@ -75,7 +76,7 @@ var theAnswer = Δ.theAnswerToLifeTheUniverseAndEverything();
 // See if the answer equals to 5
 if(Δ.isNumber5(theAnswer))
 {
-    Δ.getOffMyLawn("WTF");
+		Δ.getOffMyLawn("WTF");
 }
 
 // Let them know
@@ -87,24 +88,24 @@ console.log("The numbah is "+ rnd +". Guaranteed to be random");
 
 // This doesn't do anything
 Δ.nothing();
-</textarea>
-    <script>
-        var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
-        extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
-        mode: {name: "javascript", globalVars: true},
-        theme: 'material'
-        });
-    var orig = CodeMirror.hint.javascript;
-    myCodeMirror.on("keyup", function (cm, event) {
-        if (!cm.state.completionActive && event.keyCode == 190) {
-            CodeMirror.commands.autocomplete(cm, null, {completeSingle: false});
-        }
-    });
-    myCodeMirror.setSize(null, 400);
-    </script>
-    <h4 style="color:#fff;margin:1em;">Output (console.log)</h4>
-    <div id="opt" style="width: 100%; min-height: 300px; background: #333; color:#fff; padding: 1em; padding-top:0!important;"></div>
-</div>
+		</textarea>
+		<script>
+			var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('Edit'), {lineNumbers: true,
+			extraKeys: {"Ctrl-Space": "autocomplete", "Ctrl-Enter": RunThisBitch},
+			mode: {name: "javascript", globalVars: true},
+			theme: 'material'
+			});
+			var orig = CodeMirror.hint.javascript;
+			myCodeMirror.on("keyup", function (cm, event) {
+					if (!cm.state.completionActive && event.keyCode == 190) {
+							CodeMirror.commands.autocomplete(cm, null, {completeSingle: false});
+					}
+			});
+			myCodeMirror.setSize(null, 400);
+		</script>
+		<h4 style="color:#fff;margin:1em;">Output (console.log)</h4>
+		<div id="opt" style="width: 100%; min-height: 300px; background: #333; color:#fff; padding: 1em; padding-top:0!important;"></div>
+	</div>
 
 </body>
 </html>
