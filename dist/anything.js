@@ -25,8 +25,8 @@
 
     var laptopChargersAroundTheWorld = function() {
         return [
-            'http://imgur.com/oFTX0Tm',
-            // Add your charger pic here    
+            'http://imgur.com/oFTX0Tm'
+            // Add your charger pic here
         ];
     };
 
