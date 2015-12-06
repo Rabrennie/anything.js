@@ -13,6 +13,12 @@
         this.version = "6.9.1"
     };
 
+    var moreOnTop = function() {
+        return Δ.reverse("In your face, InderpalPfeffis! I'm the top one now!")
+    };
+
+    anything.prototype.moreOnTop = moreOnTop;
+
     /*
 
     Laptop chargers are as important as Oxygen these days.
@@ -1960,6 +1966,11 @@
 
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
 
+    var theAnswerToNothing = function() {
+        return Δ.everything() + 1;
+    };
+
+    anything.prototype.theAnswerToNothing = theAnswerToNothing;
     var toBool = function(anything) {
         return !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~!!anything;
     };
