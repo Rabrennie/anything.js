@@ -1097,7 +1097,7 @@
     anything.prototype.sumArray = sumArray;
 
     var theAnswerToLifeTheUniverseAndEverything = function() {
-        return anything.everything();
+        return Δ.everything();
     };
 
     anything.prototype.theAnswerToLifeTheUniverseAndEverything = theAnswerToLifeTheUniverseAndEverything;
