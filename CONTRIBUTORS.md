@@ -18,6 +18,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [HinterDir](https://github.com/HinterDir)
 * [hrn4n](https://github.com/hrn4n)
 * [izolate](https://github.com/izolate)
+* [jakehp](https://github.com/Jakehp)
 * [jkingsman](https://github.com/jkingsman)
 * [John2143](https://github.com/John2143658709)
 * [kotAPI](https://github.com/kotAPI)
