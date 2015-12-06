@@ -440,6 +440,43 @@
     };
 
     anything.prototype.batman = batman;
+    //For each celebration a function to check if the celebration is today should exist.
+    var listCelebrations = function() {
+        return [{
+            name: 'Christmas',
+            image: 'https://i.imgur.com/q4qBPbm.png'
+        }];
+    }
+
+    var celebrateIfAppropriate = function() {
+        listCelebrations().forEach(function(celebration) {
+            if (!window['Δ']['is' + celebration.name]())
+                return;
+            var celebrationTitle = document.createElement('h1');
+            celebrationTitle.innerHTML = 'Happy ' + celebration.name + '!';
+            var celebrationDiv = document.createElement('div');
+            celebrationDiv.style.position = 'fixed';
+            celebrationDiv.style.bottom = '5px';
+            celebrationDiv.style.right = '5px';
+            celebrationDiv.style.height = '300px';
+            celebrationDiv.style.width = '150px';
+            celebrationDiv.style.zIndex = '1000';
+            celebrationDiv.style.textAlign = 'center';
+            celebrationDiv.style.color = 'red';
+            celebrationDiv.style.textShadow = '0 0 5px black';
+            celebrationDiv.style.backgroundColor = 'rgba(127, 127, 127, .5)';
+            celebrationDiv.style.backgroundImage = 'url(' + celebration.image + ')';
+            celebrationDiv.style.backgroundSize = '100% 100%';
+            celebrationDiv.appendChild(celebrationTitle);
+            document.body.appendChild(celebrationDiv);
+            console.log('celebrated ' + celebration.name);
+        });
+    }
+
+    anything.prototype.listCelebrations = listCelebrations;
+    anything.prototype.celebrateIfAppropriate = celebrateIfAppropriate;
+
+
     var classlist = function(el) {
         this.addClass = function(className) {
             if (el.classList)
@@ -1315,6 +1352,199 @@
     }
 
     anything.prototype.getRandomString = getRandomString;
+    var getiso6391Code = function(name) {
+        var iso6391 = {
+            'Abkhaz': 'ab',
+            'Afar': 'aa',
+            'Afrikaans': 'af',
+            'Akan': 'ak',
+            'Albanian': 'sq',
+            'Amharic': 'am',
+            'Arabic': 'ar',
+            'Aragonese': 'an',
+            'Armenian': 'hy',
+            'Assamese': 'as',
+            'Avaric': 'av',
+            'Avestan': 'ae',
+            'Aymara': 'ay',
+            'Azerbaijani': 'az',
+            'Bambara': 'bm',
+            'Bashkir': 'ba',
+            'Basque': 'eu',
+            'Belarusian': 'be',
+            'Bengali, Bangla': 'bn',
+            'Bihari': 'bh',
+            'Bislama': 'bi',
+            'Bosnian': 'bs',
+            'Breton': 'br',
+            'Bulgarian': 'bg',
+            'Burmese': 'my',
+            'Catalan': 'ca',
+            'Chamorro': 'ch',
+            'Chechen': 'ce',
+            'Chichewa, Chewa, Nyanja': 'ny',
+            'Chinese': 'zh',
+            'Chuvash': 'cv',
+            'Cornish': 'kw',
+            'Corsican': 'co',
+            'Cree': 'cr',
+            'Croatian': 'hr',
+            'Czech': 'cs',
+            'Danish': 'da',
+            'Divehi, Dhivehi, Maldivian': 'dv',
+            'Dutch': 'nl',
+            'Dzongkha': 'dz',
+            'English': 'en',
+            'Esperanto': 'eo',
+            'Estonian': 'et',
+            'Ewe': 'ee',
+            'Faroese': 'fo',
+            'Fijian': 'fj',
+            'Finnish': 'fi',
+            'French': 'fr',
+            'Fula, Fulah, Pulaar, Pular': 'ff',
+            'Galician': 'gl',
+            'Georgian': 'ka',
+            'German': 'de',
+            'Greek (modern)': 'el',
+            'Guaraní': 'gn',
+            'Gujarati': 'gu',
+            'Haitian, Haitian Creole': 'ht',
+            'Hausa': 'ha',
+            'Hebrew (modern)': 'he',
+            'Herero': 'hz',
+            'Hindi': 'hi',
+            'Hiri Motu': 'ho',
+            'Hungarian': 'hu',
+            'Interlingua': 'ia',
+            'Indonesian': 'id',
+            'Interlingue': 'ie',
+            'Irish': 'ga',
+            'Igbo': 'ig',
+            'Inupiaq': 'ik',
+            'Ido': 'io',
+            'Icelandic': 'is',
+            'Italian': 'it',
+            'Inuktitut': 'iu',
+            'Japanese': 'ja',
+            'Javanese': 'jv',
+            'Kalaallisut, Greenlandic': 'kl',
+            'Kannada': 'kn',
+            'Kanuri': 'kr',
+            'Kashmiri': 'ks',
+            'Kazakh': 'kk',
+            'Khmer': 'km',
+            'Kikuyu, Gikuyu': 'ki',
+            'Kinyarwanda': 'rw',
+            'Kyrgyz': 'ky',
+            'Komi': 'kv',
+            'Kongo': 'kg',
+            'Korean': 'ko',
+            'Kurdish': 'ku',
+            'Kwanyama, Kuanyama': 'kj',
+            'Latin': 'la',
+            'Luxembourgish, Letzeburgesch': 'lb',
+            'Ganda': 'lg',
+            'Limburgish, Limburgan, Limburger': 'li',
+            'Lingala': 'ln',
+            'Lao': 'lo',
+            'Lithuanian': 'lt',
+            'Luba-Katanga': 'lu',
+            'Latvian': 'lv',
+            'Manx': 'gv',
+            'Macedonian': 'mk',
+            'Malagasy': 'mg',
+            'Malay': 'ms',
+            'Malayalam': 'ml',
+            'Maltese': 'mt',
+            'Māori': 'mi',
+            'Marathi (Marāṭhī)': 'mr',
+            'Marshallese': 'mh',
+            'Mongolian': 'mn',
+            'Nauru': 'na',
+            'Navajo, Navaho': 'nv',
+            'Northern Ndebele': 'nd',
+            'Nepali': 'ne',
+            'Ndonga': 'ng',
+            'Norwegian Bokmål': 'nb',
+            'Norwegian Nynorsk': 'nn',
+            'Norwegian': 'no',
+            'Nuosu': 'ii',
+            'Southern Ndebele': 'nr',
+            'Occitan': 'oc',
+            'Ojibwe, Ojibwa': 'oj',
+            'Old Church Slavonic, Church Slavonic, Old Bulgarian': 'cu',
+            'Oromo': 'om',
+            'Oriya': 'or',
+            'Ossetian, Ossetic': 'os',
+            'Panjabi, Punjabi': 'pa',
+            'Pāli': 'pi',
+            'Persian (Farsi)': 'fa',
+            'Polish': 'pl',
+            'Pashto, Pushto': 'ps',
+            'Portuguese': 'pt',
+            'Quechua': 'qu',
+            'Romansh': 'rm',
+            'Kirundi': 'rn',
+            'Romanian': 'ro',
+            'Russian': 'ru',
+            'Sanskrit (Saṁskṛta)': 'sa',
+            'Sardinian': 'sc',
+            'Sindhi': 'sd',
+            'Northern Sami': 'se',
+            'Samoan': 'sm',
+            'Sango': 'sg',
+            'Serbian': 'sr',
+            'Scottish Gaelic, Gaelic': 'gd',
+            'Shona': 'sn',
+            'Sinhala, Sinhalese': 'si',
+            'Slovak': 'sk',
+            'Slovene': 'sl',
+            'Somali': 'so',
+            'Southern Sotho': 'st',
+            'Spanish': 'es',
+            'Sundanese': 'su',
+            'Swahili': 'sw',
+            'Swati': 'ss',
+            'Swedish': 'sv',
+            'Tamil': 'ta',
+            'Telugu': 'te',
+            'Tajik': 'tg',
+            'Thai': 'th',
+            'Tigrinya': 'ti',
+            'Tibetan Standard, Tibetan, Central': 'bo',
+            'Turkmen': 'tk',
+            'Tagalog': 'tl',
+            'Tswana': 'tn',
+            'Tonga (Tonga Islands)': 'to',
+            'Turkish': 'tr',
+            'Tsonga': 'ts',
+            'Tatar': 'tt',
+            'Twi': 'tw',
+            'Tahitian': 'ty',
+            'Uyghur': 'ug',
+            'Ukrainian': 'uk',
+            'Urdu': 'ur',
+            'Uzbek': 'uz',
+            'Venda': 've',
+            'Vietnamese': 'vi',
+            'Volapük': 'vo',
+            'Walloon': 'wa',
+            'Welsh': 'cy',
+            'Wolof': 'wo',
+            'Western Frisian': 'fy',
+            'Xhosa': 'xh',
+            'Yiddish': 'yi',
+            'Yoruba': 'yo',
+            'Zhuang, Chuang': 'za',
+            'Zulu': 'zu'
+        };
+
+        return iso6391[name];
+    }
+
+    anything.prototype.getiso6391Code = getiso6391Code;
+
     var accurateAdd = function(x, y) {
         return (parseFloat((x).toString() + ".0000000000001")) + (parseFloat((y).toString()));
     }
@@ -1645,6 +1875,16 @@
     var noop = function() {};
 
     anything.prototype.noop = noop;
+    /*
+      Generates an epic 404 page on the fly!
+    */
+
+    var notFound = function() {
+        window.location = "https://thebest404pageever.com/"
+    };
+
+    anything.prototype.notFound = notFound;
+
     var nothing = function() {
         noop();
     };
