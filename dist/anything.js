@@ -936,7 +936,7 @@
      * @param {string} theStringThatShouldBeAtTheStart - The shorter string
      * @returns {boolean}
      */
-    function startsWith(theStringToCheck, theStringThatShouldBeAtTheStart) {
+    var startsWith = function(theStringToCheck, theStringThatShouldBeAtTheStart) {
         var isTheFirstStringAString = typeof theStringToCheck === 'string';
         var isTheSecondStringAString = typeof theStringThatShouldBeAtTheStart === 'string';
 
@@ -949,7 +949,7 @@
         }
         console.log('Another happy user served by startsWith()!');
         return theStringToCheck.indexOf(theStringThatShouldBeAtTheStart) === 0;
-    }
+    };
 
     anything.prototype.startsWith = startsWith;
 
@@ -1039,6 +1039,11 @@
     };
 
     anything.prototype.twoString = twoString;
+    var weekday = function() {
+        return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getDay()];
+    };
+
+    anything.prototype.weekday = weekday;
     var writeTomorrowDate = function() {
         async_doThingTomorrow(function(tomorrow) {
             document.write(tomorrow.toString());
