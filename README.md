@@ -9,6 +9,28 @@
 # Why?
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
 
+# Hall of Fame
+
+These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 10-20 commits, Gold is 20-50 commits, and Unicorn is over 50.
+
+--------
+![Rabrennie](https://img.shields.io/badge/@Rabrennie-UNICORN-ffbdc8.svg)
+/
+![thehowl](https://img.shields.io/badge/@thehowl-gold-FF91A4.svg)
+/
+![toish](https://img.shields.io/badge/@toish-silver-CC7483.svg)
+![gytdau](https://img.shields.io/badge/@gytdau-silver-CC7483.svg)
+![Crecket](https://img.shields.io/badge/@Crecket-silver-CC7483.svg)
+![oliver-j](https://img.shields.io/badge/@gytdau-silver-CC7483.svg)
+![gytdau](https://img.shields.io/badge/@gytdau-silver-CC7483.svg)
+/
+![TheBITLINK](https://img.shields.io/badge/@TheBITLINK-bronze-995762.svg)
+![montaflynn](https://img.shields.io/badge/@montaflynn-bronze-995762.svg)
+
+--------
+If you've earned a badge, please add yourself - we can't keep track of everyone all the time.  
+Wouldn't you like to be [up there?](https://github.com/Rabrennie/anything.js/new/master/src)
+
 # Rules
 1. Nothing that'll crash a web page.
 1. Can't violate GitHub terms of service.
