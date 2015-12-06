@@ -17,9 +17,9 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 ![Rabrennie](https://img.shields.io/badge/@Rabrennie-UNICORN-ffbdc8.svg)
 /
 ![thehowl](https://img.shields.io/badge/@thehowl-gold-FF91A4.svg)
+![gytdau](https://img.shields.io/badge/@gytdau-gold-FF91A4.svg)
 /
 ![toish](https://img.shields.io/badge/@toish-silver-CC7483.svg)
-![gytdau](https://img.shields.io/badge/@gytdau-silver-CC7483.svg)
 ![Crecket](https://img.shields.io/badge/@Crecket-silver-CC7483.svg)
 ![oliver-j](https://img.shields.io/badge/@oliverj-silver-CC7483.svg)
 /
