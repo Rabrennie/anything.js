@@ -40,6 +40,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [TheKiwi5000](https://github.com/TheKiwi5000)
 * [ToadnoChikara](https://github.com/ToadnoChikara)
 * [toish](https://github.com/toish)
+* [tojba](https://github.com/tojba)
 * [will1982](https://github.com/will1982)
 * [Winwardo](https://github.com/Winwardo)
 * [Xeom](https://github.com/Xeom)
