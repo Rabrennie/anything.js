@@ -2,10 +2,12 @@
 
 These people are amazing. Not true. They've just done what we told them: add whatever they wanted to add to anything.js. Nevertheless, they still contributed in making this library better (hopefully). Ordered alphabetically. Feel free to add yourself if you even added a tiny little function to anything.js!
 
+* [Admicos](https://github.com/Admicos)
 * [bman4789](https://github.com/bman4789)
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
 * [Crecket](https://github.com/Crecket)
+* [dstrekelj](https://github.com/dstrekelj)
 * [Ekrow](https://github.com/Ekrow)
 * [fbergr](https://github.com/fbergr)
 * [gillstrom](https://github.com/gillstrom)
@@ -14,6 +16,8 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [HinterDir](https://github.com/HinterDir)
 * [hrn4n](https://github.com/hrn4n)
 * [izolate](https://github.com/izolate)
+* [jkingsman](https://github.com/jkingsman)
+* [John2143](https://github.com/John2143658709)
 * [kotAPI](https://github.com/kotAPI)
 * [merrickfox](https://github.com/merrickfox)
 * [mnstrspeed](https://github.com/mnstrspeed)
