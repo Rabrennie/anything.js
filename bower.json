@@ -10,5 +10,9 @@
   "keywords": [
     "anything"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "ignore": [
+    "**/*",
+    "!dist/*"
+  ]
 }
