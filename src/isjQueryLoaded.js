@@ -1,4 +1,4 @@
-var isjQueryLoaded = function (name) {
+var isjQueryLoaded = function () {
 	return (typeof jQuery == 'undefined') ? false : true;
 }
 
