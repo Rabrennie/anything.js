@@ -22,6 +22,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 * [jkingsman](https://github.com/jkingsman)
 * [John2143](https://github.com/John2143658709)
 * [kotAPI](https://github.com/kotAPI)
+* [levibuzolic](https://github.com/levibuzolic)
 * [merrickfox](https://github.com/merrickfox)
 * [mnstrspeed](https://github.com/mnstrspeed)
 * [mohammadg](https://github.com/mohammadg)
