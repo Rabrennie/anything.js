@@ -30,6 +30,16 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 If you've earned a badge, please add yourself - we can't keep track of everyone all the time.  
 Wouldn't you like to be [up there?](https://github.com/Rabrennie/anything.js/new/master/src)
 
+# Δ.everywhere()
+Δ.everywhere() is an extension that wraps Δ.js to every page and lets you run anything you want with it.
+Useful if you want to run `Δ.johnCena()` on any website.
+
+[Δ.everywhere() for Firefox](https://addons.mozilla.org/en-US/firefox/addon/anything-everywhere/)
+
+[Δ.everywhere() for Chrome](https://github.com/Rabrennie/anything.js/raw/master/everywhere/chrome/chrome.crx)
+
+Source code is avaiable in the "everywhere" directory
+
 # Rules
 1. Nothing that'll crash a web page.
 1. Can't violate GitHub terms of service.
@@ -63,9 +73,5 @@ We will still merge your pull request if it doesn't follow the guidelines, altho
 
 # IRC
 We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
-
-# [Firefox Addon] (https://addons.mozilla.org/en-US/firefox/addon/anything-everywhere/)
-We now have a firefox addon thanks to @TheBITLINK
-
 
 ![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
