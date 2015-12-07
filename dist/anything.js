@@ -377,6 +377,11 @@
     };
 
     anything.prototype.RGBtoHSL = RGBtoHSL;
+    var YouShallNotHax = function() {
+        console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
+    };
+    anything.prototype.YouShallNotHax = YouShallNotHax;
+
     var addRealFunctionalityOnTheFly = function() {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -825,6 +830,65 @@
     }
 
     anything.prototype.efficientSort = efficientSort;
+
+    /**
+     * Employ a web worker to do a job on another thread.
+     * Workers are terminated after they respond with a result.
+     * 
+     * If workers are not supported, the function fails gracefully
+     * by executing the job function on the main thread with the 
+     * provided data, and passing the result to the callback.
+     * 
+     * @param {object} data - An object of key-value pairs for data
+     * @param {function} job - The job the worker is tasked with, as a function
+     * @param {function} callback - Called when worker is done with the job
+     * 
+     * Example: sorting an array on a different thread.
+     * 
+         employWorker(
+            { unsorted : Array.apply(null, Array(25000)).map(function() { return Math.floor(Math.random() * 10); }, 0) },
+            function gnomesort(d) {
+                var i = 0, a = d.unsorted;
+
+                while (i < a.length) {
+                    if (i == 0 || a[i] >= a[i - 1]) {
+                        i++;
+                    } else {
+                        var t = a[i];
+                        a[i] = a[i - 1];
+                        a[--i] = t;
+                    }
+                }
+
+                return d.unsorted;
+            },
+            function complete(e) {
+                alert(e.data);
+            }
+        );
+     *
+     */
+    var employWorker = function(data, job, callback) {
+        if (window.Worker) {
+            var script = [
+                "self.addEventListener('message', function(e) {" +
+                "var result = " + job.toString() + "(e.data);" +
+                "postMessage(result);" +
+                "close();" +
+                "}, false);"
+            ].join('\n');
+            var blob = new Blob([script]);
+            var worker = new Worker(URL.createObjectURL(blob));
+            worker.addEventListener('message', callback, false);
+            worker.postMessage(data);
+        } else {
+            callback({
+                data: job(data)
+            });
+        }
+    };
+
+    anything.prototype.employWorker = employWorker;
 
     var everything = function() {
         return 42;
@@ -1327,6 +1391,112 @@
     };
 
     anything.prototype.getOffMyLawn = getOffMyLawn;
+    var pepe = function() {
+        var dank = [
+            'https://rare-pepe.com/wp-content/uploads/0275_-_z6X0ly7.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0384_-_80zappf.png',
+            'https://rare-pepe.com/wp-content/uploads/0383_-_tlvEJkM.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0874_-_4OfqbxR.gif',
+            'https://rare-pepe.com/wp-content/uploads/0171_-_xeFHyag.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0753_-_8T8wmjl.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0597_-_t6LHqi3.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0089_-_VrdoDFk.png',
+            'https://rare-pepe.com/wp-content/uploads/0725_-_NEVgDvO.png',
+            'https://rare-pepe.com/wp-content/uploads/0973_-_Zz5utXt.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0825_-_IueijRy.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0709_-_uMsMO2R.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0109_-_ms5Ickz.png',
+            'https://rare-pepe.com/wp-content/uploads/0638_-_RrLhSBI.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0669_-_hgQpDhM.gif',
+            'https://rare-pepe.com/wp-content/uploads/0881_-_186etyr.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0340_-_xpduhs7.png',
+            'https://rare-pepe.com/wp-content/uploads/0529_-_EVYxaHY.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0423_-_UaU2uBK.png',
+            'https://rare-pepe.com/wp-content/uploads/0521_-_WLYwYLC.png',
+            'https://rare-pepe.com/wp-content/uploads/0422_-_j1oHHwm.png',
+            'https://rare-pepe.com/wp-content/uploads/0070_-_oc9FLJ2.png',
+            'https://rare-pepe.com/wp-content/uploads/0264_-_kaKRYPS.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0442_-_8KMtiGC.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0115_-_VIYwB7E.png',
+            'https://rare-pepe.com/wp-content/uploads/0482_-_xp0JzfT.jpg',
+            'https://rare-pepe.com/wp-content/uploads/1009_-_HmE77sh.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0430_-_zPmeznk.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0354_-_8lcXb2Z.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0656_-_FCGPRoP.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0550_-_nUs29ui.png',
+            'https://rare-pepe.com/wp-content/uploads/0409_-_IMkKctj.gif',
+            'https://rare-pepe.com/wp-content/uploads/0954_-_VSlc5Gv.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0254_-_upjbHdx.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0861_-_q4Og5Yp.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0851_-_tRjgBF4.png',
+            'https://rare-pepe.com/wp-content/uploads/0582_-_crUYnoi.png',
+            'https://rare-pepe.com/wp-content/uploads/0775_-_fHbyFHm.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0816_-_W9pSBje.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0588_-_hIbtNz0.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0030_-_pUAG96a.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0786_-_s3BS855.png',
+            'https://rare-pepe.com/wp-content/uploads/0700_-_nv3Bx2a.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0884_-_jcX90DR.png',
+            'https://rare-pepe.com/wp-content/uploads/0069_-_r7acjZc.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0814_-_EOmw8R8.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0343_-_fGHAd2j.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0569_-_ak7llYa.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0594_-_nyzO30f.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0230_-_SucKT7w.gif',
+            'https://rare-pepe.com/wp-content/uploads/0834_-_xMnEyIa.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0958_-_gs7slmv.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0291_-_zBXok8r.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0822_-_o7Vzo8w.png',
+            'https://rare-pepe.com/wp-content/uploads/0705_-_Hpr1dGd.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0450_-_bo9UcVP.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0715_-_upRiQ9z.png',
+            'https://rare-pepe.com/wp-content/uploads/0654_-_VOcxgCK.png',
+            'https://rare-pepe.com/wp-content/uploads/0472_-_xcP1yJh.png',
+            'https://rare-pepe.com/wp-content/uploads/0666_-_YKEqBzT.png',
+            'https://rare-pepe.com/wp-content/uploads/0304_-_h3nTfec.png',
+            'https://rare-pepe.com/wp-content/uploads/0468_-_AqUqewr.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0721_-_Azc4PjJ.png',
+            'https://rare-pepe.com/wp-content/uploads/0221_-_6Qptw88.png',
+            'https://rare-pepe.com/wp-content/uploads/0308_-_9GOfh6H.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0065_-_CsJKOBy.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0522_-_Hy3w7A4.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0612_-_eSDtqts.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0021_-_YauaMbL.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0513_-_FlkWqDG.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0329_-_GRQLBBx.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0828_-_oLiFCjC.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0393_-_nSs2AhR.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0447_-_JmBxBW4.png',
+            'https://rare-pepe.com/wp-content/uploads/0124_-_jmByizM.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0741_-_9kSRLBK.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0243_-_ZGsy8xB.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0830_-_EL7hmKz.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0083_-_eJErbRL.png',
+            'https://rare-pepe.com/wp-content/uploads/0242_-_51GB1Ec.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0416_-_MLOhuN8.png',
+            'https://rare-pepe.com/wp-content/uploads/0249_-_mmTnRA1.png',
+            'https://rare-pepe.com/wp-content/uploads/0736_-_JjWbAmR.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0863_-_F9LRZR2.png',
+            'https://rare-pepe.com/wp-content/uploads/0868_-_50At6Gl.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0897_-_cEPataO.png',
+            'https://rare-pepe.com/wp-content/uploads/0234_-_LIYDk27.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0793_-_Ag6DPUV.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0068_-_xvCyjIK.png',
+            'https://rare-pepe.com/wp-content/uploads/0727_-_5z6sPxQ.png',
+            'https://rare-pepe.com/wp-content/uploads/0523_-_0AqBLez.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0696_-_jN3bg6w.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0633_-_JQsQbtb.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0024_-_n8McQ1A.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0019_-_sPd50zY.png',
+            'https://rare-pepe.com/wp-content/uploads/0827_-_rXftTMO.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0942_-_yfkczTj.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0600_-_a2VyJMo.jpg',
+            'https://rare-pepe.com/wp-content/uploads/0023_-_RTR61hf.png',
+            'https://rare-pepe.com/wp-content/uploads/0182_-_EbOxDzB.png',
+        ]
+        return dank[Math.floor(Math.random() * dank.length)];
+    }
+    anything.prototype.getPepe = getPepe;
     var getRandomNumber = function() {
         return 4; // chosen by fair dice roll
         // guaranteed to be random
@@ -1563,6 +1733,19 @@
 
     anything.prototype.hash = hash;
 
+    var hashtagify = function(text, rate) {
+        rate = rate || 0.25;
+        var parts = (text || '').split(/\s+/).map(function(word) {
+            if (Math.random() < rate && text.indexOf('#') === -1) {
+                word = '#' + word;
+            }
+            return word;
+        });
+        return parts.join(' ');
+    };
+
+    anything.prototype.hashtagify = hashtagify;
+
     var helloWorld = function() {
         return "Hello World";
     };
@@ -1652,6 +1835,14 @@
     };
 
     anything.prototype.isTrue = isTrue;
+    var isWeekend = function() {
+        today = new Date();
+
+        return today.getDay() == 0 || today.getDay() == 6;
+    }
+
+    anything.prototype.isWeekend = isWeekend;
+
     var isjQueryLoaded = function() {
         return (typeof jQuery == 'undefined') ? false : true;
     }
@@ -1721,6 +1912,12 @@
     };
 
     anything.prototype.konami = konami
+
+    var log = function(msg) {
+        console.log(msg);
+    }
+
+    anything.prototype.log = log;
 
     var makeDeprecatedArray = function(obj) {
         obj.__proto__ = [];
@@ -2020,6 +2217,38 @@
 
     anything.prototype.randomHexColor = randomHexColor;
 
+    var reallyPrettify = function() {
+
+        // More frameworks = more better?
+        var csslinks = ["https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css",
+            "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css",
+            "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/Han/3.2.7/han.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.7/font-awesome-animation.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/cascade-framework/1.5.0/css/build-full.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/WebRupee/2.0/font.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/zurb-ink/1.0.5/ink.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/unsemantic/1.0.2/unsemantic-grid-responsive.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/toast-css/1.0.0/grid.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/yamlcss/4.1.2/core/base.min.css",
+            "https://cdnjs.cloudflare.com/ajax/libs/kule.lazy/3.0.151206/css/kule-lazy-full.min.css"
+        ];
+
+        var cssId = 'css';
+        var head = document.getElementsByTagName('head')[0];
+        while (csslinks.length != 0) {
+            var link = document.createElement('link');
+            link.id = cssId + csslinks.length;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            var randomIndex = Math.floor(Math.random() * csslinks.length);
+            link.href = csslinks.splice(randomIndex, 1);
+            head.appendChild(link);
+        }
+    }
+
+    anything.prototype.reallyPrettify = reallyPrettify;
+
     var returnArgument = function(x) {
         return x;
     }
@@ -2113,6 +2342,14 @@
     };
 
     anything.prototype.securitay = securitay;
+
+    var sexToy = function(speed) {
+        setInterval(function() {
+            window.navigator.vibrate(200);
+        }, 2000 / 5 || speed);
+    };
+
+    anything.prototype.sexToy = sexToy;
 
     // Usage
     //sheet.insertRule("header { float: left; opacity: 0.8; }", 1);
