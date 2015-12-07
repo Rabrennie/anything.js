@@ -50,6 +50,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [ToadnoChikara](https://github.com/ToadnoChikara)
 * [toish](https://github.com/toish)
 * [tojba](https://github.com/tojba)
+* [Vekat](https://github.com/vekat)
 * [will1982](https://github.com/will1982)
 * [Winwardo](https://github.com/Winwardo)
 * [Xeom](https://github.com/Xeom)
