@@ -33,6 +33,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [MrOnosa](https://github.com/MrOnosa)
 * [NathanJang](https://github.com/NathanJang)
 * [oliver-j](https://github.com/oliver-j)
+* [PeterChu2](https://github.com/PeterChu2)
 * [prakashn27](https://github.com/prakashn27)
 * [Qix-](https://github.com/Qix-)
 * [Rabrennie](https://github.com/Rabrennie)
