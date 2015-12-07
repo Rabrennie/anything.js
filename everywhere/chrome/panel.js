@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	    } else {
 	        myField.value += myValue;
 	    }
+		myField.focus();
 	}
 
 	runlink.addEventListener('click', function (ev) {
