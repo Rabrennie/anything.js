@@ -4,6 +4,7 @@ These people are amazing. Not true. They've just done what we told them: add wha
 
 * [Admicos](https://github.com/Admicos)
 * [aierou](https://github.com/aierou)
+* [aneeshdurg](https://github.com/aneeshdurg)
 * [arkon](https://github.com/arkon)
 * [bman4789](https://github.com/bman4789)
 * [CianLR](https://github.com/CianLR)
