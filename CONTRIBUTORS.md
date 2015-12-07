@@ -14,6 +14,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [dstrekelj](https://github.com/dstrekelj)
 * [Ekrow](https://github.com/Ekrow)
 * [fbergr](https://github.com/fbergr)
+* [frux](https://github.com/frux)
 * [gillstrom](https://github.com/gillstrom)
 * [gytdau](https://github.com/gytdau)
 * [HermannBjorgvin](https://github.com/HermannBjorgvin)
