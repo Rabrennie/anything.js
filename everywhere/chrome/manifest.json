@@ -4,7 +4,7 @@
   "name": "Δ.everywhere()",
   "description": "Wrap Δ.js in every web page and do col things with it.",
   "icons": { "128": "assets/logo-128.png" },
-  "version": "0.1",
+  "version": "0.2",
 
   "browser_action": {
     "default_icon": "assets/logo.png",

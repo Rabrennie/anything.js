@@ -10,7 +10,7 @@
      */
 
     var anything = function() {
-        this.version = "6.9.1"
+        this.version = "3"
     };
 
     var moreOnTop = function() {
@@ -390,6 +390,171 @@
     };
 
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
+    var alertBox = function() {
+        var defaults = {
+            title: 'this is a title',
+            cancel: function() {},
+            confirm: function() {}
+        };
+
+        var util = {
+            touchMoveHandle: function touchMoveHandle(e) {
+                e.preventDefault();
+                return false;
+            },
+
+            insertStyles: function insertStyles() {
+                var doc,
+                    cssCode = [],
+                    cssText;
+
+                var head,
+                    style,
+                    firstStyle;
+
+                var len = arguments.length;
+                if (len == 1) {
+                    doc = document;
+                    cssCode.push(arguments[0])
+                } else if (len == 2) {
+                    doc = arguments[0];
+                    cssCode.push(arguments[1]);
+                } else {
+                    alert("only two param");
+                }
+
+                head = doc.getElementsByTagName("head")[0];
+                styles = head.getElementsByTagName("style");
+
+                if (styles.length == 0) {
+                    if (doc.createStyleSheet) { //ie
+                        doc.createStyleSheet();
+                    } else { //FF
+                        var tempStyle = doc.createElement("style");
+                        tempStyle.setAttribute("type", "text/css");
+                        head.appendChild(tempStyle);
+                    }
+                }
+
+                firstStyle = styles[0];
+                cssText = cssCode.join("\n");
+
+                if (!+"\v1") { //opacity detective
+                    var str = cssText.match(/opacity:(\d?\.\d+);/);
+                    if (str != null) {
+                        cssText = cssText.replace(str[0], "filter:alpha(opacity=" + pareFloat(str[1]) * 100 + ")");
+                    }
+                }
+
+                if (firstStyle.styleSheet) {
+                    firstStyle.styleSheet.cssText += cssText;
+                } else if (doc.getBoxObjectFor) {
+                    firstStyle.innerHTML += cssText;
+                } else {
+                    firstStyle.appendChild(doc.createTextNode(cssText));
+                }
+            }
+        }
+
+        var hooks = {
+            beforeShowMask: function(cb) {
+                document.addEventListener('touchmove', util.touchMoveHandle, false);
+                cb && cb();
+            },
+
+            afterHideMask: function(cb) {
+                document.removeEventListener('touchmove', util.touchMoveHandle);
+                cb && cb();
+            }
+        };
+
+        var cssText = " .ui-alert-mask { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1000; width: 100%; height: 100%; background-color: rgba(4, 0, 0, 0.5);  } \
+                    .ui-alert-mask .ui-alert { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 75%; padding: 0 25px; border-radius: 8px; background-color: #fff; text-align: center; } \
+                    .ui-alert-mask .ui-alert .ui-alert-hd { padding: 0; } \
+                    .ui-alert-mask .ui-alert .ui-alert-hd:after {content: ''; display: block; width: 100%;height: 1px; background-color: #e6e6e6; -webkit-transform: scaleY(.5);transform: scaleY(.5);} \
+                    .ui-alert-mask .ui-alert .ui-alert-hd h2 { line-height: 1.5; margin: 0; padding: 10px 0; font-size: 0.75rem; font-weight: normal;} \
+                    .ui-alert-mask .ui-alert .ui-alert-bd { width: 100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; padding: 15px 0; } \
+                    .ui-btn { display:block;width: 45%; padding: 6px 0; font-size: 0.75rem; border-radius: 4px; text-decoration: none;} \
+                    .ui-btn-cancel { color: #666; border: 1px solid #e6e6e6; } \
+                    .ui-btn-confirm { color: #ef4f4f; border: 1px solid #ef4f4f; } \
+                    ";
+
+        var domText = '<div class="ui-alert-mask"> \
+                        <div class="ui-alert"> \
+                            <div class="ui-alert-hd"> \
+                                <h2 id="js-alert-title"></h2> \
+                            </div> \
+                            <div class="ui-alert-bd"> \
+                                <a href="javascript:void(0)" class="ui-btn ui-btn-cancel" id="js-alert-cancel">cancel</a> \
+                                <a href="javascript:void(0)" class="ui-btn ui-btn-confirm" id="js-alert-confirm">confirm</a> \
+                            </div> \
+                        </div> \
+                    </div> \
+                  ';
+
+        return {
+            init: function(opts) {
+                this.op = $.extend(defaults, opts || {});
+                this.title = this.op.title;
+                this.cancelCallback = this.op.cancel;
+                this.confirmCallback = this.op.confirm;
+            },
+
+            bind: function() {
+                var _this = this;
+                $('#js-alert-cancel').on('tap', function(e) {
+                    _this.cancelCallback && _this.cancelCallback();
+                    _this.hide();
+                });
+
+                $('#js-alert-confirm').on('tap', function(e) {
+                    _this.confirmCallback && _this.confirmCallback();
+                    _this.hide();
+                });
+            },
+
+            render: function() {
+                if (!$('.ui-alert-mask').length) {
+                    $('body').append(domText);
+                    $('#js-alert-title').html(this.title);
+                }
+                this.bind();
+            },
+
+            destroy: function() {
+                $('#js-alert-cancel').off('tap');
+                $('#js-alert-confirm').off('tap');
+                $('.ui-alert-mask').remove();
+            },
+
+            show: function(opts) {
+                this.init(opts);
+
+                hooks.beforeShowMask(function() {
+                    if ($('style').length) {
+                        $('style').each(function(index, item) {
+                            if ($(item).html().indexOf('.ui-alert-mask') == -1) {
+                                util.insertStyles(cssText);
+                            }
+                        });
+                    } else {
+                        util.insertStyles(cssText);
+                    }
+                });
+
+                this.render();
+            },
+
+            hide: function() {
+                var _this = this;
+                hooks.afterHideMask(function() {
+                    _this.destroy();
+                });
+            }
+        };
+    }
+
+    anything.prototype.alertBox = alertBox;
     var alphabet = function(uppercase) {
         var thealphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         if (uppercase) return thealphabet;
@@ -483,6 +648,11 @@
     anything.prototype.celebrateIfAppropriate = celebrateIfAppropriate;
 
 
+    var changeBackground = function(color) {
+        document.body.style.backgroundColor = color;
+    }
+    anything.prototype.changeBackground = changeBackground;
+
     var classlist = function(el) {
         this.addClass = function(className) {
             if (el.classList)
@@ -507,6 +677,10 @@
     };
 
     anything.prototype.classlist = classlist;
+
+    console.lol = function() {
+        console.log('lol');
+    }
 
     /**
      * Applies the css to the elements that were found using anything.find
@@ -627,9 +801,7 @@
      * 
      * Here's some demo code:
      * 
-        var ctx = domRenderer();
-
-        ctx.root.domElement.style.background = 'rgba(0, 0, 0, 0.8)';
+        var ctx = domRenderer(999);
 
         var icon = ctx.entity(
             window.innerWidth / 2 - 64,
@@ -652,7 +824,9 @@
         window.addEventListener('keyup', function(e) {
             if (e.keyCode == 27) {
                 window.cancelAnimationFrame(req);
-                document.body.removeChild(ctx.root.domElement);
+                while (ctx.root.domElement.firstChild) {
+                    ctx.root.domElement.removeChild(ctx.root.domElement.firstChild);
+                }
             }
         }, false);
      *
@@ -660,7 +834,15 @@
      * moving along an infinity path (lemniscate of Bernoulli).
      * Exit the demo by pressing the escape key.
      */
-    var domRenderer = function() {
+
+    /**
+     * Create new DOM renderer.
+     * 
+     * @param {number} [zIndex=999] - Default z-index of created elements
+     */
+    var domRenderer = function(zIndex) {
+        var _zIndex = zIndex || 999;
+
         /**
          * ELEMENT
          * 
@@ -673,7 +855,6 @@
             this.domElement.style.overflow = 'hidden';
             this.domElement.style.margin = 0;
             this.domElement.style.padding = 0;
-            this.domElement.style.position = 'fixed';
 
             Object.defineProperties(this, {
                 width: {
@@ -722,8 +903,8 @@
 
             this.domElement.setAttribute('id', 'dom-renderer');
 
-            this.width = window.innerWidth,
-                this.height = window.innerHeight;
+            this.width = 0;
+            this.height = 0;
         }
 
         Context.prototype = Object.create(Element.prototype);
@@ -780,6 +961,9 @@
 
             root.appendChild(this.domElement);
 
+            this.domElement.style.position = 'fixed';
+            this.domElement.style.zIndex = _zIndex;
+
             this.x = x;
             this.y = y;
             this.width = width;
@@ -806,6 +990,13 @@
     };
 
     anything.prototype.domRenderer = domRenderer;
+
+    var eatCurry = function() {
+        window.open('http://i.imgur.com/xjWcRj3.gif', 'curry', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=300, height=300');
+    };
+
+    anything.prototype.eatCurry = eatCurry;
+
     var efficientSort = function(o) {
         var sorted = false;
         while (sorted == false) {
@@ -895,6 +1086,13 @@
     };
 
     anything.prototype.everything = everything;
+    // Placeholder because i need this name reserved.
+    // Seriosly, please do not touch this
+    var everywhere = function() {
+
+    }
+
+    anything.prototype.everywhere = everywhere;
     /*
         define a function that takes two arguments and return a single result
         apply the function to all the argument of the function
@@ -925,6 +1123,24 @@
     };
 
     anything.prototype.fart = fart;
+
+    var fibonacci = function(n) {
+        if (!(n > 0)) {
+            return false;
+        }
+        var a, b, res;
+        a = b = 1;
+        for (var i = 3; i <= n; i++) {
+            res = a + b;
+            a = b;
+            b = res;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return res;
+    }
+    anything.prototype.fibonacci = fibonacci;
 
     /**
      * Finds elements in the DOM that match the selector
@@ -957,6 +1173,22 @@
     };
 
     anything.prototype.fizzbuzz = fizzbuzz;
+
+    var flattenArray = function(arr, result) {
+        result = result || [];
+
+        for (var i = 0; i < arr.length; i++) {
+            if (Array.isArray(arr[i])) {
+                flattenArray(arr[i], result);
+            } else {
+                result.push(arr[i]);
+            }
+        }
+
+        return result;
+    };
+
+    anything.prototype.flattenArray = flattenArray;
 
     var flipText = function(text) {
         var flipDict = {
@@ -1498,6 +1730,36 @@
     }
     anything.prototype.getPepe = getPepe;
 
+    var getPrimes = function(n) {
+        // Eratosthenes algorithm to find all primes less than n
+        var isPrime = [];
+        var max = Math.sqrt(n);
+        var primeNumbers = [];
+
+        // initialize all numbers to be prime
+        for (var i = 0; i < n; i++) {
+            isPrime.push(true);
+        }
+
+        for (var i = 2; i <= max; i++) {
+            if (isPrime[i]) {
+                for (var j = i * i; j < n; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        for (var i = 2; i < n; i++) {
+            if (isPrime[i]) {
+                primeNumbers.push(i)
+            }
+        }
+
+        return primeNumbers;
+    }
+
+    anything.prototype.getPrimes = getPrimes;
+
     var getRandomNumber = function() {
         return 4; // chosen by fair dice roll
         // guaranteed to be random
@@ -1810,6 +2072,40 @@
 
     anything.prototype.isAngularLoaded = isAngularLoaded;
 
+
+    var isBinPalindrome = function(num) {
+        if ('string' == typeof num) {
+            num = parseInt(number, 10);
+        }
+        var length = num.toString(2).length;
+        var halfLen = Math.floor(length / 2);
+
+        //Convert the top half to a string, ignoring the middle bit if it's length is odd.
+        var topString = (num >> (halfLen + length % 2)).toString(2);
+        //Reverse the top half. Ex: 100 -> 001 or 1
+        var reverseTop = 0;
+        for (var bit = topString.length - 1; bit >= 0; bit--) {
+            if (topString[bit] == "1") {
+                reverseTop += 1;
+            }
+            if (bit != 0) {
+                reverseTop <<= 1;
+            }
+        }
+
+        //Generate a bit string of all 1's to separate out the bottom part of the number
+        var mask = 1;
+        for (var i = 1; i < halfLen; i++) {
+            mask <<= 1;
+            mask += 1;
+        }
+        var bottomHalf = num & mask;
+
+        return reverseTop == bottomHalf;
+    }
+
+    anything.prototype.isBinPalindrome = isBinPalindrome;
+
     //Return true if today is Christmas
     var isChristmas = function() {
         var today = new(Date);
@@ -1913,6 +2209,75 @@
     };
 
     anything.prototype.konami = konami
+
+    /**
+     * This should create a snowstorm with the DOM renderer.
+     * 
+     * @param {object} [context=domRenderer] - DOM renderer context, created by default if not supplied
+     */
+    var letItSnow = function(context) {
+        /**
+         * Describes the snowflake.
+         * 
+         * @param {object} context - DOM renderer context
+         * @param {number} size - Snowflake size
+         * @param {number} speed - Snowflake speed
+         */
+        function Snowflake(context, size, speed) {
+            var _entity, _size, _speed;
+
+            _size = size;
+            _speed = speed;
+
+            _entity = context.entity(
+                Math.random() * window.innerWidth,
+                Math.random() * -window.innerHeight,
+                size,
+                size,
+                '#fff'
+            );
+
+            /**
+             * Updates snowflake position in window.
+             * 
+             * @param {number} t - Timestep
+             */
+            this.update = function(t) {
+                if (_entity.x > window.innerWidth) {
+                    _entity.x = -_size;
+                }
+                if (_entity.y > window.innerHeight) {
+                    _entity.y = -_size;
+                }
+                _entity.x += speed * Math.cos(t / 500) + 1;
+                _entity.y += 1 + _speed;
+            };
+        }
+
+        var _context = context || domRenderer(999);
+
+        // Create an array of 50 'randomly unique' snowflakes
+        var _snowflakes = Array.apply(null, Array(50)).map(function() {
+            return new Snowflake(_context, Math.floor(Math.random() * 10), Math.random());
+        }, 0);
+
+        /**
+         * Updates snowstorm.
+         * 
+         * @param {number} t - Timestep
+         */
+        function update(t) {
+            _snowflakes.forEach(function(e) {
+                e.update(t);
+            });
+
+            window.requestAnimationFrame(update);
+        }
+
+        update(0);
+    };
+
+    anything.prototype.letItSnow = letItSnow;
 
     var log = function(msg) {
         console.log(msg);
@@ -2145,6 +2510,8 @@
             return ping();
         }
     }
+
+    anything.prototype.play_pingpong = play_pingpong;
     var pong = function() {
         return "ping";
     };
@@ -2344,6 +2711,12 @@
 
     anything.prototype.securitay = securitay;
 
+    var selfDestruct = function() {
+        delete window.Δ;
+    }
+
+    anything.prototype.selfDestruct = selfDestruct;
+
     var sexToy = function(speed) {
         setInterval(function() {
             window.navigator.vibrate(200);
@@ -2413,6 +2786,13 @@
     };
 
     anything.prototype.shunDev = shunDev;
+
+    Object.defineProperty(anything, 'something', {
+        get: function() {
+            var keys = Object.keys(window);
+            return window[keys[Math.floor(Math.random() * keys.length)]];
+        }
+    });
 
 
     var standardDeviation = function(numArr) {
@@ -2558,6 +2938,11 @@
     };
 
     anything.prototype.theAnswerToNothing = theAnswerToNothing;
+    var threeString = function() {
+        return "3";
+    };
+
+    anything.prototype.threeString = threeString;
     var times = function(times, funct) {
         if (typeof funct === 'function') {
             var m = Math;
@@ -2568,6 +2953,12 @@
     }
 
     anything.prototype.times = times;
+
+    var toBinary = function(x) {
+        return Number(x).toString(2);
+    }
+
+    anything.prototype.toBinary = toBinary;
 
     var toBool = function(anything) {
         return !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~!!anything;
@@ -2655,6 +3046,22 @@
     };
 
     anything.prototype.twoString = twoString;
+    var uniqueValues = function(arr) {
+        var result = arr.reduce(function(prev, cur) {
+            if (Object.keys(prev[cur]) === undefined) {
+                prev[cur] = 1;
+            } else {
+                prev[cur] += 1;
+            }
+
+            return prev;
+        }, {});
+
+        return result;
+    };
+
+    anything.prototype.uniqueValues = uniqueValues;
+
 
     var randomNumberFrom5678291to5678298 = function(trueRandom) {
         if (!trueRandom) {
@@ -2674,6 +3081,12 @@
     };
 
     anything.prototype.weekday = weekday;
+
+    var whats9plus10 = function() {
+        return 21;
+    }
+
+    anything.prototype.whats9plus10 = whats9plus10;
 
     var writeTomorrowDate = function() {
         async_doThingTomorrow(function(tomorrow) {
