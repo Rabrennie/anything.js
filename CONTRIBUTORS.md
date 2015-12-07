@@ -37,7 +37,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [Rabrennie](https://github.com/Rabrennie)
 * [radiantnode](https://github.com/radiantnode)
 * [relvacode](https://github.com/relvacode)
-* [riyadhalnur](https://github.com/riyadhalnur]
+* [riyadhalnur](https://github.com/riyadhalnur)
 * [steezeburger](https://github.com/steezeburger)
 * [TheBITLINK](https://github.com/TheBITLINK)
 * [thehowl](https://github.com/thehowl)
