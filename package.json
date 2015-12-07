@@ -25,6 +25,7 @@
     "gulp-minify": "0.0.5"
   },
   "devDependencies": {
+    "babel-core": "^6.3.15",
     "mocha": "^2.3.4",
     "mocha-eslint": "^1.0.0"
   }
