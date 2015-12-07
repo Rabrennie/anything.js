@@ -73,7 +73,6 @@ We will still merge your pull request if it doesn't follow the guidelines, altho
 1. We democratically™ voted for using `var funcName = function(){}` over `function funcName() {}` if you're cool with it.
 1. Same goes for braces: we'd like you to put it on the same line of the function declaration, if, switch, else, whatever. If you want to argue about it, please go to r/ProgrammerHumor, they'll _love_ to argue about it.
 
-
 # IRC
 We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
 
