@@ -40,6 +40,12 @@
 			document.getElementById('opt').innerHTML = '';
 			eval(myCodeMirror.getValue());
 		}
+		
+		var AddΔ = function(){
+			myCodeMirror.replaceSelection('Δ');
+			myCodeMirror.focus();
+		}
+		
 		$(document).ready(function() {
 			RunThisBitch();
 		});
@@ -64,7 +70,10 @@
 	<!-- Page Contents -->
 	<div class="pusher">
 		<h1>&nbsp;</h1>
-		<button class="ui inverted olive button" style="position: absolute; right: 2em; z-index: 100; top: 5em;" onclick="RunThisBitch()">Run This Bitch <i class="right play icon"></i></button>
+		<div style="position: absolute; right: 2em; z-index: 100; top: 5em;">
+			<button class="ui inverted teal button" onclick="AddΔ()">Δ</button>
+			<button class="ui inverted olive button" onclick="RunThisBitch()">Run This Bitch <i class="right play icon"></i></button>
+		</div>
 		<textarea class="editor" id="Edit">
 // Random shit
 Δ.doTheThing();
