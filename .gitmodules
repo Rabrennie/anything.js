@@ -1,0 +1,3 @@
+[submodule "lib/anything.js"]
+	path = lib/anything.js
+	url = https://github.com/Rabrennie/anything.js/
