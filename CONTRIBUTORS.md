@@ -11,6 +11,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
 * [Crecket](https://github.com/Crecket)
+* [developer787](https://github.com/developer787)
 * [dstrekelj](https://github.com/dstrekelj)
 * [Ekrow](https://github.com/Ekrow)
 * [fbergr](https://github.com/fbergr)
