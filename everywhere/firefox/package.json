@@ -1,7 +1,7 @@
 {
   "title": "Δ.everywhere()",
   "name": "fxext",
-  "version": "0.0.1",
+  "version": "0.2",
   "description": "Wrap Δ.js in every web page and do cool things with it.",
   "main": "index.js",
   "author": "thebitlink",
