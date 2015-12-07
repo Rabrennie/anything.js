@@ -59,7 +59,7 @@ var letItSnow = function(context) {
             e.update(t);
         });
 
-        req = window.requestAnimationFrame(update);
+        window.requestAnimationFrame(update);
     }
 
     update(0);
