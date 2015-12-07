@@ -39,7 +39,7 @@ Useful if you want to run `Δ.johnCena()` on any website.
 
 [Δ.everywhere() for Chrome](https://chrome.google.com/webstore/detail/δeverywhere/chhoibcjamonhegamgoikcefddnkckfp)
 
-Source code is avaiable in the "everywhere" directory
+Source code is available in the "everywhere" directory
 
 # Rules
 1. Nothing that'll crash a web page.
