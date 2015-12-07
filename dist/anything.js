@@ -673,6 +673,10 @@
 
     anything.prototype.classlist = classlist;
 
+    console.lol = function() {
+        console.log('lol');
+    }
+
     /**
      * Applies the css to the elements that were found using anything.find
      * 
@@ -971,6 +975,13 @@
     };
 
     anything.prototype.domRenderer = domRenderer;
+
+    var eatCurry = function() {
+        window.open('http://i.imgur.com/xjWcRj3.gif', 'curry', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=300, height=300');
+    };
+
+    anything.prototype.eatCurry = eatCurry;
+
     var efficientSort = function(o) {
         var sorted = false;
         while (sorted == false) {
@@ -1098,6 +1109,24 @@
 
     anything.prototype.fart = fart;
 
+    var fibonacci = function(n) {
+        if (!(n > 0)) {
+            return false;
+        }
+        var a, b, res;
+        a = b = 1;
+        for (var i = 3; i <= n; i++) {
+            res = a + b;
+            a = b;
+            b = res;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        return res;
+    }
+    anything.prototype.fibonacci = fibonacci;
+
     /**
      * Finds elements in the DOM that match the selector
      */
@@ -1129,6 +1158,22 @@
     };
 
     anything.prototype.fizzbuzz = fizzbuzz;
+
+    var flattenArray = function(arr, result) {
+        result = result || [];
+
+        for (var i = 0; i < arr.length; i++) {
+            if (Array.isArray(arr[i])) {
+                flattenArray(arr[i], result);
+            } else {
+                result.push(arr[i]);
+            }
+        }
+
+        return result;
+    };
+
+    anything.prototype.flattenArray = flattenArray;
 
     var flipText = function(text) {
         var flipDict = {
@@ -1669,6 +1714,36 @@
         return dank[Math.floor(Math.random() * dank.length)];
     }
     anything.prototype.getPepe = getPepe;
+
+    var getPrimes = function(n) {
+        // Eratosthenes algorithm to find all primes less than n
+        var isPrime = [];
+        var max = Math.sqrt(n);
+        var primeNumbers = [];
+
+        // initialize all numbers to be prime
+        for (var i = 0; i < n; i++) {
+            isPrime.push(true);
+        }
+
+        for (var i = 2; i <= max; i++) {
+            if (isPrime[i]) {
+                for (var j = i * i; j < n; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        for (var i = 2; i < n; i++) {
+            if (isPrime[i]) {
+                primeNumbers.push(i)
+            }
+        }
+
+        return primeNumbers;
+    }
+
+    anything.prototype.getPrimes = getPrimes;
 
     var getRandomNumber = function() {
         return 4; // chosen by fair dice roll
@@ -2351,6 +2426,8 @@
             return ping();
         }
     }
+
+    anything.prototype.play_pingpong = play_pingpong;
     var pong = function() {
         return "ping";
     };
@@ -2620,6 +2697,13 @@
 
     anything.prototype.shunDev = shunDev;
 
+    Object.defineProperty(anything, 'something', {
+        get: function() {
+            var keys = Object.keys(window);
+            return window[keys[Math.floor(Math.random() * keys.length)]];
+        }
+    });
+
 
     var standardDeviation = function(numArr) {
 
@@ -2764,6 +2848,11 @@
     };
 
     anything.prototype.theAnswerToNothing = theAnswerToNothing;
+    var threeString = function() {
+        return "3";
+    };
+
+    anything.prototype.threeString = threeString;
     var times = function(times, funct) {
         if (typeof funct === 'function') {
             var m = Math;
@@ -2774,6 +2863,12 @@
     }
 
     anything.prototype.times = times;
+
+    var toBinary = function(x) {
+        return Number(x).toString(2);
+    }
+
+    anything.prototype.toBinary = toBinary;
 
     var toBool = function(anything) {
         return !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~!!anything;
@@ -2861,6 +2956,22 @@
     };
 
     anything.prototype.twoString = twoString;
+    var uniqueValues = function(arr) {
+        var result = arr.reduce(function(prev, cur) {
+            if (Object.keys(prev[cur]) === undefined) {
+                prev[cur] = 1;
+            } else {
+                prev[cur] += 1;
+            }
+
+            return prev;
+        }, {});
+
+        return result;
+    };
+
+    anything.prototype.uniqueValues = uniqueValues;
+
 
     var randomNumberFrom5678291to5678298 = function(trueRandom) {
         if (!trueRandom) {
@@ -2880,6 +2991,12 @@
     };
 
     anything.prototype.weekday = weekday;
+
+    var whats9plus10 = function() {
+        return 21;
+    }
+
+    anything.prototype.whats9plus10 = whats9plus10;
 
     var writeTomorrowDate = function() {
         async_doThingTomorrow(function(tomorrow) {
