@@ -178,6 +178,55 @@ var domRenderer = function(zIndex) {
     Entity.prototype.constructor = Entity;
 
     /**
+     * SPRITE
+     */
+
+    function Sprite(root, x, y, width, height, graphic) {
+        Entity.call(this, root, x, y, width, height, graphic);
+
+        var _animations = {},
+            _currentAnimation = {},
+            _currentFrame = 0,
+            _currentFrameIndex = 0,
+            _timeAccumulator = 0,
+            _previousTime = Date.now(),
+            _currentTime = 0;
+
+        _animations = {};
+        _currentAnimation = {};
+        _timeAccumulator = 0;
+
+        this.setAnimation = function(name, frames, frameRate) {
+            _animations[name] = { frames : frames, frameRate : frameRate };
+        };
+
+        this.useAnimation = function(name) {
+            _currentAnimation = _animations[name];
+            _currentFrameIndex = 0;
+            _currentFrame = _currentAnimation.frames[_currentFrameIndex];
+            this.domElement.style.backgroundPositionX = _currentFrame * width + 'px';
+        };
+
+        this.animate = function(t) {
+            _currentTime = Date.now();
+            _timeAccumulator += _currentTime - _previousTime;
+            _previousTime = _currentTime;
+            if (_timeAccumulator >= 1000 / _currentAnimation.frameRate) {
+                _timeAccumulator = 0;
+                _currentFrameIndex++;
+                if (_currentFrameIndex >= _currentAnimation.frames.length) {
+                    _currentFrameIndex = 0;
+                }
+                _currentFrame = _currentAnimation.frames[_currentFrameIndex];
+                this.domElement.style.backgroundPositionX = -_currentFrame * width + 'px';
+            }
+        };
+    }
+
+    Sprite.prototype = Object.create(Entity.prototype);
+    Sprite.prototype.constructor = Sprite;
+
+    /**
      * We're done setting up. Create a new context and return.
      */
 
@@ -187,6 +236,9 @@ var domRenderer = function(zIndex) {
         root : _context,
         entity : function (x, y, width, height, graphic) {
             return new Entity(_context.domElement, x, y, width, height, graphic);
+        },
+        sprite : function (x, y, width, height, graphic) {
+            return new Sprite(_context.domElement, x, y, width, height, graphic);
         }
     }
 };
