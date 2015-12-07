@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
+    "gulp-help": "^1.6.1",
     "gulp-jsdoc": "^0.1.5",
     "gulp-template": "^3.1.0",
     "mocha": "^2.3.4",

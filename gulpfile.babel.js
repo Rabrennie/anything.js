@@ -28,7 +28,7 @@ const tpl = {
     inverseNav: false
 };
 
-gulp.task('build', () => {
+gulp.task('build', 'Run\'s build process', () => {
   return gulp.src(['./src/constants/start.js','./src/*.js','./src/constants/end.js'])
     .pipe(concat('anything.js'))
     .pipe(prettify())
@@ -41,7 +41,7 @@ gulp.task('build', () => {
       .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('jsdoc', ['build'], () => {
+gulp.task('jsdoc', 'Generates jsdoc documentation', ['build'], () => {
     gulp.src(['README.md', './dist/anything.js'])
         .pipe(template({pkg: pkg}))
         .pipe(jsdoc.parser({
@@ -53,7 +53,7 @@ gulp.task('jsdoc', ['build'], () => {
         .pipe(jsdoc.generator('./docs', tpl, opts));
     });
 
-gulp.task('fuck', () => {
+gulp.task('fuck', 'JSFucks allt the code',() => {
     const jsfuck = require('gulp-jsfuck');
 
     return gulp.src(['./src/constants/start.js','./src/*.js','./src/constants/end.js'])
@@ -62,4 +62,4 @@ gulp.task('fuck', () => {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', false, ['help']);
