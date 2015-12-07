@@ -2711,6 +2711,12 @@
 
     anything.prototype.securitay = securitay;
 
+    var selfDestruct = function() {
+        delete window.Δ;
+    }
+
+    anything.prototype.selfDestruct = selfDestruct;
+
     var sexToy = function(speed) {
         setInterval(function() {
             window.navigator.vibrate(200);
