@@ -3,8 +3,8 @@
 const gulp = require('gulp'),
       concat = require('gulp-concat'),
       prettify = require('gulp-jsbeautifier'),
-      minify = require('gulp-minify');
-
+      minify = require('gulp-minify'),
+      jsdoc = require("gulp-jsdoc");
 
 gulp.task('default', () => {
   return gulp.src(['./src/constants/start.js','./src/*.js','./src/constants/end.js'])
@@ -17,6 +17,11 @@ gulp.task('default', () => {
         }
     }))
     .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('jsdoc', () => {
+    gulp.src(['README.md', './src/*.js'])
+    .pipe(jsdoc('./docs'))
 });
 
 gulp.task('fuck', () => {
