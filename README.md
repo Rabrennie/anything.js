@@ -49,7 +49,7 @@ Source code is available in the "everywhere" directory
   1. Deleting stuff that doesn't need to be.
 
 
-# Contibuting
+# Contributing
 1. Fork ( https://github.com/Rabrennie/anything.js/fork )
 1. Clone ( git clone https://github.com/YourUsername/anything.js.git )
 1. Branch ( git checkout -b your-feature )
