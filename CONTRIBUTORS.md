@@ -6,6 +6,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [aierou](https://github.com/aierou)
 * [aneeshdurg](https://github.com/aneeshdurg)
 * [arkon](https://github.com/arkon)
+* [awadYehya](https://github.com/awadYehya)
 * [bman4789](https://github.com/bman4789)
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
