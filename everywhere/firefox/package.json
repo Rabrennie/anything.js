@@ -1,0 +1,16 @@
+{
+  "title": "Δ.everywhere()",
+  "name": "fxext",
+  "version": "0.0.1",
+  "description": "Wrap Δ.js in every web page and do cool things with it.",
+  "main": "index.js",
+  "author": "thebitlink",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack", "anything", "anything.js", "everywhere", "Δ"
+  ]
+}
