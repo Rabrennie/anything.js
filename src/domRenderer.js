@@ -5,8 +5,6 @@
  * 
     var ctx = domRenderer(999);
 
-    ctx.root.domElement.style.background = 'rgba(0, 0, 0, 0.8)';
-
     var icon = ctx.entity(
         window.innerWidth / 2 - 64,
         window.innerHeight / 2 - 64,
