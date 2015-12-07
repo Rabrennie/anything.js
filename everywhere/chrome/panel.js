@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	var timeout = 0;
 	var addΔ = document.getElementById("addΔ");
 	chrome.tabs.executeScript(null, {file: "anything.min.js"});
-	chrome.storage.local.get("textArea", function(result){
-		textArea.value = result;
-		console.log(result);
+	chrome.storage.local.get("textArea", function (result) {
+	    if (result.textArea != undefined) {
+	        textArea.value = result.textArea;
+	    }
 	});
 
 	var insertAtCursor = function (myField, myValue) {
@@ -25,19 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	runlink.addEventListener('click', function (ev) {
 		chrome.tabs.executeScript({code: textArea.value});
 		ev.preventDefault();
-		console.log("running");
-		console.log("");
 	});
 	addΔ.addEventListener('click', function (ev) {
 		insertAtCursor(textArea, 'Δ');
 	});
 	textArea.addEventListener('keyup', function () {
+	    clearTimeout(timeout);
 		timeout = setTimeout(function() {
-			console.log("saving");
 			chrome.storage.local.set({"textArea": textArea.value}, function() {
-				alert("saved");
+			    
 			});
 		}, 200);
-		clearTimeout(timeout);
 	});
 });
