@@ -36,6 +36,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [Qix-](https://github.com/Qix-)
 * [Rabrennie](https://github.com/Rabrennie)
 * [radiantnode](https://github.com/radiantnode)
+* [randomite](https://github.com/randomite)
 * [relvacode](https://github.com/relvacode)
 * [riyadhalnur](https://github.com/riyadhalnur)
 * [steezeburger](https://github.com/steezeburger)
