@@ -11,3 +11,5 @@ var play_pingpong = function(toggle){
     return ping();
 	}
 }
+
+anything.prototype.play_pingpong = play_pingpong;
