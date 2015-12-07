@@ -9,4 +9,4 @@ var ayudaParaRicardo = function(){
     }
 };
 
-var anything.prototype.ayudaParaRicardo = ayudaParaRicardo;
+anything.prototype.ayudaParaRicardo = ayudaParaRicardo;
