@@ -36,7 +36,7 @@ Useful if you want to run `Δ.johnCena()` on any website.
 
 [Δ.everywhere() for Firefox](https://addons.mozilla.org/en-US/firefox/addon/anything-everywhere/)
 
-[Δ.everywhere() for Chrome](https://github.com/Rabrennie/anything.js/raw/master/everywhere/chrome/chrome.crx)
+[Δ.everywhere() for Chrome](https://chrome.google.com/webstore/detail/δeverywhere/chhoibcjamonhegamgoikcefddnkckfp)
 
 Source code is avaiable in the "everywhere" directory
 
