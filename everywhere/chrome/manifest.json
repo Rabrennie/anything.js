@@ -12,6 +12,6 @@
 	  "default_title": "Δ.everywhere()"
   },
   "permissions": [
-    "tabs","activeTab"
+    "tabs","activeTab","storage"
   ]
 }
