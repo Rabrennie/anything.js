@@ -3,9 +3,7 @@
  * 
  * Here's some demo code:
  * 
-    var ctx = domRenderer();
-
-    ctx.root.domElement.style.background = 'rgba(0, 0, 0, 0.8)';
+    var ctx = domRenderer(999);
 
     var icon = ctx.entity(
         window.innerWidth / 2 - 64,
@@ -28,7 +26,9 @@
     window.addEventListener('keyup', function(e) {
         if (e.keyCode == 27) {
             window.cancelAnimationFrame(req);
-            document.body.removeChild(ctx.root.domElement);
+            while (ctx.root.domElement.firstChild) {
+                ctx.root.domElement.removeChild(ctx.root.domElement.firstChild);
+            }
         }
     }, false);
  *
@@ -36,7 +36,15 @@
  * moving along an infinity path (lemniscate of Bernoulli).
  * Exit the demo by pressing the escape key.
  */
-var domRenderer = function() {
+
+/**
+ * Create new DOM renderer.
+ * 
+ * @param {number} [zIndex=999] - Default z-index of created elements
+ */
+var domRenderer = function(zIndex) {
+    var _zIndex = zIndex || 999;
+
     /**
      * ELEMENT
      * 
@@ -49,7 +57,6 @@ var domRenderer = function() {
         this.domElement.style.overflow = 'hidden';
         this.domElement.style.margin = 0;
         this.domElement.style.padding = 0;
-        this.domElement.style.position = 'fixed';
 
         Object.defineProperties(this, {
             width : {
@@ -74,7 +81,7 @@ var domRenderer = function() {
             }
         });
     }
-    
+
     /**
      * A shorthand for adding event listeners, just in case.
      * 
@@ -98,8 +105,8 @@ var domRenderer = function() {
 
         this.domElement.setAttribute('id', 'dom-renderer');
 
-        this.width = window.innerWidth,
-        this.height = window.innerHeight;
+        this.width = 0;
+        this.height = 0;
     }
 
     Context.prototype = Object.create(Element.prototype);
@@ -155,6 +162,9 @@ var domRenderer = function() {
         });
 
         root.appendChild(this.domElement);
+
+        this.domElement.style.position = 'fixed';
+        this.domElement.style.zIndex = _zIndex;
 
         this.x = x;
         this.y = y;
