@@ -1391,7 +1391,7 @@
     };
 
     anything.prototype.getOffMyLawn = getOffMyLawn;
-    var pepe = function() {
+    var getPepe = function() {
         var dank = [
             'https://rare-pepe.com/wp-content/uploads/0275_-_z6X0ly7.jpg',
             'https://rare-pepe.com/wp-content/uploads/0384_-_80zappf.png',
@@ -1497,6 +1497,7 @@
         return dank[Math.floor(Math.random() * dank.length)];
     }
     anything.prototype.getPepe = getPepe;
+
     var getRandomNumber = function() {
         return 4; // chosen by fair dice roll
         // guaranteed to be random
