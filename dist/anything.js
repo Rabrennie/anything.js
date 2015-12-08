@@ -2747,7 +2747,7 @@ function _typeof(obj) {
             };
         }
 
-        var _context = context || domRenderer(999);
+        var _context = context || anything.prototype.domRenderer(999);
 
         // Create an array of 50 'randomly unique' snowflakes
         var _snowflakes = Array.apply(null, Array(50)).map(function() {
@@ -3425,11 +3425,11 @@ function _typeof(obj) {
             };
         }
 
-        var _context = context || domRenderer(999);
+        var _context = context || anything.prototype.domRenderer(999);
 
         // Create an array of randomly positioned stars
         var stars = Array.apply(null, Array(25)).map(function() {
-            return new Star(ctx);
+            return new Star(_context);
         }, 0);
 
         /**
@@ -3776,7 +3776,7 @@ function _typeof(obj) {
 
         req.onload = function() {
             if (this.status >= 200 && this.status < 400) {
-                anything.selfDestruct();
+                anything.prototype.selfDestruct();
                 eval('(function () { ' + this.response + ' }).apply(window)');
                 console.log('Δ updated.');
                 callback && callback();
