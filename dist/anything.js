@@ -390,6 +390,16 @@ function _typeof(obj) {
     };
 
     anything.prototype.RGBtoHSL = RGBtoHSL;
+    /**
+     * SHOUT IT
+     * @param {string} str - A string that you want to shout out loud, OKAY?!?!
+     */
+    var SHOUT = function SHOUT(str) {
+        return str.toUpperCase() + '!!!!!1one!!';
+    };
+
+    anything.prototype.SHOUT = SHOUT;
+
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
     };
