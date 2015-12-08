@@ -22,18 +22,34 @@
 		var anything = Δ;
 		var old_log = console.log;
 		console.log = function(){
-			document.getElementById('opt').innerHTML += '<br/>'+arguments[0];
+			commonLog(arguments[0], "");
 			old_log.apply(this, arguments)
 		}
 		var old_error = console.error;
 		console.error = function(){
-			document.getElementById('opt').innerHTML += '<br/><span color="red">'+arguments[0]+'</span>';
+			commonLog(arguments[0], "error");
 			old_error.apply(this, arguments)
 		}
 		var old_info = console.info;
 		console.info = function(){
-			document.getElementById('opt').innerHTML += '<br/><span color="#666">'+arguments[0]+'</span>';
-			old_info.apply(this, arguments)
+			commonLog(arguments[0], "info");
+			old_info.apply(this, arguments);
+		}
+		
+		var commonLog = function(val, type){
+			var lv = '';
+			var lt = typeof val;
+			switch(lt)
+			{
+				case "string":
+				  lv = val.replace(/(?:\r\n|\r|\n)/g, '<br />');
+				  break;
+				case "undefined":
+				  lv = lt
+				default:
+				  lv = val;
+			}
+			document.getElementById('opt').innerHTML += '<span class="log '+ lt + " " + type +'">'+lv+'</span>';
 		}
 
 		var RunThisBitch = function(){
@@ -42,17 +58,75 @@
 		}
 
 		var AddΔ = function(){
-			myCodeMirror.replaceSelection('Δ');
+			myCodeMirror.replaceSelection('Δ.');
 			myCodeMirror.focus();
+			CodeMirror.commands.autocomplete(myCodeMirror, null, {completeSingle: false});
 		}
 
 		$(document).ready(function() {
 			RunThisBitch();
 		});
+		
+		window.onerror = function (errorMsg, url, lineNumber) {
+			console.error(errorMsg + ' (Line '+ lineNumber +')');
+			return false;
+		}
 	</script>
 	<style type="text/css">
 		body, .pusher {
 			background: #111!important;
+		}
+		
+		#opt
+		{
+			width: 100%;
+			min-height: 300px;
+			background: #14171A;
+			color:#46AFE3;
+			padding: 1em;
+			padding:0!important;
+		}
+		
+		.log {
+			padding: 4px;
+			margin: 0;
+			font-family: monospace;
+			display: block;
+			width: 100%;
+			border-left: 4px solid #666;
+		}
+		
+		.log.number {
+			color : #41A453;
+		}
+		
+		.log.boolean
+		{
+			color: #EB5368;
+		}
+		
+		.log.undefined
+		{
+			color: #666;
+		}
+		
+		.log.object, .log.array
+		{
+			color: #fff;
+			font-style: italic;
+		}
+		
+		.error
+		{
+			background-color: #382127;
+			color: #fff;
+			border-left: 4px solid red;
+		}
+		
+		.info 
+		{
+			color: #666;
+			border-left: 4px solid #46AFE3;
 		}
 	</style>
 </head>
@@ -112,8 +186,8 @@ console.log("The numbah is "+ rnd +". Guaranteed to be random");
 			});
 			myCodeMirror.setSize(null, 400);
 		</script>
-		<h4 style="color:#fff;margin:1em;">Output (console.log)</h4>
-		<div id="opt" style="width: 100%; min-height: 300px; background: #333; color:#fff; padding: 1em; padding-top:0!important;"></div>
+		<h4 style="color:#fff;margin:1em;"><i class="icon file code outline"></i> Output (Console)</h4>
+		<div id="opt"></div>
 	</div>
 
 </body>
