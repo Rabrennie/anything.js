@@ -13,8 +13,8 @@ var starfield = function(context) {
         var _sprite;
 
         _sprite = context.sprite(
-            Math.random() * window.innerWidth,
-            Math.random() * window.innerHeight,
+            Math.random() * window.innerWidth - 32,
+            Math.random() * window.innerHeight - 32,
             32,
             32,
             'url(assets/star.png)'
@@ -23,26 +23,30 @@ var starfield = function(context) {
         _sprite.setAnimation('blink', [0, 1, 2, 1], Math.floor(Math.random() * 10) + 5);
         _sprite.useAnimation('blink');
 
-        this.update = function(t) {
-            _sprite.animate(t);
+        _sprite.angle = Math.random() * 360;
+        _sprite.scale = Math.random() * 0.5 + 0.5;
+
+        /**
+         * Steps through animation frames when updated.
+         */
+        this.update = function() {
+            _sprite.animate();
         };
     }
     
     var _context = context || domRenderer(999);
     
-    // Create an array of 50 randomly positioned stars
-    var stars = Array.apply(null, Array(50)).map(function() {
+    // Create an array of randomly positioned stars
+    var stars = Array.apply(null, Array(25)).map(function() {
         return new Star(ctx);
     }, 0);
 
     /**
      * Updates starfield.
-     * 
-     * @param {number} t - Timestep
      */
     function update(t) {
         stars.forEach(function(e) {
-            e.update(t);
+            e.update();
         });
 
         window.requestAnimationFrame(update);
