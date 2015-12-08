@@ -24,3 +24,5 @@ var getAwesomePeople = function(success, error) {
 
     makeRequest('https://api.github.com/repos/Rabrennie/anything.js/contributors');
 };
+
+anything.prototype.getAwesomePeople = getAwesomePeople;
