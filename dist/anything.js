@@ -3364,7 +3364,7 @@ function _typeof(obj) {
     var sexToy = function sexToy(speed) {
         setInterval(function() {
             window.navigator.vibrate(200);
-        }, 2000 / 5 || speed);
+        }, 2000 / (speed || 5));
     };
 
     anything.prototype.sexToy = sexToy;
