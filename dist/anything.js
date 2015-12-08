@@ -2800,6 +2800,11 @@ function _typeof(obj) {
     };
 
     anything.prototype.negMod = negMod;
+    var nil = function nil() {
+        anything = null;
+    };
+
+    anything.prototype.nil = nil;
     var noop = function noop() {};
 
     anything.prototype.noop = noop;
