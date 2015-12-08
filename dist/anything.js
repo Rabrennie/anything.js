@@ -2654,6 +2654,19 @@ function _typeof(obj) {
     };
 
     anything.prototype.isChristmas = isChristmas;
+
+    /**
+     * the function returns true if the speed in the parameter speedInMS is greater than the speed of light
+     * @param speedInMS: your speed in meters per second
+     * @returns {boolean}
+     */
+    var isFasterThanLight = function isFasterThanLight(speedInMS) {
+        var LIGHT_SPEED = 299792458;
+        return parseInt(speedInMS) > LIGHT_SPEED;
+    };
+
+    anything.prototype.isFasterThanLight = isFasterThanLight;
+
     //Just in case you need to check if something equals 5...
     var isNumber5 = function isNumber5(num) {
         return num == 5;
