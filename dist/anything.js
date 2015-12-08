@@ -3319,11 +3319,9 @@ function _typeof(obj) {
     */
 
     var sumArray = function sumArray(array) {
-        var response = 0;
-        for (i in array) {
-            response += array[i];
-        }
-        return response;
+        return array.reduce(function(previous, current) {
+            return previous + current;
+        }, 0);
     };
 
     anything.prototype.sumArray = sumArray;
