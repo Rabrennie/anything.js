@@ -2076,6 +2076,19 @@ function _typeof(obj) {
 
     anything.prototype.getAwesomePeople = getAwesomePeople;
 
+    //  getBitcoinPrice('USD'):
+    //  returns Bitcoins average price in US dollars.
+
+    var getBitcoinPrice = function getBitcoinPrice(currency) {
+        addRealFunctionalityOnTheFly();
+
+        var bitcoinPrice = $.get("https://api.bitcoinaverage.com/ticker/all", function(data) {
+            console.log("Average price in the last 24 hours is " + data.USD["24h_avg"]);
+            return data.USD["24h_avg"];
+        });
+    };
+
+    anything.prototype.getBitcoinPrice = getBitcoinPrice;
     var getFlatColorBlue = function getFlatColorBlue() {
         var blue = ['#446CB3', // SAN MARINO
             '#4183D7', // ROYAL BLUE
