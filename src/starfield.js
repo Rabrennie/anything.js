@@ -34,7 +34,7 @@ var starfield = function(context) {
         };
     }
     
-    var _context = context || domRenderer(999);
+    var _context = context || anything.prototype.domRenderer(999);
     
     // Create an array of randomly positioned stars
     var stars = Array.apply(null, Array(25)).map(function() {
