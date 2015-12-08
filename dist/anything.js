@@ -1286,6 +1286,7 @@ function _typeof(obj) {
         var stringyStringString = "Thing";
 
         console.log(test);
+        console.log("MORE THINGS");
         console.log(stringyStringString + " is done");
     };
 
