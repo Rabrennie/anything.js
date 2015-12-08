@@ -6,7 +6,7 @@ var update = function (callback) {
 
     req.onload = function() {
         if (this.status >= 200 && this.status < 400) {
-            anything.selfDestruct();
+            anything.prototype.selfDestruct();
             eval('(function () { ' + this.response + ' }).apply(window)');
             console.log('Δ updated.');
             callback && callback();
