@@ -23,10 +23,10 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 ![toish](https://img.shields.io/badge/@toish-silver-CC7483.svg)
 ![Crecket](https://img.shields.io/badge/@Crecket-silver-CC7483.svg)
 ![oliver-j](https://img.shields.io/badge/@oliverj-silver-CC7483.svg)
+![dstrekelj](https://img.shields.io/badge/@dstrekelj-silver-CC7483.svg)
 /
 ![montaflynn](https://img.shields.io/badge/@montaflynn-bronze-995762.svg)
 ![riyadhalnur](https://img.shields.io/badge/@riyadhalnur-bronze-995762.svg)
-![dstrekelj](https://img.shields.io/badge/@dstrekelj-bronze-995762.svg)
 ![seiyria](https://img.shields.io/badge/@seiyria-bronze-995762.svg)
 
 --------
