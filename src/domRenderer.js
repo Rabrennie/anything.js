@@ -115,7 +115,9 @@ var domRenderer = function(zIndex) {
     /**
      * ENTITY
      * 
-     * A basic entity.
+     * A basic entity. Defines the x and y position in window (from
+     * top-left). Defines width, height, and graphic. Defines scale
+     * and angle, both of which are implemented through CSS transforms.
      * 
      * @param {number} x - X-position (the ˙left` style property is used)
      * @param {number} y - Y-position (the `top` syle property is used)
@@ -126,7 +128,9 @@ var domRenderer = function(zIndex) {
     function Entity(root, x, y, width, height, graphic) {
         Element.call(this);
 
-        var _x, _y, _graphic;
+        var _x, _y, _graphic, _scale, _angle;
+
+        var _transformations = ['', ''];
 
         Object.defineProperties(this, {
             x : {
@@ -158,6 +162,28 @@ var domRenderer = function(zIndex) {
                     this.domElement.style.background = graphic;
                     return _graphic;
                 }
+            },
+            scale : {
+                get : function get_scale() {
+                    return _scale;
+                },
+                set : function set_scale(scale) {
+                    _scale = scale;
+                    _transformations[0] = 'scale(' + _scale + ')';
+                    this.domElement.style.transform = _transformations.join(' ');
+                    return _scale;
+                }
+            },
+            angle : {
+                get : function get_angle() {
+                    return _angle;
+                },
+                set : function set_angle(angle) {
+                    _angle = angle;
+                    _transformations[1] = 'rotate(' + _angle + 'deg)';
+                    this.domElement.style.transform = _transformations.join(' ');
+                    return _angle;
+                }
             }
         });
 
@@ -171,11 +197,90 @@ var domRenderer = function(zIndex) {
         this.width = width;
         this.height = height;
         this.graphic = graphic || '#fff';
+        this.scale = 1;
+        this.angle = 0;
 
     }
 
     Entity.prototype = Object.create(Element.prototype);
     Entity.prototype.constructor = Entity;
+
+    /**
+     * SPRITE
+     * 
+     * An Entity that supports sprite sheets for graphics.
+     * 
+     * @param {number} x - X-position (the ˙left` style property is used)
+     * @param {number} y - Y-position (the `top` syle property is used)
+     * @param {number} width - Entity width
+     * @param {number} height - Entity height
+     * @param {string} graphic - A string for the background CSS property (e.g. '#fff', 'rgba(255, 127, 0, 0.5)', 'url(myimage.png)')
+     */
+    function Sprite(root, x, y, width, height, graphic) {
+        Entity.call(this, root, x, y, width, height, graphic);
+
+        var _animations = {},
+            _currentAnimation = {},
+            _currentFrame = 0,
+            _currentFrameIndex = 0,
+            _timeAccumulator = 0,
+            _previousTime = Date.now(),
+            _currentTime = 0;
+
+        _animations = {};
+        _currentAnimation = {};
+        _timeAccumulator = 0;
+        
+        /**
+         * Sets (defines) an animation in the animation register.
+         * 
+         * @param {string} name - Animation name, an identifier
+         * @param {number[]} frames - Array of sprite sheet frames to use
+         * @param {number} frameRate - Frame rate at which to play animation
+         */
+        this.setAnimation = function(name, frames, frameRate) {
+            _animations[name] = { frames : frames, frameRate : frameRate };
+        };
+        
+        /**
+         * Uses and applies an animation from the register.
+         * 
+         * @param {string} name - Animation name, an identifier
+         */
+        this.useAnimation = function(name) {
+            _currentAnimation = _animations[name];
+            _currentFrameIndex = 0;
+            _currentFrame = _currentAnimation.frames[_currentFrameIndex];
+            this.domElement.style.backgroundPositionX = _currentFrame * width + 'px';
+        };
+        
+        /**
+         * Runs animation. This is designed for requestAnimationFrame().
+         * Call this inside of the function that is requested by it.
+         * 
+         * Currently, it works by selfishly keeping track of time for
+         * itself. This is very, very bad and wasteful. However, the
+         * user now isn't required to write his own game loop. I guess
+         * that's a plus?
+         */
+        this.animate = function() {
+            _currentTime = Date.now();
+            _timeAccumulator += _currentTime - _previousTime;
+            _previousTime = _currentTime;
+            if (_timeAccumulator >= 1000 / _currentAnimation.frameRate) {
+                _timeAccumulator = 0;
+                _currentFrameIndex++;
+                if (_currentFrameIndex >= _currentAnimation.frames.length) {
+                    _currentFrameIndex = 0;
+                }
+                _currentFrame = _currentAnimation.frames[_currentFrameIndex];
+                this.domElement.style.backgroundPositionX = -_currentFrame * width + 'px';
+            }
+        };
+    }
+
+    Sprite.prototype = Object.create(Entity.prototype);
+    Sprite.prototype.constructor = Sprite;
 
     /**
      * We're done setting up. Create a new context and return.
@@ -187,6 +292,9 @@ var domRenderer = function(zIndex) {
         root : _context,
         entity : function (x, y, width, height, graphic) {
             return new Entity(_context.domElement, x, y, width, height, graphic);
+        },
+        sprite : function (x, y, width, height, graphic) {
+            return new Sprite(_context.domElement, x, y, width, height, graphic);
         }
     }
 };
