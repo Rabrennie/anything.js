@@ -42,7 +42,7 @@ var letItSnow = function(context) {
         };
     }
     
-    var _context = context || domRenderer(999);
+    var _context = context || anything.prototype.domRenderer(999);
     
     // Create an array of 50 'randomly unique' snowflakes
     var _snowflakes = Array.apply(null, Array(50)).map(function() {

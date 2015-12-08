@@ -390,6 +390,16 @@ function _typeof(obj) {
     };
 
     anything.prototype.RGBtoHSL = RGBtoHSL;
+    /**
+     * SHOUT IT
+     * @param {string} str - A string that you want to shout out loud, OKAY?!?!
+     */
+    var SHOUT = function SHOUT(str) {
+        return str.toUpperCase() + '!!!!!1one!!';
+    };
+
+    anything.prototype.SHOUT = SHOUT;
+
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
     };
@@ -2474,6 +2484,24 @@ function _typeof(obj) {
     };
 
     anything.prototype.greetHannah = greetHannah;
+    /**
+     * Generates a GUID
+     */
+    var guid = function guid() {
+        var d = new Date().getTime();
+        if (window.performance && typeof window.performance.now === "function") {
+            d += performance.now(); //use high-precision timer if available
+        }
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
+        });
+        return uuid;
+    };
+
+    anything.prototype.guid = guid;
+
     var hash = function hash(message) {
         return message.length.toString(16);
     };
@@ -2719,7 +2747,7 @@ function _typeof(obj) {
             };
         }
 
-        var _context = context || domRenderer(999);
+        var _context = context || anything.prototype.domRenderer(999);
 
         // Create an array of 50 'randomly unique' snowflakes
         var _snowflakes = Array.apply(null, Array(50)).map(function() {
@@ -3397,11 +3425,11 @@ function _typeof(obj) {
             };
         }
 
-        var _context = context || domRenderer(999);
+        var _context = context || anything.prototype.domRenderer(999);
 
         // Create an array of randomly positioned stars
         var stars = Array.apply(null, Array(25)).map(function() {
-            return new Star(ctx);
+            return new Star(_context);
         }, 0);
 
         /**
@@ -3748,7 +3776,7 @@ function _typeof(obj) {
 
         req.onload = function() {
             if (this.status >= 200 && this.status < 400) {
-                anything.selfDestruct();
+                anything.prototype.selfDestruct();
                 eval('(function () { ' + this.response + ' }).apply(window)');
                 console.log('Δ updated.');
                 callback && callback();
