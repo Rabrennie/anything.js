@@ -8,6 +8,6 @@ git config user.email "rennierab@gmail.com"
 git checkout master
 git add dist/anything.js
 git add dist/anything.min.js
-git commit -m "Update dist"
+git commit -m "Update dist [ci skip]"
 
 git push "https://${GITHUB_SECRET_TOKEN}@${GH_REF}" master > /dev/null 2>&1
