@@ -17,7 +17,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/show-hint.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/addon/hint/javascript-hint.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.js"></script>
-	
+
 	<script>
 		var anything = Δ;
 		var old_log = console.log;
@@ -40,12 +40,12 @@
 			document.getElementById('opt').innerHTML = '';
 			eval(myCodeMirror.getValue());
 		}
-		
+
 		var AddΔ = function(){
 			myCodeMirror.replaceSelection('Δ');
 			myCodeMirror.focus();
 		}
-		
+
 		$(document).ready(function() {
 			RunThisBitch();
 		});

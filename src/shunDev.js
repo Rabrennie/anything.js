@@ -1,4 +1,4 @@
-shunDev = function(){
+var shunDev = function(){
 
     var self = this;
 

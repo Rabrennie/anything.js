@@ -1,4 +1,4 @@
-HEXtoNAME = function (hex) {
+var HEXtoNAME = function (hex) {
     var colors = {
         "#f0f8ff": "Aliceblue",
         "#faebd7": "Antiquewhite",
@@ -141,7 +141,7 @@ HEXtoNAME = function (hex) {
         "#ffff00": "Yellow",
         "#9acd32": "Yellowgreen"
     };
-    return  colors[hex.toLowerCase()];      
+    return  colors[hex.toLowerCase()];
 };
 
 anything.prototype.HEXtoNAME = HEXtoNAME;
