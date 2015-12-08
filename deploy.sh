@@ -14,4 +14,4 @@ git commit -m "Update dist"
 # repo's gh-pages branch. (All previous history on the gh-pages branch
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" origin master > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_SECRET_TOKEN}@${GH_REF}" origin master > /dev/null 2>&1
