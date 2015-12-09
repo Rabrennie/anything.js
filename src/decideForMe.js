@@ -28,7 +28,6 @@ var decideForMeFinalAnswer = function( question )
 // TODO: Shouldn't this be tucked away somewhere out of the global space?
 var decideResponseForValue = function(choice)
 {
-  console.info("choice = " + choice);
   switch ( choice ) {
     case 0:
       return "Yes";
