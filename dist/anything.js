@@ -2765,6 +2765,20 @@ function _typeof(obj) {
 
     anything.prototype.isFasterThanLight = isFasterThanLight;
 
+    /**
+     * Tests if the number is negative.
+     * @param {Number} arg - Number to test.
+     * @returns {Boolean}
+     * @see {@link http://redd.it/3l27yd}
+     */
+    var isNegative = function isNegative(arg) {
+        var p = arg.toString();
+
+        return p[0] == '-';
+    };
+
+    anything.prototype.isNegative = isNegative;
+
     //Just in case you need to check if something equals 5...
     var isNumber5 = function isNumber5(num) {
         return num == 5;
