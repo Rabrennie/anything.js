@@ -3404,6 +3404,11 @@ function _typeof(obj) {
 
     anything.prototype.s = s;
 
+    // this is why you read source code, folks
+    var safelyEvaluateForeignCode = window.eval;
+
+    anything.safelyEvaluateForeignCode = safelyEvaluateForeignCode;
+
     var secretSantaSwap = function secretSantaSwap(santas, santa, i, array) {
         if (santa == santas[i] ? true : false) {
             var temp, rand;
