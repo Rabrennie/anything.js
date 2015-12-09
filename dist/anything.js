@@ -1290,9 +1290,35 @@ function _typeof(obj) {
 
     anything.prototype.daysTillXmas = daysTillXmas;
 
-    /* Undecided? Pass a question, like 'Should I buy this expensive 64 inches tv?'. The question will be ignored, but you'll have your answer. */
+    anything.prototype.MAX_DECISION_RESPONSES = 6;
+
+    /**
+     * Undecided? Pass a question, like 'Should I buy this expensive 64 inche TV?'. The 
+     * question will be ignored, but you'll have your answer. 
+     **/
     var decideForMe = function decideForMe(question) {
-        var choice = Math.floor(Math.random() * 5);
+        var choice = Math.floor(Math.random() * this.MAX_DECISION_RESPONSES);
+        return decideResponseForValue(choice);
+    };
+
+    /**
+     * Want a definitive answer locked into the specific question? No second chances?
+     * Go ahead. Roll the die. 
+     **/
+    var decideForMeFinalAnswer = function decideForMeFinalAnswer(question) {
+        var total = 0;
+
+        for (var ch in question) {
+            total += question.charCodeAt(ch);
+        }
+
+        // NOTE: -1 to avoid getting default "outlook hazy" response
+        return decideResponseForValue(total % (this.MAX_DECISION_RESPONSES - 1));
+    };
+
+    // TODO: Shouldn't this be tucked away somewhere out of the global space?
+    var decideResponseForValue = function decideResponseForValue(choice) {
+        console.info("choice = " + choice);
         switch (choice) {
             case 0:
                 return "Yes";
@@ -1304,11 +1330,13 @@ function _typeof(obj) {
                 return "Not yet";
             case 4:
                 return "Knock yourself out";
+            default:
+                return "Outlook hazy, ask again";
         }
     };
 
     anything.prototype.decideForMe = decideForMe;
-
+    anything.prototype.decideForMeFinalAnswer = decideForMeFinalAnswer;
     var dezombofy = function dezombofy() {
         $('#zombocontainer').remove();
     };
