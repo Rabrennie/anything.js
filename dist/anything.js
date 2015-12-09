@@ -1363,7 +1363,6 @@ function _typeof(obj) {
 
     // TODO: Shouldn't this be tucked away somewhere out of the global space?
     var decideResponseForValue = function decideResponseForValue(choice) {
-        console.info("choice = " + choice);
         switch (choice) {
             case 0:
                 return "Yes";
