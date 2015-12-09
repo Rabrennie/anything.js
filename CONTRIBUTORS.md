@@ -51,6 +51,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [toish](https://github.com/toish)
 * [tojba](https://github.com/tojba)
 * [Vekat](https://github.com/vekat)
+* [Vintroxx](https://github.com/vintroxx)
 * [will1982](https://github.com/will1982)
 * [Winwardo](https://github.com/Winwardo)
 * [Xeom](https://github.com/Xeom)
