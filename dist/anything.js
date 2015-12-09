@@ -2362,8 +2362,8 @@ function _typeof(obj) {
         arr.push("But seriously, if you break that girl's heart, I will literally kill you and your entire family.");
         arr.push("Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.");
         arr.push("You miss 100% of the shots you don't take. - Wayne Gretzky");
-        arr.push("I wouldn't say I'm supertitious. But... I'm a little stitious.");
-        arr.push("You don't call a retarded person retarted, that's just bad taste. You call your friends retarded when they're acting retarded.");
+        arr.push("I wouldn't say I'm superstitious. But... I'm a little stitious.");
+        arr.push("You don't call a retarded person retarded, that's just bad taste. You call your friends retarded when they're acting retarded.");
         arr.push("Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject, so you know you are getting the best possible information.");
         arr.push("You know what? The only thing I am worried about... is getting a boner.");
         arr.push("Nobody likes beets, Dwight! Why don't you grow something that everybody does like? You should grow candy.");
@@ -3577,6 +3577,17 @@ function _typeof(obj) {
             return window[keys[Math.floor(Math.random() * keys.length)]];
         }
     });
+
+    // Example:
+
+    // square(4);
+    // returns 16
+
+    var square = function square(number) {
+        return multiply(number, number);
+    };
+
+    anything.prototype.square = square;
 
     var standardDeviation = function standardDeviation(numArr) {
 
