@@ -1,7 +1,7 @@
 // I've probably made a grammer mistake here,
 // so if you're an actual german speaker and would like to fix this,
 // please do.
-conjugate = function(stem, pronoun, tense, stemchange) {
+var conjugate = function(stem, pronoun, tense, stemchange) {
     var prasens, prateritum, umlauts
     pronoun = pronoun || 'sie'
     tense = tense || 'prasens'
