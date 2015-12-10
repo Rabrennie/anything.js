@@ -26,5 +26,5 @@ var isXBiggerThanOrEqualsToY = function(x, y) {
     }
 };
 
-anything.prototype.isXSmallerThanOrEqualToY = isXSmallerThanOrEqualToY;
-anything.prototype.isXBiggerThanOrEqualToY = isXBiggerThanOrEqualToY;
+anything.prototype.isXSmallerThanOrEqualsToY = isXSmallerThanOrEqualsToY;
+anything.prototype.isXBiggerThanOrEqualsToY = isXBiggerThanOrEqualsToY;
