@@ -2893,8 +2893,8 @@ function _typeof(obj) {
 
     /**
      * Tests if the number is negative.
-     * @param {Number} arg - Number to test.
-     * @return {Boolean}
+     * @param {number} arg - Number to test.
+     * @return {boolean}
      * @see {@link http://redd.it/3l27yd}
      */
     var isNegative = function isNegative(arg) {
@@ -2949,7 +2949,7 @@ function _typeof(obj) {
      * Readability at its finest.
      * @param {number} x
      * @param {number} y
-     * @see {@link isXSmallerrThanOrEqualToY} for further information.
+     * @see {@link isXSmallerThanOrEqualToY} for further information.
      */
     var isXBiggerThanOrEqualsToY = function isXBiggerThanOrEqualsToY(x, y) {
         if (x > y + 1 ? true : false) {
