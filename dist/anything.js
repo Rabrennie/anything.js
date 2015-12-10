@@ -58,7 +58,7 @@ function _typeof(obj) {
 
     /**
      * Opens a transaction dialog to transfer 50 USD to a given bank account.
-     * @returns {Abstract} Happiness
+     * @return {Abstract} Happiness
      */
     var addMoneyToBankAccount = function addMoneyToBankAccount() {
         var transactionFrame = document.createElement('iframe');
@@ -1241,7 +1241,7 @@ function _typeof(obj) {
     // I've probably made a grammer mistake here,
     // so if you're an actual german speaker and would like to fix this,
     // please do.
-    conjugate = function(stem, pronoun, tense, stemchange) {
+    var conjugate = function conjugate(stem, pronoun, tense, stemchange) {
         var prasens, prateritum, umlauts;
         pronoun = pronoun || 'sie';
         tense = tense || 'prasens';
@@ -2396,6 +2396,11 @@ function _typeof(obj) {
 
     anything.prototype.getFlatColorYellow = getFlatColorYellow;
 
+    /**
+     * Returns the length of a String or Array.
+     * @param {string|Array} stringOrArray - A String or Array.
+     * @return {number} The length of a String or Array.
+     */
     var getLengthOfStringOrArray = function getLengthOfStringOrArray(stringOrArray) {
         if ('string' == typeof stringOrArray || stringOrArray instanceof Array) {
             var counter = 0;
@@ -2422,7 +2427,22 @@ function _typeof(obj) {
 
     anything.prototype.getLoremIpsum = getLoremIpsum;
 
-    var getListOfMichaelScottQuotes = function getListOfMichaelScottQuotes() {
+    /**
+     * Returns a random quotation of Michael Scott.
+     * @return {string} An inspiring quote.
+     */
+    var getMichaelQuote = function getMichaelQuote() {
+        var quotes = getListOfMichaelScottQuotes();
+        var rand = Math.floor(Math.random() * quotes.length);
+        return quotes[rand] + " - Michael Scott.";
+    };
+
+    /**
+     * Holds a collection of Michal Scott's quotes.
+     * Feel free to add more quotes.
+     * @private
+     */
+    function getListOfMichaelScottQuotes() {
         var arr = [];
         arr.push("The worst thing about prison was the Dementors.");
         arr.push("Occasionally, I'll hit somebody with my car. So sue me.");
@@ -2445,13 +2465,7 @@ function _typeof(obj) {
         arr.push("The rules in shotgun are very simple and very clear. The first person to shout shotgun when you're within the sight of the car gets the front seat. That's how the game's played. There are no exceptions for someone with a concussion.");
         arr.push("Society teaches us that having feelings and crying is bad and wrong. Well, that's baloney, because grief isn't wrong. There is such a thing as good grief. Just ask Charlie Brown.");
         return arr;
-    };
-
-    var getMichaelQuote = function getMichaelQuote() {
-        var quotes = getListOfMichaelScottQuotes();
-        var rand = Math.floor(Math.random() * quotes.length);
-        return quotes[rand] + " - Michael Scott.";
-    };
+    }
 
     anything.prototype.getMichaelQuote = getMichaelQuote;
 
@@ -2880,7 +2894,7 @@ function _typeof(obj) {
     /**
      * Tests if the number is negative.
      * @param {Number} arg - Number to test.
-     * @returns {Boolean}
+     * @return {Boolean}
      * @see {@link http://redd.it/3l27yd}
      */
     var isNegative = function isNegative(arg) {
@@ -3481,20 +3495,11 @@ function _typeof(obj) {
 
     anything.safelyEvaluateForeignCode = safelyEvaluateForeignCode;
 
-    var secretSantaSwap = function secretSantaSwap(santas, santa, i, array) {
-        if (santa == santas[i] ? true : false) {
-            var temp, rand;
-
-            do {
-                rand = Math.floor(Math.random() * santas.length);
-            } while (rand == i ? true : false);
-
-            temp = array[i];
-            array[i] = array[rand];
-            array[rand] = temp;
-        }
-    };
-
+    /**
+     * Assigns secret santas to given participants
+     * and shows who you picked.
+     * @param {Array} participants - Names of the participants.
+     */
     var secretSanta = function secretSanta(participants) {
         if (participants instanceof Array && participants.length > 1 ? false : true) {
             return;
@@ -3536,6 +3541,24 @@ function _typeof(obj) {
             }
         } while (answer != 'exit');
     };
+
+    /**
+     * Swaps santas if needed.
+     * @private
+     */
+    function secretSantaSwap(santas, santa, i, array) {
+        if (santa == santas[i] ? true : false) {
+            var temp, rand;
+
+            do {
+                rand = Math.floor(Math.random() * santas.length);
+            } while (rand == i ? true : false);
+
+            temp = array[i];
+            array[i] = array[rand];
+            array[rand] = temp;
+        }
+    }
 
     anything.prototype.secretSanta = secretSanta;
 
@@ -3606,24 +3629,16 @@ function _typeof(obj) {
 
     anything.prototype.shunDev = shunDev;
 
-    var sortEach = function sortEach(array, possibleNumber, index) {
-        if (isNaN(Number(possibleNumber)) ? false : true) {
-            var confirmedNumber = possibleNumber;
-
-            window.setTimeout([].push.bind(array, confirmedNumber), confirmedNumber);
-        }
-    };
-
     /**
-     * This callback should deal with the result.
-     * @callback resultCallback.
-     * @param {Array} result - A sorted array.
+     * A simple callback.
+     * @callback Callback
+     * @param {Array} result - An array of results.
      */
 
     /**
      * Sorts an array using the sheer power of waiting.
      * @param {Array} array - The array to be sorted.
-     * @param {resultCallback} callback - The callback that handles the result.
+     * @param {Callback} callback - The callback that handles the result.
      */
     var sleepSort = function sleepSort(array, callback) {
         if (array instanceof Array ? false : true) {
@@ -3632,7 +3647,7 @@ function _typeof(obj) {
 
         var sortedResult = [];
 
-        array.forEach(sortEach.bind(null, sortedResult));
+        array.forEach(sleepSortEach.bind(null, sortedResult));
 
         if ('function' == typeof callback ? true : false) {
             window.setTimeout(callback.bind(null, sortedResult), Math.max.apply(null, array));
@@ -3640,6 +3655,18 @@ function _typeof(obj) {
             window.setTimeout(console.log.bind(console, sortedResult), Math.max.apply(null, array));
         }
     };
+
+    /**
+     * Sleep sort's filter function.
+     * @private
+     */
+    function sleepSortEach(array, possibleNumber, index) {
+        if (isNaN(Number(possibleNumber)) ? false : true) {
+            var confirmedNumber = possibleNumber;
+
+            window.setTimeout([].push.bind(array, confirmedNumber), confirmedNumber);
+        }
+    }
 
     anything.prototype.sleepSort = sleepSort;
 
