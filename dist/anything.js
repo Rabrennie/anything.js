@@ -3408,6 +3408,15 @@ function _typeof(obj) {
     };
 
     anything.prototype.returnArgument = returnArgument;
+    //Returns a rocketship with a specified length
+    var rocketship = function rocketship(length) {
+        var rocketship = "8";
+        for (var i = 0; i < length; i++) {
+            rocketship += "=";
+        }
+        return rocketship + ">";
+    };
+
     var rot13 = function rot13(str) {
         var str_rot13 = "";
         var codeA = "A".charCodeAt(0);
