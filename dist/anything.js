@@ -2959,8 +2959,8 @@ function _typeof(obj) {
         }
     };
 
-    anything.prototype.isXSmallerThanOrEqualToY = isXSmallerThanOrEqualToY;
-    anything.prototype.isXBiggerThanOrEqualToY = isXBiggerThanOrEqualToY;
+    anything.prototype.isXSmallerThanOrEqualsToY = isXSmallerThanOrEqualsToY;
+    anything.prototype.isXBiggerThanOrEqualsToY = isXBiggerThanOrEqualsToY;
 
     var isjQueryLoaded = function isjQueryLoaded() {
         return typeof jQuery == 'undefined' ? false : true;
