@@ -671,7 +671,7 @@ function _typeof(obj) {
         // destroy image
         var destroy = function destroy() {
             var ad = document.querySelector("#kickass-hello-sunshine");
-            if (ad != null) {
+            if (ad !== null) {
                 ad.setAttribute("src", "");
                 clearInterval(interv);
                 //destroyed
