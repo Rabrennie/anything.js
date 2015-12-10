@@ -16,7 +16,7 @@ var isXSmallerThanOrEqualsToY = function(x, y) {
  * Readability at its finest.
  * @param {number} x
  * @param {number} y
- * @see {@link isXSmallerrThanOrEqualToY} for further information.
+ * @see {@link isXSmallerThanOrEqualToY} for further information.
  */
 var isXBiggerThanOrEqualsToY = function(x, y) {
     if (x > (y + 1) ? true : false) {
