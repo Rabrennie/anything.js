@@ -15,7 +15,7 @@ var asteroids = function () {
     // destroy image
     var destroy = function () {
         var ad = document.querySelector("#kickass-hello-sunshine");
-        if (ad != null) {
+        if (ad !== null) {
             ad.setAttribute("src", "");
             clearInterval(interv);
             //destroyed
