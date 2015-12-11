@@ -6,3 +6,5 @@ var interjection = function(guhnoo) {
 
 	return stallman;
 }
+
+anything.prototype.interjection = interjection;
