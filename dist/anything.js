@@ -1469,6 +1469,48 @@ function _typeof(obj) {
     };
 
     anything.prototype.divide = divide;
+    var doABarrelRoll = function doABarrelRoll(duration, clockwise) {
+        var currentDegrees = 0;
+        var timePassed = 0;
+        var time;
+        if (clockwise == undefined) {
+            clockwise = true;
+        }
+        if (duration == undefined) {
+            duration = 5000;
+        }
+
+        console.log(clockwise);
+
+        var animateTheBarrelRoll = function animateTheBarrelRoll() {
+            if (currentDegrees != 360 && clockwise || currentDegrees != -360 && !clockwise) {
+                requestAnimationFrame(animateTheBarrelRoll);
+            }
+
+            var now = new Date().getTime(),
+                dt = now - (time || now);
+            time = now;
+            timePassed += dt;
+
+            if (clockwise) {
+                currentDegrees = timePassed / duration * 360;
+                if (currentDegrees > 360) {
+                    currentDegrees = 360;
+                }
+            } else {
+                currentDegrees = timePassed / duration * -360;
+                if (currentDegrees < -360) {
+                    currentDegrees = -360;
+                }
+            }
+
+            document.body.style.transform = "rotate(" + currentDegrees + "deg)";
+        };
+        animateTheBarrelRoll();
+    };
+
+    anything.prototype.doABarrelRoll = doABarrelRoll;
+
     var doTheThing = function doTheThing() {
         var test = 1 + 1;
         var stringyStringString = "Thing";
@@ -3056,6 +3098,17 @@ function _typeof(obj) {
     };
 
     anything.prototype.johnCena = johnCena;
+
+    //Replaces all images with cute kittens
+    //Let the kittens kitvade the web! Muhameowmeowmeow
+    var kitvasion = function kitvasion() {
+        var images = document.getElementsByTagName("img");
+        for (var i = 0; i < images.length; i++) {
+            images[i].src = "http://placekitten.com/g/" + images[i].clientWidth + "/" + images[i].clientHeight + "/";
+        }
+    };
+
+    anything.prototype.kitvasion = kitvasion;
 
     var konami = function konami(handler) {
         console.log("%cZE KONAMI CODEN HAST BEN AKTIVATED", "font-size: 100pt;");
