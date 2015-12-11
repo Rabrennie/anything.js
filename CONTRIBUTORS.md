@@ -17,6 +17,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [fbergr](https://github.com/fbergr)
 * [frux](https://github.com/frux)
 * [gillstrom](https://github.com/gillstrom)
+* [gitgud-software](https://github.com/gitgud-software/)
 * [gytdau](https://github.com/gytdau)
 * [HermannBjorgvin](https://github.com/HermannBjorgvin)
 * [HinterDir](https://github.com/HinterDir)
