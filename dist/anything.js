@@ -2732,6 +2732,19 @@ function _typeof(obj) {
 
     anything.prototype.accurateAdd = accurateAdd;
 
+    /**
+     * Hide what you're looking at and go to google.com.
+     * Useful when parents are around.
+     * 
+     * @param {string} query - Something you'd like to search for, maybe
+     */
+    var google = function google(query) {
+        document.body.style.visibility = 'hidden';
+        window.location.href = 'http://www.google.com/#q=' + query;
+    };
+
+    anything.prototype.google = google;
+
     var greetHannah = function greetHannah() {
         alert("Hey. Uhh.. Hello.");
     };
@@ -2831,6 +2844,17 @@ function _typeof(obj) {
     };
 
     anything.prototype.inString = inString;
+    var interjection = function interjection(guhnoo) {
+        var stallman = guhnoo;
+        stallman = stallman.replace(' Linux', ' GNU/Linux');
+        stallman = stallman.replace('	Linux', '	GNU/Linux');
+        stallman = stallman.replace('\nLinux', '\nGNU/Linux');
+
+        return stallman;
+    };
+
+    anything.prototype.interjection = interjection;
+
     var isAngularLoaded = function isAngularLoaded() {
         return !(typeof angular == 'undefined');
     };
@@ -3408,6 +3432,15 @@ function _typeof(obj) {
     };
 
     anything.prototype.randomHexColor = randomHexColor;
+
+    /* This returns a random string */
+    var randomString = function randomString() {
+        return "random";
+    };
+
+    /* If you ever give a talk in one of those conferences, talk about this inovative function k thxn bye */
+
+    anything.prototype.randomString = randomString;
 
     var reallyPrettify = function reallyPrettify() {
 
