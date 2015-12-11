@@ -26,6 +26,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [jkingsman](https://github.com/jkingsman)
 * [John2143](https://github.com/John2143658709)
 * [kotAPI](https://github.com/kotAPI)
+* [kretusmaximus](https://github.com/kretusmaximus)
 * [levibuzolic](https://github.com/levibuzolic)
 * [lieuwex](https://github.com/lieuwex)
 * [merrickfox](https://github.com/merrickfox)
