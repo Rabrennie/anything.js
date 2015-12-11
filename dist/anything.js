@@ -3579,6 +3579,22 @@ function _typeof(obj) {
 
     anything.prototype.rot26 = rot26;
 
+    var rotatePage = function rotatePage(degrees, animTime) {
+        var body = document.body;
+        var beforeTransition = body.style['-webkit-transition'];
+        var beforeTransform = body.style['-webkit-transform'];
+        body.style['-webkit-transition'] = 'all ' + animTime + 'ms linear';
+        body.style['-webkit-transform'] = 'rotate(' + degrees + 'deg)';
+        return {
+            revert: function revert() {
+                body.style['-webkit-transition'] = beforeTransition;
+                body.style['-webkit-transform'] = beforeTransform;
+            }
+        };
+    };
+
+    anything.prototype.rotatePage = rotatePage;
+
     // jquery-like simple dom wrapper.
     var s = {
         get: function get(selector) {
