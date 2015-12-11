@@ -3973,6 +3973,13 @@ function _typeof(obj) {
     };
 
     anything.prototype.theAnswerToNothing = theAnswerToNothing;
+    var theSongThatNeverEnds = function theSongThatNeverEnds() {
+        console.log('This is the song that never ends!');
+        setTimeout(songThatNeverEnds, 1000);
+    };
+
+    anything.prototype.songThatNeverEnds = theSongThatNeverEnds;
+
     var threeString = function threeString() {
         return "3";
     };
