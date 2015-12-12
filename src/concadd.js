@@ -5,7 +5,7 @@ var concadd = function(anA, aB){
 
 	//simulate pseudo-random dice roll
 	var rand = anything.getRandomNumberInsecure(1,6);
-	if(rand <= 3){c
+	if(rand <= 3){
 		//add as floats
 		var result = parseFloat(anA) + parseFloat(aB);
 	}else{
