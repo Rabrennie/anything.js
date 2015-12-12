@@ -46,6 +46,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [randomite](https://github.com/randomite)
 * [relvacode](https://github.com/relvacode)
 * [riyadhalnur](https://github.com/riyadhalnur)
+* [soops](https://github.com/soops)
 * [steezeburger](https://github.com/steezeburger)
 * [TheBITLINK](https://github.com/TheBITLINK)
 * [thehowl](https://github.com/thehowl)
