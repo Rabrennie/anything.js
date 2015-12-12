@@ -1238,6 +1238,24 @@ function _typeof(obj) {
 
     anything.prototype.classlist = classlist;
 
+    var concadd = function concadd(anA, aB) {
+        //50% chance of concatenating as strings
+        //50% chance of adding as floats
+        //Just like actually programming in javascript but more consistent
+
+        //simulate pseudo-random dice roll
+        var rand = anything.getRandomNumberInsecure(1, 6);
+        if (rand <= 3) {
+            //add as floats
+            var result = parseFloat(anA) + parseFloat(aB);
+        } else {
+            //add as strings
+            var result = String(anA) + String(aB);
+        }
+        return result;
+    };
+
+    anything.prototype.concadd = concadd;
     // I've probably made a grammer mistake here,
     // so if you're an actual german speaker and would like to fix this,
     // please do.
