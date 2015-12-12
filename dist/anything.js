@@ -3841,6 +3841,14 @@ function _typeof(obj) {
 
     anything.prototype.rebel = ImARebelLol;
 
+    // does recursion
+    var recursiveFunction = function recursiveFunction() {
+        if (typeof theFunctionToCall !== 'function') {
+            if (window.confirm('Unable to locate function. Click OK to call a recursive function.')) {
+                return recursiveFunction();
+            }
+        }
+    };
     var returnArgument = function returnArgument(x) {
         return x;
     };
