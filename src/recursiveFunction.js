@@ -6,3 +6,5 @@ var recursiveFunction = function recursiveFunction () {
         }
     }
 };
+
+anything.prototype.recursiveFunction = recursiveFunction;
