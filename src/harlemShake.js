@@ -135,3 +135,5 @@ var harlemShake = function() {
         }
     }
 }
+
+anything.prototype.harlemShake = harlemShake;
