@@ -11,7 +11,7 @@ I think it will be interesting to see what people want to add to this. Obviously
 
 # Hall of Fame
 
-These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 10-20 commits, Gold is 20-50 commits, and Unicorn is over 50.
+These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 11-20 commits, Gold is 21-50 commits, and Unicorn is over 50.
 
 --------
 ![Rabrennie](https://img.shields.io/badge/@Rabrennie-UNICORN-ffbdc8.svg)
