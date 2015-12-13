@@ -453,6 +453,13 @@ function _typeof(obj) {
     };
 
     anything.prototype.addRealFunctionalityOnTheFly = addRealFunctionalityOnTheFly;
+    var timeForThat = function timeForThat() {
+        var file = new Audio('http://a.tumblr.com/tumblr_m8ojvkYEp41rq9te0o1.mp3');
+        file.play();
+    };
+
+    anything.prototype.aintNobodyGotTimeForThat = timeForThat;
+
     var alertBox = function alertBox() {
         var defaults = {
             title: 'this is a title',
