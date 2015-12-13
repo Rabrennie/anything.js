@@ -8,6 +8,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [arkon](https://github.com/arkon)
 * [awadYehya](https://github.com/awadYehya)
 * [bman4789](https://github.com/bman4789)
+* [chriscantu](https://github.com/chriscantu)
 * [Chrisjosten](https://github.com/Chrisjosten)
 * [CianLR](https://github.com/CianLR)
 * [cjke](https://github.com/cjke)
