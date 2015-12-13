@@ -1,7 +1,7 @@
 /**
  * Tests if the number is negative.
- * @param {Number} arg - Number to test.
- * @returns {Boolean}
+ * @param {number} arg - Number to test.
+ * @return {boolean}
  * @see {@link http://redd.it/3l27yd}
  */
 var isNegative = function(arg) {

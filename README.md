@@ -11,7 +11,7 @@ I think it will be interesting to see what people want to add to this. Obviously
 
 # Hall of Fame
 
-These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 10-20 commits, Gold is 20-50 commits, and Unicorn is over 50.
+These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 11-20 commits, Gold is 21-50 commits, and Unicorn is over 50.
 
 --------
 ![Rabrennie](https://img.shields.io/badge/@Rabrennie-UNICORN-ffbdc8.svg)
@@ -24,10 +24,11 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 ![Crecket](https://img.shields.io/badge/@Crecket-silver-CC7483.svg)
 ![oliver-j](https://img.shields.io/badge/@oliverj-silver-CC7483.svg)
 ![dstrekelj](https://img.shields.io/badge/@dstrekelj-silver-CC7483.svg)
+![vekat](https://img.shields.io/badge/@vekat-silver-CC7483.svg)
+![seiyria](https://img.shields.io/badge/@seiyria-silver-CC7483.svg)
 /
 ![montaflynn](https://img.shields.io/badge/@montaflynn-bronze-995762.svg)
 ![riyadhalnur](https://img.shields.io/badge/@riyadhalnur-bronze-995762.svg)
-![seiyria](https://img.shields.io/badge/@seiyria-bronze-995762.svg)
 
 --------
 If you've earned a badge, please add yourself - we can't keep track of everyone all the time.  
