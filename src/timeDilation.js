@@ -17,3 +17,5 @@
         });
         return(timeDilation);
     }
+
+    anything.prototype.calcTimeDilation = calcTimeDilation;
