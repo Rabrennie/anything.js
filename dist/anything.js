@@ -430,6 +430,11 @@ function _typeof(obj) {
     };
 
     anything.prototype.RGBtoHSL = RGBtoHSL;
+    var Rickroll = function Rickroll() {
+        window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    };
+    anything.prototype.Rickroll = Rickroll;
+
     /**
      * SHOUT IT
      * @param {string} str - A string that you want to shout out loud, OKAY?!?!
@@ -439,6 +444,16 @@ function _typeof(obj) {
     };
 
     anything.prototype.SHOUT = SHOUT;
+
+    /**
+     * Pretty much SHOUT IT but takes a dom element as input
+     * @param {HTMLElement} dom - The dom element that you want to "shoutify"
+     */
+    var SHOUTDOM = function SHOUTDOM(dom) {
+        dom.innerHTML = Δ.SHOUT(dom.innerHTML);
+    };
+
+    anything.prototype.SHOUTDOM = SHOUTDOM;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
