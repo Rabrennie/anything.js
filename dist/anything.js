@@ -4506,6 +4506,8 @@ function _typeof(obj) {
         return timeDilation;
     };
 
+    anything.prototype.calcTimeDilation = calcTimeDilation;
+
     var times = function times(_times, funct) {
         if (typeof funct === 'function') {
             var m = Math;
