@@ -3,6 +3,6 @@ var sibuStephen = function() {
 	play_random.play();  
 	alert("Welcome to sibu's Profile link");
 	window.location.replace("http://sibstephen.github.io/sibStephen");
-	
+
 }  
-anything.prototype.sibuStephen = SibuStephen;
+anything.prototype.sibuStephen = sibuStephen;	
