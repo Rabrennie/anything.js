@@ -37,6 +37,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [mohammadg](https://github.com/mohammadg)
 * [montanaflynn](https://github.com/montanaflynn)
 * [MrOnosa](https://github.com/MrOnosa)
+* [nmai](https://github.com/nmai)
 * [NathanJang](https://github.com/NathanJang)
 * [oliver-j](https://github.com/oliver-j)
 * [PeterChu2](https://github.com/PeterChu2)
