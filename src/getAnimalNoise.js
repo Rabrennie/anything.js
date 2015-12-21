@@ -4,7 +4,7 @@ var getAnimalNoise = function(){
                 "bzzz", "caw", "chirp", "chirr", "cluck", "coo", "cuckcoo",
                 "eeeaaah", "meow", "moo", "neigh", "oink", "ook", "owoooah",
                 "purr", "quack", "squawk", "squeak", "woof"];
-    return all[Math.floor(Math.random()*all.length);
+    return all[Math.floor(Math.random()*all.length)];
 };
 
 anything.prototype.getAnimalNoise = getAnimalNoise;
