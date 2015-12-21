@@ -23,3 +23,5 @@ var pncalc = function(s){
     var t = s.split(" ");
     return calculate(t, 0, t.length);
 }
+
+anything.prototype.pncalc = pncalc;
