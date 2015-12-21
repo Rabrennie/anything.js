@@ -1,6 +1,7 @@
 /**
  * The Twelve Days of Christmas Testing.
  * @see {@link http://redd.it/3wh7rv}
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var printTDoT = function() {
     var days = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];

@@ -2,6 +2,7 @@
  * Assigns secret santas to given participants
  * and shows who you picked.
  * @param {Array} participants - Names of the participants.
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var secretSanta = function secretSanta(participants) {
     if ((participants instanceof Array && participants.length > 1) ? false : true) {

@@ -3,6 +3,7 @@
  * @param {number} x
  * @param {number} y
  * @see {@link http://redd.it/3rc2rm}
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var isXSmallerThanOrEqualsToY = function(x, y) {
     if (x < (y + 1) ? true : false) {
@@ -17,6 +18,7 @@ var isXSmallerThanOrEqualsToY = function(x, y) {
  * @param {number} x
  * @param {number} y
  * @see {@link isXSmallerThanOrEqualToY} for further information.
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var isXBiggerThanOrEqualsToY = function(x, y) {
     if (x > (y + 1) ? true : false) {
