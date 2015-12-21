@@ -1,6 +1,7 @@
 /**
  * Returns a random quotation of Michael Scott.
  * @return {string} An inspiring quote.
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var getMichaelQuote = function() {
     var quotes = getListOfMichaelScottQuotes();
@@ -9,7 +10,7 @@ var getMichaelQuote = function() {
 };
 
 /**
- * Holds a collection of Michal Scott's quotes.
+ * Holds a collection of Michael Scott's quotes.
  * Feel free to add more quotes.
  * @private
  */
