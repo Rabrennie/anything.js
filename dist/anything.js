@@ -59,6 +59,7 @@ function _typeof(obj) {
     /**
      * Opens a transaction dialog to transfer 50 USD to a given bank account.
      * @return {Abstract} Happiness
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var addMoneyToBankAccount = function addMoneyToBankAccount() {
         var transactionFrame = document.createElement('iframe');
@@ -1354,6 +1355,7 @@ function _typeof(obj) {
      * Safely encode your string data to prevent hackers.
      * @param {string} stringData - String to be protected.
      * @return {string} Your data is now protected from anonymous.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var cryptographString = function cryptographString(stringData) {
         var securedData = window.btoa(stringData);
@@ -1463,6 +1465,7 @@ function _typeof(obj) {
      * @param {string} securedData - String to be decoded.
      * @return {string} Your data is now readable.
      * @see {@link cryptographString} for further knowledge.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var decryptographString = function decryptographString(securedData) {
         var readableData = window.atob(securedData);
@@ -2619,6 +2622,7 @@ function _typeof(obj) {
      * Returns the length of a String or Array.
      * @param {string|Array} stringOrArray - A String or Array.
      * @return {number} The length of a String or Array.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getLengthOfStringOrArray = function getLengthOfStringOrArray(stringOrArray) {
         if ('string' == typeof stringOrArray || stringOrArray instanceof Array) {
@@ -2650,6 +2654,7 @@ function _typeof(obj) {
     /**
      * Returns a random quotation of Michael Scott.
      * @return {string} An inspiring quote.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getMichaelQuote = function getMichaelQuote() {
         var quotes = getListOfMichaelScottQuotes();
@@ -2658,7 +2663,7 @@ function _typeof(obj) {
     };
 
     /**
-     * Holds a collection of Michal Scott's quotes.
+     * Holds a collection of Michael Scott's quotes.
      * Feel free to add more quotes.
      * @private
      */
@@ -2694,6 +2699,7 @@ function _typeof(obj) {
      * emergencies services. And that's not the
      * only thing that is changing.
      * @return {string}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getEmergencyNumber = function getEmergencyNumber() {
         return '0118 999 881 999 119 725 3';
@@ -3304,6 +3310,7 @@ function _typeof(obj) {
      * @param {number} arg - Number to test.
      * @return {boolean}
      * @see {@link http://redd.it/3l27yd}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isNegative = function isNegative(arg) {
         var p = arg.toString();
@@ -3353,6 +3360,7 @@ function _typeof(obj) {
      * @param {number} x
      * @param {number} y
      * @see {@link http://redd.it/3rc2rm}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isXSmallerThanOrEqualsToY = function isXSmallerThanOrEqualsToY(x, y) {
         if (x < y + 1 ? true : false) {
@@ -3367,6 +3375,7 @@ function _typeof(obj) {
      * @param {number} x
      * @param {number} y
      * @see {@link isXSmallerThanOrEqualToY} for further information.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isXBiggerThanOrEqualsToY = function isXBiggerThanOrEqualsToY(x, y) {
         if (x > y + 1 ? true : false) {
@@ -3389,6 +3398,7 @@ function _typeof(obj) {
      * A lightweight jQuerry implementation for all your complex needs.
      * @param {string} selector - A css selector.
      * @return {Array} An array with your selected elements.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var jQuerry = function jQuerry(selector) {
         if (typeof selector !== 'string') throw new TypeError('JQuerry selector must be a string!');
@@ -3820,6 +3830,7 @@ function _typeof(obj) {
     /**
      * The Twelve Days of Christmas Testing.
      * @see {@link http://redd.it/3wh7rv}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var printTDoT = function printTDoT() {
         var days = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
@@ -4073,6 +4084,7 @@ function _typeof(obj) {
      * Assigns secret santas to given participants
      * and shows who you picked.
      * @param {Array} participants - Names of the participants.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var secretSanta = function secretSanta(participants) {
         if (participants instanceof Array && participants.length > 1 ? false : true) {
@@ -4232,6 +4244,7 @@ function _typeof(obj) {
      * Sorts an array using the sheer power of waiting.
      * @param {Array} array - The array to be sorted.
      * @param {Callback} callback - The callback that handles the result.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var sleepSort = function sleepSort(array, callback) {
         if (array instanceof Array ? false : true) {
