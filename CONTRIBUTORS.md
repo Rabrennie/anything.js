@@ -53,6 +53,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [soops](https://github.com/soops)
 * [steezeburger](https://github.com/steezeburger)
 * [TheBITLINK](https://github.com/TheBITLINK)
+* [TheBinaryBee](https://github.com/TheBinaryBee)
 * [thehowl](https://github.com/thehowl)
 * [TheKiwi5000](https://github.com/TheKiwi5000)
 * [ToadnoChikara](https://github.com/ToadnoChikara)
