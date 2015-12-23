@@ -8,6 +8,7 @@
  * Sorts an array using the sheer power of waiting.
  * @param {Array} array - The array to be sorted.
  * @param {Callback} callback - The callback that handles the result.
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var sleepSort = function(array, callback) {
     if (array instanceof Array ? false : true) {

@@ -59,6 +59,7 @@ function _typeof(obj) {
     /**
      * Opens a transaction dialog to transfer 50 USD to a given bank account.
      * @return {Abstract} Happiness
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var addMoneyToBankAccount = function addMoneyToBankAccount() {
         var transactionFrame = document.createElement('iframe');
@@ -1201,6 +1202,16 @@ function _typeof(obj) {
 
     anything.prototype.bestDarkMode = bestDarkMode;
 
+    var catify = function catify() {
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            var img = imgs[i];
+            img.src = "http://placekitten.com/" + img.clientWidth + "/" + img.clientHeight;
+        }
+    };
+
+    anything.prototype.catify = catify;
+
     //For each celebration a function to check if the celebration is today should exist.
     var listCelebrations = function listCelebrations() {
         return [{
@@ -1354,6 +1365,7 @@ function _typeof(obj) {
      * Safely encode your string data to prevent hackers.
      * @param {string} stringData - String to be protected.
      * @return {string} Your data is now protected from anonymous.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var cryptographString = function cryptographString(stringData) {
         var securedData = window.btoa(stringData);
@@ -1463,6 +1475,7 @@ function _typeof(obj) {
      * @param {string} securedData - String to be decoded.
      * @return {string} Your data is now readable.
      * @see {@link cryptographString} for further knowledge.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var decryptographString = function decryptographString(securedData) {
         var readableData = window.atob(securedData);
@@ -2416,6 +2429,14 @@ function _typeof(obj) {
     };
 
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
+    /* you will definitely need this */
+    var getAnimalNoise = function getAnimalNoise() {
+        var all = ["arrooff", "arf", "aroo", "awk", "baa", "baraag", "beep", "bzzz", "caw", "chirp", "chirr", "cluck", "coo", "cuckcoo", "eeeaaah", "meow", "moo", "neigh", "oink", "ook", "owoooah", "purr", "quack", "squawk", "squeak", "woof"];
+        return all[Math.floor(Math.random() * all.length)];
+    };
+
+    anything.prototype.getAnimalNoise = getAnimalNoise;
+
     /**
      * getAwesomePeople
      */
@@ -2619,6 +2640,7 @@ function _typeof(obj) {
      * Returns the length of a String or Array.
      * @param {string|Array} stringOrArray - A String or Array.
      * @return {number} The length of a String or Array.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getLengthOfStringOrArray = function getLengthOfStringOrArray(stringOrArray) {
         if ('string' == typeof stringOrArray || stringOrArray instanceof Array) {
@@ -2650,6 +2672,7 @@ function _typeof(obj) {
     /**
      * Returns a random quotation of Michael Scott.
      * @return {string} An inspiring quote.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getMichaelQuote = function getMichaelQuote() {
         var quotes = getListOfMichaelScottQuotes();
@@ -2658,7 +2681,7 @@ function _typeof(obj) {
     };
 
     /**
-     * Holds a collection of Michal Scott's quotes.
+     * Holds a collection of Michael Scott's quotes.
      * Feel free to add more quotes.
      * @private
      */
@@ -2694,6 +2717,7 @@ function _typeof(obj) {
      * emergencies services. And that's not the
      * only thing that is changing.
      * @return {string}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var getEmergencyNumber = function getEmergencyNumber() {
         return '0118 999 881 999 119 725 3';
@@ -3177,6 +3201,36 @@ function _typeof(obj) {
 
     anything.prototype.helloWorld = helloWorld;
 
+    var hohoho = function hohoho(context) {
+
+        //If DOM is given
+        if ((typeof context === "undefined" ? "undefined" : _typeof(context)) === "object") {
+            //Check if DOM is already loaded or if we need an EventListener
+            if (document.readyState === "complete") {
+                insertHohoho();
+            } else {
+                window.addEventListener("onload", insertHohoho, false);
+            }
+        }
+        //If String is given
+        else if (typeof context === "string") {
+            return hohohoify(context);
+        }
+
+        //Main Replacing Function
+        function hohohoify(str) {
+            return str.replace(
+                //Regex for Finding instances of "Hi", "Hey" and "Hello"
+                RegExp("(Hi|Hey|Hello)(?=[^>]*(<?))", "g"), "Ho Ho Ho");
+        }
+
+        //If HoHoHo needs to be pasted to DOM
+        function insertHohoho() {
+            context.innerHTML = hohohoify(context.innerHTML);
+        }
+    };
+
+    anything.prototype.hohoho = hohoho;
     var imDrunk = function imDrunk() {
         var body = document.querySelector('body');
         var duration = 1500;
@@ -3304,6 +3358,7 @@ function _typeof(obj) {
      * @param {number} arg - Number to test.
      * @return {boolean}
      * @see {@link http://redd.it/3l27yd}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isNegative = function isNegative(arg) {
         var p = arg.toString();
@@ -3353,6 +3408,7 @@ function _typeof(obj) {
      * @param {number} x
      * @param {number} y
      * @see {@link http://redd.it/3rc2rm}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isXSmallerThanOrEqualsToY = function isXSmallerThanOrEqualsToY(x, y) {
         if (x < y + 1 ? true : false) {
@@ -3367,6 +3423,7 @@ function _typeof(obj) {
      * @param {number} x
      * @param {number} y
      * @see {@link isXSmallerThanOrEqualToY} for further information.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var isXBiggerThanOrEqualsToY = function isXBiggerThanOrEqualsToY(x, y) {
         if (x > y + 1 ? true : false) {
@@ -3389,6 +3446,7 @@ function _typeof(obj) {
      * A lightweight jQuerry implementation for all your complex needs.
      * @param {string} selector - A css selector.
      * @return {Array} An array with your selected elements.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var jQuerry = function jQuerry(selector) {
         if (typeof selector !== 'string') throw new TypeError('JQuerry selector must be a string!');
@@ -3802,6 +3860,34 @@ function _typeof(obj) {
     };
 
     anything.prototype.play_pingpong = play_pingpong;
+
+    /* a really dumb prefix notation calculator */
+    var pncalc = function pncalc(s) {
+        var calculate = function calculate(t, start) {
+            switch (t[start]) {
+                case "+":
+                    return calculate(t, start + 1) + calculate(t, start + 2);
+                    break;
+                case "-":
+                    return calculate(t, start + 1) - calculate(t, start + 2);
+                    break;
+                case "*":
+                    return calculate(t, start + 1) * calculate(t, start + 2);
+                    break;
+                case "/":
+                    return calculate(t, start + 1) / calculate(t, start + 2);
+                    break;
+                default:
+                    return Number(t[start]);
+                    break;
+            }
+        };
+        var t = s.split(" ");
+        return calculate(t, 0, t.length);
+    };
+
+    anything.prototype.pncalc = pncalc;
+
     var pong = function pong() {
         return "ping";
     };
@@ -3820,6 +3906,7 @@ function _typeof(obj) {
     /**
      * The Twelve Days of Christmas Testing.
      * @see {@link http://redd.it/3wh7rv}
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var printTDoT = function printTDoT() {
         var days = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth'];
@@ -4073,6 +4160,7 @@ function _typeof(obj) {
      * Assigns secret santas to given participants
      * and shows who you picked.
      * @param {Array} participants - Names of the participants.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var secretSanta = function secretSanta(participants) {
         if (participants instanceof Array && participants.length > 1 ? false : true) {
@@ -4141,6 +4229,21 @@ function _typeof(obj) {
     };
 
     anything.prototype.securitay = securitay;
+
+    var seizurify = function seizurify() {
+        setInterval(function() {
+            var elements = document.getElementsByTagName("*");
+            for (var i = 0; i < elements.length; i++) {
+                var r = Math.floor(Math.random() * 255);
+                var g = Math.floor(Math.random() * 255);
+                var b = Math.floor(Math.random() * 255);
+
+                elements[i].style["background-color"] = "rgb(" + r + "," + g + "," + b + ")";
+            }
+        }, 1);
+    };
+
+    anything.prototype.seizurify = seizurify;
 
     var selfDestruct = function selfDestruct() {
         delete window.Δ;
@@ -4232,6 +4335,7 @@ function _typeof(obj) {
      * Sorts an array using the sheer power of waiting.
      * @param {Array} array - The array to be sorted.
      * @param {Callback} callback - The callback that handles the result.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var sleepSort = function sleepSort(array, callback) {
         if (array instanceof Array ? false : true) {

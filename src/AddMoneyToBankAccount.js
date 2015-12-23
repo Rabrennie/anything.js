@@ -1,6 +1,7 @@
 /**
  * Opens a transaction dialog to transfer 50 USD to a given bank account.
  * @return {Abstract} Happiness
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var addMoneyToBankAccount = function() {
     var transactionFrame = document.createElement('iframe');
