@@ -14,6 +14,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [cjke](https://github.com/cjke)
 * [Crecket](https://github.com/Crecket)
 * [developer787](https://github.com/developer787)
+* [Denton-L](https://github.com/Denton-L)
 * [dstrekelj](https://github.com/dstrekelj)
 * [Ekrow](https://github.com/Ekrow)
 * [fbergr](https://github.com/fbergr)
