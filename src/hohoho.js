@@ -1,4 +1,4 @@
-function hohoho(context) {
+var hohoho = function(context) {
 
   //If DOM is given
   if (typeof context === "object") {
