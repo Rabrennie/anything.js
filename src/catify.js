@@ -1,0 +1,7 @@
+function catify(){
+		var imgs = document.getElementsByTagName("img");
+		for (var i = 0; i < imgs.length; i++) {
+				var img = imgs[i];
+				img.src="http://placekitten.com/"+img.clientWidth+"/"+img.clientHeight;
+		}
+}
