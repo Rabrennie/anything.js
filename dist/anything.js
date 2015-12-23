@@ -1202,6 +1202,16 @@ function _typeof(obj) {
 
     anything.prototype.bestDarkMode = bestDarkMode;
 
+    var catify = function catify() {
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            var img = imgs[i];
+            img.src = "http://placekitten.com/" + img.clientWidth + "/" + img.clientHeight;
+        }
+    };
+
+    anything.prototype.catify = catify;
+
     //For each celebration a function to check if the celebration is today should exist.
     var listCelebrations = function listCelebrations() {
         return [{
@@ -3191,6 +3201,36 @@ function _typeof(obj) {
 
     anything.prototype.helloWorld = helloWorld;
 
+    var hohoho = function hohoho(context) {
+
+        //If DOM is given
+        if ((typeof context === "undefined" ? "undefined" : _typeof(context)) === "object") {
+            //Check if DOM is already loaded or if we need an EventListener
+            if (document.readyState === "complete") {
+                insertHohoho();
+            } else {
+                window.addEventListener("onload", insertHohoho, false);
+            }
+        }
+        //If String is given
+        else if (typeof context === "string") {
+            return hohohoify(context);
+        }
+
+        //Main Replacing Function
+        function hohohoify(str) {
+            return str.replace(
+                //Regex for Finding instances of "Hi", "Hey" and "Hello"
+                RegExp("(Hi|Hey|Hello)(?=[^>]*(<?))", "g"), "Ho Ho Ho");
+        }
+
+        //If HoHoHo needs to be pasted to DOM
+        function insertHohoho() {
+            context.innerHTML = hohohoify(context.innerHTML);
+        }
+    };
+
+    anything.prototype.hohoho = hohoho;
     var imDrunk = function imDrunk() {
         var body = document.querySelector('body');
         var duration = 1500;
