@@ -28,3 +28,5 @@ function hohoho(context) {
     context.innerHTML = hohohoify(context.innerHTML);
   }
 }
+
+anything.prototype.hohoho=hohoho;
