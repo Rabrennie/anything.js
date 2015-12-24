@@ -461,6 +461,16 @@ function _typeof(obj) {
     };
     anything.prototype.YouShallNotHax = YouShallNotHax;
 
+    var add = function add() {
+        var result = 0;
+        var numbers = Array.prototype.slice.call(arguments, 1);
+        numbers.forEach(function(val) {
+            result += !isNaN(val) ? val : 0;
+        });
+        return result;
+    };
+    anything.prototype.add = add;
+
     var addRealFunctionalityOnTheFly = function addRealFunctionalityOnTheFly() {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -4512,6 +4522,18 @@ function _typeof(obj) {
     };
 
     anything.prototype.stripVowels = stripVowels;
+
+    /* function subtract receives any amount of argumetns,
+     * subtracts any amount given of numbers from the first argument */
+    var subtract = function subtract() {
+        var result = !isNaN(arguments[0]) ? arguments[0] : 0;
+        var numbers = Array.prototype.slice.call(arguments, 1);
+        numbers.forEach(function(val) {
+            result -= !isNaN(val) ? val : 0;
+        });
+        return result;
+    };
+    anything.prototype.subtract = subtract;
 
     /* Sum all the arguments passed in to the function
     usage:  sum(1, 2) returns 3
