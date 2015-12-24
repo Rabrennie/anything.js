@@ -1597,6 +1597,37 @@ function _typeof(obj) {
 
     anything.prototype.doABarrelRoll = doABarrelRoll;
 
+    /**
+     * Quickly solves math problems through estimation
+     * @param {String} expression (e.g. '12 * 9')
+     * @return {Number} answer
+     * @author Trey Hoover <treyhoover@gmail.com>
+     */
+
+    function doQuickMath(expression) {
+        expression = expression.replace(/\s/g, ''); // spaces only slow math down
+        var operatorExp = '[\+|-|\*|\/|%]';
+        var numberExp = '[-+]?[0-9]*\.?[0-9]';
+        var validExpression = new RegExp('^' + numberExp + operatorExp + numberExp + '$').test(expression);
+        if (!validExpression) throw 'Invalid expression';
+
+        var idx = expression.search(operatorExp);
+        var operand1 = quickRound(expression.slice(0, idx));
+        var operator = expression.slice(idx, idx + 1);
+        var operand2 = quickRound(expression.slice(idx + 1));
+
+        return eval(operand1 + operator + operand2);
+    }
+
+    // the magic that makes it so fast
+    function quickRound(n) {
+        n = parseInt(n); // parse as integer for more fastness
+        var roundyness = Math.pow(10, Math.abs(n).toString().length - 1); // this is highly technical
+        return Math.round(n / roundyness) * roundyness;
+    }
+
+    anything.prototype.doQuickMath = doQuickMath;
+
     var doTheThing = function doTheThing() {
         var test = 1 + 1;
         var stringyStringString = "Thing";
@@ -2135,6 +2166,52 @@ function _typeof(obj) {
 
     anything.prototype.fartScroll = fartScroll;
 
+    /**
+     * Computes trigonometric functions using state-of-the-art algorithms
+     */
+
+    var fastSin = function fastSin(th) {
+        // taylor series
+        if (th === 0) return 0;
+
+        var pi = 3.141592653589793;
+
+        var magnitude = Math.abs(th);
+        var sign = th / magnitude;
+        var magnitude = magnitude % (2 * pi);
+
+        var sin = 0;
+
+        var factorial = function factorial(n) {
+            if (n === 0) return 1;
+            else return n * factorial(n - 1);
+        };
+
+        var power = function power(x, n) {
+            if (n === 0) return 1;
+            else return x * factorial(n - 1);
+        };
+
+        for (var i = 0; i < 100; i++) {
+            sin += power(-1, i) * power(magnitude, 2 * i + 1) / factorial(2 * i + 1);
+        }
+
+        return sin;
+    };
+
+    var fastCos = function fastCos(th) {
+        var pi = 3.141592653589793;
+        return fastSin(th - pi / 2);
+    };
+
+    var fasterSin = function fasterSin(th) {
+        // small-angle approximation
+        return th;
+    };
+
+    anything.prototype.fastSin = fastSin;
+    anything.prototype.fastCos = fastCos;
+    anything.prototype.fasterSin = fasterSin;
     var fibonacci = function fibonacci(n) {
         if (!(n > 0)) {
             return false;
