@@ -32,7 +32,7 @@ Option.prototype.filter = function(p) {
         return this;
 }
 
-Option.prototype.forEach = function(d) {
+Option.prototype.forEach = function(f) {
     if(!this.isEmpty)
         f(this.get());
 }
