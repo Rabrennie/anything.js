@@ -69,3 +69,4 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [Xylem](https://github.com/Xylem)
 * [SibuStephen](https://github.com/SibuStephen)
 * [Dvidsilva](https://github.com/dvidsilva)
+* [treyhoover](https://github.com/treyhoover)
