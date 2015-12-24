@@ -67,3 +67,4 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [Xeom](https://github.com/Xeom)
 * [Xylem](https://github.com/Xylem)
 * [SibuStephen](https://github.com/SibuStephen)
+* [treyhoover](https://github.com/treyhoover)
