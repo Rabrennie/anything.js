@@ -2300,17 +2300,47 @@ function _typeof(obj) {
 
     var fizz = 'Fizz';
     var buzz = 'Buzz';
+    /**
+     * Deprecated, replaced with generalized algorithm.
+     */
     var _fizzbuzz = function _fizzbuzz(i) {
         // fire an ultra-difficult algorithm to either print Fizz, Buzz, FizzBuzz or the number
         return i % 15 === 0 ? fizz + buzz : i % 5 === 0 ? buzz : i % 3 === 0 ? fizz : i;
     };
 
     var fizzbuzz = function fizzbuzz() {
-        for (var i = 0; i <= 100; i++) {
+        // replaced with generalized function
+        /*for (var i = 0; i <= 100; i++) {
             console.log(_fizzbuzz(i));
+        }*/
+        printGeneralFizzBuzz(100, {
+            Fizz: 3,
+            Buzz: 5
+        });
+    };
+
+    /**
+     * Computes the general ith fizzbuzz, with the given factors
+     * of the form {label: factor, ...}
+     */
+    var generalFizzBuzz = function generalFizzBuzz(i, factors) {
+        var text = '';
+        for (var label in factors) {
+            if (factors.hasOwnProperty(label)) {
+                if (i % factors[label] === 0) text += label;
+            }
+        }
+        return text.length === 0 ? i + '' : text;
+    };
+
+    var printGeneralFizzBuzz = function printGeneralFizzBuzz(n, factors) {
+        for (var i = 0; i <= n; i++) {
+            console.log(generalFizzBuzz(i, factors));
         }
     };
 
+    anything.prototype.generalFizzBuzz = generalFizzBuzz;
+    anything.prototype.generalFizzBuzz = printGeneralFizzBuzz;
     anything.prototype.fizzbuzz = fizzbuzz;
 
     var flattenArray = function flattenArray(arr, result) {
@@ -4482,6 +4512,451 @@ function _typeof(obj) {
 
     anything.prototype.pncalc = pncalc;
 
+    /**
+     * Pokémon-related utilities.
+     */
+
+    var matchups = {
+        // attacking -> defending types
+        normal: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: .5,
+            bug: 1,
+            ghost: 0,
+            steel: .5,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: 1,
+            dark: 1,
+            fairy: 1
+        },
+        fighting: {
+            normal: 2,
+            fighting: 1,
+            flying: .5,
+            poison: .5,
+            ground: 1,
+            rock: 2,
+            bug: .5,
+            ghost: 0,
+            steel: 2,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: .5,
+            ice: 2,
+            dragon: 1,
+            dark: 2,
+            fairy: .5
+        },
+        flying: {
+            normal: 1,
+            fighting: 2,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: .5,
+            bug: 2,
+            ghost: 1,
+            steel: .5,
+            fire: 1,
+            water: 1,
+            grass: 2,
+            electric: .5,
+            psychic: 1,
+            ice: 1,
+            dragon: 1,
+            dark: 1,
+            fairy: 1
+        },
+        poison: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: .5,
+            ground: .5,
+            rock: .5,
+            bug: 1,
+            ghost: .5,
+            steel: 0,
+            fire: 1,
+            water: 1,
+            grass: 2,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: 1,
+            dark: 1,
+            fairy: 2
+        },
+        ground: {
+            normal: 1,
+            fighting: 1,
+            flying: 0,
+            poison: 2,
+            ground: 1,
+            rock: 2,
+            bug: .5,
+            ghost: 1,
+            steel: 2,
+            fire: 2,
+            water: 1,
+            grass: .5,
+            electric: 2,
+            psychic: 1,
+            ice: 1,
+            dragon: 1,
+            dark: 1,
+            fairy: 1
+        },
+        rock: {
+            normal: 1,
+            fighting: .5,
+            flying: 2,
+            poison: 1,
+            ground: .5,
+            rock: 1,
+            bug: 2,
+            ghost: 1,
+            steel: .5,
+            fire: 2,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: 1,
+            ice: 2,
+            dragon: 1,
+            dark: 1,
+            fairy: 1
+        },
+        bug: {
+            normal: 1,
+            fighting: .5,
+            flying: .5,
+            poison: .5,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: .5,
+            steel: .5,
+            fire: .5,
+            water: 1,
+            grass: 2,
+            electric: 1,
+            psychic: 2,
+            ice: 1,
+            dragon: 1,
+            dark: .5,
+            fairy: .5
+        },
+        ghost: {
+            normal: 0,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: 2,
+            steel: 1,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: 2,
+            ice: 1,
+            dragon: 1,
+            dark: 2,
+            fairy: 1
+        },
+        steel: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: 2,
+            bug: 1,
+            ghost: 1,
+            steel: .5,
+            fire: .5,
+            water: .5,
+            grass: 1,
+            electric: .5,
+            psychic: 1,
+            ice: 2,
+            dragon: 1,
+            dark: 1,
+            fairy: 2
+        },
+        fire: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: .5,
+            bug: 2,
+            ghost: 1,
+            steel: 2,
+            fire: .5,
+            water: .5,
+            grass: 2,
+            electric: 1,
+            psychic: 1,
+            ice: 2,
+            dragon: .5,
+            dark: 1,
+            fairy: 1
+        },
+        water: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 2,
+            rock: 2,
+            bug: 1,
+            ghost: 1,
+            steel: 1,
+            fire: 2,
+            water: .5,
+            grass: .5,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: .5,
+            dark: 1,
+            fairy: 1
+        },
+        grass: {
+            normal: 1,
+            fighting: 1,
+            flying: .5,
+            poison: .5,
+            ground: 2,
+            rock: 2,
+            bug: .5,
+            ghost: 1,
+            steel: .5,
+            fire: .5,
+            water: 2,
+            grass: .5,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: .5,
+            dark: 1,
+            fairy: 1
+        },
+        electric: {
+            normal: 1,
+            fighting: 1,
+            flying: 2,
+            poison: 1,
+            ground: 0,
+            rock: .5,
+            bug: 1,
+            ghost: 1,
+            steel: 1,
+            fire: 1,
+            water: 2,
+            grass: .5,
+            electric: .5,
+            psychic: 1,
+            ice: 1,
+            dragon: .5,
+            dark: 1,
+            fairy: 1
+        },
+        psychic: {
+            normal: 1,
+            fighting: 2,
+            flying: 1,
+            poison: 2,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: 1,
+            steel: .5,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: .5,
+            ice: 1,
+            dragon: 1,
+            dark: 2,
+            fairy: 1
+        },
+        ice: {
+            normal: 1,
+            fighting: 1,
+            flying: 2,
+            poison: 1,
+            ground: 2,
+            rock: 1,
+            bug: 1,
+            ghost: 1,
+            steel: .5,
+            fire: .5,
+            water: .5,
+            grass: 2,
+            electric: 1,
+            psychic: 1,
+            ice: .5,
+            dragon: 2,
+            dark: 1,
+            fairy: 1
+        },
+        dragon: {
+            normal: 1,
+            fighting: 1,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: 1,
+            steel: .5,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: 2,
+            dark: 1,
+            fairy: 0
+        },
+        dark: {
+            normal: 1,
+            fighting: .5,
+            flying: 1,
+            poison: 1,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: 2,
+            steel: 1,
+            fire: 1,
+            water: 1,
+            grass: 1,
+            electric: 1,
+            psychic: 2,
+            ice: 1,
+            dragon: 1,
+            dark: .5,
+            fairy: .5
+        },
+        fairy: {
+            normal: 1,
+            fighting: 2,
+            flying: 1,
+            poison: .5,
+            ground: 1,
+            rock: 1,
+            bug: 1,
+            ghost: 1,
+            steel: .5,
+            fire: .5,
+            water: .5,
+            grass: 1,
+            electric: 1,
+            psychic: 1,
+            ice: 1,
+            dragon: 2,
+            dark: 2,
+            fairy: 1
+        }
+    };
+    var _matchups = matchups;
+
+    var types = Object.keys(matchups);
+
+    var getTypesForPredicate = function getTypesForPredicate(defending, p) {
+        if (typeof defending === 'string') defending = [defending];
+
+        var ts = [];
+        types.forEach(function(attacking) {
+            var multiplier = 1;
+            defending.forEach(function(type) {
+                multiplier *= matchups[attacking][type];
+            });
+            if (p(multiplier)) ts.push(attacking);
+        });
+
+        return ts;
+    };
+
+    /**
+     * Gets the weaknesses of a pure or dual type (e.g. 'electric' or ['grass', 'poison'])
+     */
+    var getWeaknesses = function getWeaknesses(defending) {
+        return getTypesForPredicate(defending, function(n) {
+            return n > 1;
+        });
+    };
+
+    /**
+     * Gets the resistances of a pure or dual type (e.g. 'electric' or ['grass', 'poison'])
+     */
+    var getResistances = function getResistances(defending) {
+        return getTypesForPredicate(defending, function(n) {
+            return n < 1;
+        });
+    };
+
+    /**
+     * Gets the effectiveness of an attack on a pure or dual type (e.g. 'electric' or ['grass', 'poison'])
+     */
+    var getEffectiveness = function getEffectiveness(attacking, defending) {
+        if (typeof defending === 'string') defending = [defending];
+
+        var multiplier = 1;
+        defending.forEach(function(type) {
+            multiplier *= matchups[attacking][type];
+        });
+
+        if (multiplier > 1) {
+            console.log('It\'s super effective!');
+        } else if (multiplier < 1) {
+            console.log('It\'s not very effective...');
+        }
+
+        return multiplier;
+    };
+
+    /**
+     * Set a custom matchup table.
+     */
+    var setMatchups = function setMatchups(newMatchups) {
+        matchups = newMatchups;
+        types = Object.keys(matchups);
+    };
+
+    /**
+     * Reset the matchup table.
+     */
+    var resetMatchups = function resetMatchups() {
+        setMatchups(_matchups);
+    };
+
+    anything.prototype.getWeaknesses = getWeaknesses;
+    anything.prototype.getResistances = getResistances;
+    anything.prototype.getEffectiveness = getEffectiveness;
+    anything.prototype.setMatchups = setMatchups;
+    anything.prototype.resetMatchups = resetMatchups;
+
     var pong = function pong() {
         return "ping";
     };
@@ -4497,6 +4972,19 @@ function _typeof(obj) {
 
     anything.prototype.prettify = prettify;
 
+    /**
+     * Verifies if a number is prime in O(1) time.
+     */
+
+    var isPrime = function isPrime(n) {
+        if (n <= 1) return false;
+        else return n === 2 || // 2 is the only even prime,
+            // so it is special-cased
+            n % 2 !== 0; // based on the well-known theorem that
+        // all odd numbers are prime
+    };
+
+    anything.prototype.isPrime = isPrime;
     /**
      * The Twelve Days of Christmas Testing.
      * @see {@link http://redd.it/3wh7rv}
@@ -5360,6 +5848,20 @@ function _typeof(obj) {
     /**
      * Nick Mai, PhD. Highly published CS researcher. 12/24/2015.
      *
+     * Divides numbers extremely fast by restricting # of arguments to 2.
+     * Additional speed gains are achieved by not safety-checking args.
+     * Proven in tests to be 4000% faster than @dvidsilva's implementation.
+     */
+
+    var turboDivide = function turboDivide(a, b) {
+        // the second arg is divided from the first, duh
+        return a / b;
+    };
+    anything.prototype.turboDivide = turboDivide;
+
+    /**
+     * Nick Mai, PhD. Highly published CS researcher. 12/24/2015.
+     *
      * Multiplies numbers extremely fast by restricting # of arguments to 2.
      * Additional speed gains are achieved by not safety-checking args.
      * Proven in tests to be 4000% faster than @dvidsilva's implementation.
@@ -5369,20 +5871,6 @@ function _typeof(obj) {
         return a * b;
     };
     anything.prototype.turboMultiply = turboMultiply;
-
-    /**
-     * Nick Mai, PhD. Highly published CS researcher. 12/24/2015.
-     *
-     * Subtracts numbers extremely fast by restricting # of arguments to 2.
-     * Additional speed gains are achieved by not safety-checking args.
-     * Proven in tests to be 4000% faster than @dvidsilva's implementation.
-     */
-
-    var turboSubtract = function turboSubtract(a, b) {
-        // the second arg is subtracted from the first, duh
-        return a - b;
-    };
-    anything.prototype.turboSubtract = turboSubtract;
 
     var twoString = function twoString() {
         return "2";
