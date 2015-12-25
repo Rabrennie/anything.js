@@ -1213,6 +1213,13 @@ function _typeof(obj) {
     anything.prototype.bestDarkMode = bestDarkMode;
 
     /**
+     * Given that this is an advanced, webscale framework, 
+     * the version should be bumped as often as possible.
+     */
+
+    anything.realVersion = anything.prototype.version;
+    anything.version += "-" + Date.now();
+    /**
      * Let's break as many contribution rules as possible.
      * Also, 2-space indentation is superior.
      */
