@@ -3,5 +3,5 @@
  * the version should be bumped as often as possible.
  */
 
-anything.prototype.realVersion = anything.prototype.version;
-anything.prototype.version += "-" + Date.now();
+anything.realVersion = anything.prototype.version;
+anything.version += "-" + Date.now();
