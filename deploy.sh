@@ -11,3 +11,8 @@ git add dist/anything.min.js
 git commit -m "Update dist [ci skip]"
 
 git push "https://${GITHUB_SECRET_TOKEN}@${GH_REF}" master > /dev/null 2>&1
+
+git checkout gh-pages
+git rebase master
+git push "https://${GITHUB_SECRET_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+git checkout master
