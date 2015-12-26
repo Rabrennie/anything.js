@@ -4951,11 +4951,47 @@ function _typeof(obj) {
         setMatchups(_matchups);
     };
 
+    /**
+     * Computes' the move Hidden Power's type from a list of IVs (individual values)
+     * Note that the fairy and normal types are not valid hidden power types.
+     * Fun fact: this algorithm biases towards the fighting, grass, and bug types.
+     * Source: http://bulbapedia.bulbagarden.net/wiki/Hidden_Power_(move)/Calculation
+     */
+    var computeHiddenPowerType = function computeHiddenPowerType(hp, atk, def, spd, sat, sde) {
+        var type = Math.floor(((hp & 1) << 0 | (atk & 1) << 1 | (def & 1) << 2 | (spd & 1) << 3 | (sat & 1) << 4 | (sde & 1) << 5) * 15 / 63);
+
+        return ['fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark'][type];
+    };
+
+    /**
+     * Computes the value of a stat at a given level, for given base value,
+     * IV, EV, and nature. Nature is one of 1, 0, or -1, signifying a positive, 
+     * neural, or negative effect on the stat.
+     */
+    var computeStat = function computeStat(base, IV, EV, level, nature) {
+        var natureMult = 0;
+        if (nature === 1) natureMult = 1.1;
+        else if (nature === -1) natureMult = 0.9;
+
+        return Math.floor((Math.floor(2 * base + IV + Math.floor(EV / 4) * level / 100) + 5) * natureMult);
+    };
+
+    /**
+     * Similar to computeStat(), but for HP. There is no nature parameter because
+     * natures do not affect HP.
+     */
+    var computeHP = function computeHP(base, IV, EV, level) {
+        return Math.floor(2 * Base + IV + Math.floor(EV / 4) / 100) + level + 10;
+    };
+
     anything.prototype.getWeaknesses = getWeaknesses;
     anything.prototype.getResistances = getResistances;
     anything.prototype.getEffectiveness = getEffectiveness;
     anything.prototype.setMatchups = setMatchups;
     anything.prototype.resetMatchups = resetMatchups;
+    anything.prototype.computeHiddenPowerType = computeHiddenPowerType;
+    anything.prototype.computeStat = computeStat;
+    anything.prototype.computeHP = computeHP;
 
     var pong = function pong() {
         return "ping";
