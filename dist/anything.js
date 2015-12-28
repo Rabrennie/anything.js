@@ -4372,6 +4372,15 @@ function _typeof(obj) {
 
     anything.prototype.nothing = nothing;
     /**
+     * A function for generating the number of letters in the word "cat"
+     * @returns {Number} The number of letters in the word "cat"
+     */
+    var numberOfLettersInTheWordCat = function numberOfLettersInTheWordCat() {
+        return 3;
+    };
+    anything.prototype.numberOfLettersInTheWordCat = numberOfLettersInTheWordCat;
+
+    /**
      * 
      */
 
