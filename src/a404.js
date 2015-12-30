@@ -37,6 +37,8 @@ var a404 = function () {
     a404H2.innerHTML = 'There\'s Nothing Here.';        
     a404H2.style.marginBottom = '24px';
     a404H2.style.color = '#ffffff';
+    a404H2.style.fontSize = '30px';
+    a404H2.style.fontWeight = '100';
     a404MessageContainer.appendChild(a404H2);
 
     document.body.appendChild(a404MessageContainer);
