@@ -520,6 +520,20 @@ function _typeof(obj) {
     };
 
     anything.prototype.a404 = a404;
+    /* Return the value of the first argument plus twice the second
+     */
+    var aPlus2b = function aPlus2b() {
+        return a + 2 * b;
+    };
+
+    anything.prototype.aPlus2b = aPlus2b;
+    /* Return the value of the first argument plus twice the second
+     */
+    var aPlus3b = function aPlus3b() {
+        return a + 3 * b;
+    };
+
+    anything.prototype.aPlus3b = aPlus3b;
     var add = function add() {
         var result = 0;
         var numbers = Array.prototype.slice.call(arguments, 1);
@@ -6133,6 +6147,8 @@ function _typeof(obj) {
 
     anything.prototype.writeTomorrowDate = writeTomorrowDate;
     var zZzZz = function zZzZz(hours, boss, fired, sleep) {
+        endtime = Date.now() + 1000;
+        while (Date.now() < endtime) {}
         if (sleep && boss) {
             return fired;
         } else {
