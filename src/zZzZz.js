@@ -1,5 +1,7 @@
 var zZzZz = function (hours, boss, fired, sleep) {
-    if(sleep && boss) {
+    endtime = Date.now()+1000;
+    while (Date.now() < endtime);
+	if(sleep && boss) {
         return fired;
     } else {
         sleep = hours;
