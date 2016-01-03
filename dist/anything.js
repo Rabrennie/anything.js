@@ -5911,6 +5911,12 @@ function _typeof(obj) {
 
     anything.prototype.toUTC = toUTC;
 
+    var toUasi = function toUasi(s) {
+        return s.replace('a', 'e').replace('e', 'i').replace('i', 'o').replace('o', 'u').replace('u', 'a').replace('A', 'E').replace('E', 'I').replace('I', 'O').replace('O', 'U').replace('U', 'A');
+    };
+
+    anything.prototype.toUasi = toUasi;
+
     /**
      * Splits a string into tokens
      * Example: "Hello!!! How are you?" => ["Hello", "!!!", "How", "are", "you", "?"]
