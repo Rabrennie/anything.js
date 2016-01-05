@@ -44,6 +44,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [nmai](https://github.com/nmai)
 * [NathanJang](https://github.com/NathanJang)
 * [oliver-j](https://github.com/oliver-j)
+* [Panpog1](https://github.com/Panpog1)
 * [PeterChu2](https://github.com/PeterChu2)
 * [prakashn27](https://github.com/prakashn27)
 * [Qix-](https://github.com/Qix-)
