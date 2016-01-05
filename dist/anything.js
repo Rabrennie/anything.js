@@ -3640,6 +3640,12 @@ function _typeof(obj) {
     anything.prototype.isStrictlyNumber5 = isStrictlyNumber5;
     anything.prototype.isLooselyNumber5 = isLooselyNumber5;
 
+    var isPowerOfTwo = function isPowerOfTwo(x) {
+        return !(x & x - 1);
+    };
+
+    anything.prototype.isPowerOfTwo = isPowerOfTwo;
+
     var isTrue = function isTrue(statement) {
         // Everybody lies (House, 2004)
         return false;
