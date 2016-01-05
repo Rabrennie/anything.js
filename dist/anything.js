@@ -3254,6 +3254,27 @@ function _typeof(obj) {
 
     anything.prototype.guid = guid;
 
+    /**
+     * Happy New Years!
+     * If you can't tell, I'm not a javascript developer.
+     * This was inferred knowledge from other languages and stack overflow.
+     * God help us all.
+     */
+
+    var happyNewYear = function happyNewYear() {
+        var todaysDate = new Date().getFullYear();
+        if (todaysDate == "2016") {
+            console.log("Happy New Years!");
+            console.log("Here's to making 2016 awesome!");
+            alert("Happy New Years!");
+            alert("Here's to making 2016 awesome!");
+        } else {
+            console.log("Either it's broken or it's not 2016 yet!");
+        }
+    };
+
+    anything.prototype.happyNewYear = happyNewYear;
+
     var harlemShake = function harlemShake() {
         function c() {
             var e = document.createElement("link");
@@ -5889,6 +5910,32 @@ function _typeof(obj) {
     };
 
     anything.prototype.toUTC = toUTC;
+
+    var toUasi = function toUasi(s) {
+        var uasi = [
+            ['a', 'e'],
+            ['e', 'i'],
+            ['i', 'o'],
+            ['o', 'u'],
+            ['u', 'a']
+        ];
+        return String(s).split('').reduce(function(prev, curr) {
+            var repl = undefined;
+            for (var i = 0; i < uasi.length; i += 1) {
+                if (uasi[i][0].toLowerCase() === curr) {
+                    repl = uasi[i][1].toLowerCase();
+                    return prev + repl;
+                }
+                if (uasi[i][0].toUpperCase() === curr) {
+                    repl = uasi[i][1].toUpperCase();
+                    return prev + repl;
+                }
+            }
+            return prev + curr;
+        }, "");
+    };
+
+    anything.prototype.toUasi = toUasi;
 
     /**
      * Splits a string into tokens
