@@ -336,6 +336,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.HSLtoRGB = HSLtoRGB;
+    var RAINBOW = function RAINBOW(element, speed) {
+        var i = 0;
+        speed = typeof speed != 'undefined' ? speed : 5;
+        return setInterval(function() {
+            element.style.background = 'hsl(' + i + ',100%, 50%)';
+            i = i <= 359 ? i + 1 : 0;
+        }, speed);
+    };
+
+    anything.prototype.RAINBOW = RAINBOW;
+
     var RGBtoCMYK = function RGBtoCMYK(rgb) {
         if (typeof rgb == "string" && rgb[0] == "#" && (rgb.length == 7 || rgb.length == 4)) {
             if (rgb.length == 4) {
