@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8">
     <style type="text/css" media="all">
@@ -24,9 +24,9 @@
         background-color: transparent;
         box-shadow: 0 0 0 2px #D9E778 inset !important;
         color: #D9E778;
-        float: right;
         font-size: 18px;
         padding: 8px;
+        float: right;
         border-radius: 5%;
         cursor: pointer;
         }
@@ -37,14 +37,33 @@
         color: rgba(0,0,0,.6);
         background-color: #d8ea5c;
       }
+      
+      .addlink {
+        background-color: transparent;
+        box-shadow: 0 0 0 2px #6DFFFF inset !important;
+        color: #6DFFFF;
+        font-size: 18px;
+        padding: 8px;
+        float: right;
+        border-radius: 5%;
+        cursor: pointer;
+        margin-right: 4px;
+        }
+      
+      .addlink:hover
+      {
+        box-shadow: none !important;
+        color: rgba(0,0,0,.6);
+        background-color: #54ffff;
+      }
     </style>
     <script src="panel.js"></script>
   </head>
   <body>
-    <h1 style="margin: 2px;">Δ.everywhere() <a id="runLink" class="runlink">Run ></a></h1>
-    <textarea id="edit-box" tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off"></textarea>
+    <h1 style="margin: 2px;">Δ.everywhere() <a id="runLink" class="runlink">Run ></a><a id="addΔ" class="addlink">Δ</a></h1>
+    <textarea id="edit-box" tabindex="0" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off">Δ.johnCena();</textarea>
     <div style="text-align: right; margin: 0; padding: 2px;">
-      <p style="margin: 0; padding: 0">v0.1 (Δ3.5)</p>
+      <p style="margin: 0; padding: 0">v0.2 (Δ4.0)</p>
     </div>
   </body>
 </html>

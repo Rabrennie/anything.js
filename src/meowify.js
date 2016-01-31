@@ -41,7 +41,7 @@ var meowify = function(sentence) {
 anything.prototype.meowify = meowify;
 
 // helper maps and functions
-meowbelFish = {
+var meowbelFish = {
   LSM: 'meow',
   USM: 'MEOW',
   CSM: 'Meow',

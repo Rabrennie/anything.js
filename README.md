@@ -1,4 +1,4 @@
-[![Bower version](https://badge.fury.io/bo/anything.js.svg)](https://badge.fury.io/bo/anything.js)
+[![Bower version](https://badge.fury.io/bo/anything.js.svg)](https://badge.fury.io/bo/anything.js) [![Build Status](https://travis-ci.org/Rabrennie/anything.js.svg?branch=master)](https://travis-ci.org/Rabrennie/anything.js)
 <p align="center"><img src="http://i.imgur.com/aLPpSED.png" alt="Logo"></p>
 
 Δ.js is a javascript library that accepts almost any pull request (as long as it follows the rules).
@@ -11,7 +11,7 @@ I think it will be interesting to see what people want to add to this. Obviously
 
 # Hall of Fame
 
-These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 10-20 commits, Gold is 20-50 commits, and Unicorn is over 50.
+These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is 11-20 commits, Gold is 21-50 commits, and Unicorn is over 50.
 
 --------
 ![Rabrennie](https://img.shields.io/badge/@Rabrennie-UNICORN-ffbdc8.svg)
@@ -19,12 +19,16 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 ![thehowl](https://img.shields.io/badge/@thehowl-gold-FF91A4.svg)
 ![gytdau](https://img.shields.io/badge/@gytdau-gold-FF91A4.svg)
 ![TheBITLINK](https://img.shields.io/badge/@TheBITLINK-gold-FF91A4.svg)
+![vekat](https://img.shields.io/badge/@vekat-gold-FF91A4.svg)
 /
 ![toish](https://img.shields.io/badge/@toish-silver-CC7483.svg)
 ![Crecket](https://img.shields.io/badge/@Crecket-silver-CC7483.svg)
 ![oliver-j](https://img.shields.io/badge/@oliverj-silver-CC7483.svg)
+![dstrekelj](https://img.shields.io/badge/@dstrekelj-silver-CC7483.svg)
+![seiyria](https://img.shields.io/badge/@seiyria-silver-CC7483.svg)
 /
 ![montaflynn](https://img.shields.io/badge/@montaflynn-bronze-995762.svg)
+![riyadhalnur](https://img.shields.io/badge/@riyadhalnur-bronze-995762.svg)
 
 --------
 If you've earned a badge, please add yourself - we can't keep track of everyone all the time.  
@@ -38,7 +42,7 @@ Useful if you want to run `Δ.johnCena()` on any website.
 
 [Δ.everywhere() for Chrome](https://chrome.google.com/webstore/detail/δeverywhere/chhoibcjamonhegamgoikcefddnkckfp)
 
-Source code is avaiable in the "everywhere" directory
+Source code is available in the "everywhere" directory
 
 # Rules
 1. Nothing that'll crash a web page.
@@ -48,7 +52,7 @@ Source code is avaiable in the "everywhere" directory
   1. Deleting stuff that doesn't need to be.
 
 
-# Contibuting
+# Contributing
 1. Fork ( https://github.com/Rabrennie/anything.js/fork )
 1. Clone ( git clone https://github.com/YourUsername/anything.js.git )
 1. Branch ( git checkout -b your-feature )
@@ -70,8 +74,8 @@ We will still merge your pull request if it doesn't follow the guidelines, altho
 1. We democratically™ voted for using `var funcName = function(){}` over `function funcName() {}` if you're cool with it.
 1. Same goes for braces: we'd like you to put it on the same line of the function declaration, if, switch, else, whatever. If you want to argue about it, please go to r/ProgrammerHumor, they'll _love_ to argue about it.
 
-
 # IRC
 We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
 
 ![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
+
