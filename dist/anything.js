@@ -1685,15 +1685,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var currentDegrees = 0;
         var timePassed = 0;
         var time;
-        if (clockwise == undefined) {
-            clockwise = true;
-        }
-        if (duration == undefined) {
-            duration = 5000;
-        }
-
+        clockwise = typeof clockwise == 'undefined' ? true : clockwise;
+        duration = typeof duration == 'undefined' ? true : duration;
         console.log(clockwise);
-
         var animateTheBarrelRoll = function animateTheBarrelRoll() {
             if (currentDegrees != 360 && clockwise || currentDegrees != -360 && !clockwise) {
                 requestAnimationFrame(animateTheBarrelRoll);
