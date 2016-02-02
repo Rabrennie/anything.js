@@ -337,8 +337,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.HSLtoRGB = HSLtoRGB;
     var RAINBOW = function RAINBOW(element, speed) {
+        element = typeof element == 'undefined' ? document.body : element;
+        speed = typeof speed == 'undefined' ? 5 : speed;
         var i = 0;
-        speed = typeof speed != 'undefined' ? speed : 5;
         return setInterval(function() {
             element.style.background = 'hsl(' + i + ',100%, 50%)';
             i = i <= 359 ? i + 1 : 0;
@@ -4268,6 +4269,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.log = log;
+
+    var logHelloWorld = function logHelloWorld() {
+        console.log(Δ.helloWorld());
+    };
+    anything.prototype.logHelloWorld = logHelloWorld;
 
     var makeDeprecatedArray = function makeDeprecatedArray(obj) {
         obj.__proto__ = [];
