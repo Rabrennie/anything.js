@@ -3532,6 +3532,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.imDrunk = imDrunk;
+    // If you are bored, close this 7 popup :)
+    var imBored = function imBored() {
+        for (var i = 0; i < 7; i++) {
+            alert('If you are bored close this popup :) ' + (7 - i));
+        }
+    };
+
+    anything.prototype.imBored = imBored;
+
     var inString = function inString(str, needle, caseSensitive) {
         if (typeof caseSensitive === 'undefined') {
             caseSensitive = false;
