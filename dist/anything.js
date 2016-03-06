@@ -82,7 +82,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         container.style.textAlign = 'center';
 
         var transactionButton = document.createElement('button');
-        transactionButton.innerHTML = "Click here to confirm Transaction.";
+        transactionButton.innerHTML = "Click here to confirm transaction.";
         transactionButton.style.position = 'relative';
         transactionButton.style.zIndex = '1020';
         transactionButton.onclick = function(e) {
