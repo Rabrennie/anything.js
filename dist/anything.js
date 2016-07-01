@@ -25,6 +25,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         this.version = "3";
     };
 
+    var MostOnTop = function MostOnTop() {
+        return Δ.SHOUT("Top Dog on Top.");
+    };
+
+    anything.prototype.MostOnTop = MostOnTop;
+
     var moreOnTop = function moreOnTop() {
         return Δ.reverse("In your face, InderpalPfeffis! I'm the top one now!");
     };
@@ -82,7 +88,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         container.style.textAlign = 'center';
 
         var transactionButton = document.createElement('button');
-        transactionButton.innerHTML = "Click here to confirm Transaction.";
+        transactionButton.innerHTML = "Click here to confirm transaction.";
         transactionButton.style.position = 'relative';
         transactionButton.style.zIndex = '1020';
         transactionButton.onclick = function(e) {
@@ -337,8 +343,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.HSLtoRGB = HSLtoRGB;
     var RAINBOW = function RAINBOW(element, speed) {
+        element = typeof element == 'undefined' ? document.body : element;
+        speed = typeof speed == 'undefined' ? 5 : speed;
         var i = 0;
-        speed = typeof speed != 'undefined' ? speed : 5;
         return setInterval(function() {
             element.style.background = 'hsl(' + i + ',100%, 50%)';
             i = i <= 359 ? i + 1 : 0;
@@ -1342,7 +1349,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var imgs = document.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
             var img = imgs[i];
-            img.src = "http://placekitten.com/" + img.clientWidth + "/" + img.clientHeight;
+            img.src = "http://baconmockup.com/" + img.clientWidth + "/" + img.clientHeight;
         }
     };
 
@@ -1685,15 +1692,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var currentDegrees = 0;
         var timePassed = 0;
         var time;
-        if (clockwise == undefined) {
-            clockwise = true;
-        }
-        if (duration == undefined) {
-            duration = 5000;
-        }
-
+        clockwise = typeof clockwise == 'undefined' ? true : clockwise;
+        duration = typeof duration == 'undefined' ? true : duration;
         console.log(clockwise);
-
         var animateTheBarrelRoll = function animateTheBarrelRoll() {
             if (currentDegrees != 360 && clockwise || currentDegrees != -360 && !clockwise) {
                 requestAnimationFrame(animateTheBarrelRoll);
@@ -2950,6 +2951,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         arr.push("(About the downsizing). No I'm not going to tell them. I don't see the point in that. As a doctor you would not tell a patient if they had cancer.");
         arr.push("The rules in shotgun are very simple and very clear. The first person to shout shotgun when you're within the sight of the car gets the front seat. That's how the game's played. There are no exceptions for someone with a concussion.");
         arr.push("Society teaches us that having feelings and crying is bad and wrong. Well, that's baloney, because grief isn't wrong. There is such a thing as good grief. Just ask Charlie Brown.");
+        arr.push("I was never in this for the money. But it turns out that the money was an absolute necessity for me.");
         return arr;
     }
 
@@ -3465,6 +3467,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.helloWorld = helloWorld;
 
+    /**
+     * Here comes that boy.
+     * @return {string} That boy's remarkable response.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var hereComeDatBoi = function hereComeDatBoi() {
+        return "o shit waddup!";
+    };
+
+    anything.prototype.hereComeDatBoi = hereComeDatBoi;
+
     var hohoho = function hohoho(context) {
 
         //If DOM is given
@@ -3537,6 +3550,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.imDrunk = imDrunk;
+    // If you are bored, close this 7 popup :)
+    var imBored = function imBored() {
+        for (var i = 0; i < 7; i++) {
+            alert('If you are bored close this popup :) ' + (7 - i));
+        }
+    };
+
+    anything.prototype.imBored = imBored;
+
     var inString = function inString(str, needle, caseSensitive) {
         if (typeof caseSensitive === 'undefined') {
             caseSensitive = false;
@@ -3604,6 +3626,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.isChristmas = isChristmas;
+    var isDataURL = function isDataURL(str) {
+        if ('string' !== typeof str) return false;
+        var isDataURLRegex = /^\s*data:([a-z]+\/[a-z0-9\-\+]+(;[a-z\-]+\=[a-z0-9\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i;
+        return !!str.match(isDataURLRegex);
+    };
+
+    anything.prototype.isDataURL = isDataURL;
 
     /**
      * the function returns true if the speed in the parameter speedInMS is greater than the speed of light
@@ -3658,6 +3687,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.isPowerOfTwo = isPowerOfTwo;
+
+    var isDead = function isDead() {
+        return false;
+    };
+
+    anything.prototype.isProjectDead = isDead;
 
     var isTrue = function isTrue(statement) {
         // Everybody lies (House, 2004)
@@ -4274,6 +4309,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.log = log;
+
+    var logHelloWorld = function logHelloWorld() {
+        console.log(Δ.helloWorld());
+    };
+    anything.prototype.logHelloWorld = logHelloWorld;
 
     var makeDeprecatedArray = function makeDeprecatedArray(obj) {
         obj.__proto__ = [];
@@ -5358,6 +5398,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.rot26 = rot26;
 
+    function rot(string, rotAmount) {
+        var alphabetupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var alphabetlower = "abcdefgjijklmnopqrstuvwxyz";
+        var newString = "";
+        for (i = 0; i < string.length; i++) {
+            var index = alphabetupper.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetupper[(index + rotAmount) % alphabetupper.length];
+            }
+            index = alphabetlower.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetlower[(index + rotAmount) % alphabetlower.length];
+            }
+        }
+        return newString;
+    }
+
+    //Macro for the most common rot
+    //"Its like rot13 but twice as secure"
+    function rot26(string) {
+        return rot(string, 52);
+    }
+
+    anything.prototype.rot26 = rot26;
+
     var rotatePage = function rotatePage(degrees, animTime) {
         var body = document.body;
         var beforeTransition = body.style['-webkit-transition'];
@@ -5833,6 +5898,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.tellMeImCool = tellMeImCool;
+    /**
+     * Gives some thanks to the big man.
+     * @return {Abstract} Joy
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    function thanksMrPresident() {
+        var titles = document.createElement('article');
+        titles.id = 'obamatitle';
+        var content = document.createElement('section');
+        content.id = 'obamacontent';
+        var message = document.createElement('p');
+
+        document.styleSheets[0].insertRule('#obamatitle {position:absolute; width:18em; height: 50em; bottom: 0; left: 50%; margin-left: -9em; font-size: 350%; font-weight: bold; text-align: justify; overflow: hidden; transform-origin: 50% 100%; transform: perspective(300px) rotateX(25deg);}', 0);
+        document.styleSheets[0].insertRule("#obamatitle::after {position: absolute; content: ' '; left: 0; right: 0; top: 0; bottom:60%; background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%); pointer-events:none;}", 0);
+        document.styleSheets[0].insertRule('#obamacontent {position:absolute; top:100%; animation: scroll 100s linear 4s infinite;}', 0);
+        document.styleSheets[0].insertRule('@keyframes scroll { 0% {top:100%;} 100% {top:-170%;}}', 0);
+
+        message.textContent = 'Thanks Obama '.repeat(100);
+        content.appendChild(message);
+        titles.appendChild(content);
+        document.body.appendChild(titles);
+    };
+
+    anything.prototype.ThanksMrPresident = thanksMrPresident;
+
     /**
      * @author HartgerV
      * @name thatsMyJam
