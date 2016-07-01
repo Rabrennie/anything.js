@@ -6,3 +6,5 @@
 var hereComeDatBoi = function() {
   return "o shit waddup!";
 };
+
+anything.prototype.hereComeDatBoi = hereComeDatBoi;
