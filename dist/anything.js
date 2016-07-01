@@ -3688,6 +3688,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.isPowerOfTwo = isPowerOfTwo;
 
+    var isDead = function isDead() {
+        return false;
+    };
+
+    anything.prototype.isProjectDead = isDead;
+
     var isTrue = function isTrue(statement) {
         // Everybody lies (House, 2004)
         return false;
