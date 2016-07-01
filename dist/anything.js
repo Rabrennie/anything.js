@@ -2945,6 +2945,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         arr.push("(About the downsizing). No I'm not going to tell them. I don't see the point in that. As a doctor you would not tell a patient if they had cancer.");
         arr.push("The rules in shotgun are very simple and very clear. The first person to shout shotgun when you're within the sight of the car gets the front seat. That's how the game's played. There are no exceptions for someone with a concussion.");
         arr.push("Society teaches us that having feelings and crying is bad and wrong. Well, that's baloney, because grief isn't wrong. There is such a thing as good grief. Just ask Charlie Brown.");
+        arr.push("I was never in this for the money. But it turns out that the money was an absolute necessity for me.");
         return arr;
     }
 
@@ -5370,6 +5371,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     //"Its like rot13 but twice as secure"
     function rot26(string) {
         return rot(string, 26);
+    }
+
+    anything.prototype.rot26 = rot26;
+
+    function rot(string, rotAmount) {
+        var alphabetupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var alphabetlower = "abcdefgjijklmnopqrstuvwxyz";
+        var newString = "";
+        for (i = 0; i < string.length; i++) {
+            var index = alphabetupper.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetupper[(index + rotAmount) % alphabetupper.length];
+            }
+            index = alphabetlower.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetlower[(index + rotAmount) % alphabetlower.length];
+            }
+        }
+        return newString;
+    }
+
+    //Macro for the most common rot
+    //"Its like rot13 but twice as secure"
+    function rot26(string) {
+        return rot(string, 52);
     }
 
     anything.prototype.rot26 = rot26;
