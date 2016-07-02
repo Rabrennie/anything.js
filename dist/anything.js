@@ -488,6 +488,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.SongThatNeverEnds = SongThatNeverEnds;
 
+    /**
+     * Brings back memories about that song that made it all worse.
+     * @return {Abstract} Cringe
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var songThatShouldHaveNeverStarted = function songThatShouldHaveNeverStarted() {
+        var truly = arguments.length <= 0 || arguments[0] === undefined ? 10 : arguments[0];
+
+        while (truly--) {
+            console.log("Hey Mr. Scott, whatcha gonna do?");
+            console.log("Whatcha gonna do to make our dreams come true!");
+            console.log("Hey Mr. Scott, whatcha gonna do? ");
+            console.log("Whatcha gonna do, make our dreams come true!");
+        }
+    };
+
+    anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
+
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
     };
