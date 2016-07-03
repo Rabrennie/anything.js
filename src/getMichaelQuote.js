@@ -36,6 +36,7 @@ function getListOfMichaelScottQuotes() {
     arr.push("(About the downsizing). No I'm not going to tell them. I don't see the point in that. As a doctor you would not tell a patient if they had cancer.");
     arr.push("The rules in shotgun are very simple and very clear. The first person to shout shotgun when you're within the sight of the car gets the front seat. That's how the game's played. There are no exceptions for someone with a concussion.");
     arr.push("Society teaches us that having feelings and crying is bad and wrong. Well, that's baloney, because grief isn't wrong. There is such a thing as good grief. Just ask Charlie Brown.");
+    arr.push("I was never in this for the money. But it turns out that the money was an absolute necessity for me.");
     return arr;
 }
 

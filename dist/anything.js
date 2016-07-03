@@ -25,6 +25,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         this.version = "3";
     };
 
+    var MostOnTop = function MostOnTop() {
+        return Δ.SHOUT("Top Dog on Top.");
+    };
+
+    anything.prototype.MostOnTop = MostOnTop;
+
     var moreOnTop = function moreOnTop() {
         return Δ.reverse("In your face, InderpalPfeffis! I'm the top one now!");
     };
@@ -336,6 +342,59 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.HSLtoRGB = HSLtoRGB;
+    /**
+     * Prints the algorithm to make rice with sausages.
+     * @return {Abstract} Sadness
+     * @author Vitor Cortez <vitoracortez+github.com>
+     */
+    var sausageRiceAlgorithm = function sausageRiceAlgorithm() {
+        var steps = [];
+
+        steps.push("Cut the 4 thin sausages, any shape you like.");
+        steps.push("Cut an onion, remember to wash is first.");
+        steps.push("Throw a spoon full of butter in you pan.");
+        steps.push("Turn on the fire, make it a small fire.");
+        steps.push("Throw the sausages inside the pan and wait.");
+        steps.push("Start washing the rice.");
+        steps.push("Throw the onions inside the pan and also any seasoning.");
+        steps.push("Once the sausages look good, throw the rice on top of it.");
+        steps.push("Start putting water until it covers the rice.");
+        steps.push("Close the pan and wait for a few minutes.");
+        steps.push("Open the pan to taste it.");
+        steps.push("Realize it tastes like crap and you are a failure.");
+        steps.push("Make some ramen and eat it while sobbing.");
+
+        var algorithm = steps.map(function(step, i) {
+            return console.log.bind(console, "Step " + (i + 1) + ": " + step);
+        });
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = algorithm[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                line = _step.value;
+                line();
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    };
+
+    anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
+
     var RAINBOW = function RAINBOW(element, speed) {
         element = typeof element == 'undefined' ? document.body : element;
         speed = typeof speed == 'undefined' ? 5 : speed;
@@ -471,16 +530,30 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.SHOUTDOM = SHOUTDOM;
 
     var SongThatNeverEnds = function SongThatNeverEnds(i) {
-        while (i > 0) {
-            console.log("This is the song that never ends");
-            console.log("It just goes on and on my friend");
-            console.log("Some people started singing it not knowing what it was");
-            console.log("And they continued singing it forever just because");
-            i = i - 1;
+        while (true) {
+            console.log("This is the song that never ends. \r\n It just goes on and on, my friend. \r\n Some people started singing it, not knowing what it was. \r\n And they continued singing it, forever, just because!");
         }
     };
 
     anything.prototype.SongThatNeverEnds = SongThatNeverEnds;
+
+    /**
+     * Brings back memories about that song that made it all worse.
+     * @return {Abstract} Cringe
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var songThatShouldHaveNeverStarted = function songThatShouldHaveNeverStarted() {
+        var truly = arguments.length <= 0 || arguments[0] === undefined ? 10 : arguments[0];
+
+        while (truly--) {
+            console.log("Hey Mr. Scott, whatcha gonna do?");
+            console.log("Whatcha gonna do to make our dreams come true!");
+            console.log("Hey Mr. Scott, whatcha gonna do? ");
+            console.log("Whatcha gonna do, make our dreams come true!");
+        }
+    };
+
+    anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
@@ -1300,6 +1373,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.bestDarkMode = bestDarkMode;
 
     /**
+     * @desc Loads latest Δ.css into current page
+     * @author TheBITLINK aka BIT <me@thebitlink.com>
+     */
+    var betterStyles = function betterStyles() {
+        var link = document.createElement('link');
+        link.href = 'https://cdn.rawgit.com/Rabrennie/anything.css/master/dist/anything.css';
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    };
+
+    anything.prototype.betterStyles = betterStyles;
+
+    /**
      * Given that this is an advanced, webscale framework, 
      * the version should be bumped as often as possible.
      */
@@ -1343,7 +1430,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var imgs = document.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
             var img = imgs[i];
-            img.src = "http://placekitten.com/" + img.clientWidth + "/" + img.clientHeight;
+            img.src = "http://baconmockup.com/" + img.clientWidth + "/" + img.clientHeight;
         }
     };
 
@@ -1497,6 +1584,63 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     console.lol = function() {
         console.log('lol');
     };
+
+    /**
+     * Inspired by http://imgur.com/jalm9B8
+     * @param object - The object to convert.
+     */
+    var convertToJSON = function convertToJSON(object) {
+        var json_str = '';
+        // Primitives
+        switch (typeof object === "undefined" ? "undefined" : _typeof(object)) {
+            case 'string':
+                return '"' + object + '"';
+            case 'boolean':
+            case 'number':
+                return object.toString();
+            case 'undefined':
+            case 'function':
+                return false;
+        }
+        // null
+        if (object == null) return 'null';
+        // Arrays
+        if ((typeof object === "undefined" ? "undefined" : _typeof(object)) == 'object' && object.forEach) {
+            json_str += '[';
+            object.forEach(function(obj) {
+                var o = convertToJSON(obj); // Recursive is the future!
+                if (o !== false) {
+                    json_str += o;
+                    json_str += ',';
+                }
+            });
+            // Remove trailing comma
+            json_str = json_str.substr(0, json_str.length - 1);
+            return json_str + ']';
+        }
+        // Objects
+        else if ((typeof object === "undefined" ? "undefined" : _typeof(object)) == 'object') {
+            json_str = '{';
+            // Get those keys
+            var keys = Object.keys(object);
+            // Build JSON
+            keys.forEach(function(key) {
+                var o = convertToJSON(object[key]); // Recursive is amazing!
+                if (o !== false) {
+                    json_str += '"' + key + '":';
+                    json_str += o; // Recursive is amazing!
+                    json_str += ',';
+                }
+            });
+            // Remove trailing comma
+            json_str = json_str.substr(0, json_str.length - 1);
+            return json_str + '}';
+        } else {
+            return 'wtf';
+        }
+    };
+
+    anything.prototype.convertToJSON = convertToJSON;
 
     /**
      * Safely encode your string data to prevent hackers.
@@ -2945,6 +3089,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         arr.push("(About the downsizing). No I'm not going to tell them. I don't see the point in that. As a doctor you would not tell a patient if they had cancer.");
         arr.push("The rules in shotgun are very simple and very clear. The first person to shout shotgun when you're within the sight of the car gets the front seat. That's how the game's played. There are no exceptions for someone with a concussion.");
         arr.push("Society teaches us that having feelings and crying is bad and wrong. Well, that's baloney, because grief isn't wrong. There is such a thing as good grief. Just ask Charlie Brown.");
+        arr.push("I was never in this for the money. But it turns out that the money was an absolute necessity for me.");
         return arr;
     }
 
@@ -3460,6 +3605,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.helloWorld = helloWorld;
 
+    /**
+     * Here comes that boy.
+     * @return {string} That boy's remarkable response.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var hereComeDatBoi = function hereComeDatBoi() {
+        return "o shit waddup!";
+    };
+
+    anything.prototype.hereComeDatBoi = hereComeDatBoi;
+
     var hohoho = function hohoho(context) {
 
         //If DOM is given
@@ -3670,12 +3826,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.isPowerOfTwo = isPowerOfTwo;
 
-    var isTrue = function isTrue(statement) {
-        // Everybody lies (House, 2004)
-        return false;
+    var isDead = function isDead() {
+        return undefined;
     };
 
+    anything.prototype.isProjectDead = isDead;
+
+    var isTrue = function isTrue(bool) {
+        return bool;
+    };
+    var isFalse = function isFalse(bool) {
+        return !bool;
+    };
     anything.prototype.isTrue = isTrue;
+    anything.prototype.isFalse = isFalse;
+
     var isWeekend = function isWeekend() {
         today = new Date();
 
@@ -5374,6 +5539,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.rot26 = rot26;
 
+    function rot(string, rotAmount) {
+        var alphabetupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var alphabetlower = "abcdefgjijklmnopqrstuvwxyz";
+        var newString = "";
+        for (i = 0; i < string.length; i++) {
+            var index = alphabetupper.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetupper[(index + rotAmount) % alphabetupper.length];
+            }
+            index = alphabetlower.indexOf(string[i]);
+            if (index >= 0) {
+                newString += alphabetlower[(index + rotAmount) % alphabetlower.length];
+            }
+        }
+        return newString;
+    }
+
+    //Macro for the most common rot
+    //"Its like rot13 but twice as secure"
+    function rot26(string) {
+        return rot(string, 52);
+    }
+
+    anything.prototype.rot26 = rot26;
+
     var rotatePage = function rotatePage(degrees, animTime) {
         var body = document.body;
         var beforeTransition = body.style['-webkit-transition'];
@@ -5849,6 +6039,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.tellMeImCool = tellMeImCool;
+    /**
+     * Gives some thanks to the big man.
+     * @return {Abstract} Joy
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    function thanksMrPresident() {
+        var titles = document.createElement('article');
+        titles.id = 'obamatitle';
+        var content = document.createElement('section');
+        content.id = 'obamacontent';
+        var message = document.createElement('p');
+
+        document.styleSheets[0].insertRule('#obamatitle {position:absolute; width:18em; height: 50em; bottom: 0; left: 50%; margin-left: -9em; font-size: 350%; font-weight: bold; text-align: justify; overflow: hidden; transform-origin: 50% 100%; transform: perspective(300px) rotateX(25deg);}', 0);
+        document.styleSheets[0].insertRule("#obamatitle::after {position: absolute; content: ' '; left: 0; right: 0; top: 0; bottom:60%; background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%); pointer-events:none;}", 0);
+        document.styleSheets[0].insertRule('#obamacontent {position:absolute; top:100%; animation: scroll 100s linear 4s infinite;}', 0);
+        document.styleSheets[0].insertRule('@keyframes scroll { 0% {top:100%;} 100% {top:-170%;}}', 0);
+
+        message.textContent = 'Thanks Obama '.repeat(100);
+        content.appendChild(message);
+        titles.appendChild(content);
+        document.body.appendChild(titles);
+    };
+
+    anything.prototype.ThanksMrPresident = thanksMrPresident;
+
     /**
      * @author HartgerV
      * @name thatsMyJam

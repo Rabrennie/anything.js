@@ -1,0 +1,5 @@
+var goodbyeWorld = function () {
+    return "Goodbye World";
+};
+
+anything.prototype.goodbyeWorld = goodbyeWorld;

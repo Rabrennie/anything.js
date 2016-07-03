@@ -1,6 +1,8 @@
-var isTrue = function (statement) {
-    // Everybody lies (House, 2004)
-    return false;
+var isTrue = function (bool) {
+   return bool;
 };
-
+var isFalse = function(bool){
+    return !bool;
+}
 anything.prototype.isTrue = isTrue;
+anything.prototype.isFalse = isFalse;
