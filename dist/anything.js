@@ -1608,8 +1608,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if ((typeof object === "undefined" ? "undefined" : _typeof(object)) == 'object' && object.forEach) {
             json_str += '[';
             object.forEach(function(obj) {
-                json_str += convertToJSON(obj); // Recursive is the future!
-                json_str += ',';
+                var o = convertToJSON(obj); // Recursive is the future!
+                if (o !== false) {
+                    json_str += o;
+                    json_str += ',';
+                }
             });
             // Remove trailing comma
             json_str = json_str.substr(0, json_str.length - 1);
@@ -1622,9 +1625,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var keys = Object.keys(object);
             // Build JSON
             keys.forEach(function(key) {
-                json_str += '"' + key + '":';
-                json_str += convertToJSON(object[key]); // Recursive is amazing!
-                json_str += ',';
+                var o = convertToJSON(object[key]); // Recursive is amazing!
+                if (o !== false) {
+                    json_str += '"' + key + '":';
+                    json_str += o; // Recursive is amazing!
+                    json_str += ',';
+                }
             });
             // Remove trailing comma
             json_str = json_str.substr(0, json_str.length - 1);
