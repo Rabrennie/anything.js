@@ -1,5 +1,5 @@
 var isDead = function () {
-  return false;
+  return undefined;
 };
 
 anything.prototype.isProjectDead = isDead;

@@ -342,6 +342,59 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.HSLtoRGB = HSLtoRGB;
+    /**
+     * Prints the algorithm to make rice with sausages.
+     * @return {Abstract} Sadness
+     * @author Vitor Cortez <vitoracortez+github.com>
+     */
+    var sausageRiceAlgorithm = function sausageRiceAlgorithm() {
+        var steps = [];
+
+        steps.push("Cut the 4 thin sausages, any shape you like.");
+        steps.push("Cut an onion, remember to wash is first.");
+        steps.push("Throw a spoon full of butter in you pan.");
+        steps.push("Turn on the fire, make it a small fire.");
+        steps.push("Throw the sausages inside the pan and wait.");
+        steps.push("Start washing the rice.");
+        steps.push("Throw the onions inside the pan and also any seasoning.");
+        steps.push("Once the sausages look good, throw the rice on top of it.");
+        steps.push("Start putting water until it covers the rice.");
+        steps.push("Close the pan and wait for a few minutes.");
+        steps.push("Open the pan to taste it.");
+        steps.push("Realize it tastes like crap and you are a failure.");
+        steps.push("Make some ramen and eat it while sobbing.");
+
+        var algorithm = steps.map(function(step, i) {
+            return console.log.bind(console, "Step " + (i + 1) + ": " + step);
+        });
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = algorithm[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                line = _step.value;
+                line();
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    };
+
+    anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
+
     var RAINBOW = function RAINBOW(element, speed) {
         element = typeof element == 'undefined' ? document.body : element;
         speed = typeof speed == 'undefined' ? 5 : speed;
@@ -477,16 +530,30 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.SHOUTDOM = SHOUTDOM;
 
     var SongThatNeverEnds = function SongThatNeverEnds(i) {
-        while (i > 0) {
-            console.log("This is the song that never ends");
-            console.log("It just goes on and on my friend");
-            console.log("Some people started singing it not knowing what it was");
-            console.log("And they continued singing it forever just because");
-            i = i - 1;
+        while (true) {
+            console.log("This is the song that never ends. \r\n It just goes on and on, my friend. \r\n Some people started singing it, not knowing what it was. \r\n And they continued singing it, forever, just because!");
         }
     };
 
     anything.prototype.SongThatNeverEnds = SongThatNeverEnds;
+
+    /**
+     * Brings back memories about that song that made it all worse.
+     * @return {Abstract} Cringe
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var songThatShouldHaveNeverStarted = function songThatShouldHaveNeverStarted() {
+        var truly = arguments.length <= 0 || arguments[0] === undefined ? 10 : arguments[0];
+
+        while (truly--) {
+            console.log("Hey Mr. Scott, whatcha gonna do?");
+            console.log("Whatcha gonna do to make our dreams come true!");
+            console.log("Hey Mr. Scott, whatcha gonna do? ");
+            console.log("Whatcha gonna do, make our dreams come true!");
+        }
+    };
+
+    anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
@@ -3689,17 +3756,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.isPowerOfTwo = isPowerOfTwo;
 
     var isDead = function isDead() {
-        return false;
+        return undefined;
     };
 
     anything.prototype.isProjectDead = isDead;
 
-    var isTrue = function isTrue(statement) {
-        // Everybody lies (House, 2004)
-        return false;
+    var isTrue = function isTrue(bool) {
+        return bool;
     };
-
+    var isFalse = function isFalse(bool) {
+        return !bool;
+    };
     anything.prototype.isTrue = isTrue;
+    anything.prototype.isFalse = isFalse;
+
     var isWeekend = function isWeekend() {
         today = new Date();
 

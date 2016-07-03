@@ -1,4 +1,4 @@
-[![Bower version](https://badge.fury.io/bo/anything.js.svg)](https://badge.fury.io/bo/anything.js) [![Build Status](https://travis-ci.org/Rabrennie/anything.js.svg?branch=master)](https://travis-ci.org/Rabrennie/anything.js)
+[![Gitter](https://badges.gitter.im/Rabrennie/anything.js.svg)](https://gitter.im/Rabrennie/anything.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Bower version](https://badge.fury.io/bo/anything.js.svg)](https://badge.fury.io/bo/anything.js) [![Build Status](https://travis-ci.org/Rabrennie/anything.js.svg?branch=master)](https://travis-ci.org/Rabrennie/anything.js)
 <p align="center"><img src="http://i.imgur.com/aLPpSED.png" alt="Logo"></p>
 
 Δ.js is a javascript library that accepts almost any pull request (as long as it follows the rules).
