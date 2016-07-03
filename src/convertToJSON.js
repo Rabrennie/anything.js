@@ -21,8 +21,11 @@ var convertToJSON = function(object) {
     if(typeof object == 'object' && object.forEach) {
         json_str += '[';
         object.forEach(obj=>{
-            json_str += convertToJSON(obj); // Recursive is the future!
-            json_str += ',';
+            let o = convertToJSON(obj); // Recursive is the future!
+            if (o !== false) {
+                json_str += o;
+                json_str += ',';
+            }
         });
         // Remove trailing comma
         json_str = json_str.substr(0, json_str.length - 1);
@@ -35,9 +38,12 @@ var convertToJSON = function(object) {
         let keys = Object.keys(object);
         // Build JSON
         keys.forEach(key=>{
-            json_str += '"' + key + '":';
-            json_str += convertToJSON(object[key]); // Recursive is amazing!
-            json_str += ',';
+            let o = convertToJSON(object[key]); // Recursive is amazing!
+            if (o !== false) {
+                json_str += '"' + key + '":';
+                json_str += o; // Recursive is amazing!
+                json_str += ',';
+            }
         });
         // Remove trailing comma
         json_str = json_str.substr(0, json_str.length - 1);
