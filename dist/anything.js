@@ -3761,12 +3761,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.isProjectDead = isDead;
 
-    var isTrue = function isTrue(statement) {
-        // Everybody lies (House, 2004)
-        return false;
+    var isTrue = function isTrue(bool) {
+        return bool;
     };
-
+    var isFalse = function isFalse(bool) {
+        return !bool;
+    };
     anything.prototype.isTrue = isTrue;
+    anything.prototype.isFalse = isFalse;
+
     var isWeekend = function isWeekend() {
         today = new Date();
 
