@@ -7,6 +7,8 @@
 
 
 # Why?
+
+[![Join the chat at https://gitter.im/Rabrennie/anything.js](https://badges.gitter.im/Rabrennie/anything.js.svg)](https://gitter.im/Rabrennie/anything.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
 
 # Hall of Fame
