@@ -7,6 +7,8 @@
 
 
 # Why?
+
+[![Join the chat at https://gitter.im/Rabrennie/anything.js](https://badges.gitter.im/Rabrennie/anything.js.svg)](https://gitter.im/Rabrennie/anything.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
 
 # Hall of Fame
@@ -78,3 +80,4 @@ We will still merge your pull request if it doesn't follow the guidelines, altho
 We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/?channels=anythingjs)
 
 ![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
+
