@@ -345,7 +345,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Prints the algorithm to make rice with sausages.
      * @return {Abstract} Sadness
-     * @author Vitor Cortez <vitoracortez+github.com>
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var sausageRiceAlgorithm = function sausageRiceAlgorithm() {
         var steps = [];
@@ -3019,6 +3019,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.getFlatColorYellow = getFlatColorYellow;
 
     /**
+     * Returns get.
+     * @return {function} get
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var get = function get() {
+        return get;
+    };
+
+    anything.prototype.getGet = get;
+
+    /**
      * Returns the length of a String or Array.
      * @param {string|Array} stringOrArray - A String or Array.
      * @return {number} The length of a String or Array.
@@ -3175,7 +3186,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Returns the value of PI with enhanced precision.
      * @return {string} PI
-     * @author Vitor Cortez <vitoracortez+github.com>
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      * @see {@link https://xkcd.com/10}
      */
     var valueOfPI = function valueOfPI() {
