@@ -25,9 +25,10 @@ var johnCena = function() {
 	]
 
 	var imgs = Array.prototype.slice.call(s.get("div")).concat(Array.prototype.slice.call(s.get("body")));
+	var i;
 	setTimeout(function(){
 		setInterval(function(){
-			for (var i=0; i<imgs.length; i++) {
+			for (i=0; i<imgs.length; i++) {
 				var cena = cenas[ Math.floor(Math.random() * cenas.length) ]
 				imgs[i].setAttribute("style", "background-image: url('"+ cena + "');")
 			}
