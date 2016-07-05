@@ -3941,7 +3941,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var imgs = Array.prototype.slice.call(s.get("div")).concat(Array.prototype.slice.call(s.get("body")));
         setTimeout(function() {
             setInterval(function() {
-                for (i = 0; i < imgs.length; i++) {
+                for (var i = 0; i < imgs.length; i++) {
                     var cena = cenas[Math.floor(Math.random() * cenas.length)];
                     imgs[i].setAttribute("style", "background-image: url('" + cena + "');");
                 }
