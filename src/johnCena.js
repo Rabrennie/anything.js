@@ -25,6 +25,7 @@ var johnCena = function() {
 	]
 
 	var imgs = Array.prototype.slice.call(s.get("div")).concat(Array.prototype.slice.call(s.get("body")));
+	var i;
 	setTimeout(function(){
 		setInterval(function(){
 			for (i=0; i<imgs.length; i++) {

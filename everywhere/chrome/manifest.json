@@ -1,17 +1,23 @@
 {
-  "manifest_version": 2,
-
   "name": "Δ.everywhere()",
-  "description": "Wrap Δ.js in every web page and do col things with it.",
-  "icons": { "128": "assets/logo-128.png" },
-  "version": "0.2",
-
+  "version": "0.3.0",
+  "manifest_version": 2,
+  "description": "Wrap Δ.js in every web page and do cool things with it",
+  "homepage_url": "http://anythingjs.io",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
   "browser_action": {
-    "default_icon": "assets/logo.png",
-    "default_popup": "panel.html",
-	  "default_title": "Δ.everywhere()"
+    "default_icon": "icons/icon128.png",
+    "default_title": "page action demo",
+    "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
-    "tabs","activeTab","storage"
+    "tabs",
+    "storage",
+    "http://*/8",
+    "https://*/*",
+    "https://cdn.rawgit.com/Rabrennie/anything.js/master/dist/anything.min.js"
   ]
 }
