@@ -1,6 +1,6 @@
 {
   "name": "Δ.everywhere()",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "manifest_version": 2,
   "description": "Wrap Δ.js in every web page and do cool things with it",
   "homepage_url": "http://anythingjs.io",
@@ -18,6 +18,6 @@
     "storage",
     "http://*/8",
     "https://*/*",
-    "https://cdn.rawgit.com/Rabrennie/anything.js/master/dist/anything.min.js"
+    "https://rawgit.com/Rabrennie/anything.js/master/dist/anything.min.js"
   ]
 }

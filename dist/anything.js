@@ -395,6 +395,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
 
+    /**
+     * It is not not found.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var ImNotNotFound = function ImNotNotFound() {
+        console.log('This is not not found.');
+    };
+
+    anything.prototype.NotNotFound = ImNotNotFound;
+
     var RAINBOW = function RAINBOW(element, speed) {
         element = typeof element == 'undefined' ? document.body : element;
         speed = typeof speed == 'undefined' ? 5 : speed;
@@ -1584,6 +1594,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     console.lol = function() {
         console.log('lol');
     };
+
+    /**
+     * Converts a JS boolean to a C boolean.
+     * @param {boolean} bool - a JS boolean.
+     * @return {number} C boolean.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var convertJSBooleanToCBoolean = function convertJSBooleanToCBoolean(bool) {
+        if (bool === false && bool !== true) {
+            return 0;
+        } else if (bool === true && bool !== false) {
+            return 1;
+        } else {
+            return Infinity;
+        }
+    };
+
+    anything.prototype.convertJSBooleanToCBoolean = convertJSBooleanToCBoolean;
 
     /**
      * Inspired by http://imgur.com/jalm9B8
@@ -5856,6 +5884,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 
     anything.prototype.sleepSort = sleepSort;
+
+    /**
+     * Sorts an array in a slow fashion.
+     * @param {Array} A - The array to be slowly sorted.
+     * @param {number} i - the letter 'i'.
+     * @param {number} j - that black guy's name from MIB.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     * @see {@link http://www.mipmip.org/tidbits/pasa.pdf}
+     */
+    var slowSort = function slowSort(A, i, j) {
+        if (i >= j) return;
+        else {
+            var m = Math.floor((i + j) / 2);
+            slowSort(A, i, m);
+            slowSort(A, m + 1, j);
+            if (A[m] > A[j]) {
+                var temp = A[m];
+                A[m] = A[j];
+                A[j] = temp;
+            }
+            slowSort(A, i, j - 1);
+        }
+    };
+
+    anything.prototype.slowSort = slowSort;
 
     Object.defineProperty(anything, 'something', {
         get: function get() {
