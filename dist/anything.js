@@ -395,6 +395,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
 
+    /**
+     * It is not not found.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var ImNotNotFound = function ImNotNotFound() {
+        console.log('This is not not found.');
+    };
+
+    anything.prototype.NotNotFound = ImNotNotFound;
+
     var RAINBOW = function RAINBOW(element, speed) {
         element = typeof element == 'undefined' ? document.body : element;
         speed = typeof speed == 'undefined' ? 5 : speed;
