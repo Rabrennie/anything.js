@@ -413,6 +413,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function getListOfJokes() {
         var arr = [];
         arr.push('Q: How do you tell an introverted computer scientist from an extroverted computer scientist?\nA: An extroverted computer scientist looks at your shoes when he talks to you.');
+        arr.push('Q: Why do programmers always mix up Halloween and Christmas?\nA: Because Oct 31 == Dec 25!');
         return arr;
     }
 
@@ -587,6 +588,53 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
+
+    /*
+      Initialize:
+    
+        var timer = new Δ.Timer();
+    
+      Time inline code:
+    
+        timer.start();
+        // run some task
+        timer.stop();
+        console.log("Task took " + timer.elapsed + " milliseconds.");
+    
+      Time a function:
+    
+        var elapsed = timer.run(function() {
+          // run some task
+        });
+    */
+
+    'use strict';
+
+    var Timer = function Timer() {
+        this._start = null;
+        this.elapsed = null;
+    };
+
+    Timer.prototype.start = function() {
+        if (this._start !== null) throw new Error("Timer already started.");
+        this.elapsed = null;
+        this._start = Date.now();
+    };
+
+    Timer.prototype.stop = function() {
+        if (this._start === null) throw new Error("Timer not started.");
+        this.elapsed = Date.now() - this._start;
+        this._start = null;
+        return this.elapsed;
+    };
+
+    Timer.prototype.run = function(task) {
+        this.start();
+        task();
+        return this.stop();
+    };
+
+    anything.prototype.Timer = Timer;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
