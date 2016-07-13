@@ -345,7 +345,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Prints the algorithm to make rice with sausages.
      * @return {Abstract} Sadness
-     * @author Vitor Cortez <vitoracortez+github.com>
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var sausageRiceAlgorithm = function sausageRiceAlgorithm() {
         var steps = [];
@@ -394,6 +394,41 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
+
+    /**
+     * Prints a random programmer joke.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var jokeMeUpBoy = function jokeMeUpBoy() {
+        var jokes = getListOfJokes();
+        var rand = Math.floor(Math.random() * jokes.length);
+        console.log(jokes[rand]);
+    };
+
+    /**
+     * Holds a list of classic programmer jokes.
+     * Feel free to add a new joke each day.
+     * @private
+     */
+    function getListOfJokes() {
+        var arr = [];
+        arr.push('Q: How do you tell an introverted computer scientist from an extroverted computer scientist?\nA: An extroverted computer scientist looks at your shoes when he talks to you.');
+        arr.push('Q: Why do programmers always mix up Halloween and Christmas?\nA: Because Oct 31 == Dec 25!');
+        arr.push('A SQL query goes into a bar, walks up to two tables and asks: "Can I join you?".');
+        return arr;
+    }
+
+    anything.prototype.JokeMeUpBoy = jokeMeUpBoy;
+
+    /**
+     * It is not not found.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var ImNotNotFound = function ImNotNotFound() {
+        console.log('This is not not found.');
+    };
+
+    anything.prototype.NotNotFound = ImNotNotFound;
 
     var RAINBOW = function RAINBOW(element, speed) {
         element = typeof element == 'undefined' ? document.body : element;
@@ -554,6 +589,53 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
+
+    /*
+      Initialize:
+    
+        var timer = new Δ.Timer();
+    
+      Time inline code:
+    
+        timer.start();
+        // run some task
+        timer.stop();
+        console.log("Task took " + timer.elapsed + " milliseconds.");
+    
+      Time a function:
+    
+        var elapsed = timer.run(function() {
+          // run some task
+        });
+    */
+
+    'use strict';
+
+    var Timer = function Timer() {
+        this._start = null;
+        this.elapsed = null;
+    };
+
+    Timer.prototype.start = function() {
+        if (this._start !== null) throw new Error("Timer already started.");
+        this.elapsed = null;
+        this._start = Date.now();
+    };
+
+    Timer.prototype.stop = function() {
+        if (this._start === null) throw new Error("Timer not started.");
+        this.elapsed = Date.now() - this._start;
+        this._start = null;
+        return this.elapsed;
+    };
+
+    Timer.prototype.run = function(task) {
+        this.start();
+        task();
+        return this.stop();
+    };
+
+    anything.prototype.Timer = Timer;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
@@ -1584,6 +1666,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     console.lol = function() {
         console.log('lol');
     };
+
+    /**
+     * Converts a JS boolean to a C boolean.
+     * @param {boolean} bool - a JS boolean.
+     * @return {number} C boolean.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var convertJSBooleanToCBoolean = function convertJSBooleanToCBoolean(bool) {
+        if (bool === false && bool !== true) {
+            return 0;
+        } else if (bool === true && bool !== false) {
+            return 1;
+        } else {
+            return Infinity;
+        }
+    };
+
+    anything.prototype.convertJSBooleanToCBoolean = convertJSBooleanToCBoolean;
 
     /**
      * Inspired by http://imgur.com/jalm9B8
@@ -3019,6 +3119,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.getFlatColorYellow = getFlatColorYellow;
 
     /**
+     * Returns get.
+     * @return {function} get
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var get = function get() {
+        return get;
+    };
+
+    anything.prototype.getGet = get;
+
+    /**
      * Returns the length of a String or Array.
      * @param {string|Array} stringOrArray - A String or Array.
      * @return {number} The length of a String or Array.
@@ -3172,6 +3283,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.getRandomString = getRandomString;
+    /**
+     * Returns the value of PI with enhanced precision.
+     * @return {string} PI
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     * @see {@link https://xkcd.com/10}
+     */
+    var valueOfPI = function valueOfPI() {
+        return '3.141592653589793helpimtrappedinauniversefactory7108914';
+    };
+
+    anything.prototype.getValueOfPI = valueOfPI;
+
     var getiso6391Code = function getiso6391Code(name) {
         var iso6391 = {
             'Abkhaz': 'ab',
@@ -3916,6 +4039,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var cenas = ["http://static.dnaindia.com/sites/default/files/2015/10/02/361285-john-cena-2.jpg", "http://images.techtimes.com/data/images/full/83420/john-cena.jpg", "http://17r1l63fshd52dy9yakdizhkog.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/John-Cena-Salute-645x370.jpg", "http://s3.amazonaws.com/rapgenius/1369268877_johncena_bio_20121120.png", "http://vignette4.wikia.nocookie.net/supermarioglitchy4/images/2/2e/John-Cena-wwe-33918200-459-600.jpg/revision/latest?cb=20150831130608", "http://assets.rollingstone.com/assets/2015/article/wwe-raw-john-cenas-broken-nose-dog-zigglers-big-debut-20150728/204192/medium_rect/1438094566/720x405-RAW_1157_Photo_250-1566103478.jpg", "http://img10.deviantart.net/5d57/i/2012/259/1/e/john_cena__aug__12__2012_by_practicallyuseless-d5ay8js.jpg", "http://www.hdwallpapers.in/walls/john_cena_wwe_2k14-wide.jpg", "http://17r1l63fshd52dy9yakdizhkog.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/John-Cena-The-Marine-645x370.jpg", "http://static.comicvine.com/uploads/original/14/146991/4811128-3101307563-50253.jpg", "https://i.ytimg.com/vi/XCLXCw5ailE/maxresdefault.jpg"];
 
         var imgs = Array.prototype.slice.call(s.get("div")).concat(Array.prototype.slice.call(s.get("body")));
+        var i;
         setTimeout(function() {
             setInterval(function() {
                 for (i = 0; i < imgs.length; i++) {
@@ -5833,6 +5957,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.sleepSort = sleepSort;
 
+    /**
+     * Sorts an array in a slow fashion.
+     * @param {Array} A - The array to be slowly sorted.
+     * @param {number} i - the letter 'i'.
+     * @param {number} j - that black guy's name from MIB.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     * @see {@link http://www.mipmip.org/tidbits/pasa.pdf}
+     */
+    var slowSort = function slowSort(A, i, j) {
+        if (i >= j) return;
+        else {
+            var m = Math.floor((i + j) / 2);
+            slowSort(A, i, m);
+            slowSort(A, m + 1, j);
+            if (A[m] > A[j]) {
+                var temp = A[m];
+                A[m] = A[j];
+                A[j] = temp;
+            }
+            slowSort(A, i, j - 1);
+        }
+    };
+
+    anything.prototype.slowSort = slowSort;
+
     Object.defineProperty(anything, 'something', {
         get: function get() {
             var keys = Object.keys(window);
@@ -6039,6 +6188,37 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.tellMeImCool = tellMeImCool;
+    /**
+     * Gives some thanks for this fourth of july.
+     * @return {Abstract} Patriotism
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    function thanksJuly() {
+        var freedomTitle = document.createElement('article');
+        freedomTitle.id = 'julytitle';
+        var freedomContent = document.createElement('section');
+        freedomContent.id = 'julycontent';
+        var freedomColor = document.createElement('section');
+        freedomColor.id = 'julycolor';
+
+        var freedomMessage = document.createElement('p');
+
+        document.styleSheets[0].insertRule('#julytitle {position:absolute; width:18em; height: 50em; bottom: 0; left: 50%; margin-left: -9em; font-size: 350%; font-weight: bold; text-align: justify; overflow: hidden; transform-origin: 50% 100%; transform: perspective(300px) rotateX(25deg);}', 0);
+        document.styleSheets[0].insertRule("#julytitle::after {position: absolute; content: ' '; left: 0; right: 0; top: 0; bottom:60%; background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%); pointer-events:none;}", 0);
+        document.styleSheets[0].insertRule('#julycontent {position:absolute; top:100%; animation: scroll 100s linear 4s infinite;}', 0);
+        document.styleSheets[0].insertRule('#julycolor {color:red; animation: blink 1s linear infinite;}', 0);
+        document.styleSheets[0].insertRule('@keyframes scroll { 0% {top:100%;} 100% {top:-170%;}}', 0);
+        document.styleSheets[0].insertRule('@keyframes blink { 0% {color:white;} 34% {color:red;} 66% {color:blue;}}', 0);
+
+        freedomMessage.textContent = 'Thanks American Freedom for this fourth of July '.repeat(100);
+        freedomContent.appendChild(freedomMessage);
+        freedomColor.appendChild(freedomContent);
+        freedomTitle.appendChild(freedomColor);
+        document.body.appendChild(freedomTitle);
+    };
+
+    anything.prototype.ThanksFourthOfJuly = thanksJuly;
+
     /**
      * Gives some thanks to the big man.
      * @return {Abstract} Joy

@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
     <meta charset="utf-8">
     <style type="text/css" media="all">
@@ -19,7 +19,7 @@
         height: 160px;
         resize: none;
       }
-      
+
       .runlink {
         background-color: transparent;
         box-shadow: 0 0 0 2px #D9E778 inset !important;
@@ -30,14 +30,14 @@
         border-radius: 5%;
         cursor: pointer;
         }
-      
+
       .runlink:hover
       {
         box-shadow: none !important;
         color: rgba(0,0,0,.6);
         background-color: #d8ea5c;
       }
-      
+
       .addlink {
         background-color: transparent;
         box-shadow: 0 0 0 2px #6DFFFF inset !important;
@@ -49,15 +49,24 @@
         cursor: pointer;
         margin-right: 4px;
         }
-      
+
       .addlink:hover
       {
         box-shadow: none !important;
         color: rgba(0,0,0,.6);
         background-color: #54ffff;
       }
+
+      .loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0, 0.5)
+      }
     </style>
-    <script src="panel.js"></script>
+    <script src="main.js" charset="utf-8"></script>
   </head>
   <body>
     <h1 style="margin: 2px;">Δ.everywhere() <a id="runLink" class="runlink">Run ></a><a id="addΔ" class="addlink">Δ</a></h1>
@@ -65,5 +74,7 @@
     <div style="text-align: right; margin: 0; padding: 2px;">
       <p style="margin: 0; padding: 0">v0.2 (Δ4.0)</p>
     </div>
+
+    <div class="loader"></div>
   </body>
 </html>

@@ -1,7 +1,7 @@
 /**
  * Prints the algorithm to make rice with sausages.
  * @return {Abstract} Sadness
- * @author Vitor Cortez <vitoracortez+github.com>
+ * @author Vitor Cortez <vitoracortez+github@gmail.com>
  */
 var sausageRiceAlgorithm = function() {
   var steps = [];
