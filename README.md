@@ -2,9 +2,9 @@
 <p align="center"><img src="http://i.imgur.com/aLPpSED.png" alt="Logo"></p>
 
 Δ.js is a javascript library that accepts almost any pull request (as long as it follows the rules).
-
+```shell
     bower install anything.js
-
+```
 
 # Why?
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
@@ -29,6 +29,7 @@ These are notable contributors to anything.js. Bronze is 5-10 commits, Silver is
 /
 ![montaflynn](https://img.shields.io/badge/@montaflynn-bronze-995762.svg)
 ![riyadhalnur](https://img.shields.io/badge/@riyadhalnur-bronze-995762.svg)
+![christoga](https://img.shields.io/badge/@christoga-bronze-995762.svg)
 
 --------
 If you've earned a badge, please add yourself - we can't keep track of everyone all the time.  
