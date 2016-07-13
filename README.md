@@ -44,6 +44,9 @@ Useful if you want to run `Δ.johnCena()` on any website.
 
 Source code is available in the "everywhere" directory
 
+# Try it out
+Feel free to try it out at [http://anythingjs.io/playground.html](http://anythingjs.io/playground.html)
+
 # Rules
 1. Nothing that'll crash a web page.
 1. Can't violate GitHub terms of service.
