@@ -2,9 +2,9 @@
 <p align="center"><img src="http://i.imgur.com/aLPpSED.png" alt="Logo"></p>
 
 Δ.js is a javascript library that accepts almost any pull request (as long as it follows the rules).
-
+```shell
     bower install anything.js
-
+```
 
 # Why?
 I think it will be interesting to see what people want to add to this. Obviously being the internet I don't expect anything good to come of it.
