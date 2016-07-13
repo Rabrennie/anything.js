@@ -1482,7 +1482,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 1. Nothing that'll crash a web page.
     var boom = function boom() {
-        // division by zero is impossible, so modern
+        // division by zero is impossible, so modern 
         // browsers must exit when encountering this.
         var x = 1 / 0;
     };
@@ -2948,7 +2948,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.getAwesomePeople = getAwesomePeople;
 
-    //  getBitcoinPrice('USD'):
+    //  getBitcoinPrice('USD'): 
     //  returns Bitcoins average price in US dollars.
 
     var getBitcoinPrice = function getBitcoinPrice(currency) {
@@ -5441,7 +5441,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var isPrime = function isPrime(n) {
         if (n <= 1) return false;
-        else return n === 2 || // 2 is the only even prime,
+        else return n === 2 || // 2 is the only even prime, 
             // so it is special-cased
             n % 2 !== 0; // based on the well-known theorem that
         // all odd numbers are prime
