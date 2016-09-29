@@ -3,7 +3,7 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
     return typeof obj;
 } : function(obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
 (function(window) {
@@ -578,7 +578,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var songThatShouldHaveNeverStarted = function songThatShouldHaveNeverStarted() {
-        var truly = arguments.length <= 0 || arguments[0] === undefined ? 10 : arguments[0];
+        var truly = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
 
         while (truly--) {
             console.log("Hey Mr. Scott, whatcha gonna do?");
@@ -1992,6 +1992,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 
     anything.prototype.doQuickMath = doQuickMath;
+
+    var doSomething = function doSomething() {
+        var _anything;
+
+        var functions = Object.keys(Object.getPrototypeOf(anything));
+        return (_anything = anything)[functions[Math.floor(Math.random() * functions.length)]].apply(_anything, arguments);
+    };
+    anything.prototype.doSomething = doSomething;
 
     var doTheThing = function doTheThing() {
         var test = 1 + 1;
