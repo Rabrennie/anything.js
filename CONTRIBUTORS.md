@@ -10,6 +10,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [awadYehya](https://github.com/awadYehya)
 * [bman4789](https://github.com/bman4789)
 * [brennan-macaig](https://github.com/brennan-macaig)
+* [CharmaineLee](https://github.com/CharmaineLee)
 * [chriscantu](https://github.com/chriscantu)
 * [Chrisjosten](https://github.com/Chrisjosten)
 * [CianLR](https://github.com/CianLR)
