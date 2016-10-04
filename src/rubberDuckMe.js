@@ -9,12 +9,11 @@ var rubberDuckMe = function() {
 
 // rubber ducky's motivating words
 function getDuckQuotes() {
-    var debug = [
-                 debug.push('Talk me through your code line by line.');
-                 debug.push("I'm here for you.");
-                 debug.push('Give it another thought.');
-                 debug.push('I see a problem with that line over there.');  
-                ]
+    var debug = [];
+    debug.push('Talk me through your code line by line.');
+    debug.push("I'm here for you.");
+    debug.push('Give it another thought.');
+    debug.push('I see a problem with that line over there.');  
     return debug;
 }
 
