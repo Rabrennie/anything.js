@@ -1,7 +1,7 @@
 // Returns a rubber duck's motivating words - optimized for rubber duck debugging
 // Made by CharmaineLee
 
-var rubberDuckMe = function() {
+var rubberDuckMe = function(){
     var duckQuotes = getDuckQuotes();
     var rand = Math.floor(Math.random()*duckQuotes.length);
     console.log(duckQuotes[rand]);
