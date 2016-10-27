@@ -4816,7 +4816,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @returns {Number} The number of letters in the word "cat"
      */
     var numberOfLettersInTheWordCat = function numberOfLettersInTheWordCat() {
-        return 3;
+        return Δ.numberOfLettersInTheWord('cat');
     };
     anything.prototype.numberOfLettersInTheWordCat = numberOfLettersInTheWordCat;
 
