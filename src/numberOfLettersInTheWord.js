@@ -1,6 +1,7 @@
 /**
  * Returns the number of letters in a word
- * @returns {Number} The number of letters in the word "cat"
+ * @param {String} The word to test.
+ * @returns {Number} The number of letters in the word 
  */
 var numberOfLettersInTheWord = function(word) {
     var numberOfLetters = 0;
