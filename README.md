@@ -83,3 +83,5 @@ We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/
 
 ![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
 
+# Long Live
+Although this project is considered pretty much dead, we'll still welcome your contributions, especially since managing the project is so easy. ;)
