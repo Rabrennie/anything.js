@@ -1685,6 +1685,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.convertJSBooleanToCBoolean = convertJSBooleanToCBoolean;
 
+    /*
+    sample input : 
+    	convertNumberToArray(3);
+    will return :
+    	[1, 2, 3]
+    */
+
+    var convertNumberToArray = function convertNumberToArray(n) {
+        var arr = [];
+        if (!isNaN(n)) {
+            n = parseInt(n);
+            for (var i = 0; i < n; i++) {
+                arr.push(i);
+            }
+        }
+
+        return arr;
+    };
+
+    anything.prototype.convertNumberToArray = convertNumberToArray;
     /**
      * Inspired by http://imgur.com/jalm9B8
      * @param object - The object to convert.
@@ -6205,6 +6225,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.startsWith = startsWith;
 
+    var stringCapitalize = function stringCapitalize(str) {
+        return str.replace(/\w\S*/g, function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    };
+
+    anything.prototype.stringCapitalize = stringCapitalize;
     /*
       A shitty function to get a color out of a string
       Useful in chats, i guess...
