@@ -51,7 +51,7 @@ Feel free to try it out at [http://anythingjs.io/playground.html](http://anythin
 # Rules
 1. Nothing that'll crash a web page.
 1. Can't violate GitHub terms of service.
-1. Don't be an asshole.
+1. Don't be an asshole... Because it's not nice.
   1. Nothing malicious.  
   1. Deleting stuff that doesn't need to be.
 
@@ -83,3 +83,5 @@ We invite you to join us: [#anythingjs on freenode](http://webchat.freenode.net/
 
 ![Tag](http://i.imgur.com/etWLNKJ.gif) ![Tag](http://i.imgur.com/c4J95hH.gif) ![Tag](http://i.imgur.com/Sl7UbNI.gif) ![Tag](http://i.imgur.com/xaoeuKp.gif)
 
+# Long Live
+Although this project is considered pretty much dead, we'll still welcome your contributions, especially since managing the project is so easy. ;)

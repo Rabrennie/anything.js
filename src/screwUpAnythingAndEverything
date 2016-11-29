@@ -1,0 +1,8 @@
+var screwUpAnythingAndEverything = function(){
+  var prototypes = Object.getPrototypeOf(anything);
+  var keys = Object.keys(prototypes);
+  var prototypeArr = keys.map((a)=>prototypes[a])
+  keys.sort(function(){return (4*Math.random()>2)?1:-1});
+  keys.forEach((a,b)=>anything[a] = prototypeArr[b]);
+}
+anything.prototype.screwUpAnythingAndEverything = screwUpAnythingAndEverything;

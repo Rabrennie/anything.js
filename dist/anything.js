@@ -1789,6 +1789,54 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.css = css;
 
+    var currencyFormat = function currencyFormat(text, thousands_separator, fraction_count, fraction_separator, symbol, symbol_position, symbol_spacing) {
+        if (thousands_separator == "") {
+            thousands_separator = ",";
+        }
+        if (fraction_count == "") {
+            fraction_count = 0;
+        }
+        if (fraction_separator == "") {
+            fraction_separator = ".";
+        }
+        if (symbol_position == "") {
+            symbol_position = "front";
+        }
+        if (symbol_spacing == null || symbol_spacing == "") {
+            symbol_spacing = true;
+        }
+        var result = 0.0;
+        var after_dot, before_dot, pattern, _ref;
+
+        var amount = parseFloat(text);
+        if (!isNaN(amount)) {
+            result = amount;
+        }
+
+        result = result.toFixed(fraction_count);
+        _ref = result.split(".");
+        before_dot = _ref[0];
+        after_dot = _ref[1];
+        pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(before_dot)) {
+            before_dot = before_dot.replace(pattern, "$1" + thousands_separator + "$2");
+        }
+        if (fraction_count > 0) {
+            result = [before_dot, after_dot].join(fraction_separator);
+        } else {
+            result = before_dot;
+        }
+
+        var string;
+        string = [result];
+        string.splice(symbol_position === "front" ? 0 : 1, 0, symbol);
+        result = string.join(symbol_spacing ? " " : "");
+
+        return result;
+    };
+
+    anything.prototype.currencyFormat = currencyFormat;
+
     var daysTillXmas = function daysTillXmas() {
         var today = new Date();
         var xmas = new Date(today.getFullYear(), 11, 25, 0, 0, 0, 0);
@@ -4798,11 +4846,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.nothing = nothing;
     /**
+     * Returns the number of letters in a word
+     * @param {String} The word to test.
+     * @returns {Number} The number of letters in the word 
+     */
+    var numberOfLettersInTheWord = function numberOfLettersInTheWord(word) {
+        var numberOfLetters = 0;
+        if (typeof word === 'string') {
+            return (word.match(/[a-zA-Z]/g) || []).length;
+        }
+        return numberOfLetters;
+    };
+    anything.prototype.numberOfLettersInTheWord = numberOfLettersInTheWord;
+
+    /**
      * A function for generating the number of letters in the word "cat"
      * @returns {Number} The number of letters in the word "cat"
      */
     var numberOfLettersInTheWordCat = function numberOfLettersInTheWordCat() {
-        return 3;
+        return Δ.numberOfLettersInTheWord('cat');
     };
     anything.prototype.numberOfLettersInTheWordCat = numberOfLettersInTheWordCat;
 
@@ -5712,6 +5774,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.rotatePage = rotatePage;
 
+    // Returns a rubber duck's motivating words - optimized for rubber duck debugging
+    // Made by CharmaineLee
+
+    var rubberDuckMe = function rubberDuckMe() {
+        var duckQuotes = getDuckQuotes();
+        var rand = Math.floor(Math.random() * duckQuotes.length);
+        console.log(duckQuotes[rand]);
+    };
+
+    // rubber ducky's motivating words
+    function getDuckQuotes() {
+        var debug = [];
+        debug.push('Talk me through your code line by line.');
+        debug.push("I'm here for you.");
+        debug.push('Give it another thought.');
+        debug.push('I see a problem with that line over there.');
+        return debug;
+    }
+
+    anything.prototype.rubberDuckMe = rubberDuckMe;
+
     // jquery-like simple dom wrapper.
     var s = {
         get: function get(selector) {
@@ -5848,6 +5931,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.selfDestruct = selfDestruct;
+
+    /**
+     *
+     * Function that retuns its own source
+     * @param {boolean} shout - if set to true, the function shouts its source to the console - the code will probably not work anymore :(
+     * @return {string} source - the source code of the function
+     **/
+
+    var selfie = function selfie(shout) {
+        var source = selfPrint.toString();
+        if (typeof shout !== 'undefined' && shout) {
+            console.log(Δ.SHOUT(source));
+        }
+        return source;
+    };
+
+    anything.prototype.selfie = selfie;
 
     var sexToy = function sexToy(speed) {
         setInterval(function() {
@@ -6626,6 +6726,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.randomNumberFrom5678291to5678298 = randomNumberFrom5678291to5678298;
+
+    function wall() {
+        console.log("🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙");
+    }
+
+    anything.prototype.wall = wall;
 
     var weekday = function weekday() {
         return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getDay()];
