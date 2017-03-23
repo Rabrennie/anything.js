@@ -3,7 +3,7 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
     return typeof obj;
 } : function(obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
 
 (function(window) {
@@ -396,6 +396,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.HowToMakeSausageRice = sausageRiceAlgorithm;
 
     /**
+     * Prints a random programmer joke.
+     * @author Vitor Cortez <vitoracortez+github@gmail.com>
+     */
+    var jokeMeUpBoy = function jokeMeUpBoy() {
+        var jokes = getListOfJokes();
+        var rand = Math.floor(Math.random() * jokes.length);
+        console.log(jokes[rand]);
+    };
+
+    /**
+     * Holds a list of classic programmer jokes.
+     * Feel free to add a new joke each day.
+     * @private
+     */
+    function getListOfJokes() {
+        var arr = [];
+        arr.push('Q: How do you tell an introverted computer scientist from an extroverted computer scientist?\nA: An extroverted computer scientist looks at your shoes when he talks to you.');
+        arr.push('Q: Why do programmers always mix up Halloween and Christmas?\nA: Because Oct 31 == Dec 25!');
+        arr.push('A SQL query goes into a bar, walks up to two tables and asks: "Can I join you?".');
+        return arr;
+    }
+
+    anything.prototype.JokeMeUpBoy = jokeMeUpBoy;
+
+    /**
      * It is not not found.
      * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
@@ -553,7 +578,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @author Vitor Cortez <vitoracortez+github@gmail.com>
      */
     var songThatShouldHaveNeverStarted = function songThatShouldHaveNeverStarted() {
-        var truly = arguments.length <= 0 || arguments[0] === undefined ? 10 : arguments[0];
+        var truly = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
 
         while (truly--) {
             console.log("Hey Mr. Scott, whatcha gonna do?");
@@ -564,6 +589,53 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.SongThatShouldHaveNeverStarted = songThatShouldHaveNeverStarted;
+
+    /*
+      Initialize:
+    
+        var timer = new Δ.Timer();
+    
+      Time inline code:
+    
+        timer.start();
+        // run some task
+        timer.stop();
+        console.log("Task took " + timer.elapsed + " milliseconds.");
+    
+      Time a function:
+    
+        var elapsed = timer.run(function() {
+          // run some task
+        });
+    */
+
+    'use strict';
+
+    var Timer = function Timer() {
+        this._start = null;
+        this.elapsed = null;
+    };
+
+    Timer.prototype.start = function() {
+        if (this._start !== null) throw new Error("Timer already started.");
+        this.elapsed = null;
+        this._start = Date.now();
+    };
+
+    Timer.prototype.stop = function() {
+        if (this._start === null) throw new Error("Timer not started.");
+        this.elapsed = Date.now() - this._start;
+        this._start = null;
+        return this.elapsed;
+    };
+
+    Timer.prototype.run = function(task) {
+        this.start();
+        task();
+        return this.stop();
+    };
+
+    anything.prototype.Timer = Timer;
 
     var YouShallNotHax = function YouShallNotHax() {
         console.log("%cNo, you can't get access to other's account with this, but they can get your one. So please, leave this area, before bad things happen...", "font-size: 50px;background-color:yellow;");
@@ -1410,7 +1482,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 1. Nothing that'll crash a web page.
     var boom = function boom() {
-        // division by zero is impossible, so modern
+        // division by zero is impossible, so modern 
         // browsers must exit when encountering this.
         var x = 1 / 0;
     };
@@ -1613,6 +1685,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.convertJSBooleanToCBoolean = convertJSBooleanToCBoolean;
 
+    /*
+    sample input : 
+    	convertNumberToArray(3);
+    will return :
+    	[1, 2, 3]
+    */
+
+    var convertNumberToArray = function convertNumberToArray(n) {
+        var arr = [];
+        if (!isNaN(n)) {
+            n = parseInt(n);
+            for (var i = 0; i < n; i++) {
+                arr.push(i);
+            }
+        }
+
+        return arr;
+    };
+
+    anything.prototype.convertNumberToArray = convertNumberToArray;
     /**
      * Inspired by http://imgur.com/jalm9B8
      * @param object - The object to convert.
@@ -1716,6 +1808,54 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.css = css;
+
+    var currencyFormat = function currencyFormat(text, thousands_separator, fraction_count, fraction_separator, symbol, symbol_position, symbol_spacing) {
+        if (thousands_separator == "") {
+            thousands_separator = ",";
+        }
+        if (fraction_count == "") {
+            fraction_count = 0;
+        }
+        if (fraction_separator == "") {
+            fraction_separator = ".";
+        }
+        if (symbol_position == "") {
+            symbol_position = "front";
+        }
+        if (symbol_spacing == null || symbol_spacing == "") {
+            symbol_spacing = true;
+        }
+        var result = 0.0;
+        var after_dot, before_dot, pattern, _ref;
+
+        var amount = parseFloat(text);
+        if (!isNaN(amount)) {
+            result = amount;
+        }
+
+        result = result.toFixed(fraction_count);
+        _ref = result.split(".");
+        before_dot = _ref[0];
+        after_dot = _ref[1];
+        pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(before_dot)) {
+            before_dot = before_dot.replace(pattern, "$1" + thousands_separator + "$2");
+        }
+        if (fraction_count > 0) {
+            result = [before_dot, after_dot].join(fraction_separator);
+        } else {
+            result = before_dot;
+        }
+
+        var string;
+        string = [result];
+        string.splice(symbol_position === "front" ? 0 : 1, 0, symbol);
+        result = string.join(symbol_spacing ? " " : "");
+
+        return result;
+    };
+
+    anything.prototype.currencyFormat = currencyFormat;
 
     var daysTillXmas = function daysTillXmas() {
         var today = new Date();
@@ -1920,6 +2060,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 
     anything.prototype.doQuickMath = doQuickMath;
+
+    var doSomething = function doSomething() {
+        var _anything;
+
+        var functions = Object.keys(Object.getPrototypeOf(anything));
+        return (_anything = anything)[functions[Math.floor(Math.random() * functions.length)]].apply(_anything, arguments);
+    };
+    anything.prototype.doSomething = doSomething;
 
     var doTheThing = function doTheThing() {
         var test = 1 + 1;
@@ -2839,6 +2987,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.generateUniqueColorHue = generateUniqueColorHue;
+    /*
+    Will replace all weird char to dash (-)
+    */
+    var generateUrlFriendlyString = function generateUrlFriendlyString(name) {
+        name = $.trim(name.toLowerCase());
+        name = name.replace(/[^A-Za-z0-9]+/g, "-");
+        while (name.charAt(0) === '-') {
+            name = name.substr(1);
+        }
+        while (name.charAt(name.length - 1) === '-') {
+            name = name.substr(0, name.length - 1);
+        }
+        return name;
+    };
+
+    anything.prototype.generateUrlFriendlyString = generateUrlFriendlyString;
     /* you will definitely need this */
     var getAnimalNoise = function getAnimalNoise() {
         var all = ["arrooff", "arf", "aroo", "awk", "baa", "baraag", "beep", "bzzz", "caw", "chirp", "chirr", "cluck", "coo", "cuckcoo", "eeeaaah", "meow", "moo", "neigh", "oink", "ook", "owoooah", "purr", "quack", "squawk", "squeak", "woof"];
@@ -2876,7 +3040,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.getAwesomePeople = getAwesomePeople;
 
-    //  getBitcoinPrice('USD'):
+    //  getBitcoinPrice('USD'): 
     //  returns Bitcoins average price in US dollars.
 
     var getBitcoinPrice = function getBitcoinPrice(currency) {
@@ -4718,11 +4882,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.nothing = nothing;
     /**
+     * Returns the number of letters in a word
+     * @param {String} The word to test.
+     * @returns {Number} The number of letters in the word 
+     */
+    var numberOfLettersInTheWord = function numberOfLettersInTheWord(word) {
+        var numberOfLetters = 0;
+        if (typeof word === 'string') {
+            return (word.match(/[a-zA-Z]/g) || []).length;
+        }
+        return numberOfLetters;
+    };
+    anything.prototype.numberOfLettersInTheWord = numberOfLettersInTheWord;
+
+    /**
      * A function for generating the number of letters in the word "cat"
      * @returns {Number} The number of letters in the word "cat"
      */
     var numberOfLettersInTheWordCat = function numberOfLettersInTheWordCat() {
-        return 3;
+        return Δ.numberOfLettersInTheWord('cat');
     };
     anything.prototype.numberOfLettersInTheWordCat = numberOfLettersInTheWordCat;
 
@@ -5369,7 +5547,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var isPrime = function isPrime(n) {
         if (n <= 1) return false;
-        else return n === 2 || // 2 is the only even prime,
+        else return n === 2 || // 2 is the only even prime, 
             // so it is special-cased
             n % 2 !== 0; // based on the well-known theorem that
         // all odd numbers are prime
@@ -5632,6 +5810,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.rotatePage = rotatePage;
 
+    // Returns a rubber duck's motivating words - optimized for rubber duck debugging
+    // Made by CharmaineLee
+
+    var rubberDuckMe = function rubberDuckMe() {
+        var duckQuotes = getDuckQuotes();
+        var rand = Math.floor(Math.random() * duckQuotes.length);
+        console.log(duckQuotes[rand]);
+    };
+
+    // rubber ducky's motivating words
+    function getDuckQuotes() {
+        var debug = [];
+        debug.push('Talk me through your code line by line.');
+        debug.push("I'm here for you.");
+        debug.push('Give it another thought.');
+        debug.push('I see a problem with that line over there.');
+        return debug;
+    }
+
+    anything.prototype.rubberDuckMe = rubberDuckMe;
+
     // jquery-like simple dom wrapper.
     var s = {
         get: function get(selector) {
@@ -5768,6 +5967,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.selfDestruct = selfDestruct;
+
+    /**
+     *
+     * Function that retuns its own source
+     * @param {boolean} shout - if set to true, the function shouts its source to the console - the code will probably not work anymore :(
+     * @return {string} source - the source code of the function
+     **/
+
+    var selfie = function selfie(shout) {
+        var source = selfPrint.toString();
+        if (typeof shout !== 'undefined' && shout) {
+            console.log(Δ.SHOUT(source));
+        }
+        return source;
+    };
+
+    anything.prototype.selfie = selfie;
 
     var sexToy = function sexToy(speed) {
         setInterval(function() {
@@ -6025,6 +6241,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.startsWith = startsWith;
 
+    var stringCapitalize = function stringCapitalize(str) {
+        return str.replace(/\w\S*/g, function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    };
+
+    anything.prototype.stringCapitalize = stringCapitalize;
     /*
       A shitty function to get a color out of a string
       Useful in chats, i guess...
@@ -6546,6 +6769,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.randomNumberFrom5678291to5678298 = randomNumberFrom5678291to5678298;
+
+    function wall() {
+        console.log("🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙\n🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙🝙");
+    }
+
+    anything.prototype.wall = wall;
 
     var weekday = function weekday() {
         return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getDay()];
