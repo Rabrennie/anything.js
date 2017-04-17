@@ -60,6 +60,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [SCKelemen](https://github.com/SCKelemen)
 * [soops](https://github.com/soops)
 * [steezeburger](https://github.com/steezeburger)
+* [TheBinaryBee](https://github.com/TheBinaryBee)
 * [TheBITLINK](https://github.com/TheBITLINK)
 * [TheBinaryBee](https://github.com/TheBinaryBee)
 * [thehowl](https://github.com/thehowl)
