@@ -57,6 +57,7 @@ These people are amazing. It's true. They've just done what we told them: add wh
 * [relvacode](https://github.com/relvacode)
 * [riyadhalnur](https://github.com/riyadhalnur)
 * [RJGordon](https://github.com/rjgordon)
+* [SchneiderOr](https://github.com/SchneiderOr)
 * [SCKelemen](https://github.com/SCKelemen)
 * [soops](https://github.com/soops)
 * [steezeburger](https://github.com/steezeburger)
