@@ -1,4 +1,4 @@
-pleaseDontLeave = function (msg) {
+var pleaseDontLeave = function (msg) {
     var message = msg || "Please come back!!1";
     window.onunload=function() {
       function pleaseDontLeave() {
