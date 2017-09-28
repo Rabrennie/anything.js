@@ -5186,7 +5186,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.play_pingpong = play_pingpong;
-    pleaseDontLeave = function pleaseDontLeave(msg) {
+    var pleaseDontLeave = function pleaseDontLeave(msg) {
         var message = msg || "Please come back!!1";
         window.onunload = function() {
             function pleaseDontLeave() {
