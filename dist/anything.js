@@ -1580,6 +1580,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     anything.prototype.breakToS = breakToS;
     anything.prototype.hackTheWorld = hackTheWorld;
     anything.prototype.deleteItAll = deleteItAll;
+    var card = function card(value, suit) {
+        var self = this;
+        self.value = value;
+        self.suit = suit;
+        return self;
+    };
+
+    var deck = function deck() {
+        var values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+        var suits = [1, 2, 3, 4];
+
+        var deck = [];
+        for (var i = 0; i < values.length; i++) {
+            for (var j = 0; j < suits.length; j++) {
+                deck.push(new card(values[i], suits[j]));
+            }
+        }
+        return deck;
+    };
+
+    anything.prototype.deck = deck;
+    anything.prototype.card = card;
     var catify = function catify() {
         var imgs = document.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
@@ -1648,6 +1670,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.classlist = classlist;
+
+    var coin = function coin() {
+        var self = this;
+
+        headsUp = false;
+
+        self.flip = function flip() {
+            headsUp = !headsUp;
+        };
+
+        self.isHeadsUp = function isHeadsUp() {
+            return headsUp;
+        };
+
+        self.isTailsUp = function isTailsUp() {
+            return isTailsUp;
+        };
+    };
+    anything.prototype.coin = coin;
 
     var compareApplesAndOranges = function compareApplesAndOranges(o1, o2) {
         var isComparingApplesAndOranges = false,
@@ -2873,6 +2914,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.flattenArray = flattenArray;
+
+    var flip = function flip(coin) {
+        if (!(coin instanceof anything.prototype.coin)) {
+            throw new Error('You can only flip a coin!');
+        }
+        var randomNumber = Math.floor(Math.random() * 1000);
+        for (var i = 0; i < randomNumber; i++) {
+            coin.flip();
+        }
+        return coin;
+    };
+    anything.prototype.flip = flip;
 
     var flipText = function flipText(text) {
         var flipDict = {
