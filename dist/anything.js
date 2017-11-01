@@ -2052,6 +2052,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.dezombofy = dezombofy;
+    var defaultSides = 6,
+        die = function die(sides) {
+            var self = this;
+            self.sides = sides || defaultSides;
+
+            self.roll = function roll() {
+                return Math.floor(Math.random() * self.sides + 1);
+            };
+
+            self.roll.cheat = function(cheatSide) {
+                if (cheatSide <= 0) {
+                    throw new Error('You can\'t cheat that badly! (You can only use a positive side).');
+                }
+                if (cheatSide > self.sides) {
+                    throw new Error('You can\'t cheat that badly! (Your die has only ' + self.sides + ' sides).');
+                }
+                return cheatSide;
+            };
+        };
+    anything.prototype.die = die;
+
     /**
      * Tries to generate a direct link from a link to an image hosting site.
      * Currently only works with imgur.com.
@@ -4022,6 +4043,39 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.hereComeDatBoi = hereComeDatBoi;
+
+    /**
+     * Plays the highCard game and returns the results.
+     * @returns {Object} the results of playing highCard
+     */
+    var highCard = function highCard(players) {
+        var deck = Δ.deck(),
+            results = {},
+            highestCardValue = -1;
+
+        if (players > 52 || players < 1) {
+            throw new Error('You have to play this game with at least 1 player and less than 52.');
+        }
+
+        for (var i = 0; i < players; i++) {
+            var index = Math.floor(Math.random() * deck.length);
+            var card = deck[index];
+            deck.splice(index, 1);
+            results['player' + (i + 1)] = {
+                card: card
+            };
+            if (card.value >= highestCardValue) {
+                highestCardValue = card.value;
+            }
+        }
+
+        for (var i = 0; i < players; i++) {
+            var playerResult = results['player' + (i + 1)];
+            results['player' + (i + 1)].winner = playerResult.card.value === highestCardValue;
+        }
+        return results;
+    };
+    anything.prototype.highCard = highCard;
 
     var hohoho = function hohoho(context) {
 
