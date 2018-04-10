@@ -1,6 +1,10 @@
 
-var bottlesOfBeer = function bottlesOfBeer () {
-  var bottles = 99;  
+var bottlesOfBeer = function bottlesOfBeer (numBottles) {  
+  var bottles = numBottles;
+  if (isNaN(bottles) || (bottles < 1)) {
+    bottles = 99;
+  }  
+    
   while(bottles >= 0) {
     if ( bottles == 1 ) {
     console.log("One bottle of beer on the wall.");
@@ -22,5 +26,6 @@ var bottlesOfBeer = function bottlesOfBeer () {
     }    
   }
 };
+
 anything.prototype.bottlesOfBeer = bottlesOfBeer;
 
