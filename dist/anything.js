@@ -5168,6 +5168,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.nil = nil;
+    var no = function no() {
+        return Δ.flipText("u on");
+    };
+
+    anything.prototype.no = no;
+
     var noop = function noop() {};
 
     anything.prototype.noop = noop;
