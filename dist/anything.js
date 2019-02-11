@@ -3864,6 +3864,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     anything.prototype.guid = guid;
 
+    var helloHacktober = function helloHacktober() {
+        return "Hello Hacktoberfest";
+    };
+
+    anything.prototype.helloHacktober = helloHacktober;
+
     /**
      * Happy New Years!
      * If you can't tell, I'm not a javascript developer.
@@ -5270,6 +5276,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     anything.prototype.parenthesize = parenthesize;
+
+    /**
+     * Returns how many ms it took to run function.
+     * Optional arguments can be passed right after function.
+     * @author CookieMichal
+     */
+
+    var perf = function perf(func) {
+        if (typeof func !== "function") return -1;
+        var args = Array.prototype.slice.call(arguments, 1);
+        var t0 = performance.now();
+        func.apply(this, args);
+        var t1 = performance.now();
+        return t1 - t0;
+    };
+
+    anything.prototype.perf = perf;
 
     var perkele = function perkele(prkl) {
         if (!prkl || prkl.length === 0 || prkl.length > 100) {
