@@ -18,6 +18,6 @@
     "storage",
     "http://*/8",
     "https://*/*",
-    "https://rawgit.com/Rabrennie/anything.js/master/dist/anything.min.js"
+    "https://cdn.jsdelivr.net/gh/Rabrennie/anything.js@master/dist/anything.min.js"
   ]
 }

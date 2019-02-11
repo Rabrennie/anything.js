@@ -71,6 +71,6 @@ function injectAnything() {
       onLoad();
     }
   };
-  xhttp.open("GET", "https://rawgit.com/Rabrennie/anything.js/master/dist/anything.min.js", true);
+  xhttp.open("GET", "https://cdn.jsdelivr.net/gh/Rabrennie/anything.js@master/dist/anything.min.js", true);
   xhttp.send();
 }
