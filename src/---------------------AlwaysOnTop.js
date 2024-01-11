@@ -10,8 +10,7 @@ and share it here on this revolutionary initiative called Anything.js
 
 var laptopChargersAroundTheWorld = function () {
   return [
-    'http://imgur.com/oFTX0Tm',
-    'https://imgur.com/JPw3a0i'
+    'http://imgur.com/oFTX0Tm'
 // Add your charger pic here
   ];
 };
